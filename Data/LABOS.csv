@@ -1,0 +1,543 @@
+Acronyme PEPR;Acronyme projet;Code RNSR;Type structure;Libell� structure;Sigle structure;Lien �tablissement
+FairCarboN;ALAMOD;201421281A;Unit� propre;Agro-�cologie et Intensification Durable des cultures Annuelles;AIDA;CIRAD-tutelle (UPR 115)
+FairCarboN;ALAMOD;200117918B;Unit� propre;Biog�ochimie des Ecosyst�mes Forestiers;BEF;INRAE-tutelle (UR 1138)
+FairCarboN;ALAMOD;202023591K;Unit� mixte;UMR 1158 - BioEcoAgro - UMR Transfrontali�re BioEcoAgro;;"INRAE-tutelle (UMR 1158),
+ARTOIS-participant ( ),
+LILLE-tutelle (UMR 1158),
+JUNIA-tutelle ( ),
+AMIENS-tutelle (UMR 1158),
+LITTORAL-participant ( )"
+FairCarboN;ALAMOD;200317684N;Unit� mixte;Biodiversit�, G�nes et Communaut�s;BIOGECO;"BORDEAUX-tutelle (UMR_A 1202),
+INRAE-tutelle (UMR 1202)"
+FairCarboN;ALAMOD;200317531X;Unit� mixte;Centre d'�tudes spatiales de la biosph�re;CESBIO;"CNES-tutelle (UMR 5126),
+CNRS-tutelle (UMR 5126),
+INRAE-participant (USC 1439),
+TOULOUSE 3-tutelle (UMR 5126),
+IRD-tutelle (UMR 113)"
+FairCarboN;ALAMOD;199917859W;Unit� mixte;Ecologie Fonctionnelle et Biog�ochimie des Sols et Agrosyst�mes;Eco&Sols;"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)"
+FairCarboN;ALAMOD;200617664D;Unit� mixte;Ecologie des for�ts de Guyane;ECOFOG;"ANTILLES-tutelle ( ),
+GUYANE-tutelle (UM 43),
+CNRS-tutelle (UMR 8172),
+AGROPARISTECH-tutelle (UMR 745),
+INRAE-tutelle (UMR 0745),
+CIRAD-tutelle (UMR 93)"
+FairCarboN;ALAMOD;201521783S;Unit� mixte;Ecologie fonctionnelle et �cotoxicologie des agro�cosyst�mes;ECOSYS;"AGROPARISTECH-tutelle (UMR 1402),
+INRAE-tutelle (UMR 1402),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;ALAMOD;200212739T;Unit� mixte;�cologie, syst�matique et �volution;ESE;"AGROPARISTECH-tutelle (UMR 8079),
+CNRS-tutelle (UMR 8079),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;ALAMOD;199417885W;Unit� mixte;Fractionnement des Agro-Ressources et  Environnement;FARE;"REIMS-tutelle (UMR 614),
+INRAE-tutelle (UMR 0614)"
+FairCarboN;ALAMOD;201021280S;Unit� propre;For�ts et Soci�t�s;;CIRAD-tutelle (UPR 105)
+FairCarboN;ALAMOD;200517555P;Unit� mixte;Institut d'�cologie et des sciences de l'environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;ALAMOD;194420911C;Soci�t� priv�e;IFP Energies nouvelles;IFPEN;IFPEN-tutelle ( )
+FairCarboN;ALAMOD;202324348V;Unit� propre;Info&Sols;;INRAE-tutelle (UR 1508)
+FairCarboN;ALAMOD;200718232S;Unit� propre;Analyses des eaux, sols et v�g�taux;ANALYSES;CIRAD-tutelle (US 49)
+FairCarboN;ALAMOD;201421781U;Unit� mixte;Interaction Sol Plante Atmosph�re;ISPA;"INRAE-tutelle (UMR 1391),
+BORDEAUX SCIENCES AGRO-tutelle ( )"
+FairCarboN;ALAMOD;200918450V;Unit� mixte;Institut des sciences de la Terre Paris;ISTEP;"SORBONNE UNIV.-tutelle (UMR 7193),
+CNRS-tutelle (UMR 7193)"
+FairCarboN;ALAMOD;199812866Y;Unit� mixte;Laboratoire de g�ologie de l'Ecole Normale Sup�rieure;LG-ENS;"CNRS-tutelle (UMR 8538),
+PSL-tutelle (UMR 8538),
+ENS PARIS-tutelle (UMR 8538)"
+FairCarboN;ALAMOD;201423823N;Unit� propre;Laboratoire d'inventaire forestier;LIF;"IGN-tutelle ( ),
+INRAE-participant (USC 1500)"
+FairCarboN;ALAMOD;197217858M;Unit� mixte;Laboratoire d'�tude des Interactions Sol - Agrosyst�me - Hydrosyst�me;LISAH;"Institut Agro-tutelle ( ),
+IRD-tutelle (UMR 144),
+INRAE-tutelle (UMR 1221),
+AGROPARISTECH-tutelle ( )"
+FairCarboN;ALAMOD;200611689J;Unit� mixte;Laboratoire des Sciences du Climat et de l'Environnement UMR 8212;LSCE;"CEA-tutelle (UMR 8212),
+VERSAILLES-tutelle (UMR 8212),
+U PARIS-SACLAY-participant (UMR 8212),
+CNRS-tutelle (UMR 8212)"
+FairCarboN;ALAMOD;199712664H;Unit� mixte;Milieux Environnementaux, Transferts et Interactions dans les hydrosyst�mes et les Sols;METIS;"EPHE PARIS-tutelle (UMR 7619),
+CNRS-tutelle (UMR 7619),
+SORBONNE UNIV.-tutelle (UMR 7619),
+PSL-tutelle (UMR 7619)"
+FairCarboN;ALAMOD;200718430G;Unit� propre;Recyclage et risque;;CIRAD-tutelle (UPR 78)
+FairCarboN;ALAMOD;199917982E;Unit� mixte;Sol  Agro et hydrosyst�me Spatialisation;SAS;"INRAE-tutelle (UMR 1069),
+Institut Agro-tutelle ( )"
+FairCarboN;ALAMOD;199419708C;Unit� mixte;Syst�mes d'Elevage M�diterran�ens et Tropicaux;SELMET;"Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 0868),
+CIRAD-tutelle (UMR 112)"
+FairCarboN;ALAMOD;201822750E;Unit� mixte;SILVA;SILVA;"LORRAINE-tutelle (UMR_A 1434),
+AGROPARISTECH-tutelle ( ),
+INRAE-tutelle (UMR 1434)"
+FairCarboN;ALAMOD;200718239Z;Unit� mixte;Territoires, Environnement, T�l�d�tection et Information Spatiale;TETIS;"AGROPARISTECH-tutelle (UMR ),
+INRAE-tutelle (UMR 1470),
+CNRS-participant (UMR 9000),
+CIRAD-tutelle (UMR 91)"
+FairCarboN;ALAMOD;198817750A;Unit� propre;Unit� d'Exp�rimentation Agronomique et Viticole de Colmar;UEAV;INRAE-tutelle (UE 0871)
+FairCarboN;ALAMOD;198221644J;Unit� propre;Unit� Exp�rimentale For�t Pierroton;UEFP;INRAE-tutelle (UE 0570)
+FairCarboN;ALAMOD;201722611H;Unit� mixte;Unit� Mixte de Recherche sur l'Ecosyst�me Prairial;UREP;"INRAE-tutelle (UMR 0874),
+VETAGRO SUP-tutelle ( )"
+FairCarboN;ALAMOD;196817912N;Unit� propre;Ecologie des For�ts M�diterran�ennes;URFM;INRAE-tutelle (UR 0629)
+FairCarboN;CABESTAN;200512529B;Unit� mixte;Adaptation et diversit� en milieu marin;AD2M;"SORBONNE UNIV.-tutelle (UMR 7144),
+CNRS-tutelle (UMR 7144)"
+FairCarboN;CABESTAN;199512085M;Unit� mixte;Environnements et pal�oenvironnements oc�aniques et continentaux;EPOC;"Bordeaux INP-tutelle ( ),
+CNRS-tutelle (UMR 5805),
+BORDEAUX-tutelle (UMR 5805),
+EPHE PARIS-participant (UMR 5805),
+PSL-participant (UMR 5805)"
+FairCarboN;CABESTAN;200816948S;Unit� mixte;Laboratoire des sciences de l'environnement marin;LEMAR;"CNRS-tutelle (UMR 6539),
+IRD-tutelle (UMR 6539),
+BREST-tutelle (UMR 6539),
+IFREMER-tutelle (UMR 6539)"
+FairCarboN;CABESTAN;199612340K;Unit� mixte;LITTORAL, ENVIRONNEMENT, TELEDETECTION, GEOMATIQUE;LETG;"BREST-tutelle (UMR 6554),
+PSL-tutelle ( ),
+RENNES 2-tutelle (UMR 6554),
+CNRS-tutelle (UMR 6554),
+Nantes Universit�-tutelle (UMR 6554)"
+FairCarboN;CABESTAN;199812867Z;Unit� mixte;Laboratoire de m�t�orologie dynamique;LMD;"EC. POLYTECHNIQUE-tutelle (UMR 8539),
+CNRS-tutelle (UMR 8539),
+SORBONNE UNIV.-tutelle (UMR 8539),
+PSL-tutelle (UMR 8539),
+ENPC PARIS-participant (UMR 8539),
+IP PARIS-tutelle ( ),
+ENS PARIS-tutelle (UMR 8539)"
+FairCarboN;CABESTAN;200812834V;Unit� mixte;UMR 8187 - LOG - Laboratoire d'oc�anologie et de g�osciences;;"LILLE-tutelle (UMR 8187),
+LITTORAL-tutelle (UMR 8187),
+IRD-participant ( ),
+CNRS-tutelle (UMR 8187)"
+FairCarboN;CABESTAN;200012185Z;Unit� mixte;LABORATOIRE DE PLANETOLOGIE ET GEOSCIENCES;LPG;"ANGERS-tutelle (UMR 6112),
+Nantes Universit�-tutelle (UMR 6112),
+CNRS-tutelle (UMR 6112),
+CNES-participant (UMR 6112),
+LE MANS-tutelle (UMR 6112)"
+FairCarboN;CABESTAN;200815490G;Unit� propre;LABORATOIRE UNIVERSITAIRE DES SCIENCES APPLIQUEES DE CHERBOURG;LUSAC;CAEN-tutelle (UR 4253)
+FairCarboN;CABESTAN;199613759C;Unit� mixte;INSTITUT DES SUBSTANCES ET ORGANISMES DE LA MER (ex MER, MOLECULES ET SANTE);ISOMER;"Nantes Universit�-tutelle (UR 2160),
+U.CATHOLI.OUEST-tutelle (EA 2160)"
+FairCarboN;CANETE;201220381F;Unit� mixte;AGROECOLOGIE - UMR 1347;;"DIJON-tutelle (UMR 1347),
+UBFC-tutelle (UMR 1347),
+INRAE-tutelle (UMR 1347),
+Institut Agro-tutelle (UMR 1347)"
+FairCarboN;CANETE;200117918B;Unit� propre;Biog�ochimie des Ecosyst�mes Forestiers;BEF;INRAE-tutelle (UR 1138)
+FairCarboN;CANETE;202023591K;Unit� mixte;UMR 1158 - BioEcoAgro - UMR Transfrontali�re BioEcoAgro;;"INRAE-tutelle (UMR 1158),
+ARTOIS-participant ( ),
+LILLE-tutelle (UMR 1158),
+JUNIA-tutelle ( ),
+AMIENS-tutelle (UMR 1158),
+LITTORAL-participant ( )"
+FairCarboN;CANETE;199917859W;Unit� mixte;Ecologie Fonctionnelle et Biog�ochimie des Sols et Agrosyst�mes;Eco&Sols;"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)"
+FairCarboN;CANETE;201521783S;Unit� mixte;Ecologie fonctionnelle et �cotoxicologie des agro�cosyst�mes;ECOSYS;"AGROPARISTECH-tutelle (UMR 1402),
+INRAE-tutelle (UMR 1402),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;CANETE;200212739T;Unit� mixte;�cologie, syst�matique et �volution;ESE;"AGROPARISTECH-tutelle (UMR 8079),
+CNRS-tutelle (UMR 8079),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;CANETE;199417885W;Unit� mixte;Fractionnement des Agro-Ressources et  Environnement;FARE;"REIMS-tutelle (UMR 614),
+INRAE-tutelle (UMR 0614)"
+FairCarboN;CANETE;200117307M;Unit� mixte;Interactions Arbres/Micro-organismes;IAM;"LORRAINE-tutelle (UMR_A 1136),
+INRAE-tutelle (UMR 1136)"
+FairCarboN;CANETE;200517555P;Unit� mixte;Institut d'�cologie et des sciences de l'environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;CANETE;201421781U;Unit� mixte;Interaction Sol Plante Atmosph�re;ISPA;"INRAE-tutelle (UMR 1391),
+BORDEAUX SCIENCES AGRO-tutelle ( )"
+FairCarboN;CANETE;200918450V;Unit� mixte;Institut des sciences de la Terre Paris;ISTEP;"SORBONNE UNIV.-tutelle (UMR 7193),
+CNRS-tutelle (UMR 7193)"
+FairCarboN;CANETE;200116904Z;Unit� mixte;Laboratoire Agronomie et Environnement;LAE;"LORRAINE-tutelle (UMR_A 1121),
+INRAE-tutelle (UMR 1121)"
+FairCarboN;CANETE;199812866Y;Unit� mixte;Laboratoire de g�ologie de l'Ecole Normale Sup�rieure;LG-ENS;"CNRS-tutelle (UMR 8538),
+PSL-tutelle (UMR 8538),
+ENS PARIS-tutelle (UMR 8538)"
+FairCarboN;CANETE;197217858M;Unit� mixte;Laboratoire d'�tude des Interactions Sol - Agrosyst�me - Hydrosyst�me;LISAH;"Institut Agro-tutelle ( ),
+IRD-tutelle (UMR 144),
+INRAE-tutelle (UMR 1221),
+AGROPARISTECH-tutelle ( )"
+FairCarboN;CANETE;199712664H;Unit� mixte;Milieux Environnementaux, Transferts et Interactions dans les hydrosyst�mes et les Sols;METIS;"EPHE PARIS-tutelle (UMR 7619),
+CNRS-tutelle (UMR 7619),
+SORBONNE UNIV.-tutelle (UMR 7619),
+PSL-tutelle (UMR 7619)"
+FairCarboN;CANETE;201822750E;Unit� mixte;SILVA;SILVA;"LORRAINE-tutelle (UMR_A 1434),
+AGROPARISTECH-tutelle ( ),
+INRAE-tutelle (UMR 1434)"
+FairCarboN;SLAM-B;199213388S;Unit� propre;UR 1210 CENTRE D'ETUDES SUR LE DEVELOPPEMENT DES TERRITOIRES ET L'ENVIRONNEMENT;CEDETE;ORLEANS-tutelle (EA 1210)
+FairCarboN;CarboNium;199911718W;Unit� mixte;LABORATOIRE D'ECOLOGIE DES HYDROSYSTEMES NATURELS ANTHROPISES;LEHNA;"INRAE-participant (USC 1369),
+ENTPE LYON-tutelle (UMR 5023),
+CNRS-tutelle (UMR 5023),
+LYON 1-tutelle (UMR 5023)"
+FairCarboN;DEEP-C;200311846T;;Evolution et Diversit� Biologique;;
+FairCarboN;CarboNium;196417921R;Unit� mixte;Centre Alpin de Recherche sur les R�seaux Trophiques des Ecosyst�mes Limniques;CARRTEL;"INRAE-tutelle (UMR 0042),
+CHAMBERY-participant (UMR_A 42)"
+FairCarboN;CarboNium;199911795E;Unit� mixte;Centre de Formation et de Recherche sur les Environnements M�diterran�ens;CEFREM;"PERPIGNAN-tutelle (UMR 5110),
+CNRS-tutelle (UMR 5110)"
+FairCarboN;CarboNium;200812285Y;Unit� mixte;CHRONO-ENVIRONNEMENT - UMR6249;CHRONO;"UBFC-tutelle (UMR 6249),
+MIN.CULT-participant ( ),
+BESANCON-tutelle (UMR 6249),
+CNRS-tutelle (UMR 6249),
+INRAP-participant (UMR 6249)"
+FairCarboN;CarboNium;202424488T;Unit� mixte;Centre de Recherche sur la Biodiversit� et l'Environnement;CRBE;"IRD-tutelle ( ),
+INP TOULOUSE-tutelle ( ),
+CNRS-tutelle (UMR 5300),
+TOULOUSE 3-tutelle (UMR 5300)"
+FairCarboN;CarboNium;200511874P;Unit� mixte;ENVIRONNEMENTS, DYNAMIQUES ET TERRITOIRES DE LA MONTAGNE;EDYTEM;"CHAMBERY-tutelle (UMR 5204),
+MIN.CULT-participant ( ),
+CNRS-tutelle (UMR 5204)"
+FairCarboN;CarboNium;200012191F;Unit� mixte;GEOSCIENCES RENNES;;"RENNES-tutelle (UMR 6118),
+CNRS-tutelle (UMR 6118)"
+FairCarboN;CarboNium;201722374A;Unit� mixte;Institut des G�osciences de l'Environnement;IGE;"GRENOBLE INP-tutelle (UMR 5001),
+GRENOBLE ALPES-tutelle ( ),
+INRAE-tutelle (UMR 1509),
+IRD-tutelle ( ),
+CNRS-tutelle (UMR 5001)"
+FairCarboN;CarboNium;200512539M;Unit� mixte;UMR-Institut de physique du globe de Paris;UMR-IPGP;"CNRS-tutelle (UMR 7154),
+IPG PARIS-tutelle (UMR 7154),
+LA REUNION-participant (UMR 7154),
+U PARIS Cit�-tutelle (UMR 7154)"
+FairCarboN;CarboNium;201119454C;Unit� mixte;Institut des Sciences de la Terre;ISTERRE;"IRD-tutelle (UMR 5275),
+CHAMBERY-tutelle (UMR 5275),
+CNRS-tutelle (UMR 5275),
+UNIV.G.EIFFEL-tutelle (UMR 5275),
+GRENOBLE ALPES-tutelle (UMR 5275)"
+FairCarboN;CarboNium;201220213Y;Unit� mixte;Institut des sciences de la Terre d'Orl�ans;ISTO;"BRGM-tutelle (UMR 7327),
+CNRS-tutelle (UMR 7327),
+ORLEANS-tutelle (UMR 7327)"
+FairCarboN;CarboNium;199911718W;Unit� mixte;LABORATOIRE D'ECOLOGIE DES HYDROSYSTEMES NATURELS ANTHROPISES;LEHNA;"INRAE-participant (USC 1369),
+ENTPE LYON-tutelle (UMR 5023),
+CNRS-tutelle (UMR 5023),
+LYON 1-tutelle (UMR 5023)"
+FairCarboN;CarboNium;200816948S;Unit� mixte;Laboratoire des sciences de l'environnement marin;LEMAR;"CNRS-tutelle (UMR 6539),
+IRD-tutelle (UMR 6539),
+BREST-tutelle (UMR 6539),
+IFREMER-tutelle (UMR 6539)"
+FairCarboN;CarboNium;200012210B;Unit� mixte;Morphodynamique Continentale et C�it�re;M2C;"CAEN-tutelle (UMR 6143),
+CNRS-tutelle (UMR 6143),
+ROUEN-tutelle (UMR 6143)"
+FairCarboN;CarboNium;199712664H;Unit� mixte;Milieux Environnementaux, Transferts et Interactions dans les hydrosyst�mes et les Sols;METIS;"EPHE PARIS-tutelle (UMR 7619),
+CNRS-tutelle (UMR 7619),
+SORBONNE UNIV.-tutelle (UMR 7619),
+PSL-tutelle (UMR 7619)"
+FairCarboN;CarboNium;201822687L;Unit� propre;Fonctionnement des hydrosyst�mes;RiverLy;INRAE-tutelle (UR 1469)
+FairCarboN;CrosyeN;200317643U;Unit� mixte;AGro�cologie, Innovations, teRritoires;AGIR;"INP TOULOUSE-tutelle (UMR_A 1248),
+INRAE-tutelle (UMR 1248)"
+FairCarboN;CrosyeN;201220381F;Unit� mixte;AGROECOLOGIE - UMR 1347;;"DIJON-tutelle (UMR 1347),
+UBFC-tutelle (UMR 1347),
+INRAE-tutelle (UMR 1347),
+Institut Agro-tutelle (UMR 1347)"
+FairCarboN;CrosyeN;201421281A;Unit� propre;Agro-�cologie et Intensification Durable des cultures Annuelles;AIDA;CIRAD-tutelle (UPR 115)
+FairCarboN;CrosyeN;202023591K;Unit� mixte;UMR 1158 - BioEcoAgro - UMR Transfrontali�re BioEcoAgro;;"INRAE-tutelle (UMR 1158),
+ARTOIS-participant ( ),
+LILLE-tutelle (UMR 1158),
+JUNIA-tutelle ( ),
+AMIENS-tutelle (UMR 1158),
+LITTORAL-participant ( )"
+FairCarboN;CrosyeN;199917859W;Unit� mixte;Ecologie Fonctionnelle et Biog�ochimie des Sols et Agrosyst�mes;Eco&Sols;"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)"
+FairCarboN;CrosyeN;201119637B;Unit� mixte;Institut Am�lioration G�n�tique et Adaptation des Plantes m�diterran�ennes et Tropicales;AGAP;"CIRAD-tutelle (UMR 108),
+INRAE-tutelle (UMR 1334),
+MONTPELLIER-tutelle ( ),
+INRIA-participant ( ),
+Institut Agro-tutelle ( )"
+FairCarboN;CrosyeN;200517555P;Unit� mixte;Institut d'�cologie et des sciences de l'environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;DEEP-C;196417921R;Unit� mixte;Centre Alpin de Recherche sur les R�seaux Trophiques des Ecosyst�mes Limniques;CARRTEL;"INRAE-tutelle (UMR 0042),
+CHAMBERY-participant (UMR_A 42)"
+FairCarboN;DEEP-C;200812285Y;Unit� mixte;CHRONO-ENVIRONNEMENT - UMR6249;CHRONO;"UBFC-tutelle (UMR 6249),
+MIN.CULT-participant ( ),
+BESANCON-tutelle (UMR 6249),
+CNRS-tutelle (UMR 6249),
+INRAP-participant (UMR 6249)"
+FairCarboN;DEEP-C;201521783S;Unit� mixte;Ecologie fonctionnelle et �cotoxicologie des agro�cosyst�mes;ECOSYS;"AGROPARISTECH-tutelle (UMR 1402),
+INRAE-tutelle (UMR 1402),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;DEEP-C;200511874P;Unit� mixte;ENVIRONNEMENTS, DYNAMIQUES ET TERRITOIRES DE LA MONTAGNE;EDYTEM;"CHAMBERY-tutelle (UMR 5204),
+MIN.CULT-participant ( ),
+CNRS-tutelle (UMR 5204)"
+FairCarboN;DEEP-C;199512032E;Unit� mixte;GEOGRAPHIE DE L'ENVIRONNEMENT;GEODE;"INU CHAMPOLLION-participant ( ),
+TOULOUSE 2-tutelle (UMR 5602),
+CNRS-tutelle (UMR 5602)"
+FairCarboN;DEEP-C;200512539M;Unit� mixte;UMR-Institut de physique du globe de Paris;UMR-IPGP;"CNRS-tutelle (UMR 7154),
+IPG PARIS-tutelle (UMR 7154),
+LA REUNION-participant (UMR 7154),
+U PARIS Cit�-tutelle (UMR 7154)"
+FairCarboN;DEEP-C;199511995P;Unit� mixte;Institut des Sciences de l'Evolution de Montpellier;ISEM;"CNRS-tutelle (UMR 5554),
+PSL-tutelle (UMR 5554),
+INRAP-participant (UMR 5554),
+MONTPELLIER-tutelle (UMR 5554),
+IRD-tutelle (UMR 226),
+EPHE PARIS-tutelle (UMR 5554),
+CIRAD-tutelle ( )"
+FairCarboN;DEEP-C;201220213Y;Unit� mixte;Institut des sciences de la Terre d'Orl�ans;ISTO;"BRGM-tutelle (UMR 7327),
+CNRS-tutelle (UMR 7327),
+ORLEANS-tutelle (UMR 7327)"
+FairCarboN;DEEP-C;199911718W;Unit� mixte;LABORATOIRE D'ECOLOGIE DES HYDROSYSTEMES NATURELS ANTHROPISES;LEHNA;"INRAE-participant (USC 1369),
+ENTPE LYON-tutelle (UMR 5023),
+CNRS-tutelle (UMR 5023),
+LYON 1-tutelle (UMR 5023)"
+FairCarboN;DEEP-C;199917982E;Unit� mixte;Sol  Agro et hydrosyst�me Spatialisation;SAS;"INRAE-tutelle (UMR 1069),
+Institut Agro-tutelle ( )"
+FairCarboN;CarboNium;200711910V;;Laboratoire Ecologie Fonctionnelle et Environnement;;
+FairCarboN;Drought for C;200117918B;Unit� propre;Biog�ochimie des Ecosyst�mes Forestiers;BEF;INRAE-tutelle (UR 1138)
+FairCarboN;Drought for C;200311847U;Unit� mixte;Centre d'Ecologie Fonctionnelle et Evolutive;CEFE;"MONTPELLIER 3-tutelle (UMR 5175),
+INRAE-participant (USC 1338),
+Institut Agro-tutelle ( ),
+MONTPELLIER-tutelle (UMR 5175),
+EPHE PARIS-tutelle (UMR 5175),
+IRD-tutelle (UMR 251),
+CNRS-tutelle (UMR 5175)"
+FairCarboN;Drought for C;199917859W;Unit� mixte;Ecologie Fonctionnelle et Biog�ochimie des Sols et Agrosyst�mes;Eco&Sols;"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)"
+FairCarboN;Drought for C;200212739T;Unit� mixte;Ecologie, syst�matique et �volution;ESE;"AGROPARISTECH-tutelle (UMR 8079),
+CNRS-tutelle (UMR 8079),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;Drought for C;201220339K;Unit� mixte;Institut m�diterran�en de biodiversit� et d'�cologie marine et continentale;IMBE;"AU-tutelle (UMR 7263),
+CNRS-tutelle (UMR 7263),
+IRD-tutelle (UMR_D 237),
+AIX-MARSEILLE-tutelle (UMR 7263)"
+FairCarboN;Drought for C;201421781U;Unit� mixte;Interaction Sol Plante Atmosph�re;ISPA;"INRAE-tutelle (UMR 1391),
+BORDEAUX SCIENCES AGRO-tutelle ( )"
+FairCarboN;Drought for C;201521789Y;Unit� propre;Risques Ecosyst�mes Vuln�rabilit� Environnement R�silience;RECOVER;"INRAE-tutelle (UMR 1467),
+AIX-MARSEILLE-tutelle (UMR 1467)"
+FairCarboN;Drought for C;201822750E;Unit� mixte;Silva;SILVA;"LORRAINE-tutelle (UMR_A 1434),
+AGROPARISTECH-tutelle ( ),
+INRAE-tutelle (UMR 1434)"
+FairCarboN;Drought for C;196817912N;Unit� propre;Ecologie des For�ts M�diterran�ennes;URFM;INRAE-tutelle (UR 0629)
+FairCarboN;PEACE;200810875R;Unit� mixte;Centre de recherche en �cologie exp�rimentale et pr�dictive - Ecotron Ile de France;CEREEP;"CNRS-tutelle (UAR 3194),
+ENS PARIS-tutelle (UMS 3194),
+PSL-tutelle (UMS 3194)"
+FairCarboN;PEACE;201320566C;Unit� mixte;Centre national de recherches m�t�orologiques;CNRM;"CNRS-tutelle (UMR 3589),
+METEO-tutelle (UMR 3589)"
+FairCarboN;PEACE;202424488T;Unit� mixte;Centre de Recherche sur la Biodiversit� et l'Environnement;CRBE;"IRD-tutelle ( ),
+INP TOULOUSE-tutelle ( ),
+CNRS-tutelle (UMR 5300),
+TOULOUSE 3-tutelle (UMR 5300)"
+FairCarboN;PEACE;200212739T;Unit� mixte;�cologie, syst�matique et �volution;ESE;"AGROPARISTECH-tutelle (UMR 8079),
+CNRS-tutelle (UMR 8079),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;PEACE;200412804E;Unit� mixte;G�osciences Paris-Saclay;GEOPS;"CNRS-tutelle (UMR 8148),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;PEACE;200012191F;Unit� mixte;G�osciences Rennes;;"RENNES-tutelle (UMR 6118),
+CNRS-tutelle (UMR 6118)"
+FairCarboN;PEACE;201119478D;Unit� mixte;G�osciences Environnement Toulouse;GET;"TOULOUSE 3-tutelle (UMR 5563),
+CNRS-tutelle (UMR 5563),
+BRGM-participant ( ),
+CNES-participant (UMR 5563),
+IRD-tutelle (UMR 5563)"
+FairCarboN;PEACE;200517555P;Unit� mixte;Institut d'�cologie et des sciences de l'environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;PEACE;197217858M;Unit� mixte;Laboratoire d'�tude des Interactions Sol - Agrosyst�me - Hydrosyst�me;LISAH;"Institut Agro-tutelle ( ),
+IRD-tutelle (UMR 144),
+INRAE-tutelle (UMR 1221),
+AGROPARISTECH-tutelle ( )"
+FairCarboN;PEACE;200611689J;Unit� mixte;Laboratoire des Sciences du Climat et de l'Environnement;LSCE;"CEA-tutelle (UMR 8212),
+VERSAILLES-tutelle (UMR 8212),
+U PARIS-SACLAY-participant (UMR 8212),
+CNRS-tutelle (UMR 8212)"
+FairCarboN;PEACE;199712664H;Unit� mixte;Milieux Environnementaux, Transferts et Interactions dans les hydrosyst�mes et les Sols;METIS;"EPHE PARIS-tutelle (UMR 7619),
+CNRS-tutelle (UMR 7619),
+SORBONNE UNIV.-tutelle (UMR 7619),
+PSL-tutelle (UMR 7619)"
+FairCarboN;RIFT;200317641S;Unit� mixte;botAnique et Mod�lisation de l'Architecture des Plantes et des v�g�tations;AMAP;"IRD-tutelle (UMR 5120),
+CNRS-tutelle (UMR 5120),
+INRAE-tutelle (UMR 0931),
+MONTPELLIER-tutelle (UMR 5120),
+CIRAD-tutelle (UMR 51)"
+FairCarboN;RIFT;200317531X;Unit� mixte;Centre d'�tudes spatiales de la biosph�re;CESBIO;"CNES-tutelle (UMR 5126),
+CNRS-tutelle (UMR 5126),
+INRAE-participant (USC 1439),
+TOULOUSE 3-tutelle (UMR 5126),
+IRD-tutelle (UMR 113)"
+FairCarboN;RIFT;199917859W;Unit� mixte;Ecologie Fonctionnelle et Biog�ochimie des Sols et Agrosyst�mes;Eco&Sols;"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)"
+FairCarboN;RIFT;201119478D;Unit� mixte;G�osciences Environnement Toulouse;GET;"TOULOUSE 3-tutelle (UMR 5563),
+CNRS-tutelle (UMR 5563),
+BRGM-participant ( ),
+CNES-participant (UMR 5563),
+IRD-tutelle (UMR 5563)"
+FairCarboN;RIFT;199512007C;Unit� mixte;HydroSciences Montpellier;HSM;"CNRS-tutelle (UMR 5151),
+MONTPELLIER-tutelle (UMR 5151),
+IRD-tutelle (UMR 50),
+IMT MINES ALES-participant ( )"
+FairCarboN;RIFT;201722374A;Unit� mixte;Institut des G�osciences de l'Environnement;IGE;"GRENOBLE INP-tutelle (UMR 5001),
+GRENOBLE ALPES-tutelle ( ),
+INRAE-tutelle (UMR 1509),
+IRD-tutelle ( ),
+CNRS-tutelle (UMR 5001)"
+FairCarboN;RIFT;197217858M;Unit� mixte;Laboratoire d'�tude des Interactions Sol - Agrosyst�me - Hydrosyst�me;LISAH;"Institut Agro-tutelle ( ),
+IRD-tutelle (UMR 144),
+INRAE-tutelle (UMR 1221),
+AGROPARISTECH-tutelle ( )"
+FairCarboN;RIFT;199419708C;Unit� mixte;Syst�mes d'Elevage M�diterran�ens et Tropicaux;SELMET;"Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 0868),
+CIRAD-tutelle (UMR 112)"
+FairCarboN;SLAM-B;200317643U;Unit� mixte;AGro�cologie, Innovations, teRritoires;AGIR;"INP TOULOUSE-tutelle (UMR_A 1248),
+INRAE-tutelle (UMR 1248)"
+FairCarboN;SLAM-B;201421281A;Unit� propre;Ago�cologie et Intensifications Durables des cultures Annuelles;AIDA;CIRAD-tutelle (UPR 115)
+FairCarboN;SLAM-B;200317641S;Unit� mixte;BotAnique et Mod�lisation de l'Architecture des Plantes et des V�g�tations;AMAP;"IRD-tutelle (UMR 5120),
+CNRS-tutelle (UMR 5120),
+INRAE-tutelle (UMR 0931),
+MONTPELLIER-tutelle (UMR 5120),
+CIRAD-tutelle (UMR 51)"
+FairCarboN;SLAM-B;201119636A;Unit� propre;Agrosyst�mes tropicaux;ASTRO;INRAE-tutelle (UR 1321)
+FairCarboN;SLAM-B;201722613K;Unit� mixte;Biodiversit� agro�cologie et am�nagement du paysage;BAGAP;"ESA ANGERS-tutelle ( ),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 0980)"
+FairCarboN;SLAM-B;200117918B;Unit� propre;Biog�ochimie des Ecosyst�mes Forestiers;BEF;INRAE-tutelle (UR 1138)
+FairCarboN;SLAM-B;201321279C;Unit� propre;Biomasse, bois, �nergie, bio-produits;BioWooEB;CIRAD-tutelle (UPR 114)
+FairCarboN;SLAM-B;201321279C;Unit� propre;Biomasse, bois, �nergie, bio-produits;BioWooEB;CIRAD-tutelle (UPR 114)
+FairCarboN;CarboNium;200919362L;;Laboratoire de Biologie des Organismes et des Ecosyst�mes Aquatiques;;
+FairCarboN;SLAM-B;199917981D;Unit� mixte;Environnement M�diterran�en et Mod�lisation des Agro-Hydrosyst�mes;UMR 1114;"AU-tutelle (UMR_A 1114),
+INRAE-tutelle (UMR 1114)"
+FairCarboN;SLAM-B;199417885W;Unit� mixte;Fractionnement des AgroRessources et  Environnement;FARE;"REIMS-tutelle (UMR 614),
+INRAE-tutelle (UMR 0614)"
+FairCarboN;SLAM-B;201119386D;Unit� mixte;Institut de M�canique et d'Ing�nierie de Bordeaux;I2M;"Bordeaux INP-tutelle (UMR 5295),
+BORDEAUX-tutelle (UMR 5295),
+CNRS-tutelle (UMR 5295),
+Arts et M�tiers-tutelle (UMR 5295),
+INRAE-participant (USC 1368)"
+FairCarboN;SLAM-B;200317667V;Unit� mixte;Ing�nierie des Agropolym�res et Technologies Emergentes;IATE;"MONTPELLIER-tutelle (UMR 1208),
+INRAE-tutelle (UMR 1208),
+Institut Agro-tutelle ( )"
+FairCarboN;SLAM-B;200517555P;Unit� mixte;Institut d'Ecologie et des Sciences de l'Environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;SLAM-B;200812291E;Unit� mixte;Institut de l'Ouest, Droit et Europe;IODE;"CNRS-tutelle (UMR 6262),
+RENNES-tutelle (UMR 6262)"
+FairCarboN;SLAM-B;199511949P;Unit� mixte;Institut de Recherche en Informatique de Toulouse;IRIT;"INRIA-participant (UMR 5505),
+TOULOUSE 2-tutelle (UMR 5505),
+UT Capitole-tutelle (UMR 5505),
+CNRS-tutelle (UMR 5505),
+TOULOUSE 3-tutelle (UMR 5505),
+INP TOULOUSE-tutelle (UMR 5505)"
+FairCarboN;SLAM-B;200118630A;Unit� mixte;Technologies & m�thodes pour les agricultures de demain;ITAP;"INRAE-tutelle (UR 1463),
+Institut Agro-tutelle ( )"
+FairCarboN;SLAM-B;200116904Z;Unit� mixte;Laboratoire Agronomie et Environnement;LAE;"LORRAINE-tutelle (UMR_A 1121),
+INRAE-tutelle (UMR 1121)"
+FairCarboN;SLAM-B;195917820C;Unit� propre;Laboratoire de Biotechnologie de l'Environnement;LBE;INRAE-tutelle (UR 0050)
+FairCarboN;TROPECOS;200919362L;;Laboratoire de Biologie des Organismes et des Ecosyst�mes Aquatiques;;
+FairCarboN;SLAM-B;200920634U;Unit� mixte;Laboratoire Eau Environnement et Syst�mes Urbains - Ecole des Ponts ParisTech;LEESU;"ENPC PARIS-tutelle (UMR_MA 102),
+UPEC-tutelle (UMR_MA 102)"
+FairCarboN;SLAM-B;201822681E;Unit� propre;Laboratoire des �cosyst�mes et soci�t�s en montagne;LESSEM;INRAE-tutelle (UR 1464)
+FairCarboN;SLAM-B;199612340K;Unit� mixte;Littoral - Environnement - T�l�d�tection - G�omatique;LETG;"BREST-tutelle (UMR 6554),
+PSL-tutelle ( ),
+RENNES 2-tutelle (UMR 6554),
+CNRS-tutelle (UMR 6554),
+Nantes Universit�-tutelle (UMR 6554)"
+FairCarboN;SLAM-B;199812866Y;Unit� mixte;Laboratoire de G�ologie de l'ENS;LG-ENS;"CNRS-tutelle (UMR 8538),
+PSL-tutelle (UMR 8538),
+ENS PARIS-tutelle (UMR 8538)"
+FairCarboN;SLAM-B;201320733J;Unit� mixte;Laboratoire Interdisciplinaire des Energies de Demain;LIED;"CNRS-tutelle (UMR 8236),
+U PARIS Cit�-tutelle (UMR 8236)"
+FairCarboN;SLAM-B;199111950H;Unit� mixte;Laboratoire d'informatique, de robotique et de micro�lectronique de Montpellier;LIRMM;"CNRS-tutelle (UMR 5506),
+INRIA-tutelle ( ),
+PERPIGNAN-tutelle ( ),
+MONTPELLIER 3-tutelle ( ),
+MONTPELLIER-tutelle (UMR 5506)"
+FairCarboN;SLAM-B;199718620G;Unit� propre;Laboratoire d'Ing�nierie des Syst�mes Complexes;LISC;INRAE-tutelle (UR 1465)
+FairCarboN;SLAM-B;199712664H;Unit� mixte;Milieux environnementaux, transferts et interactions dans les hydrosyst�mes et les sols;METIS;"EPHE PARIS-tutelle (UMR 7619),
+CNRS-tutelle (UMR 7619),
+SORBONNE UNIV.-tutelle (UMR 7619),
+PSL-tutelle (UMR 7619)"
+FairCarboN;SLAM-B;198717966P;Unit� propre;Math�matiques et Informatique Appliqu�es Toulouse;MIAT;INRAE-tutelle (UR 0875)
+FairCarboN;TROPECOS;201722485W;Unit� propre;Institut de Sciences exactes et appliqu�es;ISEA;NOUVELLE CALEDONIE-tutelle (EA 7484)
+FairCarboN;SLAM-B;197517805S;Unit� mixte;Mod�lisation Syst�mique Appliqu�e aux Ruminants;MoSAR;"AGROPARISTECH-tutelle (UMR 791),
+INRAE-tutelle (UMR 0791),
+U PARIS-SACLAY-tutelle ( )"
+FairCarboN;SLAM-B;201621929W;Unit� propre;Optimisation des proc�d�s en agro-alimentaire, agriculture et environnement;OPAALE;INRAE-tutelle (UR 1466)
+FairCarboN;SLAM-B;201220380E;Unit� mixte;Physiologie, Environnement et G�n�tique pour l'Animal et les Syst�mes d'Elevage;PEGASE;"Institut Agro-tutelle (UMR 1348),
+INRAE-tutelle (UMR 1348)"
+FairCarboN;SLAM-B;200718430G;Unit� propre;Recyclage & Risques;;CIRAD-tutelle (UPR 78)
+FairCarboN;SLAM-B;199917982E;Unit� mixte;Sol Agro et hydrosyst�me Spatialisation;SAS;"INRAE-tutelle (UMR 1069),
+Institut Agro-tutelle ( )"
+FairCarboN;SLAM-B;199419708C;Unit� mixte;Syst�mes d'Elevage M�diterran�ens et Tropicaux;SELMET;"Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 0868),
+CIRAD-tutelle (UMR 112)"
+FairCarboN;SLAM-B;201822750E;Unit� mixte;Silva;SILVA;"LORRAINE-tutelle (UMR_A 1434),
+AGROPARISTECH-tutelle ( ),
+INRAE-tutelle (UMR 1434)"
+FairCarboN;SLAM-B;196917933G;Unit� mixte;Toulouse Biotechnology Institute;TBI;"INRAE-tutelle (UMR 0792),
+CNRS-tutelle (UMR 5504),
+INSA TOULOUSE-tutelle (UMR 5504)"
+FairCarboN;SLAM-B;200718239Z;Unit� mixte;Territoires, Environnement, t�l�d�tection et information spatiale;TETIS;"AGROPARISTECH-tutelle (UMR ),
+INRAE-tutelle (UMR 1470),
+CNRS-participant (UMR 9000),
+CIRAD-tutelle (UMR 91)"
+FairCarboN;SLAM-B;201421254W;Unit� propre;Unit� de Mod�lisation Math�matique et Informatique des Syst�mes Complexes;UMMISCO;"SORBONNE UNIV.-tutelle (UMI 209),
+IRD-tutelle (UMI 209)"
+FairCarboN;TROPECOS;200317641S;Unit� mixte;Botanique et mod�lisation de l'architecture des plantes et des v�g�tations;AMAP;"IRD-tutelle (UMR 5120),
+CNRS-tutelle (UMR 5120),
+INRAE-tutelle (UMR 0931),
+MONTPELLIER-tutelle (UMR 5120),
+CIRAD-tutelle (UMR 51)"
+FairCarboN;TROPECOS;199512085M;Unit� mixte;Environnements et pal�oenvironnements oc�aniques et continentaux;EPOC;"Bordeaux INP-tutelle ( ),
+CNRS-tutelle (UMR 5805),
+BORDEAUX-tutelle (UMR 5805),
+EPHE PARIS-participant (UMR 5805),
+PSL-participant (UMR 5805)"
+FairCarboN;TROPECOS;200517555P;Unit� mixte;Institut d'�cologie et des sciences de l'environnement de Paris;IEES;"UPEC-tutelle (UMR 7618),
+CNRS-tutelle (UMR 7618),
+IRD-tutelle (UMR 242),
+INRAE-tutelle (UMR 1392),
+SORBONNE UNIV.-tutelle (UM 113),
+U PARIS Cit�-participant (UMR 7618)"
+FairCarboN;TROPECOS;201722374A;Unit� mixte;Institut des G�osciences de l'Environnement;IGE;"GRENOBLE INP-tutelle (UMR 5001),
+GRENOBLE ALPES-tutelle ( ),
+INRAE-tutelle (UMR 1509),
+IRD-tutelle ( ),
+CNRS-tutelle (UMR 5001)"
+FairCarboN;SLAM-B;;;Toulouse INP-ENSIACET;;
+FairCarboN;TROPECOS;200812834V;Unit� mixte;Laboratoire d'oc�anologie et de g�osciences (LOG);;"LILLE-tutelle (UMR 8187),
+LITTORAL-tutelle (UMR 8187),
+IRD-participant ( ),
+CNRS-tutelle (UMR 8187)"
+FairCarboN;TROPECOS;200012185Z;Unit� mixte;LABORATOIRE DE PLANETOLOGIE ET GEODYNAMIQUE;LPG;"ANGERS-tutelle (UMR 6112),
+Nantes Universit�-tutelle (UMR 6112),
+CNRS-tutelle (UMR 6112),
+CNES-participant (UMR 6112),
+LE MANS-tutelle (UMR 6112)"
+FairCarboN;SLAM-B;;;IRD-UCAD;;
+FairCarboN;CLIM-FAS;202224181T ;Unit� mixte;Paris Saclay Applied Economics;PSAE;INRAE/AgroParisTech/Universit� Paris-Saclay (UMR 0210)
+FairCarboN;CLIM-FAS;201822742W�;Unit� mixte;Centre d'Economie de l'Environnement - Montpellier;CEE-M;CNRS/Universit� de Montpellier/INRAE/Institut Agro (UMR 5215)
+FairCarboN;CLIM-FAS;199812866Y;Unit� mixte;Laboratory of Geology;LG-ENS;"CNRS-tutelle (UMR 8538),
+PSL-tutelle (UMR 8538),
+ENS PARIS-tutelle (UMR 8538)"
+FairCarboN;CLIM-FAS;201521703E;Unit� mixte;Lille Economie et Management;LEM;Universit� de Lille /CNRS/INSTITUT ECONOMIE SCIENTIFIQUE ET DE GESTION (IESEG)
+FairCarboN;CLIM-FAS;199513658X;Unit� mixte;Centre de recherches juridiques;CRJ;UGA
+FairCarboN;CLIM-FAS;200918460F;Unit� mixte;Lapps Laboratoire Parisien de Psychologie Sociale;LPPS;Universit� Paris Nanterre/ Universit� Vincennes-Saint Denis Paris 8 
+FairCarboN;GREENSCALE;;Unit� Mixte de Recherche;Institut Jean-Pierre Bourgin de sciences v�g�tales;INRAE;INRAE/AgroParisTech/Universit� Paris-Saclay
+FairCarboN;GREENSCALE;;Unit� Mixte de Recherche;CEA CADARACHE;CEA;CEA/CNRS/Aix-Marseille Universit�
+FairCarboN;GREENSCALE;;Unit� Mixte de Recherche;CEA SACLAY;CEA;
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Paris-Jourdan Sciences Economiques;PjSE;INRAE/CNRS/EHESS/ENS-PSL/Universit� Paris-1/Ecole des Mines Paris PSL
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Centre Maurice Halbwachs;CMH;CNRS & INRAE, ENS, PSL, EHESS
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Laboratoire de g�ologie de l'Ecole Normale Sup�rieure;LG - ENS;ENS PSL & CNRS
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Laboratoire d�Economie Appliqu�e de Grenoble ;GAEL;INRAE & CNRS, Grenoble INP, U. GRENOBLE ALPES
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Structure et March�s Agricoles, Ressources et Territoires ;SMART;INRAE & Institut Agro Rennes-Anger
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Paris-Saclay Applied Economics ;PSAE;INRAE & AGROPARISTECH, UNIVERSITE PARIS-SACLAY
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Toulouse School of Economics � Research ;TSE - R;INRAE & UT TOULOUSE CAPITOLE EPE, EHESS PARIS, CNRS, INRAE, TSE
+FairCarboN;PREFALIM;;Unit� Mixte de Recherche;Institut d'�cologie et des sciences de l'environnement de Paris;iEES;SORBONNE UNIV & CNRS & UPEC & IRD & INRAE & U Paris Cit�
+FairCarboN;CO2_CM?;201220269J;Unit� Mixte de Recherche;Bio�nerg�tique et Ing�nierie des Prot�ines;CNRS D�l�gation Provence et Corse (DR12);CNRS/Aix-Marseille Universit�
+FairCarboN;CO2_CM?;;;;;
+FairCarboN;RhizoSeqC;;;;;
