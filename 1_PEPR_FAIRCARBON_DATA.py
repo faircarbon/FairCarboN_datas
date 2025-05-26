@@ -21,6 +21,11 @@ st.set_page_config(
         'About': "développé par Jérôme Dutroncy"}
 )
 
+def to_rgb_string(rgb_tuple):
+    r, g, b = (int(255 * c) for c in rgb_tuple)
+    return f"rgb({r}, {g}, {b})"
+
+
 ###############################################################################################
 ########### TRANSFORMATION FICHIER XLS ########################################################
 ###############################################################################################
@@ -73,73 +78,92 @@ else:
 
 # Regrouper par laboratoire
 grouped = df_selected_.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
-st.sidebar.write(len(grouped))
 
-# Créer la carte
-m = folium.Map(location=[46.603354, 1.888334], zoom_start=6, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
-    control_scale=True)  # Centrée sur la France
-
-# Générer des marqueurs en camembert
-for _, row in grouped.iterrows():
-    projets = row['projet']
-    latitude = row['Latitude']
-    longitude = row['Longitude']
-    type_data = row['Type_Data']
-
-    if type_data == "Analyses":
-        # Créer un graphique en camembert
-        fig, ax = plt.subplots(figsize=(1, 1))
-        projet_counts = [1] * len(projets)  # égale pondération
-        colors_used = [project_color_map[proj] for proj in projets]
-        #ax.pie(projet_counts, colors=colors_used) version sans bordure
-        wedges, _ = ax.pie(
-            projet_counts,
-            colors=colors_used,
-            wedgeprops={'edgecolor': 'black', 'linewidth': 5}  # Bordure noire épaisse
-        )
-        plt.axis('off')
-
-        # Sauvegarder en mémoire
-        img_data = BytesIO()
-        plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
-        plt.close(fig)
-        img_data.seek(0)
-        encoded = base64.b64encode(img_data.read()).decode()
-
-        icon_url = f"data:image/png;base64,{encoded}"
-        icon = folium.CustomIcon(icon_image=icon_url, icon_size=(20, 20))
-    
-    elif type_data == "Modelisation":
-        # Créer un graphique en camembert
-        fig, ax = plt.subplots(figsize=(1, 1))
-        projet_counts = [1] * len(projets)  # égale pondération
-        colors_used = [project_color_map[proj] for proj in projets]
-        #ax.pie(projet_counts, colors=colors_used) version sans bordure
-        wedges, _ = ax.pie(
-            projet_counts,
-            colors=colors_used,
-            wedgeprops={'edgecolor': 'red', 'linewidth': 5}  # Bordure rouge épaisse
-        )
-        plt.axis('off')
-
-        # Sauvegarder en mémoire
-        img_data = BytesIO()
-        plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
-        plt.close(fig)
-        img_data.seek(0)
-        encoded = base64.b64encode(img_data.read()).decode()
-
-        icon_url = f"data:image/png;base64,{encoded}"
-        icon = folium.CustomIcon(icon_image=icon_url, icon_size=(30, 30))
-
-    # Ajouter le marqueur
-    popup = folium.Popup("<br>".join(projets), max_width=200)
-    tooltip = row['laboratoire']
-    folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
+st.sidebar.metric(label='Nombre Unités représentées',value=len(grouped))
 
 
 st.title("Carte interactive FAIRCARBON")
-st_folium(m, width=800)
 
 
-st.dataframe(df_selected_)
+col1, col2 = st.columns((0.8,0.2))
+with col1:
+    # Créer la carte
+    m = folium.Map(location=[46.603354, 1.888334], zoom_start=6, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
+        control_scale=True)  # Centrée sur la France
+
+    # Générer des marqueurs en camembert
+    for _, row in grouped.iterrows():
+        projets = row['projet']
+        latitude = row['Latitude']
+        longitude = row['Longitude']
+        type_data = row['Type_Data']
+
+        if type_data == "Analyses":
+            # Créer un graphique en camembert
+            fig, ax = plt.subplots(figsize=(1, 1))
+            projet_counts = [1] * len(projets)  # égale pondération
+            colors_used = [project_color_map[proj] for proj in projets]
+            #ax.pie(projet_counts, colors=colors_used) version sans bordure
+            wedges, _ = ax.pie(
+                projet_counts,
+                colors=colors_used,
+                wedgeprops={'edgecolor': 'black', 'linewidth': 5}  # Bordure noire épaisse
+            )
+            plt.axis('off')
+
+            # Sauvegarder en mémoire
+            img_data = BytesIO()
+            plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
+            plt.close(fig)
+            img_data.seek(0)
+            encoded = base64.b64encode(img_data.read()).decode()
+
+            icon_url = f"data:image/png;base64,{encoded}"
+            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(50, 50))
+        
+        elif type_data == "Modelisation":
+            # Créer un graphique en camembert
+            fig, ax = plt.subplots(figsize=(1, 1))
+            projet_counts = [1] * len(projets)  # égale pondération
+            colors_used = [project_color_map[proj] for proj in projets]
+            #ax.pie(projet_counts, colors=colors_used) version sans bordure
+            wedges, _ = ax.pie(
+                projet_counts,
+                colors=colors_used,
+                wedgeprops={'edgecolor': 'red', 'linewidth': 5}  # Bordure rouge épaisse
+            )
+            plt.axis('off')
+
+            # Sauvegarder en mémoire
+            img_data = BytesIO()
+            plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
+            plt.close(fig)
+            img_data.seek(0)
+            encoded = base64.b64encode(img_data.read()).decode()
+
+            icon_url = f"data:image/png;base64,{encoded}"
+            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(30, 30))
+
+        # Ajouter le marqueur
+        popup = folium.Popup("<br>".join(projets), max_width=200)
+        tooltip = row['laboratoire']
+        folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
+
+
+    st_folium(m, width=800)
+
+###############################################################################################
+########### LEGENDE ###########################################################################
+###############################################################################################
+
+with col2:
+    st.subheader("Légende")
+    for i in range(len(projects)):
+        rgb_css = to_rgb_string(colors[i])
+        st.markdown(
+            f'<div style="display: flex; align-items: center;">'
+            f'<div style="width: 15px; height: 15px; background-color: {rgb_css}; border-radius: 3px; margin-right: 10px;"></div>'
+            f'<span>{projects[i]}</span>'
+            f'</div>',
+            unsafe_allow_html=True
+        )
