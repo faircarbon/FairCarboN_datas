@@ -36,7 +36,7 @@ def read_data():
     ######## NETTOYAGES EVENTUELS ######################
 
     # filtrer les lignes incomplètes
-    df_filtré = df.dropna(subset=["Latitude", "Longitude"])
+    df_filtré = df.dropna(subset=["Latitude", "Longitude","Acronyme projet","Acronyme unité"])
     # Renommer les colonnes
     df_filtré_renommé = df_filtré.rename(columns={
         "Acronyme projet": "projet",
@@ -51,6 +51,7 @@ df = read_data()
 
 # Couleurs associées à chaque projet
 projects = sorted(df['projet'].unique())
+laboratoires = sorted(df['laboratoire'].unique())
 colors = plt.cm.tab20.colors  # Palette de couleurs
 project_color_map = {project: colors[i % len(colors)] for i, project in enumerate(projects)}
 
@@ -64,8 +65,15 @@ if len(Selection_projets)==0:
 else:
     df_selected = df[df['projet'].isin(Selection_projets)]
 
+Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires)
+if len(Selection_laboratoires)==0:
+    df_selected_ = df_selected
+else:
+    df_selected_ = df[df['laboratoire'].isin(Selection_laboratoires)]
+
 # Regrouper par laboratoire
-grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped = df_selected_.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+st.sidebar.write(len(grouped))
 
 # Créer la carte
 m = folium.Map(location=[46.603354, 1.888334], zoom_start=6, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
@@ -122,7 +130,7 @@ for _, row in grouped.iterrows():
         encoded = base64.b64encode(img_data.read()).decode()
 
         icon_url = f"data:image/png;base64,{encoded}"
-        icon = folium.CustomIcon(icon_image=icon_url, icon_size=(20, 20))
+        icon = folium.CustomIcon(icon_image=icon_url, icon_size=(30, 30))
 
     # Ajouter le marqueur
     popup = folium.Popup("<br>".join(projets), max_width=200)
@@ -131,4 +139,7 @@ for _, row in grouped.iterrows():
 
 
 st.title("Carte interactive FAIRCARBON")
-st_folium(m)
+st_folium(m, width=800)
+
+
+st.dataframe(df_selected_)
