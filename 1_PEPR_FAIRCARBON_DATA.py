@@ -79,17 +79,19 @@ else:
 # Regrouper par laboratoire
 grouped = df_selected_.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 
+avg_lat = sum(df_selected_['Latitude'])/len(df_selected_)
+avg_long = sum(df_selected_['Longitude'])/len(df_selected_)
+
 st.sidebar.metric(label='Nombre Unités représentées',value=len(grouped))
 
 
 st.title("Carte interactive FAIRCARBON")
 
-
-col1, col2 = st.columns((0.8,0.2))
-with col1:
+st.cache_resource
+def carto(grouped, avg_lat, avg_long):
     # Créer la carte
-    m = folium.Map(location=[46.603354, 1.888334], zoom_start=6, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
-        control_scale=True)  # Centrée sur la France
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=2, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
+        control_scale=True)  # barycentrée
 
     # Générer des marqueurs en camembert
     for _, row in grouped.iterrows():
@@ -119,7 +121,7 @@ with col1:
             encoded = base64.b64encode(img_data.read()).decode()
 
             icon_url = f"data:image/png;base64,{encoded}"
-            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(50, 50))
+            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(35, 35))
         
         elif type_data == "Modelisation":
             # Créer un graphique en camembert
@@ -149,7 +151,11 @@ with col1:
         tooltip = row['laboratoire']
         folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
 
+    return m
 
+col1, col2 = st.columns((0.8,0.2))
+with col1:
+    m = carto(grouped, avg_lat, avg_long)
     st_folium(m, width=800)
 
 ###############################################################################################
