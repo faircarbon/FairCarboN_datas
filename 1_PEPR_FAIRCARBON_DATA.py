@@ -113,6 +113,13 @@ else:
 # Regrouper par laboratoire
 grouped = df_selected__.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 
+if Unites:
+    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped[grouped['Type_Data']=='Labo']))
+elif sites:
+    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped[grouped['Type_Data']=='Site']))
+else:
+    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
+
 if len(df_selected__)==0:
     avg_lat = 45
     avg_long = 5
@@ -120,7 +127,7 @@ else:
     avg_lat = sum(df_selected__['Latitude'])/len(df_selected__)
     avg_long = sum(df_selected__['Longitude'])/len(df_selected__)
 
-st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
+
 
 ###############################################################################################
 ########### NUAGE DE MOTS #####################################################################
@@ -136,7 +143,7 @@ else:
     wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
 
     # Display in sidebar
-    st.sidebar.title("Nuage des noms d'Unités")
+    st.sidebar.title("Nuage des noms d'unités ou sites")
     fig0, ax = plt.subplots()
     ax.imshow(wordcloud, interpolation='bilinear')
     ax.axis("off")
@@ -151,7 +158,7 @@ st.title("Carte interactive FAIRCARBON")
 st.cache_resource
 def carto(grouped, avg_lat, avg_long):
     # Créer la carte
-    m = folium.Map(location=[avg_lat, avg_long], zoom_start=2, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=5, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
         control_scale=True)  # barycentrée
 
     # Générer des marqueurs en camembert
