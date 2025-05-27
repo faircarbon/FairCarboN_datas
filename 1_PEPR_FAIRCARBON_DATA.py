@@ -78,23 +78,47 @@ laboratoires_bis = df[['laboratoire','Type_Data']][df['projet'].isin(projets_sel
 laboratoires_bis_Unites = laboratoires_bis[laboratoires_bis['Type_Data']=='Labo']
 laboratoires_bis_sites = laboratoires_bis[laboratoires_bis['Type_Data']=='Site']
 
-Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
-if len(Selection_laboratoires)==0:
-    df_selected_ = df_selected
-else:
-    df_selected_ = df[df['laboratoire'].isin(Selection_laboratoires)]
+col1, col2 = st.sidebar.columns(2)
+with col1:
+    Unites = st.checkbox(label='Unités')
+with col2:
+    sites = st.checkbox(label='Sites')
 
-Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
-if len(Selection_sites)==0:
-    df_selected__ = df_selected_
+if Unites:
+    Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
+    if len(Selection_laboratoires)==0:
+        df_selected__ = df_selected[df_selected['Type_Data']=='Labo']
+    else:
+        df_selected__ = df[df['laboratoire'].isin(Selection_laboratoires)]
+elif sites:
+    Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
+    if len(Selection_sites)==0:
+        df_selected__ = df_selected[df_selected['Type_Data']=='Site']
+    else:
+        df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
 else:
-    df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
+    Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
+    if len(Selection_laboratoires)==0:
+        df_selected_ = df_selected
+    else:
+        df_selected_ = df[df['laboratoire'].isin(Selection_laboratoires)]
+
+    Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
+    if len(Selection_sites)==0:
+        df_selected__ = df_selected
+    else:
+        df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
+    
 
 # Regrouper par laboratoire
 grouped = df_selected__.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 
-avg_lat = sum(df_selected__['Latitude'])/len(df_selected__)
-avg_long = sum(df_selected__['Longitude'])/len(df_selected__)
+if len(df_selected__)==0:
+    avg_lat = 45
+    avg_long = 5
+else:
+    avg_lat = sum(df_selected__['Latitude'])/len(df_selected__)
+    avg_long = sum(df_selected__['Longitude'])/len(df_selected__)
 
 st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
 
@@ -102,18 +126,21 @@ st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
 ########### NUAGE DE MOTS #####################################################################
 ###############################################################################################
 
-# Assign the same frequency to each name
-frequencies = {name: 1 for name in df_selected__['laboratoire'].values}
+if len(df_selected__)==0:
+    pass
+else:
+    # Assign the same frequency to each name
+    frequencies = {name: 1 for name in df_selected__['laboratoire'].values}
 
-# Generate the word cloud
-wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
+    # Generate the word cloud
+    wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
 
-# Display in sidebar
-st.sidebar.title("Nuage des noms d'Unités")
-fig0, ax = plt.subplots()
-ax.imshow(wordcloud, interpolation='bilinear')
-ax.axis("off")
-st.sidebar.pyplot(fig0)
+    # Display in sidebar
+    st.sidebar.title("Nuage des noms d'Unités")
+    fig0, ax = plt.subplots()
+    ax.imshow(wordcloud, interpolation='bilinear')
+    ax.axis("off")
+    st.sidebar.pyplot(fig0)
 
 
 ###############################################################################################

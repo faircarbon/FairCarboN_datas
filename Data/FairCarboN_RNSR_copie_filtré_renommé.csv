@@ -870,4 +870,6 @@ FairCarboN,PREFALIM,PSAE,Labo,,,,Unité Mixte de Recherche,Paris-Saclay Applied 
 FairCarboN,PREFALIM,TSE-SER,Labo,,,,Unité Mixte de Recherche,Toulouse School of Economics – Research ,TSE - R,"INRAE & UT TOULOUSE CAPITOLE EPE, EHESS PARIS, CNRS, INRAE, TSE","1 Esplanade de l'Université, 31000 Toulouse, France",43.604638,1.4350147,,,,
 FairCarboN,PREFALIM,iEES,Labo,,,,Unité Mixte de Recherche,Institut d'écologie et des sciences de l'environnement de Paris,iEES,SORBONNE UNIV & CNRS & UPEC & IRD & INRAE & U Paris Cité,4 Place Jussieu 75252 PARIS CEDEX 05,48.84586715698242,2.354955673217773,,,,
 FairCarboN,CO2_CMPhi,BIP,Labo,,201220269J,,Unité Mixte de Recherche,Bioénergétique et Ingénierie des Protéines,CNRS Délégation Provence et Corse (DR12),CNRS/Aix-Marseille Université,"31, chemin Joseph Aiguier, 13402 Marseille cedex 9",43.25694,5.40709,,,,
-FairCarboN,CarboNium,Site1,Site,,,,,,,,,46.431319,6.463207,,,,
+FairCarboN,CarboNium,Lac Leman,Site,,,,,,,,,46.431319,6.463207,,,,
+FairCarboN,CarboNium,Lac Annecy,Site,,,,,,,,,45.874348,6.162231,,,,
+FairCarboN,CarboNium,Lac Bourget,Site,,,,,,,,,45.697888,5.870755,,,,
