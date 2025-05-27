@@ -7,6 +7,8 @@ from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
 from io import BytesIO
 import base64
+import plotly.express as px
+from wordcloud import WordCloud
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -67,8 +69,10 @@ st.sidebar.title('Filtrage')
 Selection_projets = st.sidebar.multiselect('Projets',options=projects)
 if len(Selection_projets)==0:
     df_selected = df
+    projets_selected = projects
 else:
     df_selected = df[df['projet'].isin(Selection_projets)]
+    projets_selected = Selection_projets
 
 Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires)
 if len(Selection_laboratoires)==0:
@@ -84,9 +88,29 @@ avg_long = sum(df_selected_['Longitude'])/len(df_selected_)
 
 st.sidebar.metric(label='Nombre Unités représentées',value=len(grouped))
 
+###############################################################################################
+########### NUAGE DE MOTS #####################################################################
+###############################################################################################
+
+# Assign the same frequency to each name
+frequencies = {name: 1 for name in df_selected_['laboratoire'].values}
+
+# Generate the word cloud
+wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
+
+# Display in sidebar
+st.sidebar.title("Nuage des noms d'Unités")
+fig0, ax = plt.subplots()
+ax.imshow(wordcloud, interpolation='bilinear')
+ax.axis("off")
+st.sidebar.pyplot(fig0)
+
+
+###############################################################################################
+########### CARTOGRAPHIE ######################################################################
+###############################################################################################
 
 st.title("Carte interactive FAIRCARBON")
-
 st.cache_resource
 def carto(grouped, avg_lat, avg_long):
     # Créer la carte
@@ -159,7 +183,7 @@ with col1:
     st_folium(m, width=800)
 
 ###############################################################################################
-########### LEGENDE ###########################################################################
+########### LEGENDE CARTO #####################################################################
 ###############################################################################################
 
 with col2:
@@ -173,3 +197,52 @@ with col2:
             f'</div>',
             unsafe_allow_html=True
         )
+
+###############################################################################################
+########### ANALYSE LABOS MULTI PROJETS #######################################################
+###############################################################################################
+
+# Count number of unique projects per lab
+lab_project_counts = df.groupby('laboratoire')['projet'].nunique().reset_index()
+lab_project_counts.columns = ['laboratoire', 'num_projects']
+
+# Merge count back into original DataFrame
+df = df.merge(lab_project_counts, on='laboratoire')
+df['num_other_projects'] = df['num_projects'] - 1
+
+# Pivot to count labs per project by number of other projects
+summary = df.groupby(['projet', 'num_other_projects']).size().unstack(fill_value=0)
+
+# Sort projects by total number of labs
+summary = summary.loc[summary.sum(axis=1).sort_values(ascending=False).index]
+
+# Normalize rows to get proportions
+summary_prop = summary.div(summary.sum(axis=1), axis=0)
+
+# Melt dataframe to long format for Plotly
+summary_prop = summary_prop.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
+
+# Convert 'num_other_projects' to string for consistent sorting in plot
+summary_prop['num_other_projects'] = summary_prop['num_other_projects'].astype(str)
+
+# Plotly stacked bar chart
+fig2 = px.bar(
+            summary_prop[summary_prop['projet'].isin(projets_selected)],
+            x='proportion',
+            y='projet',
+            color='num_other_projects',
+            orientation='h',
+            #title="Proportion d'exclusivité des membres des projets de FairCarboN",
+            labels={'proportion': 'Proportion parmi les unités membres du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
+            color_discrete_sequence=px.colors.qualitative.Set3
+        )
+
+fig2.update_layout(
+            yaxis=dict(autorange="reversed"),  # Projects from top-down
+            legend_title="Nombre d'autres implications",
+            #height=25 * len(summary) + 200,  # Dynamically adjust height
+            margin=dict(l=100, r=20, t=60, b=40)
+        )
+
+st.title("Proportion d'exclusivité des membres des projets de FairCarboN")
+st.plotly_chart(fig2, use_container_width=True)
