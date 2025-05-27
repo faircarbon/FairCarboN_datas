@@ -74,26 +74,36 @@ else:
     df_selected = df[df['projet'].isin(Selection_projets)]
     projets_selected = Selection_projets
 
-Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires)
+laboratoires_bis = df[['laboratoire','Type_Data']][df['projet'].isin(projets_selected)]
+laboratoires_bis_Unites = laboratoires_bis[laboratoires_bis['Type_Data']=='Labo']
+laboratoires_bis_sites = laboratoires_bis[laboratoires_bis['Type_Data']=='Site']
+
+Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
 if len(Selection_laboratoires)==0:
     df_selected_ = df_selected
 else:
     df_selected_ = df[df['laboratoire'].isin(Selection_laboratoires)]
 
+Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
+if len(Selection_sites)==0:
+    df_selected__ = df_selected_
+else:
+    df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
+
 # Regrouper par laboratoire
-grouped = df_selected_.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped = df_selected__.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 
-avg_lat = sum(df_selected_['Latitude'])/len(df_selected_)
-avg_long = sum(df_selected_['Longitude'])/len(df_selected_)
+avg_lat = sum(df_selected__['Latitude'])/len(df_selected__)
+avg_long = sum(df_selected__['Longitude'])/len(df_selected__)
 
-st.sidebar.metric(label='Nombre Unités représentées',value=len(grouped))
+st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
 
 ###############################################################################################
 ########### NUAGE DE MOTS #####################################################################
 ###############################################################################################
 
 # Assign the same frequency to each name
-frequencies = {name: 1 for name in df_selected_['laboratoire'].values}
+frequencies = {name: 1 for name in df_selected__['laboratoire'].values}
 
 # Generate the word cloud
 wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
@@ -124,7 +134,7 @@ def carto(grouped, avg_lat, avg_long):
         longitude = row['Longitude']
         type_data = row['Type_Data']
 
-        if type_data == "Analyses":
+        if type_data == "Labo":
             # Créer un graphique en camembert
             fig, ax = plt.subplots(figsize=(1, 1))
             projet_counts = [1] * len(projets)  # égale pondération
@@ -147,7 +157,7 @@ def carto(grouped, avg_lat, avg_long):
             icon_url = f"data:image/png;base64,{encoded}"
             icon = folium.CustomIcon(icon_image=icon_url, icon_size=(35, 35))
         
-        elif type_data == "Modelisation":
+        elif type_data == "Site":
             # Créer un graphique en camembert
             fig, ax = plt.subplots(figsize=(1, 1))
             projet_counts = [1] * len(projets)  # égale pondération
