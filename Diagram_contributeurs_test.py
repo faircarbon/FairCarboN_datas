@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Charger le fichier csv
-csv_file = "Data\QUESTIONNAIRE_PGD_FAIRCARBON_CANETE_2025-05-26_09-45-49_68341c2ca6ce65.94252430.csv"  
+csv_file = r"Data\20250602_Questionnaire_PGD_CANETE_GL.csv"  
 df = pd.read_csv(csv_file, encoding="utf-8", sep=";")
 
 df["NOM_PRENOM"] = df["NOM"]+ "_" +df["PRENOM"]
@@ -51,26 +51,28 @@ import random
 def generate_colors(n=30):
     colors = []
     for _ in range(n):
-        blue = random.randint(0, 255)  # Composante bleue élevée
+        blue = random.randint(0, 50)  # Composante bleue élevée
         red = random.randint(0, 255)    # Composante rouge modérée
         green = random.randint(0, 255)   # Composante verte faible pour éviter le cyan
         colors.append(f'#{red:02x}{green:02x}{blue:02x}')
     return colors
 
 # Générer et afficher la liste
-colors = ['lightgreen','lightblue','lightcyan','lightyellow','lightsalmon',
-          'magenta','lavender','yellowgreen','lightcoral',
-          'firebrick','red','tomato','darksalmon','peru','darkorange',
-          'orange','goldenrod','gold','darkkhaki','lime','yellow',
-          'darkseagreen','green','turquoise','teal','blue','skyblue',
-          'slateblue','blueviolet','plum','purple','hotpink','deeppink']
+colors = ['green','blue','cyan','orange',
+          'magenta','lavender','yellowgreen','pink',
+          'firebrick','red','peru','darkorange',
+          'goldenrod','darkkhaki','lime',
+          'darkseagreen','turquoise','teal',
+          'slateblue','blueviolet','plum','purple','hotpink','deeppink','lightgreen']
+
+#colors = generate_colors(30)
 
 colors_for_links = []
 df_sources = pd.DataFrame(sources)
 sources_init = df_sources.value_counts().values
 colors_for_links_init=[]
-for i, j in enumerate(sources_init):
-    colors_for_links_init.extend(j * [colors[i]])
+for i, j in enumerate(sources):
+    colors_for_links_init.extend([colors[j]])
 
 
 # flow de "LABO" à "AFFILIATION"
@@ -125,7 +127,7 @@ fig = go.Figure(go.Sankey(
 
 fig.update_layout(
     hovermode = 'x',
-    title=dict(text="<b> CONTRIBUTEURS/TRICES GREENSCALE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
+    title=dict(text="<b> CONTRIBUTEURS/TRICES CANETE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
     font=dict(size = 14, color = 'black'),
     plot_bgcolor='black',
     paper_bgcolor='snow'
@@ -139,7 +141,7 @@ fig.add_annotation(dict(font=dict(color="black",size=18), x=0.15, y=1.1, showarr
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.3, y=1.1, showarrow=False, text='<b> TUTELLE </b>'))
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.5, y=1.1, showarrow=False, text='<b> STATUT </b>'))
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.73, y=1.1, showarrow=False, text='<b> COORDINATION </b>'))
-fig.add_annotation(dict(font=dict(color="black",size=18), x=0.9, y=1.1, showarrow=False, text='<b> RESPONSABLE_WP </b>'))
+fig.add_annotation(dict(font=dict(color="black",size=18), x=0.93, y=1.1, showarrow=False, text='<b> RESPONSABLE_WP </b>'))
 fig.add_annotation(dict(font=dict(color="black",size=18), x=1, y=1.1, showarrow=False, text='<b> WP </b>'))
 
 # Visualisation

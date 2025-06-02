@@ -9,9 +9,9 @@ df_i_p = df_i[df_i["NATURE"]=="PRODUITES"]
 df_i_e = df_i[df_i["NATURE"]=="PRE_EXISTANTES"]
 df_= pd.concat([df_i_p, df_i_e], axis=0)
 
-df__ = df_[df_['VOLUMETRIE']>100]
 
-df = df__.sort_values(by='VOLUMETRIE', ascending=True)
+
+df = df_.sort_values(by='VOLUMETRIE', ascending=True)
 
 # Optional: reset the index if you want a clean index after sorting
 df = df.reset_index(drop=True)
@@ -33,7 +33,7 @@ if not required_columns.issubset(df.columns):
 df["VOLUMETRIE"] = pd.to_numeric(df["VOLUMETRIE"], errors="coerce").fillna(0)
 
 # Creation des labels uniques pour les noeuds
-all_labels = list(pd.concat([df["INTITULE_DONNEES"],df["NATURE"],df["TYPE"], df["EXTENSION_FORMAT"],df["LOGICIEL"]]).unique())
+all_labels = list(pd.concat([df["INTITULE_DONNEES"],df["NATURE"]]).unique())
 
 # Mapping à partir des labels index
 label_to_index = {label: i for i, label in enumerate(all_labels)}
@@ -71,7 +71,7 @@ for i, j in enumerate(sources):
     colors_for_links_init.extend([colors[j]])
 
 
-# flow de "NATURE" à "TYPE"
+"""# flow de "NATURE" à "TYPE"
 sources.extend(df["NATURE"].map(label_to_index))
 targets.extend(df["TYPE"].map(label_to_index))
 values.extend(df["VOLUMETRIE"])
@@ -84,11 +84,11 @@ values.extend(df["VOLUMETRIE"])
 # flow de "EXTENSION_FORMAT" à "LOGICIEL"
 sources.extend(df["EXTENSION_FORMAT"].map(label_to_index))
 targets.extend(df["LOGICIEL"].map(label_to_index))
-values.extend(df["VOLUMETRIE"])
+values.extend(df["VOLUMETRIE"])"""
 
 
 #### GESTION DES COULEURS
-colors_for_nodes = ["yellow"] * len(df["INTITULE_DONNEES"].unique()) + ["white"] * len(df["NATURE"].unique()) + ["white"] * (len(df["TYPE"].unique())) + ["white"] * (len(df["EXTENSION_FORMAT"].unique())) + ["white"] * (len(df["LOGICIEL"].unique()))
+colors_for_nodes = ["yellow"] * len(df["INTITULE_DONNEES"].unique()) + ["white"] * len(df["NATURE"].unique()) 
 colors_for_links = colors_for_links_init * (len(required_columns)-1)
 
 ####################################
@@ -122,10 +122,8 @@ fig.update_traces(node_color = colors_for_nodes,
                   link_color = colors_for_links)
 
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.01, y=1.1, showarrow=False, text='<b> INTITULES </b>'))
-fig.add_annotation(dict(font=dict(color="black",size=18), x=0.2, y=1.1, showarrow=False, text='<b> NATURE </b>'))
-fig.add_annotation(dict(font=dict(color="black",size=18), x=0.5, y=1.1, showarrow=False, text='<b> TYPE </b>'))
-fig.add_annotation(dict(font=dict(color="black",size=18), x=0.8, y=1.1, showarrow=False, text='<b> FORMAT </b>'))
-fig.add_annotation(dict(font=dict(color="black",size=18), x=1, y=1.1, showarrow=False, text='<b> LOGICIEL </b>'))
+fig.add_annotation(dict(font=dict(color="black",size=18), x=0.95, y=1.1, showarrow=False, text='<b> NATURE </b>'))
+
 
 
 
