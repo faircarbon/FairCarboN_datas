@@ -82,9 +82,9 @@ laboratoires_bis_sites = laboratoires_bis[laboratoires_bis['Type_Data']=='Site']
 
 col1, col2 = st.sidebar.columns(2)
 with col1:
-    Unites = st.checkbox(label='Unités')
+    Unites = st.checkbox(label='Unités (bords noirs)')
 with col2:
-    sites = st.checkbox(label='Sites')
+    sites = st.checkbox(label='Sites (bords rouges)')
 
 if Unites:
     Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
@@ -390,8 +390,8 @@ project_trace = go.Scatter(
 fig3 = go.Figure(
     data=[edge_trace, unit_trace, project_trace],
     layout=go.Layout(
-        width=1200,
-        height=800,
+        width=600,
+        height=600,
         showlegend=False,
         hovermode='closest',
         margin=dict(b=20, l=20, r=20, t=40),
