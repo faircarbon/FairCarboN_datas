@@ -9,6 +9,8 @@ from io import BytesIO
 import base64
 import plotly.express as px
 from wordcloud import WordCloud
+import plotly.graph_objects as go
+import networkx as nx
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -290,3 +292,114 @@ fig2.update_layout(
 
 st.title("Proportion d'exclusivité des membres des projets de FairCarboN")
 st.plotly_chart(fig2, use_container_width=True)
+
+###############################################################################################
+########### ANALYSE LABOS MULTI PROJETS BIS ###################################################
+###############################################################################################
+
+data_sigles = df_selected__['laboratoire'].values
+data_projet = df_selected__['projet'].values
+data = {
+    'Sigles': data_sigles,
+    'Projet': data_projet
+}
+df = pd.DataFrame(data)
+
+# Create the graph
+G = nx.Graph()
+
+# Add nodes and edges
+for _, row in df.iterrows():
+    nom = row['Sigles']
+    projet = row['Projet']
+    G.add_node(nom, type='person')
+    G.add_node(projet, type='project')
+    G.add_edge(nom, projet)
+
+# Use spring layout with increased spacing
+pos = nx.spring_layout(G, seed=1, iterations=100)
+
+# Separate nodes
+project_x, project_y, project_text = [], [], []
+unit_x, unit_y, unit_text = [], [], []
+
+for node in G.nodes():
+    x, y = pos[node]
+    if G.nodes[node]['type'] == 'project':
+        project_x.append(x)
+        project_y.append(y)
+        project_text.append(f"<b>{node}</b>")
+    else:
+        unit_x.append(x)
+        unit_y.append(y)
+        unit_text.append(node)
+
+# Create edge lines
+edge_x = []
+edge_y = []
+
+for edge in G.edges():
+    x0, y0 = pos[edge[0]]
+    x1, y1 = pos[edge[1]]
+    edge_x += [x0, x1, None]
+    edge_y += [y0, y1, None]
+
+edge_trace = go.Scatter(
+    x=edge_x, y=edge_y,
+    line=dict(width=1, color='#888'),
+    hoverinfo='none',
+    mode='lines'
+)
+
+# Node traces
+unit_trace = go.Scatter(
+    x=unit_x, y=unit_y,
+    mode='markers+text',
+    text=unit_text,
+    textposition="top center",
+    hoverinfo='text',
+    marker=dict(
+        color='gold',
+        size=20,
+        line_width=2
+    ),
+    textfont=dict(
+        size=12,
+        color='black'
+    )
+)
+
+project_trace = go.Scatter(
+    x=project_x, y=project_y,
+    mode='markers+text',
+    text=project_text,
+    textposition="top center",
+    hoverinfo='text',
+    marker=dict(
+        color='green',
+        size=25,
+        line_width=2
+    ),
+    textfont=dict(
+        size=16,
+        color='darkgreen'
+    )
+)
+
+# Final figure
+fig3 = go.Figure(
+    data=[edge_trace, unit_trace, project_trace],
+    layout=go.Layout(
+        width=1200,
+        height=800,
+        showlegend=False,
+        hovermode='closest',
+        margin=dict(b=20, l=20, r=20, t=40),
+        xaxis=dict(showgrid=False, zeroline=False, showticklabels=False),
+        yaxis=dict(showgrid=False, zeroline=False, showticklabels=False)
+    )
+)
+
+# Display the figure
+st.title("Proximité et liens unités et projets")
+st.plotly_chart(fig3, use_container_width=True)

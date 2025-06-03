@@ -928,3 +928,35 @@ FairCarboN,CANETE,Laqueille,Site,,,,,,,,,44.3182351,0.1062737,,,,
 FairCarboN,CANETE,La Bouzule,Site,,,,,,,,,48.7381866,6.3182816,,,,
 FairCarboN,CANETE,Breuil,Site,,,,,,,,,49.7373109,2.9552861,,,,
 FairCarboN,CANETE,Bordeaux,Site,,,,,,,,,44.841225,-0.5800364,,,,
+FairCarboN,RhizoSeqC,AGAP,Labo,PGD RhizoSeqC,201119637B,,Unité mixte,Institut Amélioration Génétique et Adaptation des Plantes méditerranéennes et Tropicales,AGAP,"CIRAD-tutelle (UMR 108),
+INRAE-tutelle (UMR 1334),
+MONTPELLIER-tutelle ( ),
+INRIA-participant ( ),
+Institut Agro-tutelle ( )",03 - Avenue Agropolis - 34398 Montpellier Cedex 5 France,43.6394783,3.8734664,diragap@cirad.fr,10-Sciences agronomiques et écologiques,"LS9-Biotechnology and Biosystems Engineering : Biotechnology using all organisms, biotechnology for environment and food applications, applied plant and animal sciences, bioengineering and synthetic biology, biomass and biofuels, biohazards","M. Manuel RUIZ (Directeur adjoint),
+Mme Claire BILLOT (Directrice),
+M. Gilbert TROUCHE (Directeur adjoint)"
+FairCarboN,RhizoSeqC,BEF,Labo,PGD RhizoSeqC,200117918B,,Unité propre,Biogéochimie des Ecosystèmes Forestiers,BEF,INRAE-tutelle (UR 1138),INRAE Champenoux - Rue d'Amance - 54280 CHAMPENOUX,48.744439,6.348987,,10-Sciences agronomiques et écologiques,,"M. Bernhard ZELLER (Directeur),
+M. Arnaud LEGOUT (Directeur adjoint)"
+FairCarboN,RhizoSeqC,BIAM,Labo,PGD RhizoSeqC,,,Unité Mixte de Recherche,CEA CADARACHE,CEA,CEA/CNRS/Aix-Marseille Université,"CEA Cadarache, Zone Cité des Énergies BIAM, Bâtiment 1900, 13108 Saint-Paul-lez-Durance",43.6997348622178,5.74073707666759,,,,
+FairCarboN,RhizoSeqC,Eco&Sols,Labo,PGD RhizoSeqC,199917859W,,Unité mixte,Ecologie Fonctionnelle et Biogéochimie des Sols et Agrosystèmes,Eco&Sols,"CIRAD-tutelle (UMR 111),
+Institut Agro-tutelle ( ),
+INRAE-tutelle (UMR 1222),
+IRD-tutelle (UMR 210)",Campus Institut Agro Montpellier- 2 PLACE Viala - 34060 MONTPELLIER CEDEX 2,43.617144,3.8547696,eco-sols@ird.fr,10-Sciences agronomiques et écologiques,"LS9-Biotechnology and Biosystems Engineering : Biotechnology using all organisms, biotechnology for environment and food applications, applied plant and animal sciences, bioengineering and synthetic biology, biomass and biofuels, biohazards",
+FairCarboN,RhizoSeqC,ECOSYS,Labo,PGD RhizoSeqC,201521783S,,Unité mixte,Ecologie fonctionnelle et écotoxicologie des agroécosystèmes,ECOSYS,"AGROPARISTECH-tutelle (UMR 1402),
+INRAE-tutelle (UMR 1402),
+U PARIS-SACLAY-tutelle ( )",Campus Agro Paris-Saclay - 22 place de l'Agronomie - 91120 PALAISEAU,48.7140958,2.1959595,umr-ecosys@inrae.fr,10-Sciences agronomiques et écologiques,"LS8-Environmental Biology, Ecology and Evolution : Ecology, biodiversity, environmental change, evolutionary biology, behavioural ecology, microbial ecology, marine biology, ecophysiology, theoretical developments and modelling","M. Erwan PERSONNE (Directeur adjoint),
+M. Cyril GIRARDIN (Directeur adjoint),
+Mme Sylvie LA MANTIA (Directrice adjointe),
+M. Pierre BENOIT (Directeur)"
+FairCarboN,RhizoSeqC,LG-ENS,Labo,PGD RhizoSeqC,,,Unité Mixte,Laboratoire de géologie de l'Ecole Normale Supérieure,LG - ENS,ENS PSL & CNRS,24 Rue Lhomond-75231-PARIS CEDEX 05,48.84309885224512,2.3466817288359008,,,,
+FairCarboN,RhizoSeqC,CEREGE,Labo,PGD RhizoSeqC,,,Unité Mixte,Centre de recherche et d'enseignement des géosciences de l'Environnement,CEREGE,"AMU, CNRS, INRAE, IRD, Collège de France","Technopôle de l’Arbois-Méditerranée
+BP80, CEDEX 04
+13545 Aix-en-Provence
+France",43.4909505,5.3321845,,,,
+FairCarboN,RhizoSeqC,DIADE,Labo,PGD RhizoSeqC,,,Unité Mixte,"Diversité, adpatation et développement des plantes",DIADE,"Cirad, univ Montpellier, IRD, CNRS","911 Avenue Agropolis, 34093 Montpellier, France",43.6458883,3.8683797,,,,
+FairCarboN,RhizoSeqC,LSCE,Labo,PGD RhizoSeqC,,,Unité Mixte de Recherche,CEA SACLAY,CEA,"CEA-tutelle (UMR 8212),
+VERSAILLES-tutelle (UMR 8212),
+U PARIS-SACLAY-participant (UMR 8212),
+CNRS-tutelle (UMR 8212)","CEA Saclay, Bat 714, Site de l’Orme des Merisiers, Chemin de Saint Aubin – RD 128
+F-91191 Gif sur Yvette Cedex",48.712045,2.1472144,,,,
+FairCarboN,RhizoSeqC,ECODIV,Labo,PGD RhizoSeqC,,,,Laboratoire d'Etude et Compréhension de la Biodiversité,,"INRAE 1499, Univ Rouen Normandie","Mont-Saint-Aignan, Seine-Maritime, France",49.46307,1.09364,,,,
