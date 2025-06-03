@@ -244,6 +244,32 @@ with col2:
             unsafe_allow_html=True
         )
 
+
+###############################################################################################
+########### NOMBRE LABOS PAR PROJET #######################################################
+###############################################################################################
+
+compte_labos_par_projet = df["projet"].value_counts()
+
+# Create a list of colors (one per project)
+colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+project_names = compte_labos_par_projet.index
+color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+
+# Assign colors based on the project
+bar_colors = [color_map[project] for project in project_names]
+
+# Plot
+fig0 = go.Figure(go.Bar(
+    x=compte_labos_par_projet.values,
+    y=project_names,
+    orientation='h',
+    marker_color=bar_colors  # Assign custom colors
+))
+
+st.title("Nombre d'unités impliquées dans les projets de FairCarboN")
+st.plotly_chart(fig0, use_container_width=True)
+
 ###############################################################################################
 ########### ANALYSE LABOS MULTI PROJETS #######################################################
 ###############################################################################################
