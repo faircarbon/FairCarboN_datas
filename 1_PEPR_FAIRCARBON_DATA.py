@@ -67,7 +67,7 @@ project_color_map = {project: colors[i % len(colors)] for i, project in enumerat
 ###############################################################################################
 ########### FILTRAGE ##########################################################################
 ###############################################################################################
-st.sidebar.title('Filtrage')
+st.sidebar.success('Selectionnez votre visualisation')
 Selection_projets = st.sidebar.multiselect('Projets',options=projects)
 if len(Selection_projets)==0:
     df_selected = df
@@ -248,37 +248,61 @@ with col2:
 ###############################################################################################
 ########### NOMBRE LABOS PAR PROJET #######################################################
 ###############################################################################################
+col1 , col2 = st.columns(2)
+with col1:
+    compte_labos_par_projet = df["projet"][df['Type_Data']=="Labo"].value_counts()
 
-compte_labos_par_projet = df["projet"].value_counts()
+    # Create a list of colors (one per project)
+    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+    project_names = compte_labos_par_projet.index
+    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
 
-# Create a list of colors (one per project)
-colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-project_names = compte_labos_par_projet.index
-color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+    # Assign colors based on the project
+    bar_colors = [color_map[project] for project in project_names]
 
-# Assign colors based on the project
-bar_colors = [color_map[project] for project in project_names]
+    # Plot
+    fig0 = go.Figure(go.Bar(
+        x=compte_labos_par_projet.values,
+        y=project_names,
+        orientation='h',
+        marker_color=bar_colors  # Assign custom colors
+    ))
 
-# Plot
-fig0 = go.Figure(go.Bar(
-    x=compte_labos_par_projet.values,
-    y=project_names,
-    orientation='h',
-    marker_color=bar_colors  # Assign custom colors
-))
+    st.subheader("Nombre d'unités impliquées")
+    st.plotly_chart(fig0, use_container_width=True)
 
-st.title("Nombre d'unités impliquées dans les projets de FairCarboN")
-st.plotly_chart(fig0, use_container_width=True)
+with col2:
+    compte_sites_par_projet = df["projet"][df['Type_Data']=="Site"].value_counts()
+
+    # Create a list of colors (one per project)
+    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+    project_names = compte_sites_par_projet.index
+    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+
+    # Assign colors based on the project
+    bar_colors = [color_map[project] for project in project_names]
+
+    # Plot
+    fig0b = go.Figure(go.Bar(
+        x=compte_sites_par_projet.values,
+        y=project_names,
+        orientation='h',
+        marker_color=bar_colors  # Assign custom colors
+    ))
+
+    st.subheader("Nombre de sites étudiés")
+    st.plotly_chart(fig0b, use_container_width=True)
 
 ###############################################################################################
 ########### ANALYSE LABOS MULTI PROJETS #######################################################
 ###############################################################################################
 
-# Count number of unique projects per lab
-lab_project_counts = df.groupby('laboratoire')['projet'].nunique().reset_index()
+# Compte du nombre de projets pour chaque labo
+df_units = df[df['Type_Data']=="Labo"]
+lab_project_counts = df_units.groupby('laboratoire')['projet'].nunique().reset_index()
 lab_project_counts.columns = ['laboratoire', 'num_projects']
 
-# Merge count back into original DataFrame
+# Merge count retour dans l'original DataFrame
 df = df.merge(lab_project_counts, on='laboratoire')
 df['num_other_projects'] = df['num_projects'] - 1
 
@@ -316,7 +340,7 @@ fig2.update_layout(
             margin=dict(l=100, r=20, t=60, b=40)
         )
 
-st.title("Proportion d'exclusivité des membres des projets de FairCarboN")
+st.subheader("Proportion d'exclusivité des membres des projets de FairCarboN")
 st.plotly_chart(fig2, use_container_width=True)
 
 ###############################################################################################
@@ -331,21 +355,21 @@ data = {
 }
 df = pd.DataFrame(data)
 
-# Create the graph
+# Creation du graphe
 G = nx.Graph()
 
-# Add nodes and edges
+# Ajout de noeuds et lignes
 for _, row in df.iterrows():
     nom = row['Sigles']
     projet = row['Projet']
-    G.add_node(nom, type='person')
+    G.add_node(nom, type='unité')
     G.add_node(projet, type='project')
     G.add_edge(nom, projet)
 
-# Use spring layout with increased spacing
+# Création de la couche du graphe
 pos = nx.spring_layout(G, seed=1, iterations=100)
 
-# Separate nodes
+# Noeuds séparés pour les projets et pour les unités, pour un affichage spécifique
 project_x, project_y, project_text = [], [], []
 unit_x, unit_y, unit_text = [], [], []
 
@@ -360,7 +384,7 @@ for node in G.nodes():
         unit_y.append(y)
         unit_text.append(node)
 
-# Create edge lines
+# Création des lignes
 edge_x = []
 edge_y = []
 
@@ -377,7 +401,7 @@ edge_trace = go.Scatter(
     mode='lines'
 )
 
-# Node traces
+# Préparation des Noeuds
 unit_trace = go.Scatter(
     x=unit_x, y=unit_y,
     mode='markers+text',
@@ -412,7 +436,7 @@ project_trace = go.Scatter(
     )
 )
 
-# Final figure
+# Préparation de la figure
 fig3 = go.Figure(
     data=[edge_trace, unit_trace, project_trace],
     layout=go.Layout(
@@ -426,6 +450,6 @@ fig3 = go.Figure(
     )
 )
 
-# Display the figure
-st.title("Proximité et liens unités et projets")
+# Affichage
+st.subheader("Liens entre unités et projets")
 st.plotly_chart(fig3, use_container_width=True)
