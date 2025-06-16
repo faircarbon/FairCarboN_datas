@@ -49,7 +49,10 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
             organisme.append(doc['instStructAcronym_s'])
             labo_all.append(doc['authIdHasStructure_fs'])
             titre.append(doc['title_s'])
-            labo.append(doc['labStructName_s'])
+            try:
+                labo.append(doc['labStructName_s'])
+            except:
+                labo.append('Structure_non_mentionnée')
             source.append('HAL')
 
         reponse_df = pd.DataFrame({'Store':source,
