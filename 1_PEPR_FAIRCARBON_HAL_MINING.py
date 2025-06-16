@@ -40,10 +40,10 @@ taille_subsubtitles = "25px"
 
 st.title(":grey[Extraction des publications sur HAL]")
 
-start_year=2025
+start_year=2020
 end_year=2025
 #Liste_chercheurs = ["jean-philippe jenny","jerome demarty"]
-Liste_chercheurs = ["Jérôme Demarty"]
+Liste_chercheurs = ["Jérôme Demarty","Jean-Philippe Jenny"]
 
 with st.spinner("Recherche en cours"):
     liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_auteur','Titre']
@@ -54,13 +54,23 @@ with st.spinner("Recherche en cours"):
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
-        dfi['Labo_filter1'] = dfi['Labo_all'].apply(lambda lst: [item for item in lst if s in item])
-        dfi['Labo_filter2'] = dfi['Labo_filter1'].apply(lambda lst: [item.split('_')[-1] for item in lst])
-        dfi['Auteur_Labo'] = dfi.apply(lambda row: list(set(row['Labo_filter2']) & set(row['Labo_'])), axis=1)
         df_global_hal = dfi
     df_global_hal.sort_values(by='Ids', inplace=True, ascending=False)
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
+
+    df_global_hal['Labo_filter1'] = 0
+    df_global_hal['Labo_filter2'] = 0
+    df_global_hal['Auteur_Labo'] = 0
+
+    for i in range(len(df_global_hal)):
+        #df_global_hal['Labo_filter1'].loc[i] = dfi['Labo_all'].loc[i].apply(lambda lst: [item for item in lst if df_global_hal['Auteur_recherché'].loc[i] in item])
+        df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
+        #dfi['Labo_filter2'] = dfi['Labo_filter1'].apply(lambda lst: [item.split('_')[-1] for item in lst])
+        df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
+        #dfi['Auteur_Labo'] = [[item for item in a if item in b]for a, b in zip(dfi['Labo_filter2'], dfi['Labo_'])]
+        df_global_hal['Auteur_Labo'].loc[i] = [item for item in df_global_hal['Labo_filter2'].loc[i] if item in df_global_hal['Labo_'].loc[i]]
+
 
 
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
@@ -69,4 +79,4 @@ st.metric(label="Nombre de publications globales", value=len(df_global_hal))
 
 st.metric(label="Nombre de publications dans la collection FairCarboN", value=len(filtered_df))
 
-st.dataframe(filtered_df)
+st.dataframe(filtered_df[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo']])
