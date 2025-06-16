@@ -35,6 +35,38 @@ couleur_subsubtitles = (60,150,160)
 taille_subsubtitles = "25px"
 
 ###############################################################################################
+########### TRANSFORMATION FICHIER XLS ########################################################
+###############################################################################################
+@st.cache_data
+def read_data():
+    # Chemin vers le fichier Excel
+    fichier_excel = "Data\FairCarboN_RNSR_copie.xlsx"
+    # Lecture du fichier Excel dans un DataFrame
+    df = pd.read_excel(fichier_excel, sheet_name=1,header=0, engine='openpyxl')
+    # Transformation du fichier en csv
+    df.to_csv("Data\FairCarboN_RNSR_copie.csv", index=False, encoding="utf-8")
+
+    ######## NETTOYAGES EVENTUELS ######################
+
+    # filtrer les lignes incomplètes
+    df_filtré = df.dropna(subset=["Latitude", "Longitude","Acronyme projet","Acronyme unité"])
+    # Renommer les colonnes
+    df_filtré_renommé = df_filtré.rename(columns={
+        "Acronyme projet": "projet",
+        "Acronyme unité": "laboratoire"
+    })
+    df_filtré_renommé.to_csv("Data\FairCarboN_RNSR_copie_filtré_renommé.csv", index=False)
+
+    return df_filtré_renommé
+
+# Charger les données
+df = read_data()
+
+st.dataframe(df[df['Type_Data']=='Contact'])
+
+#st.dataframe(df[df['Type_Data']=="Contact"])
+
+###############################################################################################
 ########### REQUETES HAL ######################################################################
 ###############################################################################################
 
@@ -42,8 +74,8 @@ st.title(":grey[Extraction des publications sur HAL]")
 
 start_year=2020
 end_year=2025
-#Liste_chercheurs = ["jean-philippe jenny","jerome demarty"]
-Liste_chercheurs = ["Jérôme Demarty","Jean-Philippe Jenny"]
+
+Liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
 
 with st.spinner("Recherche en cours"):
     liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_auteur','Titre']
@@ -64,13 +96,9 @@ with st.spinner("Recherche en cours"):
     df_global_hal['Auteur_Labo'] = 0
 
     for i in range(len(df_global_hal)):
-        #df_global_hal['Labo_filter1'].loc[i] = dfi['Labo_all'].loc[i].apply(lambda lst: [item for item in lst if df_global_hal['Auteur_recherché'].loc[i] in item])
         df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
-        #dfi['Labo_filter2'] = dfi['Labo_filter1'].apply(lambda lst: [item.split('_')[-1] for item in lst])
         df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
-        #dfi['Auteur_Labo'] = [[item for item in a if item in b]for a, b in zip(dfi['Labo_filter2'], dfi['Labo_'])]
         df_global_hal['Auteur_Labo'].loc[i] = [item for item in df_global_hal['Labo_filter2'].loc[i] if item in df_global_hal['Labo_'].loc[i]]
-
 
 
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
@@ -79,4 +107,8 @@ st.metric(label="Nombre de publications globales", value=len(df_global_hal))
 
 st.metric(label="Nombre de publications dans la collection FairCarboN", value=len(filtered_df))
 
-st.dataframe(filtered_df[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo']])
+#st.dataframe(filtered_df[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo']])
+
+df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
+
+st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo','In_FairCarboN']])
