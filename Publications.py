@@ -32,6 +32,10 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
         author = []
         collection = []
         collection_code = []
+        organisme = []
+        labo_all = []
+        labo = []
+        titre = []
         for doc in reponse.json()['response']['docs']:
             ids.append(int(doc['docid']))
             labels.append(soup(doc['label_s'], 'html.parser').text)
@@ -42,6 +46,10 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
             author.append(doc['authLastNameFirstName_s'])#authIdHal_i
             collection.append(doc['collName_s'])
             collection_code.append(doc['collCode_s'])
+            organisme.append(doc['instStructAcronym_s'])
+            labo_all.append(doc['authIdHasStructure_fs'])
+            titre.append(doc['title_s'])
+            labo.append(doc['labStructName_s'])
             source.append('HAL')
 
         reponse_df = pd.DataFrame({'Store':source,
@@ -54,7 +62,11 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
                                    'Date de production':date,
                                    'Collection':collection,
                                    'Collection_code':collection_code,
-                                   'Auteur':author})
+                                   'Auteur_organisme':organisme,
+                                   'Auteur':author,
+                                   'Labo_all':labo_all,
+                                   'Labo_':labo,
+                                   'Titre':titre})
 
     except requests.exceptions.HTTPError as errh:
         afficher_erreur_api(errh)
