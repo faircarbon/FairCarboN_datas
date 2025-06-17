@@ -45,8 +45,14 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
             docTypes.append(doc['docType_s'])
             date.append(doc['producedDateY_i'])
             author.append(doc['authLastNameFirstName_s'])#authIdHal_i
-            collection.append(doc['collName_s'])
-            collection_code.append(doc['collCode_s'])
+            try:
+                collection.append(doc['collName_s'])
+            except:
+                collection.append('Collection_inexistante')
+            try:
+                collection_code.append(doc['collCode_s'])
+            except:
+                collection_code.append('Collection_code_inexistant')
             try:
                 organisme.append(doc['instStructAcronym_s'])
             except:
