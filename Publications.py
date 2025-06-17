@@ -36,6 +36,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
         labo_all = []
         labo = []
         titre = []
+        language = []
         for doc in reponse.json()['response']['docs']:
             ids.append(int(doc['docid']))
             labels.append(soup(doc['label_s'], 'html.parser').text)
@@ -46,13 +47,20 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
             author.append(doc['authLastNameFirstName_s'])#authIdHal_i
             collection.append(doc['collName_s'])
             collection_code.append(doc['collCode_s'])
-            organisme.append(doc['instStructAcronym_s'])
+            try:
+                organisme.append(doc['instStructAcronym_s'])
+            except:
+                organisme.append('Organisme_non_mentionné')
             labo_all.append(doc['authIdHasStructure_fs'])
             titre.append(doc['title_s'])
             try:
                 labo.append(doc['labStructName_s'])
             except:
                 labo.append('Structure_non_mentionnée')
+            try:
+                language.append(doc['language_s'])
+            except:
+                language.append('Email_non_mentionné')
             source.append('HAL')
 
         reponse_df = pd.DataFrame({'Store':source,
@@ -69,7 +77,8 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
                                    'Auteur':author,
                                    'Labo_all':labo_all,
                                    'Labo_':labo,
-                                   'Titre':titre})
+                                   'Titre':titre,
+                                   'Langue':language})
 
     except requests.exceptions.HTTPError as errh:
         afficher_erreur_api(errh)

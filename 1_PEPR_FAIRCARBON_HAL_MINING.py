@@ -40,11 +40,11 @@ taille_subsubtitles = "25px"
 @st.cache_data
 def read_data():
     # Chemin vers le fichier Excel
-    fichier_excel = "Data\FairCarboN_RNSR_copie2.xlsx"
+    fichier_excel = "Data\FairCarboN_RNSR_copie.xlsx"
     # Lecture du fichier Excel dans un DataFrame
     df = pd.read_excel(fichier_excel, sheet_name=1,header=0, engine='openpyxl')
     # Transformation du fichier en csv
-    df.to_csv("Data\FairCarboN_RNSR_copie2.csv", index=False, encoding="utf-8")
+    df.to_csv("Data\FairCarboN_RNSR_copie.csv", index=False, encoding="utf-8")
 
     ######## NETTOYAGES EVENTUELS ######################
 
@@ -55,7 +55,7 @@ def read_data():
         "Acronyme projet": "projet",
         "Acronyme unité": "laboratoire"
     })
-    df_filtré_renommé.to_csv("Data\FairCarboN_RNSR_copie_filtré_renommé2.csv", index=False)
+    df_filtré_renommé.to_csv("Data\FairCarboN_RNSR_copie_filtré_renommé.csv", index=False)
 
     return df_filtré_renommé
 
@@ -78,10 +78,10 @@ Liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
 #print(reponse.json()['response']['docs'][-1])
 
 with st.spinner("Recherche en cours"):
-    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_auteur','Titre']
+    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_auteur','Titre','Langue']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     for i, s in enumerate(Liste_chercheurs):
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s'
         df = afficher_publications_hal(url_type, s)
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -108,8 +108,8 @@ st.metric(label="Nombre de contacts étudiés", value=len(Liste_chercheurs))
 col1,col2 = st.columns(2)
 
 with col1:
-    st.metric(label="Nombre de publications global", value=len(set(df_global_hal['Titre_bis'].values)))
-    st.metric(label="Nombre de publications dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'].values)))
+    st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Titre_bis'].values)))
+    st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'].values)))
 
 with col2:
     st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_bis'][df_global_hal['Type de document']=="ART"].values)))
@@ -117,4 +117,4 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo','In_FairCarboN']])
+st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo','Langue','In_FairCarboN']])
