@@ -62,7 +62,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
             try:
                 labo.append(doc['labStructName_s'])
             except:
-                labo.append('Structure_non_mentionnée')
+                labo.append(['Structure_non_mentionnée'])
             try:
                 language.append(doc['language_s'])
             except:

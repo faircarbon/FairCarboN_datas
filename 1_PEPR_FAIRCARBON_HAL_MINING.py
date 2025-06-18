@@ -71,16 +71,17 @@ st.title(":grey[Etude des publications sur HAL]")
 start_year=2023
 end_year=2025
 
-Liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
+liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
 #Liste_chercheurs = ['Claire Chenu']
 #requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
 #reponse = requests.get(requete_api_hal, timeout=5)
 #print(reponse.json()['response']['docs'][-1])
 
-with st.spinner("Recherche en cours"):
-    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_auteur','Titre','Langue']
+@st.cache_data
+def acquisition_data(start_year,end_year,liste_chercheurs):
+    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
-    for i, s in enumerate(Liste_chercheurs):
+    for i, s in enumerate(liste_chercheurs):
         url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s'
         df = afficher_publications_hal(url_type, s)
         dfi = pd.concat([df_global_hal,df], axis=0)
@@ -91,19 +92,28 @@ with st.spinner("Recherche en cours"):
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
 
+    return df_global_hal
+
+def intersect_lists(row):
+    return list(set(row['Labo_filter2']) & set(row['Labo_']))
+
+with st.spinner("Recherche en cours"):
+    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs)
+
     df_global_hal['Labo_filter1'] = 0
     df_global_hal['Labo_filter2'] = 0
-    df_global_hal['Auteur_Labo'] = 0
 
     for i in range(len(df_global_hal)):
         df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
         df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
-        df_global_hal['Auteur_Labo'].loc[i] = [item for item in df_global_hal['Labo_filter2'].loc[i] if item in df_global_hal['Labo_'].loc[i]]
+
+    df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
 
 df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
 
-st.metric(label="Nombre de contacts étudiés", value=len(Liste_chercheurs))
+
+st.metric(label="Nombre de contacts étudiés", value=len(set(liste_chercheurs)))
 
 col1,col2 = st.columns(2)
 
@@ -117,4 +127,4 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Auteur_Labo','Langue','In_FairCarboN']])
+st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo']])
