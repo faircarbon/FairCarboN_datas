@@ -100,12 +100,18 @@ def intersect_lists(row):
 with st.spinner("Recherche en cours"):
     df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs)
 
-    df_global_hal['Labo_filter1'] = 0
-    df_global_hal['Labo_filter2'] = 0
+    df_global_hal['Labo_filter1'] = df_global_hal['Labo_all']
+    df_global_hal['Labo_filter2'] = df_global_hal['Labo_all']
 
     for i in range(len(df_global_hal)):
-        df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
-        df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
+        try:
+            df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
+        except:
+            pass
+        try:
+            df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
+        except:
+            pass
 
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
 

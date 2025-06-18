@@ -57,7 +57,10 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
                 organisme.append(doc['instStructAcronym_s'])
             except:
                 organisme.append('Organisme_non_mentionné')
-            labo_all.append(doc['authIdHasStructure_fs'])
+            try:
+                labo_all.append(doc['authIdHasStructure_fs'])
+            except:
+                labo_all.append(['_pasdelabo'])
             titre.append(doc['title_s'])
             try:
                 labo.append(doc['labStructName_s'])
