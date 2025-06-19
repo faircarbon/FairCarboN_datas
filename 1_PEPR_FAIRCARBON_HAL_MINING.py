@@ -92,14 +92,6 @@ def acquisition_data(start_year,end_year,liste_chercheurs):
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
 
-    return df_global_hal
-
-def intersect_lists(row):
-    return list(set(row['Labo_filter2']) & set(row['Labo_']))
-
-with st.spinner("Recherche en cours"):
-    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs)
-
     df_global_hal['Labo_filter1'] = df_global_hal['Labo_all']
     df_global_hal['Labo_filter2'] = df_global_hal['Labo_all']
 
@@ -114,20 +106,27 @@ with st.spinner("Recherche en cours"):
             pass
 
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
+    df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
 
-df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
+    return df_global_hal
+
+def intersect_lists(row):
+    return list(set(row['Labo_filter2']) & set(row['Labo_']))
+
+with st.spinner("Recherche en cours"):
+    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs)
+
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
-
-
-st.metric(label="Nombre de contacts étudiés", value=len(set(liste_chercheurs)))
 
 col1,col2 = st.columns(2)
 
 with col1:
+    st.metric(label="Nombre de contacts étudiés", value=len(set(liste_chercheurs)))
     st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Titre_bis'].values)))
     st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'].values)))
 
 with col2:
+    st.metric(label="Nombre de contacts trouvés dans HAL", value=len(set(df_global_hal['Auteur_recherché'])))
     st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_bis'][df_global_hal['Type de document']=="ART"].values)))
     st.metric(label="Nombre d'artciles dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'][filtered_df['Type de document']=="ART"].values)))
 
