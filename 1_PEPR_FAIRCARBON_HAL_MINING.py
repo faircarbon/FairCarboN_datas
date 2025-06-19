@@ -71,19 +71,24 @@ st.title(":grey[Etude des publications sur HAL]")
 start_year=2023
 end_year=2025
 
-liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
+df_research = df[['projet','laboratoire']][df['Type_Data']=='Contact']
+df_research.reset_index(inplace=True)
+df_research.drop(columns='index', inplace=True)
+
+liste_chercheurs = df_research['laboratoire']
+liste_projet = df_research['projet']
 #Liste_chercheurs = ['Claire Chenu']
 #requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
 #reponse = requests.get(requete_api_hal, timeout=5)
 #print(reponse.json()['response']['docs'][-1])
 
 @st.cache_data
-def acquisition_data(start_year,end_year,liste_chercheurs):
-    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
+def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
+    liste_columns_hal = ['Store','Auteur_recherché','Projet','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     for i, s in enumerate(liste_chercheurs):
         url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s'
-        df = afficher_publications_hal(url_type, s)
+        df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
@@ -114,7 +119,7 @@ def intersect_lists(row):
     return list(set(row['Labo_filter2']) & set(row['Labo_']))
 
 with st.spinner("Recherche en cours"):
-    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs)
+    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
 
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
 
@@ -132,4 +137,6 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
+st.dataframe(df_global_hal[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
+
+st.write(liste_chercheurs)

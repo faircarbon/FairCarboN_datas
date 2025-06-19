@@ -17,7 +17,7 @@ def afficher_erreur_api(erreur):
     print(f"Les résultats HAL n'ont pas pu être récupérés ({erreur}).")
 
 
-def afficher_publications_hal(requete_api_hal: str, auteur):
+def afficher_publications_hal(requete_api_hal: str, auteur, projet):
     """Interroge l'API HAL et affiche les infos des documents de la réponse
     Paramètre = requête API HAL avec wt=json (str)"""
     try:
@@ -79,6 +79,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
 
         reponse_df = pd.DataFrame({'Store':source,
                                    'Auteur_recherché':auteur,
+                                   'Projet':projet,
                                    'Ids':ids,
                                    'Titre et auteurs':labels,
                                    'Uri':uris,
