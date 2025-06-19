@@ -10,6 +10,7 @@ import plotly.graph_objects as go
 from Publications import afficher_publications_hal
 import datetime
 import requests
+import seaborn as sns
 
 
 ###############################################################################################
@@ -139,4 +140,13 @@ df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'
 
 st.dataframe(df_global_hal[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
 
-st.write(liste_chercheurs)
+# Count the number of rows per person
+row_counts = df_global_hal['Auteur_recherché'].value_counts().reset_index()
+row_counts.columns = ['Auteur_recherché', 'compte']
+
+# Box plot using Plotly
+fig = px.box(row_counts, y='compte', points="all",hover_data=['Auteur_recherché'], title="Distribution du nombre de publications")
+
+# Affichage
+st.subheader("Nombre de publications par chercheur")
+st.plotly_chart(fig, use_container_width=True)
