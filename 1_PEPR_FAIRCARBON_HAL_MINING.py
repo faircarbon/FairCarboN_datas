@@ -79,10 +79,10 @@ liste_chercheurs = df['laboratoire'][df['Type_Data']=='Contact']
 
 @st.cache_data
 def acquisition_data(start_year,end_year,liste_chercheurs):
-    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue']
+    liste_columns_hal = ['Store','Auteur_recherché','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     for i, s in enumerate(liste_chercheurs):
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s'
         df = afficher_publications_hal(url_type, s)
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -132,4 +132,4 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo']])
+st.dataframe(df_global_hal[['Auteur_recherché','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])

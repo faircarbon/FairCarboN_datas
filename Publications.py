@@ -37,6 +37,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
         labo = []
         titre = []
         language = []
+        mots_cles = []
         for doc in reponse.json()['response']['docs']:
             ids.append(int(doc['docid']))
             labels.append(soup(doc['label_s'], 'html.parser').text)
@@ -70,6 +71,10 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
                 language.append(doc['language_s'])
             except:
                 language.append('Email_non_mentionné')
+            try:
+                mots_cles.append(doc['keyword_s'])
+            except:
+                mots_cles.append([])
             source.append('HAL')
 
         reponse_df = pd.DataFrame({'Store':source,
@@ -87,7 +92,8 @@ def afficher_publications_hal(requete_api_hal: str, auteur):
                                    'Labo_all':labo_all,
                                    'Labo_':labo,
                                    'Titre':titre,
-                                   'Langue':language})
+                                   'Langue':language,
+                                   'Mots_Clés':mots_cles})
 
     except requests.exceptions.HTTPError as errh:
         afficher_erreur_api(errh)
