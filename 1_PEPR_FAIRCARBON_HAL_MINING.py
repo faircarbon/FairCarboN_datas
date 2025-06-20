@@ -11,6 +11,8 @@ from Publications import afficher_publications_hal
 import datetime
 import requests
 import seaborn as sns
+from deep_translator import GoogleTranslator
+from stqdm import stqdm
 
 
 ###############################################################################################
@@ -66,11 +68,9 @@ df = read_data()
 ###############################################################################################
 ########### REQUETES HAL ######################################################################
 ###############################################################################################
-
-st.title(":grey[Etude des publications sur HAL]")
-
-start_year=2023
+start_year=2024
 end_year=2025
+st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
 
 df_research = df[['projet','laboratoire']][df['Type_Data']=='Contact']
 df_research.reset_index(inplace=True)
@@ -87,6 +87,7 @@ liste_projet = df_research['projet']
 def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     liste_columns_hal = ['Store','Auteur_recherché','Projet','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
+    #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
         url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s'
         df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
@@ -94,6 +95,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
         df_global_hal = dfi
+        #progress.update(i/len(liste_chercheurs))
     df_global_hal.sort_values(by='Ids', inplace=True, ascending=False)
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
@@ -119,8 +121,18 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
 def intersect_lists(row):
     return list(set(row['Labo_filter2']) & set(row['Labo_']))
 
-with st.spinner("Recherche en cours"):
-    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
+# Translate French titles to English
+def translate_list(titles, languages):
+    translated = []
+    for title, lang in zip(titles, languages):
+        if lang == 'fr':
+            translated.append(GoogleTranslator(source='fr', target='en').translate(title))
+        else:
+            translated.append(title)
+    return translated
+
+
+df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
 
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
 
@@ -138,15 +150,65 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-st.dataframe(df_global_hal[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
+#st.dataframe(df_global_hal[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
 
-# Count the number of rows per person
-row_counts = df_global_hal['Auteur_recherché'].value_counts().reset_index()
+projets = list(set(df_global_hal['Projet']))
+auteurs = list(set(df_global_hal['Auteur_recherché']))
+col1,col2 = st.columns(2)
+with col1:
+    choix_projet = st.multiselect(label='Projets', options=projets )
+    if len(choix_projet)==0:
+        choix_p = projets
+    else:
+        choix_p = choix_projet
+with col2:
+    choix_auteur = st.multiselect(label='Auteur(e)s', options=list(set(df_global_hal['Auteur_recherché'][df_global_hal['Projet'].isin(choix_p)])))
+    if len(choix_auteur)==0:
+        choix_a = df_global_hal['Auteur_recherché'][df_global_hal['Projet'].isin(choix_p)]
+    else:
+        choix_a = choix_auteur
+
+df_global_hal_proj =df_global_hal[df_global_hal['Projet'].isin(choix_p)][df_global_hal['Auteur_recherché'].isin(choix_a)]
+
+col1,col2 = st.columns(2)
+with col1:
+    st.metric(label='Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_bis']))))
+with col2:
+    st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
+
+
+# Nombre de ligne par auteur
+row_counts = df_global_hal_proj['Auteur_recherché'].value_counts().reset_index()
 row_counts.columns = ['Auteur_recherché', 'compte']
 
 # Box plot using Plotly
-fig = px.box(row_counts, y='compte', points="all",hover_data=['Auteur_recherché'], title="Distribution du nombre de publications")
+fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Auteur_recherché'], title="Distribution du nombre de publications")
+
+projects_count = df_global_hal_proj['Projet'].value_counts().reset_index()
+projects_count.columns = ['Projet', 'compte']
+
+fig = px.pie(
+    projects_count,
+    names='Projet',
+    values='compte',
+    title='Répartition des publications par projet',
+    hole=0.3  
+)
 
 # Affichage
 st.subheader("Nombre de publications par chercheur")
-st.plotly_chart(fig, use_container_width=True)
+col1,col2 = st.columns(2)
+with col1:
+    st.plotly_chart(fig, use_container_width=True)
+with col2:
+    st.plotly_chart(fig2, use_container_width=True)
+
+
+st.dataframe(df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
+
+clustering = st.checkbox(label='Clustering')
+if clustering:
+    df_test = df_global_hal.head(123)
+    df_test['translated_titles'] = df_test.apply(lambda row: translate_list(row['Titre'], row['Langue']), axis=1)
+
+    st.dataframe(df_test)
