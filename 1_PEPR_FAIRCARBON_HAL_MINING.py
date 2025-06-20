@@ -217,4 +217,4 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-st.dataframe(df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre_bis','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']][df_global_hal_proj['In_FairCarboN']==True])
+st.dataframe(df_global_hal_proj[['Auteur_recherché','Type de document','Date de production','Titre_bis', 'In_FairCarboN']].drop_duplicates())
