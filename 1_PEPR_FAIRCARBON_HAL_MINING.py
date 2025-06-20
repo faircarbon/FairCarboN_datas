@@ -68,7 +68,7 @@ df = read_data()
 ###############################################################################################
 ########### REQUETES HAL ######################################################################
 ###############################################################################################
-start_year=2024
+start_year=2023
 end_year=2025
 st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
 
@@ -176,15 +176,16 @@ with col1:
 with col2:
     st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
 
-
 # Nombre de ligne par auteur
-row_counts = df_global_hal_proj['Auteur_recherché'].value_counts().reset_index()
-row_counts.columns = ['Auteur_recherché', 'compte']
+unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_bis']].drop_duplicates()
+row_counts = unique_person_titles['Auteur_recherché'].value_counts().reset_index()
+row_counts.columns = ['Titre', 'compte']
 
 # Box plot using Plotly
-fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Auteur_recherché'], title="Distribution du nombre de publications")
+fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Titre'], title="Distribution du nombre de publications")
 
-projects_count = df_global_hal_proj['Projet'].value_counts().reset_index()
+unique_projet_titles = df_global_hal_proj[['Projet','Titre_bis']].drop_duplicates()
+projects_count = unique_projet_titles['Projet'].value_counts().reset_index()
 projects_count.columns = ['Projet', 'compte']
 
 fig = px.pie(
@@ -195,20 +196,25 @@ fig = px.pie(
     hole=0.3  
 )
 
+fig1 = px.pie(
+    projects_count,
+    names='Projet',
+    values='compte',
+    title='Participation aux projets',
+    hole=0.3
+)
+fig1.update_traces(textinfo='label')
+fig1.update_layout(showlegend=False)
+
 # Affichage
-st.subheader("Nombre de publications par chercheur")
 col1,col2 = st.columns(2)
 with col1:
-    st.plotly_chart(fig, use_container_width=True)
+    if len(choix_auteur)==0:
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.plotly_chart(fig1, use_container_width=True)
 with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-st.dataframe(df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
-
-clustering = st.checkbox(label='Clustering')
-if clustering:
-    df_test = df_global_hal.head(123)
-    df_test['translated_titles'] = df_test.apply(lambda row: translate_list(row['Titre'], row['Langue']), axis=1)
-
-    st.dataframe(df_test)
+st.dataframe(df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre_bis','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']][df_global_hal_proj['In_FairCarboN']==True])
