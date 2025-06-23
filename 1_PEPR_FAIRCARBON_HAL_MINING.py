@@ -18,6 +18,7 @@ from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.metrics.pairwise import cosine_similarity
 from sklearn.metrics import silhouette_score
+from sentence_transformers import SentenceTransformer
 import numpy as np
 
 
@@ -89,6 +90,24 @@ liste_projet = df_research['projet']
 #reponse = requests.get(requete_api_hal, timeout=5)
 #print(reponse.json()['response']['docs'][-1])
 
+def intersect_lists(row):
+    return list(set(row['Labo_filter2']) & set(row['Labo_']))
+
+# Translate French titles to English
+def translate_list(titles, languages):
+    translated = []
+    for title, lang in zip(titles, languages):
+        if lang == 'fr':
+            try:
+                translated.append(GoogleTranslator(source='fr', target='en').translate(title))
+            except:
+                translated.append(title)
+        else:
+            translated.append(title)
+    return translated
+
+
+
 @st.cache_data
 def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     liste_columns_hal = ['Store','Auteur_recherché','Projet','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
@@ -122,21 +141,12 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
     df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
     df_global_hal['Langue_bis'] = df_global_hal['Langue'].apply(lambda row: row[0])
+    df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
+    df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
+    translated = translate_list(df_global_hal['combined'].values, df_global_hal['Langue_bis'].values)
+    df_global_hal['combined']=translated
 
     return df_global_hal
-
-def intersect_lists(row):
-    return list(set(row['Labo_filter2']) & set(row['Labo_']))
-
-# Translate French titles to English
-def translate_list(titles, languages):
-    translated = []
-    for title, lang in zip(titles, languages):
-        if lang == 'fr':
-            translated.append(GoogleTranslator(source='fr', target='en').translate(title))
-        else:
-            translated.append(title)
-    return translated
 
 
 df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
@@ -157,7 +167,6 @@ with col2:
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-#st.dataframe(df_global_hal[['Auteur_recherché','Projet','Type de document','Date de production','Titre','Langue','In_FairCarboN','Auteur_Labo','Mots_Clés']])
 
 projets = list(set(df_global_hal['Projet']))
 auteurs = list(set(df_global_hal['Auteur_recherché']))
@@ -224,79 +233,169 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-df_final = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre_bis','Langue_bis','In_FairCarboN']].drop_duplicates()
-df_final_english = df_final[df_final['Langue_bis']=='en']
+df_inter = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','combined','In_FairCarboN']].drop_duplicates()
 
-df_test = df_final_english.copy()
+df_final = df_inter[['Projet','Type de document','Date de production','combined','In_FairCarboN']].drop_duplicates()
+df_test = df_final.copy()
+df_test.reset_index(inplace=True)
+df_test.drop(columns='index', inplace=True)
 #df_test = df_final_english[df_final_english['Projet']=='SLAM-B']
 
-#st.dataframe(df_test)
+st.dataframe(df_test)
+
+clustering1 = st.checkbox(label='clustering_v1')
+
+clustering2 = st.checkbox(label='clustering_v2')
+
+if clustering1:
+    st.subheader('Clustering TF-IDF')
+
+    # Step 1: Vectorize titles using TF-IDF
+    vectorizer = TfidfVectorizer(stop_words='english')
+    X = vectorizer.fit_transform(df_test['combined'])
+
+    st.subheader('Finding K')
+    # Range of cluster numbers to try
+    K_range = range(1, 15)
+    inertias = []
+
+    for k in K_range:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        kmeans.fit(X)
+        inertias.append(kmeans.inertia_)
+
+    fig_k = go.Figure()
+    fig_k.add_trace(go.Scatter(
+            x=list(K_range),
+            y=inertias,
+            mode='lines+markers',
+            marker=dict(size=10),
+            name='Inertia'
+        ))
+
+    fig_k.update_layout(
+            title="Elbow Method for Optimal Number of Clusters",
+            xaxis_title="Number of Clusters (k)",
+            yaxis_title="Inertia (Within-Cluster Sum of Squares)",
+        )
+
+    st.plotly_chart(fig_k, se_container_width=True)
+
+    # Step 2: Apply KMeans clustering
+    num_clusters = st.slider(label='Nombre de clusters', value=10, max_value=20)
+    kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+    df_test['cluster'] = kmeans.fit_predict(X)
+
+    # Optional: Visualize using PCA
+    pca = PCA(n_components=2)
+    reduced = pca.fit_transform(X.toarray())
+    df_test['pca_x'] = reduced[:, 0]
+    df_test['pca_y'] = reduced[:, 1]
+
+    score = silhouette_score(X, df_test['cluster'])
+
+    # Get the cluster centers and feature names
+    terms = vectorizer.get_feature_names_out()
+    order_centroids = kmeans.cluster_centers_.argsort()[:, ::-1]
+    top_terms = [terms[order_centroids[i, 0]] for i in range(num_clusters)]
+    df_test['cluster_label'] = df_test['cluster'].apply(lambda x: f"Cluster {x} : {top_terms[x]}")
+
+    fig_clustering = px.scatter(
+                                    df_test,
+                                    x='pca_x',
+                                    y='pca_y',
+                                    color='cluster_label',
+                                    hover_data=['combined'],
+                                    title=f"Book Title Clusters (TF-IDF + KMeans) / Silhouette Score: {score:.3f}",
+                                    labels={'color': 'Cluster'},
+                                    color_discrete_sequence=px.colors.qualitative.Dark2
+                                )
+    
+    fig_clustering_proj = px.scatter(
+                                    df_test,
+                                    x='pca_x',
+                                    y='pca_y',
+                                    color='Projet',
+                                    hover_data=['combined'],
+                                    title=f"Book Title Clusters (TF-IDF + KMeans)",
+                                    labels={'color': 'Cluster'},
+                                    color_discrete_sequence=px.colors.qualitative.Dark2
+                                )
+    
+
+    col1, col2 = st.columns(2)
+    with col1:
+        st.plotly_chart(fig_clustering, se_container_width=True)
+    with col2:
+        st.plotly_chart(fig_clustering_proj, se_container_width=True)
 
 
-st.subheader('Prototype Clustering')
+elif clustering2:
+    st.subheader('Clustering 2')
 
-# Step 1: Vectorize titles using TF-IDF
-vectorizer = TfidfVectorizer(stop_words='english')
-X = vectorizer.fit_transform(df_test['Titre_bis'])
+    model = SentenceTransformer('all-MiniLM-L6-v2')  # Small & fast model
+    embeddings = model.encode(df_test['combined'], show_progress_bar=False)
 
-# Step 2: Apply KMeans clustering
-num_clusters = st.slider(label='Nombre de clusters', value=10, max_value=20)
-kmeans = KMeans(n_clusters=num_clusters, random_state=42)
-df_test['cluster'] = kmeans.fit_predict(X)
+    # --- 3. Elbow Method ---
+    inertias = []
+    K_range = range(1, 20)
+    for k in K_range:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        kmeans.fit(embeddings)
+        inertias.append(kmeans.inertia_)
 
-# Optional: Visualize using PCA
-pca = PCA(n_components=2)
-reduced = pca.fit_transform(X.toarray())
-df_test['pca_x'] = reduced[:, 0]
-df_test['pca_y'] = reduced[:, 1]
-
-score = silhouette_score(X, df_test['cluster'])
-
-# Get the cluster centers and feature names
-terms = vectorizer.get_feature_names_out()
-order_centroids = kmeans.cluster_centers_.argsort()[:, ::-1]
-
-fig_clustering = px.scatter(
-                                df_test,
-                                x='pca_x',
-                                y='pca_y',
-                                color=df_test['cluster'].astype(str),
-                                hover_data=['Titre_bis'],
-                                title=f"Book Title Clusters (TF-IDF + KMeans) / Silhouette Score: {score:.3f}",
-                                labels={'color': 'Cluster'}
-                            )
-col1, col2 = st.columns(2)
-with col1:
-    st.plotly_chart(fig_clustering, se_container_width=True)
-with col2:
-    for i in range(num_clusters):
-        top_terms = [terms[ind] for ind in order_centroids[i, :5]]
-        st.write(f"\nCluster {i}: ", ", ".join(top_terms))
-
-
-st.subheader('Finding K')
-# Range of cluster numbers to try
-K_range = range(1, 30)
-inertias = []
-
-for k in K_range:
-    kmeans = KMeans(n_clusters=k, random_state=42)
-    kmeans.fit(X)
-    inertias.append(kmeans.inertia_)
-
-fig_k = go.Figure()
-fig_k.add_trace(go.Scatter(
+    fig_k2 = go.Figure()
+    fig_k2.add_trace(go.Scatter(
         x=list(K_range),
         y=inertias,
         mode='lines+markers',
         marker=dict(size=10),
         name='Inertia'
     ))
-
-fig_k.update_layout(
-        title="Elbow Method for Optimal Number of Clusters",
+    fig_k2.update_layout(
+        title="Elbow Method with Sentence Embeddings",
         xaxis_title="Number of Clusters (k)",
-        yaxis_title="Inertia (Within-Cluster Sum of Squares)",
+        yaxis_title="Inertia"
     )
+    st.plotly_chart(fig_k2, se_container_width=True)
 
-st.plotly_chart(fig_k, se_container_width=True)
+    # --- 4. Choose k and Cluster ---
+    num_clusters2 = st.slider(label='Nombre de clusters', value=10, max_value=20)
+    kmeans2 = KMeans(n_clusters=num_clusters2, random_state=42)
+    df_test['cluster'] = kmeans2.fit_predict(embeddings)
+
+    # --- 5. 2D Plot with PCA or UMAP ---
+    reduced = PCA(n_components=2).fit_transform(embeddings)
+    df_test['pca_x'] = reduced[:, 0]
+    df_test['pca_y'] = reduced[:, 1]
+
+    score2 = silhouette_score(embeddings, df_test['cluster'])
+
+    fig_clustering2 = px.scatter(
+                                    df_test,
+                                    x='pca_x',
+                                    y='pca_y',
+                                    color='cluster',
+                                    hover_data=['combined'],
+                                    title=f"Book Title Clusters (TF-IDF + KMeans) / Silhouette Score: {score2:.3f}",
+                                    labels={'color': 'Cluster'},
+                                    color_discrete_sequence=px.colors.qualitative.Dark2
+                                )
+    
+    fig_clustering_proj2 = px.scatter(
+                                    df_test,
+                                    x='pca_x',
+                                    y='pca_y',
+                                    color='Projet',
+                                    hover_data=['combined'],
+                                    title=f"Book Title Clusters (TF-IDF + KMeans)",
+                                    labels={'color': 'Cluster'},
+                                    color_discrete_sequence=px.colors.qualitative.Dark2
+                                )
+    col1,col2 = st.columns(2)
+    with col1:
+        st.plotly_chart(fig_clustering2, se_container_width=True)
+    with col2:
+        st.plotly_chart(fig_clustering_proj2, se_container_width=True)
+else:
+    pass
