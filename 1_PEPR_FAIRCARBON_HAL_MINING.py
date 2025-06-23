@@ -13,6 +13,12 @@ import requests
 import seaborn as sns
 from deep_translator import GoogleTranslator
 from stqdm import stqdm
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.cluster import KMeans
+from sklearn.decomposition import PCA
+from sklearn.metrics.pairwise import cosine_similarity
+from sklearn.metrics import silhouette_score
+import numpy as np
 
 
 ###############################################################################################
@@ -115,6 +121,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
 
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
     df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
+    df_global_hal['Langue_bis'] = df_global_hal['Langue'].apply(lambda row: row[0])
 
     return df_global_hal
 
@@ -217,4 +224,79 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-st.dataframe(df_global_hal_proj[['Auteur_recherché','Type de document','Date de production','Titre_bis', 'In_FairCarboN']].drop_duplicates())
+df_final = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','Titre_bis','Langue_bis','In_FairCarboN']].drop_duplicates()
+df_final_english = df_final[df_final['Langue_bis']=='en']
+
+df_test = df_final_english.copy()
+#df_test = df_final_english[df_final_english['Projet']=='SLAM-B']
+
+#st.dataframe(df_test)
+
+
+st.subheader('Prototype Clustering')
+
+# Step 1: Vectorize titles using TF-IDF
+vectorizer = TfidfVectorizer(stop_words='english')
+X = vectorizer.fit_transform(df_test['Titre_bis'])
+
+# Step 2: Apply KMeans clustering
+num_clusters = st.slider(label='Nombre de clusters', value=10, max_value=20)
+kmeans = KMeans(n_clusters=num_clusters, random_state=42)
+df_test['cluster'] = kmeans.fit_predict(X)
+
+# Optional: Visualize using PCA
+pca = PCA(n_components=2)
+reduced = pca.fit_transform(X.toarray())
+df_test['pca_x'] = reduced[:, 0]
+df_test['pca_y'] = reduced[:, 1]
+
+score = silhouette_score(X, df_test['cluster'])
+
+# Get the cluster centers and feature names
+terms = vectorizer.get_feature_names_out()
+order_centroids = kmeans.cluster_centers_.argsort()[:, ::-1]
+
+fig_clustering = px.scatter(
+                                df_test,
+                                x='pca_x',
+                                y='pca_y',
+                                color=df_test['cluster'].astype(str),
+                                hover_data=['Titre_bis'],
+                                title=f"Book Title Clusters (TF-IDF + KMeans) / Silhouette Score: {score:.3f}",
+                                labels={'color': 'Cluster'}
+                            )
+col1, col2 = st.columns(2)
+with col1:
+    st.plotly_chart(fig_clustering, se_container_width=True)
+with col2:
+    for i in range(num_clusters):
+        top_terms = [terms[ind] for ind in order_centroids[i, :5]]
+        st.write(f"\nCluster {i}: ", ", ".join(top_terms))
+
+
+st.subheader('Finding K')
+# Range of cluster numbers to try
+K_range = range(1, 30)
+inertias = []
+
+for k in K_range:
+    kmeans = KMeans(n_clusters=k, random_state=42)
+    kmeans.fit(X)
+    inertias.append(kmeans.inertia_)
+
+fig_k = go.Figure()
+fig_k.add_trace(go.Scatter(
+        x=list(K_range),
+        y=inertias,
+        mode='lines+markers',
+        marker=dict(size=10),
+        name='Inertia'
+    ))
+
+fig_k.update_layout(
+        title="Elbow Method for Optimal Number of Clusters",
+        xaxis_title="Number of Clusters (k)",
+        yaxis_title="Inertia (Within-Cluster Sum of Squares)",
+    )
+
+st.plotly_chart(fig_k, se_container_width=True)
