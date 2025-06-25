@@ -121,10 +121,11 @@ nltk.download('wordnet')
 
 # Initialize tools
 stop_words = set(stopwords.words('english'))
+stop_words_fr = set(stopwords.words('french'))
 lemmatizer = WordNetLemmatizer()
 
 @st.cache_data
-def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_words):
+def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_words, stop_words_fr):
     liste_columns_hal = ['Store','Auteur_recherché','Projet','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
@@ -162,15 +163,17 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_wo
     df_global_hal['translated']=translated
     filtered_titles = []
     for title in df_global_hal['translated']:
+        title = re.sub(r'[^\w\s]', '', title)
         words = word_tokenize(title)
         filtered = [word for word in words if word.lower() not in stop_words]
-        filtered_titles.append(" ".join(filtered))
+        filtered_ = [word for word in filtered if word.lower() not in stop_words_fr]
+        filtered_titles.append(" ".join(filtered_))
     df_global_hal['filtered']=filtered_titles
     
     return df_global_hal
 
 
-df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet, stop_words= stop_words)
+df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet, stop_words= stop_words, stop_words_fr=stop_words_fr)
 
 df_global_hal.to_csv("test_csv.csv",index=False, encoding="utf-8")
 
@@ -264,7 +267,7 @@ df_test.reset_index(inplace=True)
 df_test.drop(columns='index', inplace=True)
 #df_test = df_final_english[df_final_english['Projet']=='SLAM-B']
 
-st.dataframe(df_test['filtered'])
+#st.dataframe(df_test['filtered'])
 
 clustering1 = st.checkbox(label='clustering_v1')
 
@@ -278,7 +281,7 @@ if clustering1:
     X = vectorizer.fit_transform(df_test['filtered'])
 
 # Range of cluster numbers to try
-    K_range = range(1, 15)
+    K_range = range(1, 50)
     inertias = []
 
     for k in K_range:
@@ -286,6 +289,7 @@ if clustering1:
         kmeans.fit(X)
         inertias.append(kmeans.inertia_)
 
+    
     fig_k = go.Figure()
     fig_k.add_trace(go.Scatter(
             x=list(K_range),
@@ -301,8 +305,6 @@ if clustering1:
             yaxis_title="Inertie (Within-Cluster Sum of Squares)",
         )
 
-    st.plotly_chart(fig_k, se_container_width=True)
-
     # Try different values of k
     sil_scores = []
     K_range = range(2, 10)
@@ -313,12 +315,22 @@ if clustering1:
         score = silhouette_score(X, labels)
         sil_scores.append(score)
 
-    # Find the best k
-    best_k = K_range[sil_scores.index(max(sil_scores))]
-    st.write(f"Estimation du meilleur nombre de clusters (k): {best_k}")
 
-    # Final model
-    final_model = KMeans(n_clusters=best_k, random_state=42)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.plotly_chart(fig_k, se_container_width=True)
+    with col2:
+        # Find the best k
+        best_k = K_range[sil_scores.index(max(sil_scores))]
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write(f"Estimation du meilleur nombre de clusters (k): {best_k}")
+
+        # Final model
+        choix_k = st.number_input('choix de K', value=best_k)
+    final_model = KMeans(n_clusters=choix_k, random_state=42)
     df_test['cluster'] = final_model.fit_predict(X)
 
     # Get feature names from TF-IDF
@@ -328,10 +340,10 @@ if clustering1:
     order_centroids = final_model.cluster_centers_.argsort()[:, ::-1]
 
     # Extract top N keywords per cluster
-    top_n = 1
+    top_n = 2
     cluster_keywords = {}
 
-    for i in range(best_k):
+    for i in range(choix_k):
         top_terms = [terms[ind] for ind in order_centroids[i, :top_n]]
         cluster_keywords[i] = ", ".join(top_terms)
 
@@ -377,7 +389,7 @@ if clustering1:
     with col1:
         st.plotly_chart(fig_clustering, use_container_width=True)
     with col2:
-            st.plotly_chart(fig_clustering_proj, use_container_width=True)
+        st.plotly_chart(fig_clustering_proj, use_container_width=True)
 
 
 elif clustering2:
@@ -404,15 +416,26 @@ elif clustering2:
         name='Inertia'
     ))
     fig_k2.update_layout(
-        title="Elbow Method with Sentence Embeddings",
-        xaxis_title="Number of Clusters (k)",
-        yaxis_title="Inertia"
+        title="Méthode du coude pour trouver le meilleur K",
+        xaxis_title="Nombre de Clusters (k)",
+        yaxis_title="Inertie"
     )
-    st.plotly_chart(fig_k2, se_container_width=True)
+    col1, col2 = st.columns(2)
+    with col1:
+        st.plotly_chart(fig_k2, se_container_width=True)
+    with col2:
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+        st.write('')
+
+        # Final model
+        choix_k = st.number_input('choix de K', value=len(set(df_test['Projet'])))
 
     # --- 4. Choose k and Cluster ---
-    num_clusters2 = st.slider(label='Nombre de clusters', value=10, max_value=20)
-    kmeans2 = KMeans(n_clusters=num_clusters2, random_state=42)
+    kmeans2 = KMeans(n_clusters=choix_k, random_state=42)
     df_test['cluster'] = kmeans2.fit_predict(embeddings)
 
     # --- 5. 2D Plot with PCA or UMAP ---
@@ -431,11 +454,11 @@ elif clustering2:
                                     x='pca_x',
                                     y='pca_y',
                                     #z='pca_z',
-                                    color='cluster',
+                                    color=df_test['cluster'].astype(str),
                                     hover_data=['filtered'],
                                     title=f"Clusters (embeddings) / Silhouette Score: {score2:.3f}",
                                     labels={'color': 'Cluster'},
-                                    color_discrete_sequence=px.colors.qualitative.Dark2
+                                    #color_discrete_sequence=px.colors.qualitative.Dark2
                                 )
     
     fig_clustering_proj2 = px.scatter(
