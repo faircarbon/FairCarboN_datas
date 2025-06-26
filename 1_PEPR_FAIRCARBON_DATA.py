@@ -34,100 +34,91 @@ def to_rgb_string(rgb_tuple):
 ########### TRANSFORMATION FICHIER XLS ########################################################
 ###############################################################################################
 @st.cache_data
-def read_data():
+def read_data(path):
     # Chemin vers le fichier Excel
-    fichier_excel = "Data\FairCarboN_RNSR_copie.xlsx"
+    #fichier_excel = "Data\FairCarboN_Datas_V2.xlsx"
     # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(fichier_excel, sheet_name=1,header=0, engine='openpyxl')
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
     # Transformation du fichier en csv
-    df.to_csv("Data\FairCarboN_RNSR_copie.csv", index=False, encoding="utf-8")
+    df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
 
     ######## NETTOYAGES EVENTUELS ######################
 
     # filtrer les lignes incomplètes
-    df_filtré = df.dropna(subset=["Latitude", "Longitude","Acronyme projet","Acronyme unité"])
+    df_filtré = df.dropna(subset=["Latitude", "Longitude","projet","laboratoire"])
     # Renommer les colonnes
-    df_filtré_renommé = df_filtré.rename(columns={
-        "Acronyme projet": "projet",
-        "Acronyme unité": "laboratoire"
-    })
-    df_filtré_renommé.to_csv("Data\FairCarboN_RNSR_copie_filtré_renommé.csv", index=False)
+    #df_filtré_renommé = df_filtré.rename(columns={
+    #    "Acronyme projet": "projet",
+    #    "Acronyme unité": "laboratoire"
+    #})
+    #df_filtré_renommé.to_csv("Data\FairCarboN_Datas_V2_renommé.csv", index=False)
 
-    return df_filtré_renommé
+    return df_filtré
 
 # Charger les données
-df = read_data()
+df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
 
 # Couleurs associées à chaque projet
-projects = sorted(df['projet'].unique())
-laboratoires = sorted(df['laboratoire'].unique())
+projects = sorted(df_Labo_Site['projet'].unique())
+laboratoires = sorted(df_Labo_Site['laboratoire'].unique())
 colors = plt.cm.tab20.colors  # Palette de couleurs
 project_color_map = {project: colors[i % len(colors)] for i, project in enumerate(projects)}
 
 ###############################################################################################
 ########### FILTRAGE ##########################################################################
 ###############################################################################################
-st.sidebar.success('Selectionnez votre visualisation')
+
+# Choix Projet
 Selection_projets = st.sidebar.multiselect('Projets',options=projects)
-if len(Selection_projets)==0:
-    df_selected = df
+
+if len(Selection_projets)==0: #aucun choix
+    df_selected = df_Labo_Site #le dataframe ne change pas, c'est l'original
     projets_selected = projects
 else:
-    df_selected = df[df['projet'].isin(Selection_projets)]
+    df_selected = df_Labo_Site[df_Labo_Site['projet'].isin(Selection_projets)]
     projets_selected = Selection_projets
 
-laboratoires_bis = df[['laboratoire','Type_Data']][df['projet'].isin(projets_selected)]
-laboratoires_bis_Unites = laboratoires_bis[laboratoires_bis['Type_Data']=='Labo']
-laboratoires_bis_sites = laboratoires_bis[laboratoires_bis['Type_Data']=='Site']
+laboratoires_select = df_selected[['laboratoire','Type_Data']]
+laboratoires_bis_Unites = laboratoires_select[laboratoires_select['Type_Data']=='Labo']
+laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='Site']
 
-col1, col2 = st.sidebar.columns(2)
-with col1:
-    Unites = st.checkbox(label='Unités (bords noirs)')
-with col2:
-    sites = st.checkbox(label='Sites (bords rouges)')
-
-if Unites:
-    Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
-    if len(Selection_laboratoires)==0:
-        df_selected__ = df_selected[df_selected['Type_Data']=='Labo']
-    else:
-        df_selected__ = df[df['laboratoire'].isin(Selection_laboratoires)]
-elif sites:
-    Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
-    if len(Selection_sites)==0:
-        df_selected__ = df_selected[df_selected['Type_Data']=='Site']
-    else:
-        df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
-else:
-    Selection_laboratoires = st.sidebar.multiselect('Unités',options=laboratoires_bis_Unites)
-    if len(Selection_laboratoires)==0:
-        df_selected_ = df_selected
-    else:
-        df_selected_ = df[df['laboratoire'].isin(Selection_laboratoires)]
-
-    Selection_sites = st.sidebar.multiselect('Sites',options=laboratoires_bis_sites)
-    if len(Selection_sites)==0:
-        df_selected__ = df_selected
-    else:
-        df_selected__ = df[df['laboratoire'].isin(Selection_sites)]
-    
 
 # Regrouper par laboratoire
-grouped = df_selected__.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+
+col1, col2, col3 =st.sidebar.columns(3)
+with col1:
+    Unites = st.checkbox('Unités')
+with col2:
+    Sites = st.checkbox('Sites')
+with col3:
+    Unites_Sites = st.checkbox('Unités & Sites')
 
 if Unites:
-    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped[grouped['Type_Data']=='Labo']))
-elif sites:
-    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped[grouped['Type_Data']=='Site']))
+    grouped_ = grouped[grouped['Type_Data']=='Labo']
+    data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Labo'].values
+    data_projet = df_selected['projet'][df_selected['Type_Data']=='Labo'].values
+elif Sites:
+    grouped_ = grouped[grouped['Type_Data']=='Site']
+    data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Site'].values
+    data_projet = df_selected['projet'][df_selected['Type_Data']=='Site'].values
+elif Unites_Sites:
+    grouped_ = grouped[grouped['Type_Data'].isin(['Labo','Site'])]
+    data_sigles = df_selected['laboratoire'][df_selected['Type_Data'].isin(['Labo','Site'])].values
+    data_projet = df_selected['projet'][df_selected['Type_Data'].isin(['Labo','Site'])].values
 else:
-    st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped))
+    grouped_ = pd.DataFrame()
+    data_sigles = []
+    data_projet = []
 
-if len(df_selected__)==0:
+st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped_))
+
+if len(grouped_)==0:
     avg_lat = 45
     avg_long = 5
 else:
-    avg_lat = sum(df_selected__['Latitude'])/len(df_selected__)
-    avg_long = sum(df_selected__['Longitude'])/len(df_selected__)
+    avg_lat = sum(grouped_['Latitude'])/len(grouped_)
+    avg_long = sum(grouped_['Longitude'])/len(grouped_)
 
 
 
@@ -135,11 +126,11 @@ else:
 ########### NUAGE DE MOTS #####################################################################
 ###############################################################################################
 
-if len(df_selected__)==0:
+if len(grouped_)==0:
     pass
 else:
     # Assign the same frequency to each name
-    frequencies = {name: 1 for name in df_selected__['laboratoire'].values}
+    frequencies = {name: 1 for name in grouped_['laboratoire'].values}
 
     # Generate the word cloud
     wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
@@ -158,13 +149,13 @@ else:
 
 st.title("Carte interactive FAIRCARBON")
 st.cache_resource
-def carto(grouped, avg_lat, avg_long):
+def carto(grouped_, avg_lat, avg_long):
     # Créer la carte
     m = folium.Map(location=[avg_lat, avg_long], zoom_start=5, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
         control_scale=True)  # barycentrée
 
     # Générer des marqueurs en camembert
-    for _, row in grouped.iterrows():
+    for _, row in grouped_.iterrows():
         projets = row['projet']
         latitude = row['Latitude']
         longitude = row['Longitude']
@@ -225,7 +216,7 @@ def carto(grouped, avg_lat, avg_long):
 
 col1, col2 = st.columns((0.8,0.2))
 with col1:
-    m = carto(grouped, avg_lat, avg_long)
+    m = carto(grouped_, avg_lat, avg_long)
     st_folium(m, width=800)
 
 ###############################################################################################
@@ -250,7 +241,7 @@ with col2:
 ###############################################################################################
 col1 , col2 = st.columns(2)
 with col1:
-    compte_labos_par_projet = df["projet"][df['Type_Data']=="Labo"].value_counts()
+    compte_labos_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Labo"].value_counts()
 
     # Create a list of colors (one per project)
     colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
@@ -272,7 +263,7 @@ with col1:
     st.plotly_chart(fig0, use_container_width=True)
 
 with col2:
-    compte_sites_par_projet = df["projet"][df['Type_Data']=="Site"].value_counts()
+    compte_sites_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts()
 
     # Create a list of colors (one per project)
     colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
@@ -298,12 +289,12 @@ with col2:
 ###############################################################################################
 
 # Compte du nombre de projets pour chaque labo
-df_units = df[df['Type_Data']=="Labo"]
+df_units = df_Labo_Site[df_Labo_Site['Type_Data']=="Labo"]
 lab_project_counts = df_units.groupby('laboratoire')['projet'].nunique().reset_index()
 lab_project_counts.columns = ['laboratoire', 'num_projects']
 
 # Merge count retour dans l'original DataFrame
-df = df.merge(lab_project_counts, on='laboratoire')
+df = df_Labo_Site.merge(lab_project_counts, on='laboratoire')
 df['num_other_projects'] = df['num_projects'] - 1
 
 # Pivot to count labs per project by number of other projects
@@ -347,8 +338,7 @@ st.plotly_chart(fig2, use_container_width=True)
 ########### ANALYSE LABOS MULTI PROJETS BIS ###################################################
 ###############################################################################################
 
-data_sigles = df_selected__['laboratoire'].values
-data_projet = df_selected__['projet'].values
+
 data = {
     'Sigles': data_sigles,
     'Projet': data_projet

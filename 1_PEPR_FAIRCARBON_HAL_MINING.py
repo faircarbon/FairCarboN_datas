@@ -212,9 +212,12 @@ with col2:
 
 df_global_hal_proj =df_global_hal[df_global_hal['Projet'].isin(choix_p)][df_global_hal['Auteur_recherché'].isin(choix_a)]
 
+In_FC = len(df_global_hal_proj[df_global_hal_proj['In_FairCarboN']==True])
+
+
 col1,col2 = st.columns(2)
 with col1:
-    st.metric(label='Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_bis']))))
+    st.metric(label=f'Nombre de dépôts dans HAL ({In_FC} dans la collection)',value=len(list(set(df_global_hal_proj['Titre_bis']))))
 with col2:
     st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
 
@@ -269,6 +272,8 @@ df_test.drop(columns='index', inplace=True)
 
 #st.dataframe(df_test['filtered'])
 
+#st.dataframe(df_inter)
+
 clustering1 = st.checkbox(label='clustering_v1')
 
 clustering2 = st.checkbox(label='clustering_v2')
@@ -281,7 +286,10 @@ if clustering1:
     X = vectorizer.fit_transform(df_test['filtered'])
 
 # Range of cluster numbers to try
-    K_range = range(1, 50)
+    if len(df_test)<50:
+        K_range = range(1, int(len(df_test)/2))
+    else:
+        K_range = range(1, 50)
     inertias = []
 
     for k in K_range:
@@ -420,19 +428,30 @@ elif clustering2:
         xaxis_title="Nombre de Clusters (k)",
         yaxis_title="Inertie"
     )
+
+    # Try different values of k
+    sil_scores = []
+    K_range = range(2, 10)
+
+    for k in K_range:
+        kmeans = KMeans(n_clusters=k, random_state=42)
+        labels = kmeans.fit_predict(embeddings)
+        score = silhouette_score(embeddings, labels)
+        sil_scores.append(score)
+
     col1, col2 = st.columns(2)
     with col1:
         st.plotly_chart(fig_k2, se_container_width=True)
     with col2:
+        best_k = K_range[sil_scores.index(max(sil_scores))]
         st.write('')
         st.write('')
         st.write('')
         st.write('')
-        st.write('')
-        st.write('')
+        st.write(f"Estimation du meilleur nombre de clusters (k): {best_k}")
 
         # Final model
-        choix_k = st.number_input('choix de K', value=len(set(df_test['Projet'])))
+        choix_k = st.number_input('choix de K', value=best_k)
 
     # --- 4. Choose k and Cluster ---
     kmeans2 = KMeans(n_clusters=choix_k, random_state=42)
@@ -447,7 +466,10 @@ elif clustering2:
     df_test['pca_y'] = reduced[:, 1]
     #df_test['pca_z'] = reduced[:, 2]
 
-    score2 = silhouette_score(embeddings, df_test['cluster'])
+    try:
+        score2 = silhouette_score(embeddings, df_test['cluster'])
+    except:
+        score2 = 0
 
     fig_clustering2 = px.scatter(
                                     df_test,
