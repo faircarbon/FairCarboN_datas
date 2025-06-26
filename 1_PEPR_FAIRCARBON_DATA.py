@@ -45,7 +45,7 @@ def read_data(path):
     ######## NETTOYAGES EVENTUELS ######################
 
     # filtrer les lignes incomplètes
-    df_filtré = df.dropna(subset=["Latitude", "Longitude","projet","laboratoire"])
+    #df_filtré = df.dropna(subset=["Latitude", "Longitude","projet","laboratoire"])
     # Renommer les colonnes
     #df_filtré_renommé = df_filtré.rename(columns={
     #    "Acronyme projet": "projet",
@@ -53,10 +53,11 @@ def read_data(path):
     #})
     #df_filtré_renommé.to_csv("Data\FairCarboN_Datas_V2_renommé.csv", index=False)
 
-    return df_filtré
+    return df
 
 # Charger les données
 df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
+df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 
 # Couleurs associées à chaque projet
 projects = sorted(df_Labo_Site['projet'].unique())
@@ -85,6 +86,7 @@ laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='
 
 # Regrouper par laboratoire
 grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped_contacts = df_Contacts.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
 col1, col2, col3 =st.sidebar.columns(3)
 with col1:
@@ -142,7 +144,7 @@ else:
     ax.axis("off")
     st.sidebar.pyplot(fig0)
 
-
+st.dataframe(grouped_contacts)
 ###############################################################################################
 ########### CARTOGRAPHIE ######################################################################
 ###############################################################################################
