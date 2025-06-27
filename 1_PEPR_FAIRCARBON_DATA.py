@@ -94,7 +94,7 @@ with col1:
 
     
 
-    fig0.update_layout(height=300,
+    fig0.update_layout(height=400,
                        margin=dict(t=0))
 
     st.subheader("Nombre d'unités")
@@ -119,7 +119,7 @@ with col2:
         marker_color=bar_colors  # Assign custom colors
     ))
 
-    fig0b.update_layout(height=300,
+    fig0b.update_layout(height=400,
                         margin=dict(t=0))
 
     st.subheader("Nombre de contacts")
@@ -144,7 +144,7 @@ with col3:
         marker_color=bar_colors  # Assign custom colors
     ))
 
-    fig0c.update_layout(height=300,
+    fig0c.update_layout(height=400,
                         margin=dict(t=0))
 
     st.subheader("Nombre de sites")
@@ -218,14 +218,6 @@ if len(grouped_)==0:
 else:
     avg_lat = sum(grouped_['Latitude'])/len(grouped_)
     avg_long = sum(grouped_['Longitude'])/len(grouped_)
-
-
-
-###############################################################################################
-########### NUAGE DE MOTS #####################################################################
-###############################################################################################
-
-
 
 
 ###############################################################################################
