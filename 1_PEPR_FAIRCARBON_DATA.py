@@ -66,17 +66,104 @@ colors = plt.cm.tab20.colors  # Palette de couleurs
 project_color_map = {project: colors[i % len(colors)] for i, project in enumerate(projects)}
 
 ###############################################################################################
+########### NOMBRE LABOS PAR PROJET #######################################################
+###############################################################################################
+
+st.title("Data de FAIRCARBON")
+
+
+col1 , col2, col3 = st.columns(3)
+with col1:
+    compte_labos_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Labo"].value_counts()
+
+    # Create a list of colors (one per project)
+    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+    project_names = compte_labos_par_projet.index
+    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+
+    # Assign colors based on the project
+    bar_colors = [color_map[project] for project in project_names]
+
+    # Plot
+    fig0 = go.Figure(go.Bar(
+        x=compte_labos_par_projet.values,
+        y=project_names,
+        orientation='h',
+        marker_color=bar_colors  # Assign custom colors
+    ))
+
+    
+
+    fig0.update_layout(height=300,
+                       margin=dict(t=0))
+
+    st.subheader("Nombre d'unités")
+    st.plotly_chart(fig0, use_container_width=True)
+
+with col2:
+    compte_contacts_par_projet = df_Contacts["projet"].value_counts()
+
+    # Create a list of colors (one per project)
+    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+    project_names = compte_contacts_par_projet.index
+    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+
+    # Assign colors based on the project
+    bar_colors = [color_map[project] for project in project_names]
+
+    # Plot
+    fig0b = go.Figure(go.Bar(
+        x=compte_contacts_par_projet.values,
+        y=project_names,
+        orientation='h',
+        marker_color=bar_colors  # Assign custom colors
+    ))
+
+    fig0b.update_layout(height=300,
+                        margin=dict(t=0))
+
+    st.subheader("Nombre de contacts")
+    st.plotly_chart(fig0b, use_container_width=True)
+
+with col3:
+    compte_sites_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts()
+
+    # Create a list of colors (one per project)
+    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+    project_names = compte_sites_par_projet.index
+    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
+
+    # Assign colors based on the project
+    bar_colors = [color_map[project] for project in project_names]
+
+    # Plot
+    fig0c = go.Figure(go.Bar(
+        x=compte_sites_par_projet.values,
+        y=project_names,
+        orientation='h',
+        marker_color=bar_colors  # Assign custom colors
+    ))
+
+    fig0c.update_layout(height=300,
+                        margin=dict(t=0))
+
+    st.subheader("Nombre de sites")
+    st.plotly_chart(fig0c, use_container_width=True)
+
+###############################################################################################
 ########### FILTRAGE ##########################################################################
 ###############################################################################################
 
 # Choix Projet
-Selection_projets = st.sidebar.multiselect('Projets',options=projects)
+Selection_projets = st.multiselect('Projets',options=projects)
 
 if len(Selection_projets)==0: #aucun choix
     df_selected = df_Labo_Site #le dataframe ne change pas, c'est l'original
+    df_contacts_selected = df_Contacts
     projets_selected = projects
 else:
     df_selected = df_Labo_Site[df_Labo_Site['projet'].isin(Selection_projets)]
+    df_contacts_selected = df_Contacts[df_Contacts['projet'].isin(Selection_projets)]
     projets_selected = Selection_projets
 
 laboratoires_select = df_selected[['laboratoire','Type_Data']]
@@ -84,11 +171,12 @@ laboratoires_bis_Unites = laboratoires_select[laboratoires_select['Type_Data']==
 laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='Site']
 
 
-# Regrouper par laboratoire
+# Regrouper par projet
 grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
-grouped_contacts = df_Contacts.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
+grouped_contacts = df_contacts_selected.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
-col1, col2, col3 =st.sidebar.columns(3)
+#choix de visualisation
+col1, col2, col3 =st.columns(3)
 with col1:
     Unites = st.checkbox('Unités')
 with col2:
@@ -98,23 +186,32 @@ with col3:
 
 if Unites:
     grouped_ = grouped[grouped['Type_Data']=='Labo']
+    grouped_contacts_ = grouped_contacts
     data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Labo'].values
     data_projet = df_selected['projet'][df_selected['Type_Data']=='Labo'].values
 elif Sites:
     grouped_ = grouped[grouped['Type_Data']=='Site']
+    grouped_contacts_ = grouped_contacts
     data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Site'].values
     data_projet = df_selected['projet'][df_selected['Type_Data']=='Site'].values
 elif Unites_Sites:
     grouped_ = grouped[grouped['Type_Data'].isin(['Labo','Site'])]
+    grouped_contacts_ = grouped_contacts
     data_sigles = df_selected['laboratoire'][df_selected['Type_Data'].isin(['Labo','Site'])].values
     data_projet = df_selected['projet'][df_selected['Type_Data'].isin(['Labo','Site'])].values
 else:
     grouped_ = pd.DataFrame()
+    grouped_contacts_ = pd.DataFrame()
     data_sigles = []
     data_projet = []
 
-st.sidebar.metric(label='Nombre lieux représentées',value=len(grouped_))
+col1, col2 = st.columns(2)
+with col1:
+    st.metric(label='Nombre lieux représentées',value=len(grouped_))
+with col2:
+    st.metric(label='Nombre de contacts associés',value=len(grouped_contacts_))
 
+#Calcul de la position initiale de la carto
 if len(grouped_)==0:
     avg_lat = 45
     avg_long = 5
@@ -128,28 +225,13 @@ else:
 ########### NUAGE DE MOTS #####################################################################
 ###############################################################################################
 
-if len(grouped_)==0:
-    pass
-else:
-    # Assign the same frequency to each name
-    frequencies = {name: 1 for name in grouped_['laboratoire'].values}
 
-    # Generate the word cloud
-    wordcloud = WordCloud(width=300, height=300, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
 
-    # Display in sidebar
-    st.sidebar.title("Nuage des noms d'unités ou sites")
-    fig0, ax = plt.subplots()
-    ax.imshow(wordcloud, interpolation='bilinear')
-    ax.axis("off")
-    st.sidebar.pyplot(fig0)
 
-st.dataframe(grouped_contacts)
 ###############################################################################################
-########### CARTOGRAPHIE ######################################################################
+########### CARTOGRAPHIE & NUAGE DE MOTS ######################################################
 ###############################################################################################
 
-st.title("Carte interactive FAIRCARBON")
 st.cache_resource
 def carto(grouped_, avg_lat, avg_long):
     # Créer la carte
@@ -216,19 +298,55 @@ def carto(grouped_, avg_lat, avg_long):
 
     return m
 
-col1, col2 = st.columns((0.8,0.2))
+col1, col2, col3 = st.columns((0.3,0.55,0.15))
 with col1:
+    #Unités ou Sites
+    if len(grouped_)==0:
+        pass
+    else:
+        # Assign the same frequency to each name
+        frequencies = {name: 1 for name in grouped_['laboratoire'].values}
+
+        # Generate the word cloud
+        wordcloud = WordCloud(width=200, height=200, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
+
+        # Display in sidebar
+        #st.subheader("Nuage des noms d'unités ou sites")
+        fig_n0, ax = plt.subplots(figsize=(1, 1))
+        ax.imshow(wordcloud, interpolation='bilinear')
+        ax.axis("off")
+        st.pyplot(fig_n0)
+
+    #Contacts
+    if len(grouped_contacts_)==0:
+        pass
+    else:
+        # Assign the same frequency to each name
+        frequencies = {name: 1 for name in grouped_contacts_['Contact'].values}
+
+        # Generate the word cloud
+        wordcloud = WordCloud(width=100, height=100, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
+
+        # Display in sidebar
+        #st.subheader("Nuage des noms de contacts")
+        fig_n0b, ax = plt.subplots(figsize=(1, 1))
+        ax.imshow(wordcloud, interpolation='bilinear')
+        ax.axis("off")
+        st.pyplot(fig_n0b)
+
+with col2:
     m = carto(grouped_, avg_lat, avg_long)
     st_folium(m, width=800)
 
 ###############################################################################################
 ########### LEGENDE CARTO #####################################################################
 ###############################################################################################
+colors2 = plt.cm.tab20.colors  # Palette de couleurs
 
-with col2:
+with col3:
     st.subheader("Légende")
     for i in range(len(projects)):
-        rgb_css = to_rgb_string(colors[i])
+        rgb_css = to_rgb_string(colors2[i])
         st.markdown(
             f'<div style="display: flex; align-items: center;">'
             f'<div style="width: 15px; height: 15px; background-color: {rgb_css}; border-radius: 3px; margin-right: 10px;"></div>'
@@ -239,102 +357,93 @@ with col2:
 
 
 ###############################################################################################
-########### NOMBRE LABOS PAR PROJET #######################################################
-###############################################################################################
-col1 , col2 = st.columns(2)
-with col1:
-    compte_labos_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Labo"].value_counts()
-
-    # Create a list of colors (one per project)
-    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-    project_names = compte_labos_par_projet.index
-    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
-
-    # Assign colors based on the project
-    bar_colors = [color_map[project] for project in project_names]
-
-    # Plot
-    fig0 = go.Figure(go.Bar(
-        x=compte_labos_par_projet.values,
-        y=project_names,
-        orientation='h',
-        marker_color=bar_colors  # Assign custom colors
-    ))
-
-    st.subheader("Nombre d'unités impliquées")
-    st.plotly_chart(fig0, use_container_width=True)
-
-with col2:
-    compte_sites_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts()
-
-    # Create a list of colors (one per project)
-    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-    project_names = compte_sites_par_projet.index
-    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
-
-    # Assign colors based on the project
-    bar_colors = [color_map[project] for project in project_names]
-
-    # Plot
-    fig0b = go.Figure(go.Bar(
-        x=compte_sites_par_projet.values,
-        y=project_names,
-        orientation='h',
-        marker_color=bar_colors  # Assign custom colors
-    ))
-
-    st.subheader("Nombre de sites étudiés")
-    st.plotly_chart(fig0b, use_container_width=True)
-
-###############################################################################################
 ########### ANALYSE LABOS MULTI PROJETS #######################################################
 ###############################################################################################
 
-# Compte du nombre de projets pour chaque labo
-df_units = df_Labo_Site[df_Labo_Site['Type_Data']=="Labo"]
-lab_project_counts = df_units.groupby('laboratoire')['projet'].nunique().reset_index()
-lab_project_counts.columns = ['laboratoire', 'num_projects']
+col1, col2 = st.columns(2)
 
-# Merge count retour dans l'original DataFrame
-df = df_Labo_Site.merge(lab_project_counts, on='laboratoire')
-df['num_other_projects'] = df['num_projects'] - 1
+with col1:
+    # Compte du nombre de projets pour chaque labo
+    df_units = df_Labo_Site[df_Labo_Site['Type_Data']=="Labo"]
+    lab_project_counts = df_units.groupby('laboratoire')['projet'].nunique().reset_index()
+    lab_project_counts.columns = ['laboratoire', 'num_projects']
 
-# Pivot to count labs per project by number of other projects
-summary = df.groupby(['projet', 'num_other_projects']).size().unstack(fill_value=0)
+    # Merge count retour dans l'original DataFrame
+    df = df_Labo_Site.merge(lab_project_counts, on='laboratoire')
+    df['num_other_projects'] = df['num_projects'] - 1
 
-# Sort projects by total number of labs
-summary = summary.loc[summary.sum(axis=1).sort_values(ascending=False).index]
+    # Pivot to count labs per project by number of other projects
+    summary = df.groupby(['projet', 'num_other_projects']).size().unstack(fill_value=0)
 
-# Normalize rows to get proportions
-summary_prop = summary.div(summary.sum(axis=1), axis=0)
+    # Sort projects by total number of labs
+    summary = summary.loc[summary.sum(axis=1).sort_values(ascending=False).index]
 
-# Melt dataframe to long format for Plotly
-summary_prop = summary_prop.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
+    # Normalize rows to get proportions
+    summary_prop = summary.div(summary.sum(axis=1), axis=0)
 
-# Convert 'num_other_projects' to string for consistent sorting in plot
-summary_prop['num_other_projects'] = summary_prop['num_other_projects'].astype(str)
+    # Melt dataframe to long format for Plotly
+    summary_prop = summary_prop.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
 
-# Plotly stacked bar chart
-fig2 = px.bar(
-            summary_prop[summary_prop['projet'].isin(projets_selected)],
-            x='proportion',
-            y='projet',
-            color='num_other_projects',
-            orientation='h',
-            #title="Proportion d'exclusivité des membres des projets de FairCarboN",
-            labels={'proportion': 'Proportion parmi les unités membres du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
-            color_discrete_sequence=px.colors.qualitative.Set3
-        )
+    # Convert 'num_other_projects' to string for consistent sorting in plot
+    summary_prop['num_other_projects'] = summary_prop['num_other_projects'].astype(str)
 
-fig2.update_layout(
-            yaxis=dict(autorange="reversed"),  # Projects from top-down
-            legend_title="Nombre d'autres implications",
-            #height=25 * len(summary) + 200,  # Dynamically adjust height
-            margin=dict(l=100, r=20, t=60, b=40)
-        )
+    # Plotly stacked bar chart
+    fig2 = px.bar(
+                summary_prop[summary_prop['projet'].isin(projets_selected)],
+                x='proportion',
+                y='projet',
+                color='num_other_projects',
+                orientation='h',
+                #title="Proportion d'exclusivité des membres des projets de FairCarboN",
+                labels={'proportion': 'Proportion parmi les unités membres du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
 
-st.subheader("Proportion d'exclusivité des membres des projets de FairCarboN")
-st.plotly_chart(fig2, use_container_width=True)
+    fig2.update_layout(
+                yaxis=dict(autorange="reversed"),  # Projects from top-down
+                legend_title="Nombre d'autres implications",
+                #height=25 * len(summary) + 200,  # Dynamically adjust height
+                margin=dict(l=100, r=20, t=60, b=40)
+            )
+
+    st.subheader("Proportion d'exclusivité des Unités dans les projets FairCarboN")
+    st.plotly_chart(fig2, use_container_width=True)
+
+with col2:
+
+    Contacts_counts = df_Contacts.groupby('Contact')['projet'].nunique().reset_index()
+    Contacts_counts.columns = ['Contact', 'num_projects']
+
+    df2 = df_Contacts.merge(Contacts_counts, on='Contact')
+    df2['num_other_projects'] = df2['num_projects'] - 1
+
+    summary2 = df2.groupby(['projet', 'num_other_projects']).size().unstack(fill_value=0)
+    summary2 = summary2.loc[summary.sum(axis=1).sort_values(ascending=False).index]
+    summary_prop2 = summary2.div(summary2.sum(axis=1), axis=0)
+    summary_prop2 = summary_prop2.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
+    summary_prop2['num_other_projects'] = summary_prop2['num_other_projects'].astype(str)
+
+    fig2b = px.bar(
+                summary_prop2[summary_prop2['projet'].isin(projets_selected)],
+                x='proportion',
+                y='projet',
+                color='num_other_projects',
+                orientation='h',
+                #title="Proportion d'exclusivité des membres des projets de FairCarboN",
+                labels={'proportion': 'Proportion parmi les contacts du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
+                color_discrete_sequence=px.colors.qualitative.Set3
+            )
+
+    fig2b.update_layout(
+                yaxis=dict(autorange="reversed"),  # Projects from top-down
+                legend_title="Nombre d'autres implications",
+                #height=25 * len(summary) + 200,  # Dynamically adjust height
+                margin=dict(l=100, r=20, t=60, b=40)
+            )
+
+    st.subheader("Proportion d'exclusivité des Contacts dans les projets FairCarboN")
+    st.plotly_chart(fig2b, use_container_width=True)
+
 
 ###############################################################################################
 ########### ANALYSE LABOS MULTI PROJETS BIS ###################################################
