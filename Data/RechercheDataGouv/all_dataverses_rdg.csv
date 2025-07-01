@@ -1,0 +1,1173 @@
+name,id,parent,path
+Recherche Data Gouv,root,,Recherche Data Gouv
+Data INRAE,123960,root,Recherche Data Gouv/Data INRAE
+Experimental - Observation - Simulation,9,123960,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation
+"The MetaboHUB ""Exploration of Metabolism"" platform Dataverse",10,9,"Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/The MetaboHUB ""Exploration of Metabolism"" platform Dataverse"
+Info&sols Dataverse,8151,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse
+LandmarkH2020 Dataverse,8152,8151,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/LandmarkH2020 Dataverse
+GisSol Dataverse,8183,8151,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/GisSol Dataverse
+BDGSF Dataverse,8785,8183,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/GisSol Dataverse/BDGSF Dataverse
+IGCS Dataverse,100145,8183,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/GisSol Dataverse/IGCS Dataverse
+RMQS collection,628824,8183,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/GisSol Dataverse/RMQS collection
+Conservatoire Européen d'Echantillons de Sol,77075,8151,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Info&sols Dataverse/Conservatoire Européen d'Echantillons de Sol
+PREMIUM Dataverse,8300,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PREMIUM Dataverse
+Mechanisms of cell degradation/preservation during stabilisation processes,97702,8300,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PREMIUM Dataverse/Mechanisms of cell degradation/preservation during stabilisation processes
+Amélie Girardeau_PhD Dataverse,97919,8300,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PREMIUM Dataverse/Amélie Girardeau_PhD Dataverse
+Development and optimisation of LAB production systems,99055,8300,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PREMIUM Dataverse/Development and optimisation of LAB production systems
+"Production, characterization and screening of oligosaccharides and protected cells",100099,8300,"Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PREMIUM Dataverse/Production, characterization and screening of oligosaccharides and protected cells"
+Neuroendocrinologie des Interactions Sexuelles - PRC - Nouzilly Dataverse,8408,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Neuroendocrinologie des Interactions Sexuelles - PRC - Nouzilly Dataverse
+BioForA Dataverse,8436,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/BioForA Dataverse
+PHENOBOIS Dataverse,8437,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PHENOBOIS Dataverse
+PHENOBOIS Orléans Dataverse,8720,8437,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PHENOBOIS Dataverse/PHENOBOIS Orléans Dataverse
+PHENOBOIS Bordeaux Dataverse,218293,8437,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PHENOBOIS Dataverse/PHENOBOIS Bordeaux Dataverse
+PHENOBOIS Clermont-Ferrand Dataverse,218294,8437,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PHENOBOIS Dataverse/PHENOBOIS Clermont-Ferrand Dataverse
+SICPA Dataverse,8464,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse
+SicpaData,140932,8464,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaData
+SicpaSoftware,140934,8464,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware
+SicpaBovins,140935,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaBovins
+SicpaLapins,140936,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaLapins
+SicpaOvinsCaprins,140937,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaOvinsCaprins
+SicpaPoissons,140938,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaPoissons
+SicpaPorcins,140939,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaPorcins
+SicpaVolailles,140940,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaVolailles
+SicpaExperimentations,140941,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaExperimentations
+SicpaIOT,140943,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaIOT
+SicpaEnvironnement,140944,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaEnvironnement
+SicpaParcelles,140945,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaParcelles
+SicpaReferentielCommun,140946,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaReferentielCommun
+SicpaSanitaire,140947,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaSanitaire
+SicpaAlimentation,140949,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaAlimentation
+SicpaInterop,140950,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaInterop
+SicpaOpenData,140951,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaOpenData
+SicpaWebDistri,140952,140934,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaSoftware/SicpaWebDistri
+SicpaGouvernance,165250,8464,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaGouvernance
+SicpaPGD,174227,165250,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaGouvernance/SicpaPGD
+SicpaCatalogue,174250,165250,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SICPA Dataverse/SicpaGouvernance/SicpaCatalogue
+Biogeco Dataverse,8683,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse
+Metabarcoding,105069,8683,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Metabarcoding
+Malabar,147942,105069,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Metabarcoding/Malabar
+yap,148516,105069,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Metabarcoding/yap
+Cupressus Project,202027,8683,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Cupressus Project
+Functional annotation,202031,202027,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Cupressus Project/Functional annotation
+Transposable elements,599765,202027,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Cupressus Project/Transposable elements
+Genomic data,602210,202027,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Biogeco Dataverse/Cupressus Project/Genomic data
+CARRTEL Dataverse ,8988,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/CARRTEL Dataverse 
+Data-OLA Dataverse,52699,8988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/CARRTEL Dataverse /Data-OLA Dataverse
+Dynafor,11522,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Dynafor
+UEFP Dataverse,76113,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UEFP Dataverse
+Données collectées dans le cadre des études de sols sur les Unités Expérimentales INRAE du réseau CAREX,77015,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Données collectées dans le cadre des études de sols sur les Unités Expérimentales INRAE du réseau CAREX
+"Données collectées sur les sols du domaine de l'Unité Expérimentale INRAE d'Epoisses, Bretenière (21) ",77097,77015,"Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Données collectées dans le cadre des études de sols sur les Unités Expérimentales INRAE du réseau CAREX/Données collectées sur les sols du domaine de l'Unité Expérimentale INRAE d'Epoisses, Bretenière (21) "
+"BRC4Env, Biological Resource Centres for the Environment of AgroBRC-RARe",77621,9,"Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/BRC4Env, Biological Resource Centres for the Environment of AgroBRC-RARe"
+Unité Expérimentale Grandes Cultures Auzeville,77776,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Grandes Cultures Auzeville
+SAS Sol Agro et Hydrosystème Spatialisation,79988,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation
+GeoSAS,79989,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/GeoSAS
+Halle bioclimatologique MEGEVE,147572,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Halle bioclimatologique MEGEVE
+Plateforme expérimentale EFELE (SOERE PRO),147573,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Plateforme expérimentale EFELE (SOERE PRO)
+Tour à flux ICOS-Méjusseaume,147574,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Tour à flux ICOS-Méjusseaume
+Observatoire ORE AgrHyS,147575,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Observatoire ORE AgrHyS
+Projets,147576,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets
+Allocation Viande,99635,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/Allocation Viande
+Milkey Project,148611,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/Milkey Project
+Miniprot,149303,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/Miniprot
+SEPURE,150370,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/SEPURE
+QUAE,176465,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/QUAE
+DairyMix project,545316,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/DairyMix project
+FEAMPA PEPITO,630743,147576,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Projets/FEAMPA PEPITO
+Plateforme MEANS,157607,79988,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SAS Sol Agro et Hydrosystème Spatialisation/Plateforme MEANS
+IN-SYLVA-France Dataverse,84453,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/IN-SYLVA-France Dataverse
+Logiciels et Systèmes d'Information,101439,84453,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/IN-SYLVA-France Dataverse/Logiciels et Systèmes d'Information
+Jeux de données,102282,84453,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/IN-SYLVA-France Dataverse/Jeux de données
+AnaEE-France Dataverse,84494,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/AnaEE-France Dataverse
+UR SOLS,95908,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UR SOLS
+Platform of Environmental Biochemistry - Biochem-Env,97564,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Platform of Environmental Biochemistry - Biochem-Env
+EABX,97709,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EABX
+FutureMARES,102992,97709,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EABX/FutureMARES
+EABX data,106108,97709,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EABX/EABX data
+TEMPO,97926,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/TEMPO
+UMR ECOBIOP 1224 INRAE/UPPA Dataverse,98466,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR ECOBIOP 1224 INRAE/UPPA Dataverse
+BaGaTeL Dataverse,98503,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/BaGaTeL Dataverse
+PO2 domain ontologies,148079,98503,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/BaGaTeL Dataverse/PO2 domain ontologies
+Simulations 1348,98606,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Simulations 1348
+Unité Expérimentale Horticole,98723,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Horticole
+Fruit tree phenology,99480,98723,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Horticole/Fruit tree phenology
+Meteorological data - INRAE UE Horticole,123456,98723,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Horticole/Meteorological data - INRAE UE Horticole
+Plan de Gestion de Données,123684,98723,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Horticole/Plan de Gestion de Données
+Venturia inaequalis Pathotypes-INRAE_UE_Horti,145293,98723,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Horticole/Venturia inaequalis Pathotypes-INRAE_UE_Horti
+T_Morvan_UMR SAS dataverse,99536,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/T_Morvan_UMR SAS dataverse
+Chemometrics-Chemhouse,99634,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Chemometrics-Chemhouse
+Fourrages ligneux,99749,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Fourrages ligneux
+valeur nutritive,99812,99749,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Fourrages ligneux/valeur nutritive
+Dispositifs ,99880,99749,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Fourrages ligneux/Dispositifs 
+Unité Expérimentale Arboricole,100341,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Arboricole
+Fruit tree phenology,100924,100341,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale Arboricole/Fruit tree phenology
+CORNPESTS,100395,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/CORNPESTS
+OUTLAB_MRI Dataverse,103124,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OUTLAB_MRI Dataverse
+Rhizotron Dataverse,107236,103124,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OUTLAB_MRI Dataverse/Rhizotron Dataverse
+Caractérisation Agroécologique de prairies permanentes,104445,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Caractérisation Agroécologique de prairies permanentes
+UMR LISAH,109940,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR LISAH
+URFM - Ecologie des Forêts Méditerranéennes,115815,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/URFM - Ecologie des Forêts Méditerranéennes
+Projet_OCCIGEN,600486,115815,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/URFM - Ecologie des Forêts Méditerranéennes/Projet_OCCIGEN
+Spectrasol Dataverse,115848,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Spectrasol Dataverse
+OPAALE team ACTA,116071,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OPAALE team ACTA
+Particle deposition and resuspension,158332,116071,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OPAALE team ACTA/Particle deposition and resuspension
+Flow over a circular cylinder at Reynolds number 3900,168103,116071,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OPAALE team ACTA/Flow over a circular cylinder at Reynolds number 3900
+Flow over a circular cylinder at Reynolds number 300,626985,116071,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/OPAALE team ACTA/Flow over a circular cylinder at Reynolds number 300
+ISPA Dataverse,121929,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ISPA Dataverse
+RAPSODYN Dataverse,122450,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/RAPSODYN Dataverse
+CANOPY Dataverse,122490,122450,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/RAPSODYN Dataverse/CANOPY Dataverse
+Umr-decod,122650,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Umr-decod
+ACBB,123419,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ACBB
+ODR Dataverse,123452,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse
+ODR Dataverse Systèmes Agricoles,123672,123452,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles
+RPG complété 2019,127583,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/RPG complété 2019
+RPG complété 2018,128014,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/RPG complété 2018
+RPG complété 2020,147603,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/RPG complété 2020
+RPG complété 2021,163672,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/RPG complété 2021
+oBNVDs,197231,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/oBNVDs
+RPG complété 2022,201333,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/RPG complété 2022
+Observatoire Territorial des SIQO (OT SIQO),348283,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/Observatoire Territorial des SIQO (OT SIQO)
+Indicateurs sur les successions culturales,626909,123672,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ODR Dataverse/ODR Dataverse Systèmes Agricoles/Indicateurs sur les successions culturales
+SimLake Dataverse - Simulation of Lake Ecosystems Dynamics,123487,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SimLake Dataverse - Simulation of Lake Ecosystems Dynamics
+e-DIP ANR Project,123556,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/e-DIP ANR Project
+UE FERLUS,123926,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UE FERLUS
+SOERE-ACBB,124043,123926,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UE FERLUS/SOERE-ACBB
+OasYs,124044,123926,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UE FERLUS/OasYs
+Life PTD,124061,123926,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UE FERLUS/Life PTD
+Projet HYDRODEMO: Évaluation de l’aléa torrentiel dans les petits bassins versants des Alpes du Nord Dataverse,124049,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Projet HYDRODEMO: Évaluation de l’aléa torrentiel dans les petits bassins versants des Alpes du Nord Dataverse
+UMR EMMAH,124921,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR EMMAH
+VSoil,179076,124921,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR EMMAH/VSoil
+FORTIPHY Dataverse,125026,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/FORTIPHY Dataverse
+FilTor : Interaction between flexible barriers and flows,125156,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/FilTor : Interaction between flexible barriers and flows
+Observatoire de Recherche en Environnement sur les poissons diadromes dans les fleuves côtiers,125351,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Observatoire de Recherche en Environnement sur les poissons diadromes dans les fleuves côtiers
+EJP SOIL,127472,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL
+EJP SOIL WP6,134632,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/EJP SOIL WP6
+EJP SOIL WP2,134635,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/EJP SOIL WP2
+CarboSeq,140925,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/CarboSeq
+SOMMIT,140926,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SOMMIT
+TRACE-Soils,140927,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/TRACE-Soils
+INSURE,140942,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/INSURE
+STEROPES,140948,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/STEROPES
+SensRes,140953,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SensRes
+SCALE,140954,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SCALE
+I-SoMPE,140955,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/I-SoMPE
+SIREN,140956,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SIREN
+CLIMASOMA,140962,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/CLIMASOMA
+ProbeField,140963,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/ProbeField
+AGROECOseqC,140964,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/AGROECOseqC
+SERENA,140970,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SERENA
+EnergyLink,140972,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/EnergyLink
+MaxRoot-C,140978,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/MaxRoot-C
+MIXROOT-C,140979,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/MIXROOT-C
+MINOTAUR,140980,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/MINOTAUR
+Road4Schemes,140981,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/Road4Schemes
+SoilCompaC,140982,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/SoilCompaC
+EOM4SOIL,140983,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/EOM4SOIL
+EJP SOIL WP5,185133,127472,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/EJP SOIL/EJP SOIL WP5
+ANR Loop4Pack,134673,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ANR Loop4Pack
+Plastisol Dataverse,138001,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Plastisol Dataverse
+PulvéDrone Dataverse,139007,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PulvéDrone Dataverse
+MéthaBioSol,141128,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/MéthaBioSol
+UMR_ECOSYS Dataverse,141161,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR_ECOSYS Dataverse
+CarSolEl,142526,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/CarSolEl
+Vitirama,142689,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Vitirama
+ONF Dataverse,142713,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ONF Dataverse
+Multipartite virus full genome reconstitution Dataverse,147266,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Multipartite virus full genome reconstitution Dataverse
+Rotary kilns and drums,147571,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Rotary kilns and drums
+Experiments in kilns,159128,147571,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Rotary kilns and drums/Experiments in kilns
+Materials,159841,147571,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Rotary kilns and drums/Materials
+Collect-OR Dataverse,147628,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Collect-OR Dataverse
+ANR ATCHA Dataverse,147658,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ANR ATCHA Dataverse
+UMR Agronomie,148964,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UMR Agronomie
+Unité Expérimentale DSLP,150071,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale DSLP
+Dataverse Zootechnie DSLP,153194,150071,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale DSLP/Dataverse Zootechnie DSLP
+Dataverse Biodiversité DSLP,178953,150071,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale DSLP/Dataverse Biodiversité DSLP
+Pôle Ecosystèmes Lacustres (ECLA),155202,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Pôle Ecosystèmes Lacustres (ECLA)
+Unité Expérimentale GCIE Picardie,155765,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale GCIE Picardie
+Ensemble Sauvons La Forêt du Chateau de Chantilly,158293,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly
+Informations spatialisées sur le massif forestier du chateau de Chantilly,163194,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Informations spatialisées sur le massif forestier du chateau de Chantilly
+Données des 300 placettes permanentes de la forêt de Chantilly,163195,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Données des 300 placettes permanentes de la forêt de Chantilly
+Données des 60 placettes permanentes intensives de la forêt de Chantilly,163196,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Données des 60 placettes permanentes intensives de la forêt de Chantilly
+Données des plantations et placettes expérimentales de la forêt de Chantilly,163197,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Données des plantations et placettes expérimentales de la forêt de Chantilly
+Co-construction pour le futur de la forêt de Chantilly et communication,196722,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Co-construction pour le futur de la forêt de Chantilly et communication
+Séries de végétation,398233,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Séries de végétation
+Communautés d'insectes,398239,158293,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ensemble Sauvons La Forêt du Chateau de Chantilly/Communautés d'insectes
+Embacles : suivi et gestion du transport de bois en rivière,158911,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Embacles : suivi et gestion du transport de bois en rivière
+PigWeb Central Repository,159105,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/PigWeb Central Repository
+Architecture et Floraison des Espèces Fruitières,160724,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Architecture et Floraison des Espèces Fruitières
+"Ferti-Dig ""use of agricultural digestates""",161450,9,"Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Ferti-Dig ""use of agricultural digestates"""
+Benchmark data for soil and sediment transport modelling,162428,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Benchmark data for soil and sediment transport modelling
+Soil and Sediment Transport Case studies,162888,162428,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Benchmark data for soil and sediment transport modelling/Soil and Sediment Transport Case studies
+Storm Alex (Oct. 2020) - south east France,176148,162888,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Benchmark data for soil and sediment transport modelling/Soil and Sediment Transport Case studies/Storm Alex (Oct. 2020) - south east France
+Soil Erosion and Sediment Transport Modelling Softwares,162925,162428,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Benchmark data for soil and sediment transport modelling/Soil Erosion and Sediment Transport Modelling Softwares
+SOERE PRO - Long term field experiment network for research on the recycling of organic waste products in agriculture,163176,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SOERE PRO - Long term field experiment network for research on the recycling of organic waste products in agriculture
+PROspective,163234,163176,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/SOERE PRO - Long term field experiment network for research on the recycling of organic waste products in agriculture/PROspective
+AMG model,163212,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/AMG model
+ChemoSens,164913,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ChemoSens
+Sensory evaluation,174661,164913,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ChemoSens/Sensory evaluation
+Datasets,174706,174661,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ChemoSens/Sensory evaluation/Datasets
+Protocols,174707,174661,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ChemoSens/Sensory evaluation/Protocols
+Other resources,174714,174661,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/ChemoSens/Sensory evaluation/Other resources
+Plateforme d'Infectiologie Expérimentale (PFIE),165292,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Plateforme d'Infectiologie Expérimentale (PFIE)
+Transvac2 TNA,188611,165292,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Plateforme d'Infectiologie Expérimentale (PFIE)/Transvac2 TNA
+TRANSVAC Rabbit,188612,188611,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Plateforme d'Infectiologie Expérimentale (PFIE)/Transvac2 TNA/TRANSVAC Rabbit
+Infectiologie Expérimentale des Rongeurs et des Poissons (IERP),165293,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Infectiologie Expérimentale des Rongeurs et des Poissons (IERP)
+Spraying processes and equipment for agriculture,167857,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Spraying processes and equipment for agriculture
+BDOH,167858,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/BDOH
+UEPAO Unité Expérimentale de l'Orfasière,173048,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/UEPAO Unité Expérimentale de l'Orfasière
+Unité Expérimentale La Fage (UEF),174112,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale La Fage (UEF)
+Unité Expérimentale du domaine d'Epoisses (U2E),174698,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale du domaine d'Epoisses (U2E)
+U2E-Données patrimoniales,174830,174698,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale du domaine d'Epoisses (U2E)/U2E-Données patrimoniales
+U2E-Pratiques culturales,174831,174830,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Unité Expérimentale du domaine d'Epoisses (U2E)/U2E-Données patrimoniales/U2E-Pratiques culturales
+DiaPhen,178636,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/DiaPhen
+U2 worm,184322,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/U2 worm
+foodXPTools,191034,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/foodXPTools
+Projet CASDAR-ADEME Réseau d'essais au champ sur les Produits Résiduaires Organiques (Réseau PRO),192529,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Projet CASDAR-ADEME Réseau d'essais au champ sur les Produits Résiduaires Organiques (Réseau PRO)
+Plant spectral imaging,347316,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/Plant spectral imaging
+CHYPSTER,598413,9,Recherche Data Gouv/Data INRAE/Experimental - Observation - Simulation/CHYPSTER
+Omics,13,123960,Recherche Data Gouv/Data INRAE/Omics
+URGI,14,13,Recherche Data Gouv/Data INRAE/Omics/URGI
+GnpIS Dataverse,15,14,Recherche Data Gouv/Data INRAE/Omics/URGI/GnpIS Dataverse
+Amaizing project dataverse,106047,14,Recherche Data Gouv/Data INRAE/Omics/URGI/Amaizing project dataverse
+BRC4Forest dataverse,122568,14,Recherche Data Gouv/Data INRAE/Omics/URGI/BRC4Forest dataverse
+LIPME Dataverse,8165,13,Recherche Data Gouv/Data INRAE/Omics/LIPME Dataverse
+Grapevine Downy Mildew Genomics Dataverse,8419,13,Recherche Data Gouv/Data INRAE/Omics/Grapevine Downy Mildew Genomics Dataverse
+PlantBIOs-BIG,9032,13,Recherche Data Gouv/Data INRAE/Omics/PlantBIOs-BIG
+Periconia digitata,153161,9032,Recherche Data Gouv/Data INRAE/Omics/PlantBIOs-BIG/Periconia digitata
+SelGen,76102,13,Recherche Data Gouv/Data INRAE/Omics/SelGen
+ThaliaDB maize Dataverse,76506,76102,Recherche Data Gouv/Data INRAE/Omics/SelGen/ThaliaDB maize Dataverse
+Bordeaux Metabolome,84390,13,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome
+Frimouss Project,99670,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/Frimouss Project
+Metabolome of tomato fruit pericarp of gbp1-c CRISPR mutant,99946,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/Metabolome of tomato fruit pericarp of gbp1-c CRISPR mutant
+Metabolomic responses of maize leaf to progressive controlled chilling,102256,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/Metabolomic responses of maize leaf to progressive controlled chilling
+SunfloDry,104823,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/SunfloDry
+Metabolomic analyses of leaf of maize plants cultivated in field under mild nitrogen deficit,148059,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/Metabolomic analyses of leaf of maize plants cultivated in field under mild nitrogen deficit
+Bordeaux Plant Sciences - PHYTOSTIM,192947,84390,Recherche Data Gouv/Data INRAE/Omics/Bordeaux Metabolome/Bordeaux Plant Sciences - PHYTOSTIM
+EPGV,88282,13,Recherche Data Gouv/Data INRAE/Omics/EPGV
+Genes specific to phytoparasitic nematodes INRAE/EMBRAPA,98539,13,Recherche Data Gouv/Data INRAE/Omics/Genes specific to phytoparasitic nematodes INRAE/EMBRAPA
+Genomics and Adaptive Molecular Evolution,98596,13,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution
+Transposable elements in phytoparasites,98727,98596,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Transposable elements in phytoparasites
+Transposons mobility in M. incognita,98728,98727,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Transposable elements in phytoparasites/Transposons mobility in M. incognita
+Gene expression in agricultural pests,104111,98596,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Gene expression in agricultural pests
+Parasitic transcriptome regulation in M. incognita,104112,104111,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Gene expression in agricultural pests/Parasitic transcriptome regulation in M. incognita
+Meloidogyne-Telomeres,161701,98596,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Meloidogyne-Telomeres
+Assemblies,161702,161701,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Meloidogyne-Telomeres/Assemblies
+Gene-Predictions,161704,161701,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Meloidogyne-Telomeres/Gene-Predictions
+Meloidogyne enterolobii HiFI genomics,178915,98596,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Meloidogyne enterolobii HiFI genomics
+Xiphinema index Genome,600074,98596,Recherche Data Gouv/Data INRAE/Omics/Genomics and Adaptive Molecular Evolution/Xiphinema index Genome
+SPOmics,99577,13,Recherche Data Gouv/Data INRAE/Omics/SPOmics
+Enterotypig Expérience de sélection sur le microbiote chez le porc,106046,13,Recherche Data Gouv/Data INRAE/Omics/Enterotypig Expérience de sélection sur le microbiote chez le porc
+Selection G0-G3,157668,106046,Recherche Data Gouv/Data INRAE/Omics/Enterotypig Expérience de sélection sur le microbiote chez le porc/Selection G0-G3
+MetaGenoPolis,107894,13,Recherche Data Gouv/Data INRAE/Omics/MetaGenoPolis
+UMR Fromage,125165,13,Recherche Data Gouv/Data INRAE/Omics/UMR Fromage
+Migale bioinformatics core facility dataverse,134659,13,Recherche Data Gouv/Data INRAE/Omics/Migale bioinformatics core facility dataverse
+metabarfood,150363,134659,Recherche Data Gouv/Data INRAE/Omics/Migale bioinformatics core facility dataverse/metabarfood
+Cell-free genome-wide transcriptomics through machine learning optimization,630742,134659,Recherche Data Gouv/Data INRAE/Omics/Migale bioinformatics core facility dataverse/Cell-free genome-wide transcriptomics through machine learning optimization
+MetaSimFood Dataverse,147627,13,Recherche Data Gouv/Data INRAE/Omics/MetaSimFood Dataverse
+Fermented vegetables metavirome,398718,147627,Recherche Data Gouv/Data INRAE/Omics/MetaSimFood Dataverse/Fermented vegetables metavirome
+SeqOccIn Dataverse,147872,13,Recherche Data Gouv/Data INRAE/Omics/SeqOccIn Dataverse
+PAPPSO,148936,13,Recherche Data Gouv/Data INRAE/Omics/PAPPSO
+MCQR,161364,148936,Recherche Data Gouv/Data INRAE/Omics/PAPPSO/MCQR
+i2MassChroQ Bruker dataset collection,192464,148936,Recherche Data Gouv/Data INRAE/Omics/PAPPSO/i2MassChroQ Bruker dataset collection
+Regards Méthodologiques Croisés pour l’Intégration de données Multi-sources,155725,13,Recherche Data Gouv/Data INRAE/Omics/Regards Méthodologiques Croisés pour l’Intégration de données Multi-sources
+Hyperspectral Images,161342,155725,Recherche Data Gouv/Data INRAE/Omics/Regards Méthodologiques Croisés pour l’Intégration de données Multi-sources/Hyperspectral Images
+WallomicsData,164718,155725,Recherche Data Gouv/Data INRAE/Omics/Regards Méthodologiques Croisés pour l’Intégration de données Multi-sources/WallomicsData
+ProMetIS,164719,155725,Recherche Data Gouv/Data INRAE/Omics/Regards Méthodologiques Croisés pour l’Intégration de données Multi-sources/ProMetIS
+ASFVInt,163845,13,Recherche Data Gouv/Data INRAE/Omics/ASFVInt
+Pirbright ASFVint Dataverse,164836,163845,Recherche Data Gouv/Data INRAE/Omics/ASFVInt/Pirbright ASFVint Dataverse
+FLI dataverse,164839,163845,Recherche Data Gouv/Data INRAE/Omics/ASFVInt/FLI dataverse
+INIA-CSIC dataverse,165035,163845,Recherche Data Gouv/Data INRAE/Omics/ASFVInt/INIA-CSIC dataverse
+UT dataverse,166504,163845,Recherche Data Gouv/Data INRAE/Omics/ASFVInt/UT dataverse
+MetaPDOcheese,187837,13,Recherche Data Gouv/Data INRAE/Omics/MetaPDOcheese
+Phase_1_metabarcoding,187880,187837,Recherche Data Gouv/Data INRAE/Omics/MetaPDOcheese/Phase_1_metabarcoding
+UMR Medis,190979,13,Recherche Data Gouv/Data INRAE/Omics/UMR Medis
+Alterfi,191060,190979,Recherche Data Gouv/Data INRAE/Omics/UMR Medis/Alterfi
+"Collection of 16S, 23S sequences for Alterfi phase 2",191380,191060,"Recherche Data Gouv/Data INRAE/Omics/UMR Medis/Alterfi/Collection of 16S, 23S sequences for Alterfi phase 2"
+Interaction Fibrobacter succinogenes Selenomonas ruminantiun,214674,190979,Recherche Data Gouv/Data INRAE/Omics/UMR Medis/Interaction Fibrobacter succinogenes Selenomonas ruminantiun
+Food Microbial Ecology Lab dataverse,286304,13,Recherche Data Gouv/Data INRAE/Omics/Food Microbial Ecology Lab dataverse
+Food Microbiome Metabolic Modules (F3M) version 1.1.0,634941,286304,Recherche Data Gouv/Data INRAE/Omics/Food Microbial Ecology Lab dataverse/Food Microbiome Metabolic Modules (F3M) version 1.1.0
+Surveys & Texts,16,123960,Recherche Data Gouv/Data INRAE/Surveys & Texts
+Vocabulaires Ouverts,11,16,Recherche Data Gouv/Data INRAE/Surveys & Texts/Vocabulaires Ouverts
+atweb Dataverse,17,16,Recherche Data Gouv/Data INRAE/Surveys & Texts/atweb Dataverse
+Multi Criteria Assessment Methods,79971,16,Recherche Data Gouv/Data INRAE/Surveys & Texts/Multi Criteria Assessment Methods
+Legume bibliometrics Dataverse,98525,16,Recherche Data Gouv/Data INRAE/Surveys & Texts/Legume bibliometrics Dataverse
+IPMWORKS,127603,16,Recherche Data Gouv/Data INRAE/Surveys & Texts/IPMWORKS
+IPMWORKS-WP4,129713,127603,Recherche Data Gouv/Data INRAE/Surveys & Texts/IPMWORKS/IPMWORKS-WP4
+IPM Biofortification Strategy 2021-2022 Case study Dataverse,163890,129713,Recherche Data Gouv/Data INRAE/Surveys & Texts/IPMWORKS/IPMWORKS-WP4/IPM Biofortification Strategy 2021-2022 Case study Dataverse
+IPMWORKS-WP7,175543,127603,Recherche Data Gouv/Data INRAE/Surveys & Texts/IPMWORKS/IPMWORKS-WP7
+IPMWORKS-WP5,615947,127603,Recherche Data Gouv/Data INRAE/Surveys & Texts/IPMWORKS/IPMWORKS-WP5
+Noaw Project,8717,123960,Recherche Data Gouv/Data INRAE/Noaw Project
+Work Package 1 ,9039,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 
+AAU,77044,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /AAU
+CBHU,77045,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /CBHU
+ECOZ,77046,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /ECOZ
+CGIA,77047,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /CGIA
+GRAPSUD,77048,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /GRAPSUD
+IFV,77049,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /IFV
+IAUS,77050,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /IAUS
+IBBK,77051,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /IBBK
+NTUA,77052,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /NTUA
+VA,77053,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /VA
+INRA,77707,9039,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 1 /INRA
+Work Package 2,9040,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 2
+DTU,77616,9040,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 2/DTU
+UM,77617,9040,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 2/UM
+INRA,83863,9040,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 2/INRA
+IAUS,83864,9040,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 2/IAUS
+Work Package 3,9041,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3
+AAU,77035,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/AAU
+APESA,77036,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/APESA
+FRAUNHOFER,77037,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/FRAUNHOFER
+INNOVEN,77038,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/INNOVEN
+INRA,77039,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/INRA
+NTUA,77040,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/NTUA
+SCHIESSL,77041,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/SCHIESSL
+TIA,77042,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/TIA
+UNIROMA,77043,9041,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 3/UNIROMA
+Work Package 4,9042,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4
+INRA,77025,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/INRA
+UM,77026,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/UM
+APESA,77027,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/APESA
+IAPPST,77028,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/IAPPST
+IBET,77029,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/IBET
+ITRI,77030,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/ITRI
+UNIBO,77031,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/UNIBO
+SEE,77032,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/SEE
+RISE,77033,9042,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 4/RISE
+Work Package 5,9043,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5
+Agriport,77618,9043,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5/Agriport
+DLO-FBR,77619,9043,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5/DLO-FBR
+SOFIES,77620,9043,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5/SOFIES
+CBHU,77676,9043,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5/CBHU
+INRA,77677,9043,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 5/INRA
+Work Package 6,9044,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 6
+UNIROMA,77673,9044,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 6/UNIROMA
+DTU,104222,9044,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 6/DTU
+SOFIES,105068,9044,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 6/SOFIES
+Work Package 7,9045,8717,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 7
+AAU,77674,9045,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 7/AAU
+CBHU,77675,9045,Recherche Data Gouv/Data INRAE/Noaw Project/Work Package 7/CBHU
+AMAP,8723,123960,Recherche Data Gouv/Data INRAE/AMAP
+AMAP ECOSFIX,8724,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP ECOSFIX
+AMAP ECOPICS,101317,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP ECOPICS
+AMAP Ressources R,101359,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Ressources R
+AMAP Fiches pratiques données,101440,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Fiches pratiques données
+AMAP Entrepôts de données,103196,101440,Recherche Data Gouv/Data INRAE/AMAP/AMAP Fiches pratiques données/AMAP Entrepôts de données
+AMAP Tree Root Demography,104210,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Tree Root Demography
+AMAP Fixsoil,104780,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Fixsoil
+AMAP Plan de Gestion des Données,122415,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Plan de Gestion des Données
+AMAP Herbaceous Root Growth,124843,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Herbaceous Root Growth
+AMAP Stability,142219,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP Stability
+AMAP BDD Inventaire,142236,8723,Recherche Data Gouv/Data INRAE/AMAP/AMAP BDD Inventaire
+Talveg2 Opus VI,147547,8723,Recherche Data Gouv/Data INRAE/AMAP/Talveg2 Opus VI
+Eco2adapt,163291,8723,Recherche Data Gouv/Data INRAE/AMAP/Eco2adapt
+Living Labs Characteristics,163726,163291,Recherche Data Gouv/Data INRAE/AMAP/Eco2adapt/Living Labs Characteristics
+Soil analyses,430290,163726,Recherche Data Gouv/Data INRAE/AMAP/Eco2adapt/Living Labs Characteristics/Soil analyses
+Practice Abstracts,187057,163291,Recherche Data Gouv/Data INRAE/AMAP/Eco2adapt/Practice Abstracts
+Talus,163292,8723,Recherche Data Gouv/Data INRAE/AMAP/Talus
+Soil-root Profiles  French Guiana,626968,8723,Recherche Data Gouv/Data INRAE/AMAP/Soil-root Profiles  French Guiana
+CIRCASA,8725,123960,Recherche Data Gouv/Data INRAE/CIRCASA
+AgroResonance ,8847,123960,Recherche Data Gouv/Data INRAE/AgroResonance 
+Multiscale NMR analysis of the degradation of apple structure due to thermal treatment,103210,8847,Recherche Data Gouv/Data INRAE/AgroResonance /Multiscale NMR analysis of the degradation of apple structure due to thermal treatment
+MRI and Spectroscopic T2 Relaxometry to study thermal degradation of apple structure,103222,103210,Recherche Data Gouv/Data INRAE/AgroResonance /Multiscale NMR analysis of the degradation of apple structure due to thermal treatment/MRI and Spectroscopic T2 Relaxometry to study thermal degradation of apple structure
+Amidou Traore Dataverse,103257,8847,Recherche Data Gouv/Data INRAE/AgroResonance /Amidou Traore Dataverse
+Christophe Gouel Dataverse,76106,123960,Recherche Data Gouv/Data INRAE/Christophe Gouel Dataverse
+UMR IGEPP,77713,123960,Recherche Data Gouv/Data INRAE/UMR IGEPP
+IPM-Popillia,142433,77713,Recherche Data Gouv/Data INRAE/UMR IGEPP/IPM-Popillia
+Projets taupins / Wireworm projects ,148890,77713,Recherche Data Gouv/Data INRAE/UMR IGEPP/Projets taupins / Wireworm projects 
+BrasExplor,192253,77713,Recherche Data Gouv/Data INRAE/UMR IGEPP/BrasExplor
+Diagnostic Illustration for Plant Pathogens,398519,77713,Recherche Data Gouv/Data INRAE/UMR IGEPP/Diagnostic Illustration for Plant Pathogens
+Brassicaceae_Diagnostic,576845,398519,Recherche Data Gouv/Data INRAE/UMR IGEPP/Diagnostic Illustration for Plant Pathogens/Brassicaceae_Diagnostic
+Oilseedrape_Pods_Pathogens,594232,576845,Recherche Data Gouv/Data INRAE/UMR IGEPP/Diagnostic Illustration for Plant Pathogens/Brassicaceae_Diagnostic/Oilseedrape_Pods_Pathogens
+Plant Disease Images,398520,77713,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images
+Brassicaceae,398521,398520,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Brassicaceae
+Brassica_napus,575256,398521,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Brassicaceae/Brassica_napus
+Solanaceae,398522,398520,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Solanaceae
+Faboideae,398523,398520,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Faboideae
+Poaceae,398524,398520,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Poaceae
+Others,398525,398520,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Others
+Beta vulgaris,576887,398525,Recherche Data Gouv/Data INRAE/UMR IGEPP/Plant Disease Images/Others/Beta vulgaris
+Unité expérimentale d’écologie et d’écotoxicologie aquatique,84087,123960,Recherche Data Gouv/Data INRAE/Unité expérimentale d’écologie et d’écotoxicologie aquatique
+Glopack project,84413,123960,Recherche Data Gouv/Data INRAE/Glopack project
+Work Package 1,84414,84413,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1
+INRA,84415,84414,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1/INRA
+UM,84451,84414,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1/UM
+Fraunhofer,84452,84414,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1/Fraunhofer
+Creme Global,96867,84414,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1/Creme Global
+ECOZEPT,97052,84414,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 1/ECOZEPT
+Work Package 2,84447,84413,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2
+IBET,97039,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/IBET
+UM,99159,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/UM
+FRAUNHOFER,99160,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/FRAUNHOFER
+INNOVEN,99161,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/INNOVEN
+PACK4FOOD,99166,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/PACK4FOOD
+FURST-PLAST,99167,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/FURST-PLAST
+UGENT,99168,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/UGENT
+COOPBOX,99169,84447,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 2/COOPBOX
+Work Package 3,84448,84413,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 3
+UM,95665,84448,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 3/UM
+Work Package 4,84449,84413,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 4
+Work Package 5,84450,84413,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 5
+ECOZEPT,97548,84450,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 5/ECOZEPT
+CBHU,120254,84450,Recherche Data Gouv/Data INRAE/Glopack project/Work Package 5/CBHU
+UMR Silva,86452,123960,Recherche Data Gouv/Data INRAE/UMR Silva
+WOODSEER-ANR-19-CE10-0011,187918,86452,Recherche Data Gouv/Data INRAE/UMR Silva/WOODSEER-ANR-19-CE10-0011
+UMR Eco&Sols,86720,123960,Recherche Data Gouv/Data INRAE/UMR Eco&Sols
+UMR SMART,94801,123960,Recherche Data Gouv/Data INRAE/UMR SMART
+GLOBAGRI,105964,94801,Recherche Data Gouv/Data INRAE/UMR SMART/GLOBAGRI
+CONSOLE,150582,94801,Recherche Data Gouv/Data INRAE/UMR SMART/CONSOLE
+COOPERATIVE STUDIES,619466,94801,Recherche Data Gouv/Data INRAE/UMR SMART/COOPERATIVE STUDIES
+Odalim,95865,123960,Recherche Data Gouv/Data INRAE/Odalim
+GAFL,95876,123960,Recherche Data Gouv/Data INRAE/GAFL
+UR ASTER,96076,123960,Recherche Data Gouv/Data INRAE/UR ASTER
+UREP,98012,123960,Recherche Data Gouv/Data INRAE/UREP
+HYCAR,98507,123960,Recherche Data Gouv/Data INRAE/HYCAR
+CAMELS-FR,193038,98507,Recherche Data Gouv/Data INRAE/HYCAR/CAMELS-FR
+ORACLE research observatory,567622,98507,Recherche Data Gouv/Data INRAE/HYCAR/ORACLE research observatory
+PEGASE,98963,123960,Recherche Data Gouv/Data INRAE/PEGASE
+SOUNDWEL,99188,98963,Recherche Data Gouv/Data INRAE/PEGASE/SOUNDWEL
+PROHEALTH,99220,98963,Recherche Data Gouv/Data INRAE/PEGASE/PROHEALTH
+WP3,99320,99220,Recherche Data Gouv/Data INRAE/PEGASE/PROHEALTH/WP3
+E789,99322,99320,Recherche Data Gouv/Data INRAE/PEGASE/PROHEALTH/WP3/E789
+Data paper 'forced physical activity feed and efficiency lines',123087,99320,Recherche Data Gouv/Data INRAE/PEGASE/PROHEALTH/WP3/Data paper 'forced physical activity feed and efficiency lines'
+WP2,99321,99220,Recherche Data Gouv/Data INRAE/PEGASE/PROHEALTH/WP2
+Select SNP for Imputation,104343,98963,Recherche Data Gouv/Data INRAE/PEGASE/Select SNP for Imputation
+MFGsize,106338,98963,Recherche Data Gouv/Data INRAE/PEGASE/MFGsize
+Duck Liver RNA Sequencing ,106489,98963,Recherche Data Gouv/Data INRAE/PEGASE/Duck Liver RNA Sequencing 
+The cost of nitrogen excretion in mammals and birds,106729,98963,Recherche Data Gouv/Data INRAE/PEGASE/The cost of nitrogen excretion in mammals and birds
+Emigraze,106776,98963,Recherche Data Gouv/Data INRAE/PEGASE/Emigraze
+ECOAE,107849,98963,Recherche Data Gouv/Data INRAE/PEGASE/ECOAE
+Thesis_Monteiro,109889,98963,Recherche Data Gouv/Data INRAE/PEGASE/Thesis_Monteiro
+Etude_PrairiesN,120188,98963,Recherche Data Gouv/Data INRAE/PEGASE/Etude_PrairiesN
+GenTORE_WP6,120189,98963,Recherche Data Gouv/Data INRAE/PEGASE/GenTORE_WP6
+Evolution of thermal comfort of dairy cows in metropolitan France under climate change,123909,120189,Recherche Data Gouv/Data INRAE/PEGASE/GenTORE_WP6/Evolution of thermal comfort of dairy cows in metropolitan France under climate change
+POWER,122956,98963,Recherche Data Gouv/Data INRAE/PEGASE/POWER
+Thesis_Eugenio,141173,98963,Recherche Data Gouv/Data INRAE/PEGASE/Thesis_Eugenio
+Effect of temperature in lactating sows,142266,98963,Recherche Data Gouv/Data INRAE/PEGASE/Effect of temperature in lactating sows
+IGF1,142511,98963,Recherche Data Gouv/Data INRAE/PEGASE/IGF1
+Données expérimentales P20-005,148857,98963,Recherche Data Gouv/Data INRAE/PEGASE/Données expérimentales P20-005
+Thesis_Xavier_Caroline,150064,98963,Recherche Data Gouv/Data INRAE/PEGASE/Thesis_Xavier_Caroline
+Lipomec,150670,98963,Recherche Data Gouv/Data INRAE/PEGASE/Lipomec
+Milking interval and milk lipolysis,192135,150670,Recherche Data Gouv/Data INRAE/PEGASE/Lipomec/Milking interval and milk lipolysis
+EchoGrasPoule,157472,98963,Recherche Data Gouv/Data INRAE/PEGASE/EchoGrasPoule
+Thesis_Mescouto_Lopes,161341,98963,Recherche Data Gouv/Data INRAE/PEGASE/Thesis_Mescouto_Lopes
+GrASTech,163070,98963,Recherche Data Gouv/Data INRAE/PEGASE/GrASTech
+BIOMULTI,163088,98963,Recherche Data Gouv/Data INRAE/PEGASE/BIOMULTI
+WAIT4,174175,98963,Recherche Data Gouv/Data INRAE/PEGASE/WAIT4
+IEPL,174198,98963,Recherche Data Gouv/Data INRAE/PEGASE/IEPL
+FRIENDSHIP,175487,98963,Recherche Data Gouv/Data INRAE/PEGASE/FRIENDSHIP
+RECUIZ : Optimization of Cu & Zn recycling from animal feeding to the soil in pig production,176453,98963,Recherche Data Gouv/Data INRAE/PEGASE/RECUIZ : Optimization of Cu & Zn recycling from animal feeding to the soil in pig production
+Meta-reactions ,184078,98963,Recherche Data Gouv/Data INRAE/PEGASE/Meta-reactions 
+PPILOW,192825,98963,Recherche Data Gouv/Data INRAE/PEGASE/PPILOW
+WP4,192826,192825,Recherche Data Gouv/Data INRAE/PEGASE/PPILOW/WP4
+Thesis_Jahoui_Anissa,209332,98963,Recherche Data Gouv/Data INRAE/PEGASE/Thesis_Jahoui_Anissa
+Varabreuv,380881,98963,Recherche Data Gouv/Data INRAE/PEGASE/Varabreuv
+PigWeb Glucose Sensing ,635457,98963,Recherche Data Gouv/Data INRAE/PEGASE/PigWeb Glucose Sensing 
+UMR G-EAU,99318,123960,Recherche Data Gouv/Data INRAE/UMR G-EAU
+GHOSTE,120055,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/GHOSTE
+so-ii,123119,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/so-ii
+Eau et Agriculture au domaine du Merle,129000,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/Eau et Agriculture au domaine du Merle
+"Talanoa-Water : le lab ""Audois""",166188,99318,"Recherche Data Gouv/Data INRAE/UMR G-EAU/Talanoa-Water : le lab ""Audois"""
+PRECOS,185990,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/PRECOS
+PRESTI,186450,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/PRESTI
+floodam,192053,99318,Recherche Data Gouv/Data INRAE/UMR G-EAU/floodam
+XYLODENSMAP Dataverse,100888,123960,Recherche Data Gouv/Data INRAE/XYLODENSMAP Dataverse
+Dataverse ETTIS,100949,123960,Recherche Data Gouv/Data INRAE/Dataverse ETTIS
+Elsa,100950,123960,Recherche Data Gouv/Data INRAE/Elsa
+ELDAM,100964,100950,Recherche Data Gouv/Data INRAE/Elsa/ELDAM
+projet_ANR_URBALIM_2021_2024,148758,100950,Recherche Data Gouv/Data INRAE/Elsa/projet_ANR_URBALIM_2021_2024
+Fisheries,179077,100950,Recherche Data Gouv/Data INRAE/Elsa/Fisheries
+NAIAD_H2020,104101,123960,Recherche Data Gouv/Data INRAE/NAIAD_H2020
+NuMeCan,104443,123960,Recherche Data Gouv/Data INRAE/NuMeCan
+BEING,104444,104443,Recherche Data Gouv/Data INRAE/NuMeCan/BEING
+NumEtude,107154,104443,Recherche Data Gouv/Data INRAE/NuMeCan/NumEtude
+Microprung,114192,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Microprung
+Biotabrain,120801,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Biotabrain
+DNA extraction kit comparison,142392,104443,Recherche Data Gouv/Data INRAE/NuMeCan/DNA extraction kit comparison
+Hed-O-Shift,142672,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Hed-O-Shift
+Hed-O-Shift Animal,147577,142672,Recherche Data Gouv/Data INRAE/NuMeCan/Hed-O-Shift/Hed-O-Shift Animal
+Hed-O-Shift Human,147578,142672,Recherche Data Gouv/Data INRAE/NuMeCan/Hed-O-Shift/Hed-O-Shift Human
+ACUPIG,142947,104443,Recherche Data Gouv/Data INRAE/NuMeCan/ACUPIG
+TRYPTIF,146134,104443,Recherche Data Gouv/Data INRAE/NuMeCan/TRYPTIF
+CEMOV,147473,104443,Recherche Data Gouv/Data INRAE/NuMeCan/CEMOV
+Gut microbiota and Crohn’s disease,148202,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Gut microbiota and Crohn’s disease
+Mitobese,150930,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Mitobese
+PHODE-21,154292,104443,Recherche Data Gouv/Data INRAE/NuMeCan/PHODE-21
+Modèles DeepLearning comportement,286880,104443,Recherche Data Gouv/Data INRAE/NuMeCan/Modèles DeepLearning comportement
+MILAM,538721,104443,Recherche Data Gouv/Data INRAE/NuMeCan/MILAM
+FooSIN Dataverse,106140,123960,Recherche Data Gouv/Data INRAE/FooSIN Dataverse
+"Direction de l’expertise scientifique collective, de la prospective et des études Dataverse",106217,123960,"Recherche Data Gouv/Data INRAE/Direction de l’expertise scientifique collective, de la prospective et des études Dataverse"
+Etude 4pour1000 Stocker du carbone dans les sols français : quel potentiel au regard de l’objectif 4 pour 1000 et à quel coût ? Dataverse,106334,106217,"Recherche Data Gouv/Data INRAE/Direction de l’expertise scientifique collective, de la prospective et des études Dataverse/Etude 4pour1000 Stocker du carbone dans les sols français : quel potentiel au regard de l’objectif 4 pour 1000 et à quel coût ? Dataverse"
+"Analyse des 44 opérations d'expertise scientifique collective, d'étude et de prospective conduites à l'INRA de 2000 à 2020 Dataverse",106503,106217,"Recherche Data Gouv/Data INRAE/Direction de l’expertise scientifique collective, de la prospective et des études Dataverse/Analyse des 44 opérations d'expertise scientifique collective, d'étude et de prospective conduites à l'INRA de 2000 à 2020 Dataverse"
+Opérations relatives aux scénarios de systèmes alimentaires à des échelles régionales ou mondiales Dataverse,107177,106217,"Recherche Data Gouv/Data INRAE/Direction de l’expertise scientifique collective, de la prospective et des études Dataverse/Opérations relatives aux scénarios de systèmes alimentaires à des échelles régionales ou mondiales Dataverse"
+Requêtes bibliographiques ,198327,106217,"Recherche Data Gouv/Data INRAE/Direction de l’expertise scientifique collective, de la prospective et des études Dataverse/Requêtes bibliographiques "
+FAIRCHAIN,109433,123960,Recherche Data Gouv/Data INRAE/FAIRCHAIN
+Work Package 1,115864,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 1
+Work Package 2,115865,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 2
+Stéphanie-Marie Deutsch Collection,184121,115865,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 2/Stéphanie-Marie Deutsch Collection
+Work Package 3,115866,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3
+CS-Swi,115873,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Swi
+CS-Fra,115874,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Fra
+CS-Swe,115875,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Swe
+CS-Bel,115876,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Bel
+CS-Gre,115877,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Gre
+CS-Aut,115878,115866,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 3/CS-Aut
+Work Package 4,115867,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 4
+Work Package 5,115868,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 5
+T5.2 - LCA,150517,115868,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 5/T5.2 - LCA
+Work Package 6,115869,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 6
+Work Package 7,115870,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 7
+Work Package 8,115871,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Package 8
+Work Packages 9 & 10,115872,109433,Recherche Data Gouv/Data INRAE/FAIRCHAIN/Work Packages 9 & 10
+AgroClim Dataverse,113927,123960,Recherche Data Gouv/Data INRAE/AgroClim Dataverse
+BIBS Dataverse,113933,123960,Recherche Data Gouv/Data INRAE/BIBS Dataverse
+Mustard Dataverse,118207,113933,Recherche Data Gouv/Data INRAE/BIBS Dataverse/Mustard Dataverse
+DVS-NMR,174684,113933,Recherche Data Gouv/Data INRAE/BIBS Dataverse/DVS-NMR
+Solid State NMR,176295,113933,Recherche Data Gouv/Data INRAE/BIBS Dataverse/Solid State NMR
+Reactivity during baking of model cakes,114241,123960,Recherche Data Gouv/Data INRAE/Reactivity during baking of model cakes
+BioEcoAgro,115952,123960,Recherche Data Gouv/Data INRAE/BioEcoAgro
+Département ACT,119999,123960,Recherche Data Gouv/Data INRAE/Département ACT
+UMR Innovation,174938,119999,Recherche Data Gouv/Data INRAE/Département ACT/UMR Innovation
+USC GRAPPE,120000,123960,Recherche Data Gouv/Data INRAE/USC GRAPPE
+TETIS,121249,123960,Recherche Data Gouv/Data INRAE/TETIS
+THISME,142627,121249,Recherche Data Gouv/Data INRAE/TETIS/THISME
+Projet FederActeur,142628,121249,Recherche Data Gouv/Data INRAE/TETIS/Projet FederActeur
+SLIM,163023,121249,Recherche Data Gouv/Data INRAE/TETIS/SLIM
+GEDIGeoreferencing,163089,163023,Recherche Data Gouv/Data INRAE/TETIS/SLIM/GEDIGeoreferencing
+FRISBEE_CIRON,174284,121249,Recherche Data Gouv/Data INRAE/TETIS/FRISBEE_CIRON
+ULM,174285,174284,Recherche Data Gouv/Data INRAE/TETIS/FRISBEE_CIRON/ULM
+ULM_sites,174286,174285,Recherche Data Gouv/Data INRAE/TETIS/FRISBEE_CIRON/ULM/ULM_sites
+ULM,285225,174284,Recherche Data Gouv/Data INRAE/TETIS/FRISBEE_CIRON/ULM
+MaccMic,187797,121249,Recherche Data Gouv/Data INRAE/TETIS/MaccMic
+BECARUN,632887,121249,Recherche Data Gouv/Data INRAE/TETIS/BECARUN
+Dataverse COASTAL,121518,123960,Recherche Data Gouv/Data INRAE/Dataverse COASTAL
+UR1390 - AGAP Corse,122166,123960,Recherche Data Gouv/Data INRAE/UR1390 - AGAP Corse
+RIVERLY,122619,123960,Recherche Data Gouv/Data INRAE/RIVERLY
+DRYvER - Drying rivers and climate change,598400,122619,Recherche Data Gouv/Data INRAE/RIVERLY/DRYvER - Drying rivers and climate change
+DRYvER-WP2,598404,598400,Recherche Data Gouv/Data INRAE/RIVERLY/DRYvER - Drying rivers and climate change/DRYvER-WP2
+DRYvER-WP3,598411,598400,Recherche Data Gouv/Data INRAE/RIVERLY/DRYvER - Drying rivers and climate change/DRYvER-WP3
+DRYvER-WP1,598412,598400,Recherche Data Gouv/Data INRAE/RIVERLY/DRYvER - Drying rivers and climate change/DRYvER-WP1
+DRYvER-WP1 Hydrological modelling catchment scale Europe,601041,598412,Recherche Data Gouv/Data INRAE/RIVERLY/DRYvER - Drying rivers and climate change/DRYvER-WP1/DRYvER-WP1 Hydrological modelling catchment scale Europe
+PPR SUCSEED,122723,123960,Recherche Data Gouv/Data INRAE/PPR SUCSEED
+Transcriptome,142439,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Transcriptome
+Génome,142440,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Génome
+Métabarcoding,142441,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Métabarcoding
+Méthylome,142442,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Méthylome
+Protéome,142457,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Protéome
+Métabolome,142458,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Métabolome
+Digital imaging,142820,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Digital imaging
+Omnilog,150120,122723,Recherche Data Gouv/Data INRAE/PPR SUCSEED/Omnilog
+LABERCA,123088,123960,Recherche Data Gouv/Data INRAE/LABERCA
+Bioinformatics tools,123140,123088,Recherche Data Gouv/Data INRAE/LABERCA/Bioinformatics tools
+SADAPT Dataverse,123454,123960,Recherche Data Gouv/Data INRAE/SADAPT Dataverse
+Pierre Levasseur,127823,123454,Recherche Data Gouv/Data INRAE/SADAPT Dataverse/Pierre Levasseur
+RPG Explorer,166882,123454,Recherche Data Gouv/Data INRAE/SADAPT Dataverse/RPG Explorer
+UMR-STLO Dataverse,123458,123960,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse
+PFL_STLO Dataverse,118243,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/PFL_STLO Dataverse
+FLEGME,124097,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/FLEGME
+FLEGME sourcing2,218288,124097,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/FLEGME/FLEGME sourcing2
+LOCALNUTLEG,142530,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/LOCALNUTLEG
+TANGO,147915,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/TANGO
+IBIS,147916,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/IBIS
+VEG&LAIT,202023,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/VEG&LAIT
+PROLIFIC,306208,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/PROLIFIC
+GALLERIA,347474,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/GALLERIA
+LETSPROSEED,614120,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/LETSPROSEED
+L4-PROBIOTIC,628121,123458,Recherche Data Gouv/Data INRAE/UMR-STLO Dataverse/L4-PROBIOTIC
+Plateforme ESV Dataverse,123482,123960,Recherche Data Gouv/Data INRAE/Plateforme ESV Dataverse
+UE Maraichage Dataverse,123534,123960,Recherche Data Gouv/Data INRAE/UE Maraichage Dataverse
+CIRM - Centre International de Ressources Microbiennes,124014,123960,Recherche Data Gouv/Data INRAE/CIRM - Centre International de Ressources Microbiennes
+EOSC-Pillar,124101,123960,Recherche Data Gouv/Data INRAE/EOSC-Pillar
+LESSEM,140924,123960,Recherche Data Gouv/Data INRAE/LESSEM
+UMR BF2I,141099,123960,Recherche Data Gouv/Data INRAE/UMR BF2I
+MoSAR,141125,123960,Recherche Data Gouv/Data INRAE/MoSAR
+UMR SPO,142213,123960,Recherche Data Gouv/Data INRAE/UMR SPO
+Spodoptera littoralis genome mining brings insights on the dynamic of expansion of gustatory receptors in polyphagous noctuidae,142287,123960,Recherche Data Gouv/Data INRAE/Spodoptera littoralis genome mining brings insights on the dynamic of expansion of gustatory receptors in polyphagous noctuidae
+Baptiste Girault,142523,123960,Recherche Data Gouv/Data INRAE/Baptiste Girault
+ARABREED,142525,123960,Recherche Data Gouv/Data INRAE/ARABREED
+Thèse Aurélien Estarague,142527,142525,Recherche Data Gouv/Data INRAE/ARABREED/Thèse Aurélien Estarague
+GABI Dataverse,146190,123960,Recherche Data Gouv/Data INRAE/GABI Dataverse
+HYPOTEMP,157713,146190,Recherche Data Gouv/Data INRAE/GABI Dataverse/HYPOTEMP
+AMETHYSTE,161288,146190,Recherche Data Gouv/Data INRAE/GABI Dataverse/AMETHYSTE
+These_Jourdain_Jeanlin,163115,146190,Recherche Data Gouv/Data INRAE/GABI Dataverse/These_Jourdain_Jeanlin
+SpliVar,606714,146190,Recherche Data Gouv/Data INRAE/GABI Dataverse/SpliVar
+Projet_Flavocontrol,631563,146190,Recherche Data Gouv/Data INRAE/GABI Dataverse/Projet_Flavocontrol
+UR EFNO Ecosystèmes forestiers,148124,123960,Recherche Data Gouv/Data INRAE/UR EFNO Ecosystèmes forestiers
+Institut Européen de la Forêt cultivée,148485,123960,Recherche Data Gouv/Data INRAE/Institut Européen de la Forêt cultivée
+Planted Forests Reports,150466,148485,Recherche Data Gouv/Data INRAE/Institut Européen de la Forêt cultivée/Planted Forests Reports
+IEFC Factsheets,299097,148485,Recherche Data Gouv/Data INRAE/Institut Européen de la Forêt cultivée/IEFC Factsheets
+UMR AGIR Dataverse,148621,123960,Recherche Data Gouv/Data INRAE/UMR AGIR Dataverse
+Thèse : Résilience du système cyathostomes x microbiote digestif à une perturbation,148963,123960,Recherche Data Gouv/Data INRAE/Thèse : Résilience du système cyathostomes x microbiote digestif à une perturbation
+Meta-analysis of equine strongyle community structure,148967,148963,Recherche Data Gouv/Data INRAE/Thèse : Résilience du système cyathostomes x microbiote digestif à une perturbation/Meta-analysis of equine strongyle community structure
+URZF (Unité de recherche Zoologie forestière),150145,123960,Recherche Data Gouv/Data INRAE/URZF (Unité de recherche Zoologie forestière)
+URZF Flight mills,217959,150145,Recherche Data Gouv/Data INRAE/URZF (Unité de recherche Zoologie forestière)/URZF Flight mills
+AgroBRC – RARe,151188,123960,Recherche Data Gouv/Data INRAE/AgroBRC – RARe
+Plan de Gestion de Données,160813,151188,Recherche Data Gouv/Data INRAE/AgroBRC – RARe/Plan de Gestion de Données
+Protocoles,160814,151188,Recherche Data Gouv/Data INRAE/AgroBRC – RARe/Protocoles
+MycSA Dataverse,151201,123960,Recherche Data Gouv/Data INRAE/MycSA Dataverse
+TEAMTOX,162885,151201,Recherche Data Gouv/Data INRAE/MycSA Dataverse/TEAMTOX
+URP3F,153180,123960,Recherche Data Gouv/Data INRAE/URP3F
+IATE research unit,161334,123960,Recherche Data Gouv/Data INRAE/IATE research unit
+Platform for Processing Plant Product with Emergent Technologies,161343,161334,Recherche Data Gouv/Data INRAE/IATE research unit/Platform for Processing Plant Product with Emergent Technologies
+ePoP,603012,161334,Recherche Data Gouv/Data INRAE/IATE research unit/ePoP
+"AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities",161447,123960,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities"
+AgriLoop WP1 dataverse,174218,161447,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities/AgriLoop WP1 dataverse"
+AgriLoop WP2 dataverse,174222,161447,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities/AgriLoop WP2 dataverse"
+AgriLoop WP3 dataverse,174223,161447,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities/AgriLoop WP3 dataverse"
+AgriLoop WP4 dataverse,174224,161447,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities/AgriLoop WP4 dataverse"
+AgriLoop WP5 dataverse,174225,161447,"Recherche Data Gouv/Data INRAE/AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic, social and environmental opportunities/AgriLoop WP5 dataverse"
+UE PEIMA - Pisciculture Expérimentale INRAE des Monts d'Arrées,161451,123960,Recherche Data Gouv/Data INRAE/UE PEIMA - Pisciculture Expérimentale INRAE des Monts d'Arrées
+UMR Agroécologie,161851,123960,Recherche Data Gouv/Data INRAE/UMR Agroécologie
+pôle LEGae,178541,161851,Recherche Data Gouv/Data INRAE/UMR Agroécologie/pôle LEGae
+pôle MICSOL,178542,161851,Recherche Data Gouv/Data INRAE/UMR Agroécologie/pôle MICSOL
+RMQS Microbiological Data,178983,178542,Recherche Data Gouv/Data INRAE/UMR Agroécologie/pôle MICSOL/RMQS Microbiological Data
+FONCTIOMIC,346562,178542,Recherche Data Gouv/Data INRAE/UMR Agroécologie/pôle MICSOL/FONCTIOMIC
+Metagenomics reveals contrasted responses of microbial communities to wheat straw amendment in cropland and grassland soils.,347400,346562,Recherche Data Gouv/Data INRAE/UMR Agroécologie/pôle MICSOL/FONCTIOMIC/Metagenomics reveals contrasted responses of microbial communities to wheat straw amendment in cropland and grassland soils.
+DPA3P,430242,161851,Recherche Data Gouv/Data INRAE/UMR Agroécologie/DPA3P
+Agrowise,430249,430242,Recherche Data Gouv/Data INRAE/UMR Agroécologie/DPA3P/Agrowise
+UR QUAPA,164988,123960,Recherche Data Gouv/Data INRAE/UR QUAPA
+Imagerie et Transferts,164989,164988,Recherche Data Gouv/Data INRAE/UR QUAPA/Imagerie et Transferts
+Microcontaminants Arômes et Sciences Séparatives,164990,164988,Recherche Data Gouv/Data INRAE/UR QUAPA/Microcontaminants Arômes et Sciences Séparatives
+Biochimie et Protéines du muscle,164991,164988,Recherche Data Gouv/Data INRAE/UR QUAPA/Biochimie et Protéines du muscle
+GQE-Le Moulon,165248,123960,Recherche Data Gouv/Data INRAE/GQE-Le Moulon
+"Maize dataset for diversity studies, genome wide association studies and genomic selection",167978,165248,"Recherche Data Gouv/Data INRAE/GQE-Le Moulon/Maize dataset for diversity studies, genome wide association studies and genomic selection"
+SAMMCR,186017,167978,"Recherche Data Gouv/Data INRAE/GQE-Le Moulon/Maize dataset for diversity studies, genome wide association studies and genomic selection/SAMMCR"
+Understanding and shedding light on evolutionary mecanisms,568626,165248,Recherche Data Gouv/Data INRAE/GQE-Le Moulon/Understanding and shedding light on evolutionary mecanisms
+Understanding and predicting the genetic bases of interactions,568627,165248,Recherche Data Gouv/Data INRAE/GQE-Le Moulon/Understanding and predicting the genetic bases of interactions
+Understanding and mobilizing cultivated diversity to provide solutions for agriculture and its actors,568628,165248,Recherche Data Gouv/Data INRAE/GQE-Le Moulon/Understanding and mobilizing cultivated diversity to provide solutions for agriculture and its actors
+Lignin database,165249,123960,Recherche Data Gouv/Data INRAE/Lignin database
+Lab-extracted lignins,166855,165249,Recherche Data Gouv/Data INRAE/Lignin database/Lab-extracted lignins
+Organosolv lignins,166856,166855,Recherche Data Gouv/Data INRAE/Lignin database/Lab-extracted lignins/Organosolv lignins
+Technical lignins,172597,165249,Recherche Data Gouv/Data INRAE/Lignin database/Technical lignins
+Lignin-rich residues,172598,165249,Recherche Data Gouv/Data INRAE/Lignin database/Lignin-rich residues
+Model lignins,172599,165249,Recherche Data Gouv/Data INRAE/Lignin database/Model lignins
+Laboratoire Reproduction et Développement des Plantes,166056,123960,Recherche Data Gouv/Data INRAE/Laboratoire Reproduction et Développement des Plantes
+"Heterogeneous identity, stiffness and growth characterise the shoot apex of Arabidopsis stem cell mutants",193058,166056,"Recherche Data Gouv/Data INRAE/Laboratoire Reproduction et Développement des Plantes/Heterogeneous identity, stiffness and growth characterise the shoot apex of Arabidopsis stem cell mutants"
+Revisiting bract development and heterochronies at floral transition using natural variations in Arabidopsis thaliana,201181,166056,Recherche Data Gouv/Data INRAE/Laboratoire Reproduction et Développement des Plantes/Revisiting bract development and heterochronies at floral transition using natural variations in Arabidopsis thaliana
+Sepal Morphology in 3D,285245,166056,Recherche Data Gouv/Data INRAE/Laboratoire Reproduction et Développement des Plantes/Sepal Morphology in 3D
+EGFV,166916,123960,Recherche Data Gouv/Data INRAE/EGFV
+Sarah Cookson Collection,167634,166916,Recherche Data Gouv/Data INRAE/EGFV/Sarah Cookson Collection
+"Intact, wounded and grafted scions and rootstocks of grapevine",568981,167634,"Recherche Data Gouv/Data INRAE/EGFV/Sarah Cookson Collection/Intact, wounded and grafted scions and rootstocks of grapevine"
+ANR MoBiDiv,172841,123960,Recherche Data Gouv/Data INRAE/ANR MoBiDiv
+E-MUSE,176079,123960,Recherche Data Gouv/Data INRAE/E-MUSE
+EcoStab,176122,176079,Recherche Data Gouv/Data INRAE/E-MUSE/EcoStab
+ESR10 Project,176124,176079,Recherche Data Gouv/Data INRAE/E-MUSE/ESR10 Project
+ESR10_Exp1,203526,176124,Recherche Data Gouv/Data INRAE/E-MUSE/ESR10 Project/ESR10_Exp1
+ESR15 project,177344,176079,Recherche Data Gouv/Data INRAE/E-MUSE/ESR15 project
+Cheese_Iron_Metabolism,178746,176079,Recherche Data Gouv/Data INRAE/E-MUSE/Cheese_Iron_Metabolism
+BOA,176439,123960,Recherche Data Gouv/Data INRAE/BOA
+UMR RECOVER,178271,123960,Recherche Data Gouv/Data INRAE/UMR RECOVER
+ECODEV,183123,123960,Recherche Data Gouv/Data INRAE/ECODEV
+IJPB for Plant Sciences Dataverse,183433,123960,Recherche Data Gouv/Data INRAE/IJPB for Plant Sciences Dataverse
+DACE-DL dataverse,188836,123960,Recherche Data Gouv/Data INRAE/DACE-DL dataverse
+Dataset pair profiling,188879,188836,Recherche Data Gouv/Data INRAE/DACE-DL dataverse/Dataset pair profiling
+Institut des Sciences des Plantes de Montpellier,197204,123960,Recherche Data Gouv/Data INRAE/Institut des Sciences des Plantes de Montpellier
+UMR SayFood,197224,123960,Recherche Data Gouv/Data INRAE/UMR SayFood
+FRISE,199849,123960,Recherche Data Gouv/Data INRAE/FRISE
+LIA REWACT,596615,199849,Recherche Data Gouv/Data INRAE/FRISE/LIA REWACT
+EcoFreshChain ANR-20-CE21-0007,600157,199849,Recherche Data Gouv/Data INRAE/FRISE/EcoFreshChain ANR-20-CE21-0007
+Humidification par fibres,614117,199849,Recherche Data Gouv/Data INRAE/FRISE/Humidification par fibres
+Sciences du Bois,201391,123960,Recherche Data Gouv/Data INRAE/Sciences du Bois
+WoodSun Collection,204023,201391,Recherche Data Gouv/Data INRAE/Sciences du Bois/WoodSun Collection
+"UMR 1419 Nutrition, Métabolisme, Aquaculture (NuMéA)",201974,123960,"Recherche Data Gouv/Data INRAE/UMR 1419 Nutrition, Métabolisme, Aquaculture (NuMéA)"
+Doctorat_Le-Garrec_S,286335,201974,"Recherche Data Gouv/Data INRAE/UMR 1419 Nutrition, Métabolisme, Aquaculture (NuMéA)/Doctorat_Le-Garrec_S"
+MEAL Fish,330257,201974,"Recherche Data Gouv/Data INRAE/UMR 1419 Nutrition, Métabolisme, Aquaculture (NuMéA)/MEAL Fish"
+Explore2,202158,123960,Recherche Data Gouv/Data INRAE/Explore2
+Explore2 - Rapports techniques,616670,202158,Recherche Data Gouv/Data INRAE/Explore2/Explore2 - Rapports techniques
+Explore2 - Fiches synthèses,616671,202158,Recherche Data Gouv/Data INRAE/Explore2/Explore2 - Fiches synthèses
+Explore2 - Projections hydrologiques,616672,202158,Recherche Data Gouv/Data INRAE/Explore2/Explore2 - Projections hydrologiques
+Explore2 - Métadonnées,617533,202158,Recherche Data Gouv/Data INRAE/Explore2/Explore2 - Métadonnées
+UMR 1280 PhAN,222091,123960,Recherche Data Gouv/Data INRAE/UMR 1280 PhAN
+GDM-MILK,626840,222091,Recherche Data Gouv/Data INRAE/UMR 1280 PhAN/GDM-MILK
+Omics analysis,626852,626840,Recherche Data Gouv/Data INRAE/UMR 1280 PhAN/GDM-MILK/Omics analysis
+LACTOMICS,626857,222091,Recherche Data Gouv/Data INRAE/UMR 1280 PhAN/LACTOMICS
+Omics analysis,626858,626857,Recherche Data Gouv/Data INRAE/UMR 1280 PhAN/LACTOMICS/Omics analysis
+Données de l'UR 1321 ASTRO - Agrosystèmes tropicaux,347565,123960,Recherche Data Gouv/Data INRAE/Données de l'UR 1321 ASTRO - Agrosystèmes tropicaux
+AGRIBALYSE® – GIS REVALIM,400066,123960,Recherche Data Gouv/Data INRAE/AGRIBALYSE® – GIS REVALIM
+AGRIBALYSE®,431328,400066,Recherche Data Gouv/Data INRAE/AGRIBALYSE® – GIS REVALIM/AGRIBALYSE®
+GIS REVALIM,431329,400066,Recherche Data Gouv/Data INRAE/AGRIBALYSE® – GIS REVALIM/GIS REVALIM
+UMR 1225 Interactions hôtes-agents pathogènes (IHAP),400401,123960,Recherche Data Gouv/Data INRAE/UMR 1225 Interactions hôtes-agents pathogènes (IHAP)
+CESAER,451341,123960,Recherche Data Gouv/Data INRAE/CESAER
+BFP - Biologie du Fruit et Pathologie,607330,123960,Recherche Data Gouv/Data INRAE/BFP - Biologie du Fruit et Pathologie
+LEPSE – Laboratoire des Plantes sous Stress Environnementaux,627450,123960,Recherche Data Gouv/Data INRAE/LEPSE – Laboratoire des Plantes sous Stress Environnementaux
+ETAP - Efficience de Transpiration et Adaptation des Plantes aux climats secs,627534,627450,Recherche Data Gouv/Data INRAE/LEPSE – Laboratoire des Plantes sous Stress Environnementaux/ETAP - Efficience de Transpiration et Adaptation des Plantes aux climats secs
+MAGE - Modélisation et Analyse de l'interaction Génotype Environnement,627535,627450,Recherche Data Gouv/Data INRAE/LEPSE – Laboratoire des Plantes sous Stress Environnementaux/MAGE - Modélisation et Analyse de l'interaction Génotype Environnement
+Espace Générique,123967,root,Recherche Data Gouv/Espace Générique
+Revues anonymes,142710,123967,Recherche Data Gouv/Espace Générique/Revues anonymes
+DOREL (Université de Lorraine),125166,root,Recherche Data Gouv/DOREL (Université de Lorraine)
+LMOPS,179084,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LMOPS
+LMOPS Spectroscopy Platform,179146,179084,Recherche Data Gouv/DOREL (Université de Lorraine)/LMOPS/LMOPS Spectroscopy Platform
+LMOPS CAREL Platform,179147,179084,Recherche Data Gouv/DOREL (Université de Lorraine)/LMOPS/LMOPS CAREL Platform
+Archives Henri-Poincaré,179085,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/Archives Henri-Poincaré
+Projet ANR BDL1795-1932,179148,179085,Recherche Data Gouv/DOREL (Université de Lorraine)/Archives Henri-Poincaré/Projet ANR BDL1795-1932
+IJL,179086,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IJL
+Carbiolab,179149,179086,Recherche Data Gouv/DOREL (Université de Lorraine)/IJL/Carbiolab
+URAFPA,179087,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/URAFPA
+CREM,179088,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CREM
+LEM3,179089,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LEM3
+CRM2,179090,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CRM2
+PErSEUs,179091,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/PErSEUs
+LPCT,179092,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LPCT
+LOTERR,179093,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LOTERR
+LRGP,179094,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LRGP
+Photofront,628174,179094,Recherche Data Gouv/DOREL (Université de Lorraine)/LRGP/Photofront
+Calbinotox,179095,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/Calbinotox
+Silva,179096,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/Silva
+LIBio,179097,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LIBio
+DynAMic,179099,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/DynAMic
+CRAN,179100,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CRAN
+IECL,179101,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IECL
+LCOMS,179103,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LCOMS
+ERPI,179104,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/ERPI
+APEMAC,179105,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/APEMAC
+LGIPM,179106,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LGIPM
+GREEN,179107,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/GREEN
+CITHEFOR,179108,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CITHEFOR
+Direction de la Documentation,179110,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/Direction de la Documentation
+DevAH,179111,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/DevAH
+IMoPA,179115,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IMoPA
+SIMPA,179116,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/SIMPA
+NGERE,179117,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/NGERE
+CEREFIGE,179120,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CEREFIGE
+LSE,179121,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LSE
+IFG,179122,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IFG
+CERCLE,179123,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CERCLE
+CEGIL,179124,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CEGIL
+IRENEE,179125,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IRENEE
+ÉCRITURES,179126,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/ÉCRITURES
+IDEA,179127,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/IDEA
+LIS,179128,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LIS
+2LPN,179130,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/2LPN
+LISEC,179131,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LISEC
+InterPsy,179132,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/InterPsy
+2L2S,179133,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/2L2S
+LCP-A2MC,179136,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LCP-A2MC
+LCPME,179137,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LCPME
+LORIA,179138,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LORIA
+LEMTA,179139,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LEMTA
+LAE,179140,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LAE
+L2CM,179141,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/L2CM
+CRULH,179142,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/CRULH
+HISCANT-MA,179143,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/HISCANT-MA
+Centre Pierre Janet,179144,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/Centre Pierre Janet
+LIEC,179145,125166,Recherche Data Gouv/DOREL (Université de Lorraine)/LIEC
+Université de Strasbourg,125167,root,Recherche Data Gouv/Université de Strasbourg
+Joint Research Unit Chemistry of Complex Matter,134623,125167,Recherche Data Gouv/Université de Strasbourg/Joint Research Unit Chemistry of Complex Matter
+Laboratory of Chemoinformatics,134655,134623,Recherche Data Gouv/Université de Strasbourg/Joint Research Unit Chemistry of Complex Matter/Laboratory of Chemoinformatics
+Laboratory of Bioimaging and Pathologies - LBP - UMR 7021,134652,125167,Recherche Data Gouv/Université de Strasbourg/Laboratory of Bioimaging and Pathologies - LBP - UMR 7021
+Signalisation tumorale et cibles thérapeutiques,134663,134652,Recherche Data Gouv/Université de Strasbourg/Laboratory of Bioimaging and Pathologies - LBP - UMR 7021/Signalisation tumorale et cibles thérapeutiques
+"Sociétés, Acteurs, Gouvernement en Europe - SAGE - UMR 7363",147059,125167,"Recherche Data Gouv/Université de Strasbourg/Sociétés, Acteurs, Gouvernement en Europe - SAGE - UMR 7363"
+Axe 1 – Représentation politique et reconfiguration des champs du pouvoir en Europe,147061,147059,"Recherche Data Gouv/Université de Strasbourg/Sociétés, Acteurs, Gouvernement en Europe - SAGE - UMR 7363/Axe 1 – Représentation politique et reconfiguration des champs du pouvoir en Europe"
+Institut des Neurosciences Cellulaires et Intégratives - INCI - UPR 3212,156728,125167,Recherche Data Gouv/Université de Strasbourg/Institut des Neurosciences Cellulaires et Intégratives - INCI - UPR 3212
+Contrôle Peptidergique des Emotions,156729,156728,Recherche Data Gouv/Université de Strasbourg/Institut des Neurosciences Cellulaires et Intégratives - INCI - UPR 3212/Contrôle Peptidergique des Emotions
+iCUBE - Science des Données et Connaissances - UMR 7357,156865,125167,Recherche Data Gouv/Université de Strasbourg/iCUBE - Science des Données et Connaissances - UMR 7357
+Hérelles ANR Project,156866,156865,Recherche Data Gouv/Université de Strasbourg/iCUBE - Science des Données et Connaissances - UMR 7357/Hérelles ANR Project
+Santé de la Vigne et Qualité du Vin - SVQV - UMR_A 1131,157710,125167,Recherche Data Gouv/Université de Strasbourg/Santé de la Vigne et Qualité du Vin - SVQV - UMR_A 1131
+Equipe Métabolisme Secondaire de la Vigne (MSV),157711,157710,Recherche Data Gouv/Université de Strasbourg/Santé de la Vigne et Qualité du Vin - SVQV - UMR_A 1131/Equipe Métabolisme Secondaire de la Vigne (MSV)
+Institut Pluridisciplinaire Hubert Curien - IPHC - UMR 7178,158541,125167,Recherche Data Gouv/Université de Strasbourg/Institut Pluridisciplinaire Hubert Curien - IPHC - UMR 7178
+Données Nucléaires pour les Réacteurs – DNR,158542,158541,Recherche Data Gouv/Université de Strasbourg/Institut Pluridisciplinaire Hubert Curien - IPHC - UMR 7178/Données Nucléaires pour les Réacteurs – DNR
+Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg,161283,125167,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg
+"AMUP (Architecture, urban morphology/morphogenesis and projects) ",161651,161283,"Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/AMUP (Architecture, urban morphology/morphogenesis and projects) "
+ICS (Institut Charles Sadron),161652,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/ICS (Institut Charles Sadron)
+SDC (Data science and knowledge),161653,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/SDC (Data science and knowledge)
+"AVR (Control, vision and robotics)",161654,161283,"Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/AVR (Control, vision and robotics)"
+"TRIO (Remote sensing, radiometry and optical imaging)",161655,161283,"Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/TRIO (Remote sensing, radiometry and optical imaging)"
+MaCEPV (Materials for photovoltaic and electronic devices),161656,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/MaCEPV (Materials for photovoltaic and electronic devices)
+SMH (Heterogeneous systems and microsystems),161658,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/SMH (Heterogeneous systems and microsystems)
+IPP (Photonics instrumentation and processes),161659,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/IPP (Photonics instrumentation and processes)
+MécaFlu (Fluid mechanics),161660,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/MécaFlu (Fluid mechanics)
+GCE (Civil engineering and energetics),161661,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/GCE (Civil engineering and energetics)
+"CSIP (Design, information system and inventive processes)",161662,161283,"Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/CSIP (Design, information system and inventive processes)"
+LISEC (Interuniversity laboratory for education and communication sciences),161663,161283,Recherche Data Gouv/Université de Strasbourg/Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg/LISEC (Interuniversity laboratory for education and communication sciences)
+"Institut de génétique, biologie moléculaire et cellulaire - IGBMC - UMR 7104",163728,125167,"Recherche Data Gouv/Université de Strasbourg/Institut de génétique, biologie moléculaire et cellulaire - IGBMC - UMR 7104"
+Institut Clinique de la Souris- iCS,163729,163728,"Recherche Data Gouv/Université de Strasbourg/Institut de génétique, biologie moléculaire et cellulaire - IGBMC - UMR 7104/Institut Clinique de la Souris- iCS"
+Translational medecine and neurogenetics Department,163733,163728,"Recherche Data Gouv/Université de Strasbourg/Institut de génétique, biologie moléculaire et cellulaire - IGBMC - UMR 7104/Translational medecine and neurogenetics Department"
+"Droit, religion, entreprise et société - DRES - UMR 7354",175534,125167,"Recherche Data Gouv/Université de Strasbourg/Droit, religion, entreprise et société - DRES - UMR 7354"
+European Birds of Passage,175536,175534,"Recherche Data Gouv/Université de Strasbourg/Droit, religion, entreprise et société - DRES - UMR 7354/European Birds of Passage"
+Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042,176316,125167,Recherche Data Gouv/Université de Strasbourg/Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042
+SynCat-H Research Group,176321,176316,Recherche Data Gouv/Université de Strasbourg/Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042/SynCat-H Research Group
+COHA (Chimie Organique et Hétérochimie Appliquées),177379,176316,Recherche Data Gouv/Université de Strasbourg/Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042/COHA (Chimie Organique et Hétérochimie Appliquées)
+"BSM (Biomolécules, Synthèse et Méthodes)",177418,176316,"Recherche Data Gouv/Université de Strasbourg/Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042/BSM (Biomolécules, Synthèse et Méthodes)"
+Institut de physique et chimie des Matériaux de Strasbourg - IPCMS - UMR7504,218119,125167,Recherche Data Gouv/Université de Strasbourg/Institut de physique et chimie des Matériaux de Strasbourg - IPCMS - UMR7504
+Chimie des matériaux inorganiques (DCMI),218126,218119,Recherche Data Gouv/Université de Strasbourg/Institut de physique et chimie des Matériaux de Strasbourg - IPCMS - UMR7504/Chimie des matériaux inorganiques (DCMI)
+Chemical Engineering of Functional Nanomaterials - CEFUN,218131,218126,Recherche Data Gouv/Université de Strasbourg/Institut de physique et chimie des Matériaux de Strasbourg - IPCMS - UMR7504/Chimie des matériaux inorganiques (DCMI)/Chemical Engineering of Functional Nanomaterials - CEFUN
+"GEO - Groupe d'études orientales, slaves et néo-helléniques - UR 1340",628836,125167,"Recherche Data Gouv/Université de Strasbourg/GEO - Groupe d'études orientales, slaves et néo-helléniques - UR 1340"
+Data Repository Grenoble Alpes,125168,root,Recherche Data Gouv/Data Repository Grenoble Alpes
+OSUG,142915,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG
+GNSS_products,142941,142915,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG/GNSS_products
+Long term monitoring of near surface soil temperature in the french Alps,157555,142915,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG/Long term monitoring of near surface soil temperature in the french Alps
+Glacier surface flow velocity products from satellite data,160225,142915,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG/Glacier surface flow velocity products from satellite data
+Ice texture data from ice cores,161766,142915,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG/Ice texture data from ice cores
+Observatoire Junior,631239,142915,Recherche Data Gouv/Data Repository Grenoble Alpes/OSUG/Observatoire Junior
+Litt&Arts,145397,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/Litt&Arts
+Gipsa-Lab,146390,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/Gipsa-Lab
+SPINTEC,150583,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/SPINTEC
+Observatoire de la Transition Énergétique,158365,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/Observatoire de la Transition Énergétique
+Institut de Biologie Structurale,176444,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/Institut de Biologie Structurale
+Laboratoire d’électrochimie et de physicochimie des matériaux et des interfaces ,285147,125168,Recherche Data Gouv/Data Repository Grenoble Alpes/Laboratoire d’électrochimie et de physicochimie des matériaux et des interfaces 
+Lillodata - Entrepôt de données de l'Université de Lille,125169,root,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille
+SCALab,142260,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/SCALab
+Études assis-debout,569028,142260,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/SCALab/Études assis-debout
+Parkinson-posture,607325,142260,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/SCALab/Parkinson-posture
+IEMN,145484,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/IEMN
+NANOMIC,188068,145484,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/IEMN/NANOMIC
+TVES - ULR 4477 ,147065,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/TVES - ULR 4477 
+GERiiCO,147157,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/GERiiCO
+Lexique,148245,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Lexique
+"Espace, Populations, Sociétés",148262,125169,"Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Espace, Populations, Sociétés"
+Unité de Glycobiologie Structurale et Fonctionnelle (UGSF) - UMR 8576,148520,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Unité de Glycobiologie Structurale et Fonctionnelle (UGSF) - UMR 8576
+UREPSSS,149320,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/UREPSSS
+CRIStAL,150224,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL
+PRETIL,162836,150224,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/PRETIL
+Mobile Robotics,394165,162836,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/PRETIL/Mobile Robotics
+I2C,162837,150224,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/I2C
+LOKI,162839,162837,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/I2C/LOKI
+ALGOMUS,289322,162837,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/I2C/ALGOMUS
+SEAS,162838,150224,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/SEAS
+2XS,162840,162838,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/SEAS/2XS
+MSV,614145,150224,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/MSV
+Bonsai,614146,614145,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CRIStAL/MSV/Bonsai
+PSITEC,151309,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/PSITEC
+Neuropsychologie et audition,151311,151309,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/PSITEC/Neuropsychologie et audition
+UMET ,157548,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/UMET 
+Lille économie management - UMR 9221,162923,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Lille économie management - UMR 9221
+L2EP,168803,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/L2EP
+"Unité Evolution, Ecologie et Paléontologie (Evo-Eco-Paléo)",168824,125169,"Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Unité Evolution, Ecologie et Paléontologie (Evo-Eco-Paléo)"
+UCCS,185786,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/UCCS
+PhLAM,192761,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/PhLAM
+Laboratoire de Mécanique des Fluides de Lille - Kampé de Fériet,307986,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Laboratoire de Mécanique des Fluides de Lille - Kampé de Fériet
+UMR transfrontalière BioEcoAgro,569140,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/UMR transfrontalière BioEcoAgro
+Boutique des sciences de l'Université de Lille,573737,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/Boutique des sciences de l'Université de Lille
+CIIL,596458,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/CIIL
+MABLAB,610401,125169,Recherche Data Gouv/Lillodata - Entrepôt de données de l'Université de Lille/MABLAB
+Université Toulouse Jean-Jaurès,125170,root,Recherche Data Gouv/Université Toulouse Jean-Jaurès
+Centre for anglophone studies (CAS),142851,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Centre for anglophone studies (CAS)
+Centre d'Etudes Ibériques et Ibéro-Américaines (CEIIBA-Toulouse),142852,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Centre d'Etudes Ibériques et Ibéro-Américaines (CEIIBA-Toulouse)
+Centre d’Etudes et de Recherches en Psychopathologie et Psychologie de la Santé (CERPPS),142853,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Centre d’Etudes et de Recherches en Psychopathologie et Psychologie de la Santé (CERPPS)
+Centre de Recherches et d'Etudes Germaniques (CREG),142854,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Centre de Recherches et d'Etudes Germaniques (CREG)
+Equipe de Recherche sur les Rationalités Philosophiques et les Savoirs (ERRAPHIS),142855,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Equipe de Recherche sur les Rationalités Philosophiques et les Savoirs (ERRAPHIS)
+Laboratoire Cliniques Pathologique et Interculturelle (LCPI),142857,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Laboratoire Cliniques Pathologique et Interculturelle (LCPI)
+Laboratoire de NeuroPsychoLinguistique (LNPL),142858,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Laboratoire de NeuroPsychoLinguistique (LNPL)
+Laboratoire de Psychologie de la Socialisation – Développement et Travail (LPS-DT),142859,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Laboratoire de Psychologie de la Socialisation – Développement et Travail (LPS-DT)
+"Laboratoire de Recherche en Audiovisuel - Savoirs, Praxis et Poïétiques en Art (LARA-SEPPIA)",142860,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Laboratoire de Recherche en Audiovisuel - Savoirs, Praxis et Poïétiques en Art (LARA-SEPPIA)"
+"Lettres, Langages et Arts - Création, Recherche, Émergence en Arts, Textes, Images, Spectacles (LLA CREATIS)",142861,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Lettres, Langages et Arts - Création, Recherche, Émergence en Arts, Textes, Images, Spectacles (LLA CREATIS)"
+"Patrimoine, Littérature, Histoire (PLH)",142862,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Patrimoine, Littérature, Histoire (PLH)"
+"Centre d'Étude et de Recherche Travail, Organisation, Pouvoir (CERTOP)",142863,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Centre d'Étude et de Recherche Travail, Organisation, Pouvoir (CERTOP)"
+"Cognition, Langues, Langage, Ergonomie (CLLE)",142864,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Cognition, Langues, Langage, Ergonomie (CLLE)"
+"Education, Formation, Travail, Savoirs (EFTS)",142865,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Education, Formation, Travail, Savoirs (EFTS)"
+"France, Amériques, Espagne - Sociétés, pouvoirs, acteurs (FRAMESPA)",142866,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/France, Amériques, Espagne - Sociétés, pouvoirs, acteurs (FRAMESPA)"
+Géographie de l'Environnement (GEODE),142867,125170,Recherche Data Gouv/Université Toulouse Jean-Jaurès/Géographie de l'Environnement (GEODE)
+"Laboratoire Interdisciplinaire Solidarités, Sociétés, Territoires (LISST)",142868,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Laboratoire Interdisciplinaire Solidarités, Sociétés, Territoires (LISST)"
+"Travaux et Recherches Archéologiques sur les Cultures, les Espaces et les Sociétés (TRACES)",142869,125170,"Recherche Data Gouv/Université Toulouse Jean-Jaurès/Travaux et Recherches Archéologiques sur les Cultures, les Espaces et les Sociétés (TRACES)"
+Entrepôt de données ouvertes de l'Université Paris Nanterre - UPN,125171,root,Recherche Data Gouv/Entrepôt de données ouvertes de l'Université Paris Nanterre - UPN
+Institut de Recherche pour le Développement,145305,root,Recherche Data Gouv/Institut de Recherche pour le Développement
+Centre de Coopération Internationale en Recherche Agronomique pour le Développement,146139,root,Recherche Data Gouv/Centre de Coopération Internationale en Recherche Agronomique pour le Développement
+Data Univ. Gustave Eiffel,148866,root,Recherche Data Gouv/Data Univ. Gustave Eiffel
+CENSE,158390,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/CENSE
+Battery data,163209,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/Battery data
+4BLife,197421,163209,Recherche Data Gouv/Data Univ. Gustave Eiffel/Battery data/4BLife
+ACIMP - Asphalt pavement laboratory slabs,174195,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/ACIMP - Asphalt pavement laboratory slabs
+Experimental abdominal data,186455,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/Experimental abdominal data
+TerDOUEST,195602,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/TerDOUEST
+SUBDENSE,198298,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/SUBDENSE
+DéCoF-Ré,202059,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/DéCoF-Ré
+Optical Fibers embedded in cementitious materials for UltraSonic imaging and monitoring,344891,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/Optical Fibers embedded in cementitious materials for UltraSonic imaging and monitoring
+City-FAB,599618,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/City-FAB
+SCaNING - Suivi des infrastructures neuves et existantes par Capteurs Noyés pour évaluer les Indicateurs Nécessaires à leur Gestion durable,606543,148866,Recherche Data Gouv/Data Univ. Gustave Eiffel/SCaNING - Suivi des infrastructures neuves et existantes par Capteurs Noyés pour évaluer les Indicateurs Nécessaires à leur Gestion durable
+École nationale des ponts et chaussées,148870,root,Recherche Data Gouv/École nationale des ponts et chaussées
+CERMICS,158623,148870,Recherche Data Gouv/École nationale des ponts et chaussées/CERMICS
+HM&Co,158624,148870,Recherche Data Gouv/École nationale des ponts et chaussées/HM&Co
+Laboratoire Navier,158626,148870,Recherche Data Gouv/École nationale des ponts et chaussées/Laboratoire Navier
+CEREA,158857,148870,Recherche Data Gouv/École nationale des ponts et chaussées/CEREA
+Institut d’études politiques de Paris,148974,root,Recherche Data Gouv/Institut d’études politiques de Paris
+Inria,148975,root,Recherche Data Gouv/Inria
+MIMESIS,167534,148975,Recherche Data Gouv/Inria/MIMESIS
+Autorité de Sûreté Nucléaire et de Radioprotection,150479,root,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection
+URSûr 201722597T,221935,150479,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/URSûr 201722597T
+UREnv 201722596S,221946,150479,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/UREnv 201722596S
+Transferts des radionucléides dans l'environnement,222454,221946,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/UREnv 201722596S/Transferts des radionucléides dans l'environnement
+Transferts atmosphériques,279211,222454,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/UREnv 201722596S/Transferts des radionucléides dans l'environnement/Transferts atmosphériques
+Stockage des déchets et des colis,636093,221946,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/UREnv 201722596S/Stockage des déchets et des colis
+URSan 201722594P,221947,150479,Recherche Data Gouv/Autorité de Sûreté Nucléaire et de Radioprotection/URSan 201722594P
+Institut national de la santé et de la recherche médicale,150892,root,Recherche Data Gouv/Institut national de la santé et de la recherche médicale
+Collection Générique Inserm,152449,150892,Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Collection Générique Inserm
+"Biologie cellulaire, développement et évolution",152451,150892,"Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Biologie cellulaire, développement et évolution"
+"Génétique, génomique et bioinformatique",152453,150892,"Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Génétique, génomique et bioinformatique"
+Bases moléculaires et structurales du vivant,152460,150892,Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Bases moléculaires et structurales du vivant
+Cancer,152461,150892,Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Cancer
+Technologies pour la santé,152462,150892,Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Technologies pour la santé
+Santé publique,152463,150892,Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Santé publique
+"Physiopathologie, métabolisme, nutrition",152464,150892,"Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Physiopathologie, métabolisme, nutrition"
+"Neurosciences, sciences cognitives, neurologie, psychiatrie",152465,150892,"Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Neurosciences, sciences cognitives, neurologie, psychiatrie"
+"Immunologie, inflammation, infectiologie et microbiologie",152466,150892,"Recherche Data Gouv/Institut national de la santé et de la recherche médicale/Immunologie, inflammation, infectiologie et microbiologie"
+Data_UMontpellier,150975,root,Recherche Data Gouv/Data_UMontpellier
+AGAP Institut,339776,150975,Recherche Data Gouv/Data_UMontpellier/AGAP Institut
+AMAP,339782,150975,Recherche Data Gouv/Data_UMontpellier/AMAP
+CEFE,339786,150975,Recherche Data Gouv/Data_UMontpellier/CEFE
+EuroMov DHM,339798,150975,Recherche Data Gouv/Data_UMontpellier/EuroMov DHM
+HSM,339802,150975,Recherche Data Gouv/Data_UMontpellier/HSM
+IATE,339805,150975,Recherche Data Gouv/Data_UMontpellier/IATE
+INTACTBioPack,398756,339805,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack
+work package 1,398760,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 1
+work package 2,398761,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 2
+work package 3,398762,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 3
+work package 4,398763,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 4
+work package 5,398764,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 5
+work package 6,398765,398756,Recherche Data Gouv/Data_UMontpellier/IATE/INTACTBioPack/work package 6
+ISEM,339812,150975,Recherche Data Gouv/Data_UMontpellier/ISEM
+L2C,339818,150975,Recherche Data Gouv/Data_UMontpellier/L2C
+LIRMM,339821,150975,Recherche Data Gouv/Data_UMontpellier/LIRMM
+LMGC,339825,150975,Recherche Data Gouv/Data_UMontpellier/LMGC
+MARBEC,339827,150975,Recherche Data Gouv/Data_UMontpellier/MARBEC
+MIVEGEC,339830,150975,Recherche Data Gouv/Data_UMontpellier/MIVEGEC
+OREME,339834,150975,Recherche Data Gouv/Data_UMontpellier/OREME
+SPO,339840,150975,Recherche Data Gouv/Data_UMontpellier/SPO
+IES,344892,150975,Recherche Data Gouv/Data_UMontpellier/IES
+IGF,344893,150975,Recherche Data Gouv/Data_UMontpellier/IGF
+PhyMedExp,600726,150975,Recherche Data Gouv/Data_UMontpellier/PhyMedExp
+Entrepôt de données INSEI,152471,root,Recherche Data Gouv/Entrepôt de données INSEI
+Sorbonne Université,152472,root,Recherche Data Gouv/Sorbonne Université
+Données associées aux mémoires de master de Sorbonne Université,179083,152472,Recherche Data Gouv/Sorbonne Université/Données associées aux mémoires de master de Sorbonne Université
+Arts et Métiers Sciences et technologies - Arts et Metiers Institute of Technology,152473,root,Recherche Data Gouv/Arts et Métiers Sciences et technologies - Arts et Metiers Institute of Technology
+Université Paris-Saclay,157728,root,Recherche Data Gouv/Université Paris-Saclay
+JUstice In Climate Change Exposure (JUICCE),171135,157728,Recherche Data Gouv/Université Paris-Saclay/JUstice In Climate Change Exposure (JUICCE)
+JUstice In Climate Change Exposure (JUICCE) - Income projections,171234,171135,Recherche Data Gouv/Université Paris-Saclay/JUstice In Climate Change Exposure (JUICCE)/JUstice In Climate Change Exposure (JUICCE) - Income projections
+Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA),172581,157728,Recherche Data Gouv/Université Paris-Saclay/Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA)
+Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA) - Medicinal plants,173018,172581,Recherche Data Gouv/Université Paris-Saclay/Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA)/Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA) - Medicinal plants
+Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA) - Land use,178257,172581,Recherche Data Gouv/Université Paris-Saclay/Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA)/Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA) - Land use
+Chaire CoPack,188811,157728,Recherche Data Gouv/Université Paris-Saclay/Chaire CoPack
+Full-scale composting experiment of compostable packaging,285669,188811,Recherche Data Gouv/Université Paris-Saclay/Chaire CoPack/Full-scale composting experiment of compostable packaging
+Data Paris 8,158629,root,Recherche Data Gouv/Data Paris 8
+Université d'Artois,160283,root,Recherche Data Gouv/Université d'Artois
+UCCS,176254,160283,Recherche Data Gouv/Université d'Artois/UCCS
+Institut Pasteur,160284,root,Recherche Data Gouv/Institut Pasteur
+ONERA,160285,root,Recherche Data Gouv/ONERA
+Space Weather Events,568624,160285,Recherche Data Gouv/ONERA/Space Weather Events
+Data UPPA,161753,root,Recherche Data Gouv/Data UPPA
+Université de Rennes,162882,root,Recherche Data Gouv/Université de Rennes
+UMR CNRS 6226 - Institut des sciences chimiques de Rennes (ISCR),163908,162882,Recherche Data Gouv/Université de Rennes/UMR CNRS 6226 - Institut des sciences chimiques de Rennes (ISCR)
+UMR 6118 - Géosiences Rennes,163915,162882,Recherche Data Gouv/Université de Rennes/UMR 6118 - Géosiences Rennes
+"UMR INRAE 1349 - Institut de génétique, environnement et protection des plantes (IGEPP)",163927,162882,"Recherche Data Gouv/Université de Rennes/UMR INRAE 1349 - Institut de génétique, environnement et protection des plantes (IGEPP)"
+"UMR INSERM 1241 / UMR INRAE 1341 - Nutrition, Métabolismes et Cancer (NuMeCan)",163928,162882,"Recherche Data Gouv/Université de Rennes/UMR INSERM 1241 / UMR INRAE 1341 - Nutrition, Métabolismes et Cancer (NuMeCan)"
+"UMR 6553 - Ecobio - Ecosystèmes, Biodiversité, Evolution",178981,162882,"Recherche Data Gouv/Université de Rennes/UMR 6553 - Ecobio - Ecosystèmes, Biodiversité, Evolution"
+IRMAR - UMR CNRS 6625 - Institut de recherche mathématique de Rennes,347525,162882,Recherche Data Gouv/Université de Rennes/IRMAR - UMR CNRS 6625 - Institut de recherche mathématique de Rennes
+CNRS Research Data,163280,root,Recherche Data Gouv/CNRS Research Data
+BETA,161262,163280,Recherche Data Gouv/CNRS Research Data/BETA
+Projet Enquête Données de la Recherche,161263,161262,Recherche Data Gouv/CNRS Research Data/BETA/Projet Enquête Données de la Recherche
+PHDs' data ; Données de travaux de thèses,177021,161262,Recherche Data Gouv/CNRS Research Data/BETA/PHDs' data ; Données de travaux de thèses
+ICMCB,167583,163280,Recherche Data Gouv/CNRS Research Data/ICMCB
+Dat@OSUC,175564,163280,Recherche Data Gouv/CNRS Research Data/Dat@OSUC
+DATASCIENCE,196562,175564,Recherche Data Gouv/CNRS Research Data/Dat@OSUC/DATASCIENCE
+dataLNCMI,178605,163280,Recherche Data Gouv/CNRS Research Data/dataLNCMI
+EMFL proposals,202057,178605,Recherche Data Gouv/CNRS Research Data/dataLNCMI/EMFL proposals
+In-house Research Projects,549368,178605,Recherche Data Gouv/CNRS Research Data/dataLNCMI/In-house Research Projects
+IDEES,191897,163280,Recherche Data Gouv/CNRS Research Data/IDEES
+French Fluid Dynamics Database,193082,163280,Recherche Data Gouv/CNRS Research Data/French Fluid Dynamics Database
+MEDG,209188,163280,Recherche Data Gouv/CNRS Research Data/MEDG
+Entretiens - Mémoires européennes du Goulag,218080,209188,Recherche Data Gouv/CNRS Research Data/MEDG/Entretiens - Mémoires européennes du Goulag
+Data Robotics : French Research Infrastructure Robotex2.0,348857,163280,Recherche Data Gouv/CNRS Research Data/Data Robotics : French Research Infrastructure Robotex2.0
+LOCIE,438903,163280,Recherche Data Gouv/CNRS Research Data/LOCIE
+PHENIX,575235,163280,Recherche Data Gouv/CNRS Research Data/PHENIX
+CASP16-CAPRI MassiveFold Data,607303,163280,Recherche Data Gouv/CNRS Research Data/CASP16-CAPRI MassiveFold Data
+LJP,609307,163280,Recherche Data Gouv/CNRS Research Data/LJP
+Data repository CY Cergy Paris Université,163810,root,Recherche Data Gouv/Data repository CY Cergy Paris Université
+Université Côte d'Azur,163811,root,Recherche Data Gouv/Université Côte d'Azur
+Laboratoire Géoazur,174190,163811,Recherche Data Gouv/Université Côte d'Azur/Laboratoire Géoazur
+Laboratoire D'informatique Signaux et Systèmes de Sophia-Antipolis,174193,163811,Recherche Data Gouv/Université Côte d'Azur/Laboratoire D'informatique Signaux et Systèmes de Sophia-Antipolis
+Institut Sophia Agrobiotech,174197,163811,Recherche Data Gouv/Université Côte d'Azur/Institut Sophia Agrobiotech
+ENAC,165021,root,Recherche Data Gouv/ENAC
+Telecom,197003,165021,Recherche Data Gouv/ENAC/Telecom
+Transport Aérien - TA,197004,165021,Recherche Data Gouv/ENAC/Transport Aérien - TA
+II - Informatique Interactive,222042,165021,Recherche Data Gouv/ENAC/II - Informatique Interactive
+OPTIM,284520,165021,Recherche Data Gouv/ENAC/OPTIM
+Isara,165098,root,Recherche Data Gouv/Isara
+AGE,616600,165098,Recherche Data Gouv/Isara/AGE
+LER,616618,165098,Recherche Data Gouv/Isara/LER
+Data Nantes Université,165099,root,Recherche Data Gouv/Data Nantes Université
+ERC Promises,174253,165099,Recherche Data Gouv/Data Nantes Université/ERC Promises
+Observatoire des Sciences de l'Univers Nantes Atlantique (Osuna),174520,165099,Recherche Data Gouv/Data Nantes Université/Observatoire des Sciences de l'Univers Nantes Atlantique (Osuna)
+Laboratoire MIP,176077,165099,Recherche Data Gouv/Data Nantes Université/Laboratoire MIP
+ANR-DEMCOM - Durable and Environmental design of Monitored COncrete structures in Marine environment,179212,165099,Recherche Data Gouv/Data Nantes Université/ANR-DEMCOM - Durable and Environmental design of Monitored COncrete structures in Marine environment
+Laboratoire de Planétologie et Géosciences (LPG),201219,165099,Recherche Data Gouv/Data Nantes Université/Laboratoire de Planétologie et Géosciences (LPG)
+LPG 3D,201233,201219,Recherche Data Gouv/Data Nantes Université/Laboratoire de Planétologie et Géosciences (LPG)/LPG 3D
+Laboratoire IREENA - Institut de Recherche en Energie Electrique de Nantes Atlantique ,596554,165099,Recherche Data Gouv/Data Nantes Université/Laboratoire IREENA - Institut de Recherche en Energie Electrique de Nantes Atlantique 
+Induction Heating for Power to Heat,596580,596554,Recherche Data Gouv/Data Nantes Université/Laboratoire IREENA - Institut de Recherche en Energie Electrique de Nantes Atlantique /Induction Heating for Power to Heat
+"Laboratoire CEISAM - Chimie et Interdisciplinarité : Synthèse, Analyse, Modélisation",599378,165099,"Recherche Data Gouv/Data Nantes Université/Laboratoire CEISAM - Chimie et Interdisciplinarité : Synthèse, Analyse, Modélisation"
+ERC IceFloods,600524,165099,Recherche Data Gouv/Data Nantes Université/ERC IceFloods
+Laboratoire LETG - Littoral - Environnement - Télédetection - Géomatique (UMR CNRS 6554),603040,165099,Recherche Data Gouv/Data Nantes Université/Laboratoire LETG - Littoral - Environnement - Télédetection - Géomatique (UMR CNRS 6554)
+Entrepôt de données Avignon Université,165768,root,Recherche Data Gouv/Entrepôt de données Avignon Université
+Agro&Sciences,174660,165768,Recherche Data Gouv/Entrepôt de données Avignon Université/Agro&Sciences
+Culture Patrimoines Sociétés Numériques,178272,165768,Recherche Data Gouv/Entrepôt de données Avignon Université/Culture Patrimoines Sociétés Numériques
+Université Le Havre Normandie,168825,root,Recherche Data Gouv/Université Le Havre Normandie
+URCOM - Unité de Recherche en Chimie Organique et Macromoléculaire ,175285,168825,Recherche Data Gouv/Université Le Havre Normandie/URCOM - Unité de Recherche en Chimie Organique et Macromoléculaire 
+GREAH - Groupe de Recherche en Electrotechnique et Automatique du Havre,176149,168825,Recherche Data Gouv/Université Le Havre Normandie/GREAH - Groupe de Recherche en Electrotechnique et Automatique du Havre
+LMAH - Laboratoire de Mathématiques Appliquées du Havre ,176167,168825,Recherche Data Gouv/Université Le Havre Normandie/LMAH - Laboratoire de Mathématiques Appliquées du Havre 
+LITIS - Laboratoire d’Informatique et du Traitement de l’Information et des Systèmes,179064,168825,Recherche Data Gouv/Université Le Havre Normandie/LITIS - Laboratoire d’Informatique et du Traitement de l’Information et des Systèmes
+LOMC - Laboratoire Ondes et Milieux Complexes,179065,168825,Recherche Data Gouv/Université Le Havre Normandie/LOMC - Laboratoire Ondes et Milieux Complexes
+SEBIO - Stress Environnementaux et BIOsurveillance des milieux aquatiques,179066,168825,Recherche Data Gouv/Université Le Havre Normandie/SEBIO - Stress Environnementaux et BIOsurveillance des milieux aquatiques
+Toulouse INP,168826,root,Recherche Data Gouv/Toulouse INP
+IMFT,172874,168826,Recherche Data Gouv/Toulouse INP/IMFT
+LGC,174376,168826,Recherche Data Gouv/Toulouse INP/LGC
+Univ-Clermont-Auvergne,168828,root,Recherche Data Gouv/Univ-Clermont-Auvergne
+TIRAMISU,197313,168828,Recherche Data Gouv/Univ-Clermont-Auvergne/TIRAMISU
+Institut Pascal,201555,168828,Recherche Data Gouv/Univ-Clermont-Auvergne/Institut Pascal
+HAMSTER,635855,201555,Recherche Data Gouv/Univ-Clermont-Auvergne/Institut Pascal/HAMSTER
+UMR 1095 GDEC ,208982,168828,Recherche Data Gouv/Univ-Clermont-Auvergne/UMR 1095 GDEC 
+Unité de Nutrition Humaine - UNH - UMR 1019,598564,168828,Recherche Data Gouv/Univ-Clermont-Auvergne/Unité de Nutrition Humaine - UNH - UMR 1019
+"iGReD Génétique, Reproduction et Développement",631112,168828,"Recherche Data Gouv/Univ-Clermont-Auvergne/iGReD Génétique, Reproduction et Développement"
+Ecole supérieure des agricultures,174694,root,Recherche Data Gouv/Ecole supérieure des agricultures
+GRAPPE,191947,174694,Recherche Data Gouv/Ecole supérieure des agricultures/GRAPPE
+URSE,192360,174694,Recherche Data Gouv/Ecole supérieure des agricultures/URSE
+LEVA,192364,174694,Recherche Data Gouv/Ecole supérieure des agricultures/LEVA
+LARESS,192366,174694,Recherche Data Gouv/Ecole supérieure des agricultures/LARESS
+BAGAP-ESA,192368,174694,Recherche Data Gouv/Ecole supérieure des agricultures/BAGAP-ESA
+Recherche Bourgogne-Franche-Comté,174695,root,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté
+BSB,168827,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/BSB
+Université Marie et Louis Pasteur,175567,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/Université Marie et Louis Pasteur
+Université Bourgogne Europe,175568,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/Université Bourgogne Europe
+Université de Technologie de Belfort Montbéliard,175569,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/Université de Technologie de Belfort Montbéliard
+SUPMICROTECH-ENSMM,175572,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/SUPMICROTECH-ENSMM
+Institut Agro Dijon,175573,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/Institut Agro Dijon
+Arts et Métiers Campus de Cluny,183125,174695,Recherche Data Gouv/Recherche Bourgogne-Franche-Comté/Arts et Métiers Campus de Cluny
+DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse.,176466,root,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse.
+CIML,221986,176466,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML
+MIlab,222104,221986,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/MIlab
+MIlab_LTaTreg-Thymus,222193,222104,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/MIlab/MIlab_LTaTreg-Thymus
+ABlab,285051,221986,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/ABlab
+ABlab_IFNLGutRestitution,285052,285051,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/ABlab/ABlab_IFNLGutRestitution
+BMMlab,286807,221986,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/BMMlab
+BMMlab_Prostate-CD45Pos-PTENKO,286854,286807,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./CIML/BMMlab/BMMlab_Prostate-CD45Pos-PTENKO
+Institut Fresnel,601040,176466,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Institut Fresnel
+Photonics,602071,601040,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Institut Fresnel/Photonics
+SMLM - Project,627614,602071,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Institut Fresnel/Photonics/SMLM - Project
+PhyTI team,627610,601040,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Institut Fresnel/PhyTI team
+MOSAIC team,627613,601040,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Institut Fresnel/MOSAIC team
+Luminy Génétique et biophysique des plantes (LGBP-AMU-CEA-CNRS),627611,176466,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Luminy Génétique et biophysique des plantes (LGBP-AMU-CEA-CNRS)
+Theories and Approaches of Genomic Complexity (TAGC),627612,176466,Recherche Data Gouv/DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse./Theories and Approaches of Genomic Complexity (TAGC)
+Data Université de Limoges,176467,root,Recherche Data Gouv/Data Université de Limoges
+"CREOP - Centre de Recherche sur l'Entreprise, les Organisations et le Patrimoine",192324,176467,"Recherche Data Gouv/Data Université de Limoges/CREOP - Centre de Recherche sur l'Entreprise, les Organisations et le Patrimoine"
+LAPE - Laboratoire d'Analyse et de Prospectives Economiques,192325,176467,Recherche Data Gouv/Data Université de Limoges/LAPE - Laboratoire d'Analyse et de Prospectives Economiques
+OMIJ - Observatoire des mutations institutionnelles et juridiques,192365,176467,Recherche Data Gouv/Data Université de Limoges/OMIJ - Observatoire des mutations institutionnelles et juridiques
+GEOLAB,192367,176467,Recherche Data Gouv/Data Université de Limoges/GEOLAB
+CeReS,192369,176467,Recherche Data Gouv/Data Université de Limoges/CeReS
+CRIHAM,192370,176467,Recherche Data Gouv/Data Université de Limoges/CRIHAM
+EHIC,192372,176467,Recherche Data Gouv/Data Université de Limoges/EHIC
+FrED,192373,176467,Recherche Data Gouv/Data Université de Limoges/FrED
+GRESCO,192375,176467,Recherche Data Gouv/Data Université de Limoges/GRESCO
+CRIBL,192376,176467,Recherche Data Gouv/Data Université de Limoges/CRIBL
+EpiMaCT,192377,176467,Recherche Data Gouv/Data Université de Limoges/EpiMaCT
+P&T,192378,176467,Recherche Data Gouv/Data Université de Limoges/P&T
+RESINFIT,192379,176467,Recherche Data Gouv/Data Université de Limoges/RESINFIT
+CAPTuR,192380,176467,Recherche Data Gouv/Data Université de Limoges/CAPTuR
+HAVAE,192382,176467,Recherche Data Gouv/Data Université de Limoges/HAVAE
+LABCiS,192385,176467,Recherche Data Gouv/Data Université de Limoges/LABCiS
+NEURIT,192386,176467,Recherche Data Gouv/Data Université de Limoges/NEURIT
+VieSanté,192387,176467,Recherche Data Gouv/Data Université de Limoges/VieSanté
+IRCER,192388,176467,Recherche Data Gouv/Data Université de Limoges/IRCER
+GC2D,192389,176467,Recherche Data Gouv/Data Université de Limoges/GC2D
+E2Lim,192390,176467,Recherche Data Gouv/Data Université de Limoges/E2Lim
+XLIM,192391,176467,Recherche Data Gouv/Data Université de Limoges/XLIM
+La Rochelle Université,178229,root,Recherche Data Gouv/La Rochelle Université
+Université Polytechnique Hauts-de-France,180916,root,Recherche Data Gouv/Université Polytechnique Hauts-de-France
+"LAMIH - Laboratoire d'Automatique, de Mécanique et d'Informatique Industrielles et Humaines",185829,180916,"Recherche Data Gouv/Université Polytechnique Hauts-de-France/LAMIH - Laboratoire d'Automatique, de Mécanique et d'Informatique Industrielles et Humaines"
+LARSH - Laboratoire de Recherche Sociétés & Humanités,185839,180916,Recherche Data Gouv/Université Polytechnique Hauts-de-France/LARSH - Laboratoire de Recherche Sociétés & Humanités
+DeVisu,631570,185839,Recherche Data Gouv/Université Polytechnique Hauts-de-France/LARSH - Laboratoire de Recherche Sociétés & Humanités/DeVisu
+IEMN,569299,180916,Recherche Data Gouv/Université Polytechnique Hauts-de-France/IEMN
+Data UT3,180949,root,Recherche Data Gouv/Data UT3
+Institut de Recherche en Informatique de Toulouse (IRIT),201880,180949,Recherche Data Gouv/Data UT3/Institut de Recherche en Informatique de Toulouse (IRIT)
+Institut de Pharmacologie et Biologie Structurale (IPBS),284981,180949,Recherche Data Gouv/Data UT3/Institut de Pharmacologie et Biologie Structurale (IPBS)
+Institut des Maladies Métaboliques et Cardiovasculaires (I2MC),285008,180949,Recherche Data Gouv/Data UT3/Institut des Maladies Métaboliques et Cardiovasculaires (I2MC)
+Centre d'Etudes Spatiales de la Biosphère (CESBIO),285011,180949,Recherche Data Gouv/Data UT3/Centre d'Etudes Spatiales de la Biosphère (CESBIO)
+Centre Interuniversitaire de Recherche et d'Ingénierie des Matériaux (CIRIMAT),285062,180949,Recherche Data Gouv/Data UT3/Centre Interuniversitaire de Recherche et d'Ingénierie des Matériaux (CIRIMAT)
+Centre de Recherche sur la Biodiversité et l'Environnement (CRBE),285065,180949,Recherche Data Gouv/Data UT3/Centre de Recherche sur la Biodiversité et l'Environnement (CRBE)
+Géosciences Environnement Toulouse (GET),285066,180949,Recherche Data Gouv/Data UT3/Géosciences Environnement Toulouse (GET)
+INSA Toulouse,185832,root,Recherche Data Gouv/INSA Toulouse
+Università di Corsica Pasquale Paoli,185833,root,Recherche Data Gouv/Università di Corsica Pasquale Paoli
+Laboratoire « Sciences pour l’Environnement » (UMR CNRS 6134 SPE),398084,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Laboratoire « Sciences pour l’Environnement » (UMR CNRS 6134 SPE)
+"Laboratoire « Lieux, Identités, eSpaces, Activités » (UMR CNRS 6240 LISA)",398085,185833,"Recherche Data Gouv/Università di Corsica Pasquale Paoli/Laboratoire « Lieux, Identités, eSpaces, Activités » (UMR CNRS 6240 LISA)"
+Equipe Méditerranéenne de Recherche Juridique EMRJ (UR 7311),398087,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Equipe Méditerranéenne de Recherche Juridique EMRJ (UR 7311)
+BioScope Corse Méditerranée Dynamique des Infections en Milieu Insulaire (UR 7310),398088,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/BioScope Corse Méditerranée Dynamique des Infections en Milieu Insulaire (UR 7310)
+Plateforme PAGLIA ORBA,398089,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Plateforme PAGLIA ORBA
+Plateforme « Médiathèque Culturelle de la Corse et des Corses » (M3C),398090,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Plateforme « Médiathèque Culturelle de la Corse et des Corses » (M3C)
+Plateforme LOCUS,398091,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Plateforme LOCUS
+Laboratoire « Stella Mare » (UAR CNRS 3514),398092,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Laboratoire « Stella Mare » (UAR CNRS 3514)
+Fédération de Recherche « Environnement et Société » (FR CNRS 3041),398093,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Fédération de Recherche « Environnement et Société » (FR CNRS 3041)
+Institut d'Etudes Scientifiques de Cargèse (UAR CNRS 820),398094,185833,Recherche Data Gouv/Università di Corsica Pasquale Paoli/Institut d'Etudes Scientifiques de Cargèse (UAR CNRS 820)
+Université Rennes 2,185838,root,Recherche Data Gouv/Université Rennes 2
+Data ensfea,186563,root,Recherche Data Gouv/Data ensfea
+transitions éducation,187783,186563,Recherche Data Gouv/Data ensfea/transitions éducation
+transitions territoires,187784,186563,Recherche Data Gouv/Data ensfea/transitions territoires
+transitions agro écologiques,187786,186563,Recherche Data Gouv/Data ensfea/transitions agro écologiques
+Recherche Data PSL,192454,root,Recherche Data Gouv/Recherche Data PSL
+Recherche Data Observatoire de Paris - PSL,214706,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data Observatoire de Paris - PSL
+Recherche Data MINES Paris - PSL,214707,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data MINES Paris - PSL
+Recherche Data ESPCI Paris - PSL,214708,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data ESPCI Paris - PSL
+Recherche Data ENC - PSL,214713,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data ENC - PSL
+Recherche Data Dauphine - PSL,214714,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data Dauphine - PSL
+Recherche Data Chimie ParisTech - PSL,214716,192454,Recherche Data Gouv/Recherche Data PSL/Recherche Data Chimie ParisTech - PSL
+Data Centrale Lyon,192455,root,Recherche Data Gouv/Data Centrale Lyon
+UMR LMFA,347777,192455,Recherche Data Gouv/Data Centrale Lyon/UMR LMFA
+UMR LTDS,347778,192455,Recherche Data Gouv/Data Centrale Lyon/UMR LTDS
+UMR LIRIS,347779,192455,Recherche Data Gouv/Data Centrale Lyon/UMR LIRIS
+UMR INL,347780,192455,Recherche Data Gouv/Data Centrale Lyon/UMR INL
+UMR ICJ,347781,192455,Recherche Data Gouv/Data Centrale Lyon/UMR ICJ
+UMR AMPERE,347782,192455,Recherche Data Gouv/Data Centrale Lyon/UMR AMPERE
+Espace institutionnel de l'université Paris 1 Panthéon-Sorbonne,197394,root,Recherche Data Gouv/Espace institutionnel de l'université Paris 1 Panthéon-Sorbonne
+Corpus Humanum - UMPV,201329,root,Recherche Data Gouv/Corpus Humanum - UMPV
+"ARTDEV | Acteurs, Ressources et Territoires Dans le Développement",218608,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/ARTDEV | Acteurs, Ressources et Territoires Dans le Développement"
+ASM | Archéologie des Sociétés Méditerranéennes,218609,201329,Recherche Data Gouv/Corpus Humanum - UMPV/ASM | Archéologie des Sociétés Méditerranéennes
+CEFE | Centre d'Écologie Fonctionnelle et Évolutive,218610,201329,Recherche Data Gouv/Corpus Humanum - UMPV/CEFE | Centre d'Écologie Fonctionnelle et Évolutive
+CEMM | Centre d'Études Médiévales de Montpellier,218611,201329,Recherche Data Gouv/Corpus Humanum - UMPV/CEMM | Centre d'Études Médiévales de Montpellier
+"CORHIS | Communication, Ressources Humaines & Intervention Sociale",218612,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/CORHIS | Communication, Ressources Humaines & Intervention Sociale"
+CREG | Centre de Recherches et d'Etudes Germaniques,218613,201329,Recherche Data Gouv/Corpus Humanum - UMPV/CREG | Centre de Recherches et d'Etudes Germaniques
+CRISES | Centre de Recherches Interdisciplinaires en Sciences humaines et Sociales de Montpellier,218614,201329,Recherche Data Gouv/Corpus Humanum - UMPV/CRISES | Centre de Recherches Interdisciplinaires en Sciences humaines et Sociales de Montpellier
+"DIPRALANG | Laboratoire de Sociolinguistique, d'Anthropologie des Pratiques Langagières et de Didactique des Langues-Cultures",218615,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/DIPRALANG | Laboratoire de Sociolinguistique, d'Anthropologie des Pratiques Langagières et de Didactique des Langues-Cultures"
+EMMA | Etudes Montpelliéraines du Monde Anglophone,218616,201329,Recherche Data Gouv/Corpus Humanum - UMPV/EMMA | Etudes Montpelliéraines du Monde Anglophone
+EPSYLON | Dynamique des Capacités Humaines et des Conduites de Santé,218617,201329,Recherche Data Gouv/Corpus Humanum - UMPV/EPSYLON | Dynamique des Capacités Humaines et des Conduites de Santé
+"IRCL | Institut de recherches sur la Renaissance, l'âge Classique et les Lumières",218618,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/IRCL | Institut de recherches sur la Renaissance, l'âge Classique et les Lumières"
+IRIEC | Institut de Recherche Intersite en Études Culturelles,218619,201329,Recherche Data Gouv/Corpus Humanum - UMPV/IRIEC | Institut de Recherche Intersite en Études Culturelles
+LAGAM | Laboratoire de Géographie et d'Aménagement de Montpellier,218620,201329,Recherche Data Gouv/Corpus Humanum - UMPV/LAGAM | Laboratoire de Géographie et d'Aménagement de Montpellier
+LERASS-CERIC | Cercle d'Etude et de Recherche en Information-Communication,218621,201329,Recherche Data Gouv/Corpus Humanum - UMPV/LERASS-CERIC | Cercle d'Etude et de Recherche en Information-Communication
+LHUMAIN | Langages HUmanités Médiations Apprentissages Interactions Numérique,218624,201329,Recherche Data Gouv/Corpus Humanum - UMPV/LHUMAIN | Langages HUmanités Médiations Apprentissages Interactions Numérique
+LEIRIS | Laboratoire d'Études Interdisciplinaires sur le Réel et les Imaginaires Sociaux,218625,201329,Recherche Data Gouv/Corpus Humanum - UMPV/LEIRIS | Laboratoire d'Études Interdisciplinaires sur le Réel et les Imaginaires Sociaux
+PRAXILING,218626,201329,Recherche Data Gouv/Corpus Humanum - UMPV/PRAXILING
+"LIRDEF | Laboratoire Interdisciplinaire de Recherche en Didactique, Éducation et Formation",218627,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/LIRDEF | Laboratoire Interdisciplinaire de Recherche en Didactique, Éducation et Formation"
+ReSO | Recherches sur les Suds et les Orients,218629,201329,Recherche Data Gouv/Corpus Humanum - UMPV/ReSO | Recherches sur les Suds et les Orients
+"RIRRA 21 | Représenter, Inventer la Réalité, du Romantisme au XXIe siècle",218630,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/RIRRA 21 | Représenter, Inventer la Réalité, du Romantisme au XXIe siècle"
+"SENS | Savoirs, ENvironnement, Sociétés",218631,201329,"Recherche Data Gouv/Corpus Humanum - UMPV/SENS | Savoirs, ENvironnement, Sociétés"
+Data Unicaen,209077,root,Recherche Data Gouv/Data Unicaen
+Institut Mines-Télécom,209078,root,Recherche Data Gouv/Institut Mines-Télécom
+IMT Nord Europe,209404,209078,Recherche Data Gouv/Institut Mines-Télécom/IMT Nord Europe
+CERI Énergie Environnement,601362,209404,Recherche Data Gouv/Institut Mines-Télécom/IMT Nord Europe/CERI Énergie Environnement
+CERI Systèmes Numériques,621609,209404,Recherche Data Gouv/Institut Mines-Télécom/IMT Nord Europe/CERI Systèmes Numériques
+CERI Matériaux et Procédés,621610,209404,Recherche Data Gouv/Institut Mines-Télécom/IMT Nord Europe/CERI Matériaux et Procédés
+IMT Mines Alès,601077,209078,Recherche Data Gouv/Institut Mines-Télécom/IMT Mines Alès
+IMT Mines Albi,601078,209078,Recherche Data Gouv/Institut Mines-Télécom/IMT Mines Albi
+IMT Atlantique,601079,209078,Recherche Data Gouv/Institut Mines-Télécom/IMT Atlantique
+Mines Saint-Etienne,601080,209078,Recherche Data Gouv/Institut Mines-Télécom/Mines Saint-Etienne
+IMT-BS,601081,209078,Recherche Data Gouv/Institut Mines-Télécom/IMT-BS
+Télécom Paris,602049,209078,Recherche Data Gouv/Institut Mines-Télécom/Télécom Paris
+Telecom SudParis,602050,209078,Recherche Data Gouv/Institut Mines-Télécom/Telecom SudParis
+Data Le Mans Université,209351,root,Recherche Data Gouv/Data Le Mans Université
+Enssib - École nationale supérieure des sciences de l'information et des bibliothèques,218077,root,Recherche Data Gouv/Enssib - École nationale supérieure des sciences de l'information et des bibliothèques
+ Collection ELICO-ENSSIB,328796,218077,Recherche Data Gouv/Enssib - École nationale supérieure des sciences de l'information et des bibliothèques/ Collection ELICO-ENSSIB
+ Collection Centre Gabriel Naudé,328859,218077,Recherche Data Gouv/Enssib - École nationale supérieure des sciences de l'information et des bibliothèques/ Collection Centre Gabriel Naudé
+Collection Travaux scientifiques de l'Enssib,339585,218077,Recherche Data Gouv/Enssib - École nationale supérieure des sciences de l'information et des bibliothèques/Collection Travaux scientifiques de l'Enssib
+Data Recherche URN,279206,root,Recherche Data Gouv/Data Recherche URN
+TSE data portal,279207,root,Recherche Data Gouv/TSE data portal
+TSE Food economics data,557082,279207,Recherche Data Gouv/TSE data portal/TSE Food economics data
+Université Toulouse Capitole,444750,root,Recherche Data Gouv/Université Toulouse Capitole
+Institut Supérieur de l'Aéronautique et de l'Espace (ISAE-SUPAERO),555906,root,Recherche Data Gouv/Institut Supérieur de l'Aéronautique et de l'Espace (ISAE-SUPAERO)
+Rotor noise,628173,555906,Recherche Data Gouv/Institut Supérieur de l'Aéronautique et de l'Espace (ISAE-SUPAERO)/Rotor noise
+Université de Haute-Alsace (UHA),555907,root,Recherche Data Gouv/Université de Haute-Alsace (UHA)
+"Centre de recherche sur les économies, les sociétés, les arts et les techniques (CRESAT)",610405,555907,"Recherche Data Gouv/Université de Haute-Alsace (UHA)/Centre de recherche sur les économies, les sociétés, les arts et les techniques (CRESAT)"
+Laboratoire de Physique et Mécanique Textiles (LPMT),631964,555907,Recherche Data Gouv/Université de Haute-Alsace (UHA)/Laboratoire de Physique et Mécanique Textiles (LPMT)
+Université de Poitiers - Research Data,569296,root,Recherche Data Gouv/Université de Poitiers - Research Data
+Université de Technologie de Compiègne,598130,root,Recherche Data Gouv/Université de Technologie de Compiègne
+AVENUES - Modélisation multi-échelle des systèmes urbains,607333,598130,Recherche Data Gouv/Université de Technologie de Compiègne/AVENUES - Modélisation multi-échelle des systèmes urbains
+BMBI - Biomécanique et Bioingénierie,607334,598130,Recherche Data Gouv/Université de Technologie de Compiègne/BMBI - Biomécanique et Bioingénierie
+COSTECH -  Connaissance Organisation et Systèmes TECHniques,607335,598130,Recherche Data Gouv/Université de Technologie de Compiègne/COSTECH -  Connaissance Organisation et Systèmes TECHniques
+GEC - Génie enzymatique et cellulaire,607336,598130,Recherche Data Gouv/Université de Technologie de Compiègne/GEC - Génie enzymatique et cellulaire
+HEUDIASYC - Heuristique et diagnostic des systèmes complexes,607337,598130,Recherche Data Gouv/Université de Technologie de Compiègne/HEUDIASYC - Heuristique et diagnostic des systèmes complexes
+LMAC - Laboratoire de mathématiques appliquées de Compiègne,607340,598130,Recherche Data Gouv/Université de Technologie de Compiègne/LMAC - Laboratoire de mathématiques appliquées de Compiègne
+"ROBERVAL - Mécanique, énergie et électricité",607341,598130,"Recherche Data Gouv/Université de Technologie de Compiègne/ROBERVAL - Mécanique, énergie et électricité"
+TIMR - Transformations intégrées de la matière renouvelable,607347,598130,Recherche Data Gouv/Université de Technologie de Compiègne/TIMR - Transformations intégrées de la matière renouvelable

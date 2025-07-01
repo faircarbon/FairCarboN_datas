@@ -1,0 +1,512 @@
+,niv1,niv2,ids_niv1,ids_niv2,val,niv0
+0.0,Data INRAE,Experimental - Observation - Simulation,123960.0,9,1,Recherche Data Gouv
+1.0,Data INRAE, Omics,123960.0, 13,1,Recherche Data Gouv
+2.0,Data INRAE, Surveys & Texts,123960.0, 16,1,Recherche Data Gouv
+3.0,Data INRAE, Noaw Project,123960.0, 8717,1,Recherche Data Gouv
+4.0,Data INRAE, AMAP,123960.0, 8723,1,Recherche Data Gouv
+5.0,Data INRAE, CIRCASA,123960.0, 8725,1,Recherche Data Gouv
+6.0,Data INRAE, AgroResonance ,123960.0, 8847,1,Recherche Data Gouv
+7.0,Data INRAE, Christophe Gouel Dataverse,123960.0, 76106,1,Recherche Data Gouv
+8.0,Data INRAE, UMR IGEPP,123960.0, 77713,1,Recherche Data Gouv
+9.0,Data INRAE, Unité expérimentale d’écologie et d’écotoxicologie aquatique,123960.0, 84087,1,Recherche Data Gouv
+10.0,Data INRAE, Glopack project,123960.0, 84413,1,Recherche Data Gouv
+11.0,Data INRAE, UMR Silva,123960.0, 86452,1,Recherche Data Gouv
+12.0,Data INRAE, UMR Eco&Sols,123960.0, 86720,1,Recherche Data Gouv
+13.0,Data INRAE, UMR SMART,123960.0, 94801,1,Recherche Data Gouv
+14.0,Data INRAE, Odalim,123960.0, 95865,1,Recherche Data Gouv
+15.0,Data INRAE, GAFL,123960.0, 95876,1,Recherche Data Gouv
+16.0,Data INRAE, UR ASTER,123960.0, 96076,1,Recherche Data Gouv
+17.0,Data INRAE, UREP,123960.0, 98012,1,Recherche Data Gouv
+18.0,Data INRAE, HYCAR,123960.0, 98507,1,Recherche Data Gouv
+19.0,Data INRAE, PEGASE,123960.0, 98963,1,Recherche Data Gouv
+20.0,Data INRAE, UMR G-EAU,123960.0, 99318,1,Recherche Data Gouv
+21.0,Data INRAE, XYLODENSMAP Dataverse,123960.0, 100888,1,Recherche Data Gouv
+22.0,Data INRAE, Dataverse ETTIS,123960.0, 100949,1,Recherche Data Gouv
+23.0,Data INRAE, Elsa,123960.0, 100950,1,Recherche Data Gouv
+24.0,Data INRAE, NAIAD_H2020,123960.0, 104101,1,Recherche Data Gouv
+25.0,Data INRAE, NuMeCan,123960.0, 104443,1,Recherche Data Gouv
+26.0,Data INRAE, FooSIN Dataverse,123960.0, 106140,1,Recherche Data Gouv
+27.0,Data INRAE, Direction de l’expertise scientifique collective,123960.0, 106217,1,Recherche Data Gouv
+28.0,Data INRAE, de la prospective et des études Dataverse,123960.0, 109433,1,Recherche Data Gouv
+29.0,Data INRAE, FAIRCHAIN,123960.0, 113927,1,Recherche Data Gouv
+30.0,Data INRAE, AgroClim Dataverse,123960.0, 113933,1,Recherche Data Gouv
+31.0,Data INRAE, BIBS Dataverse,123960.0, 114241,1,Recherche Data Gouv
+32.0,Data INRAE, Reactivity during baking of model cakes,123960.0, 115952,1,Recherche Data Gouv
+33.0,Data INRAE, BioEcoAgro,123960.0, 119999,1,Recherche Data Gouv
+34.0,Data INRAE, Département ACT,123960.0, 120000,1,Recherche Data Gouv
+35.0,Data INRAE, USC GRAPPE,123960.0, 121249,1,Recherche Data Gouv
+36.0,Data INRAE, TETIS,123960.0, 121518,1,Recherche Data Gouv
+37.0,Data INRAE, Dataverse COASTAL,123960.0, 122166,1,Recherche Data Gouv
+38.0,Data INRAE, UR1390 - AGAP Corse,123960.0, 122619,1,Recherche Data Gouv
+39.0,Data INRAE, RIVERLY,123960.0, 122723,1,Recherche Data Gouv
+40.0,Data INRAE, PPR SUCSEED,123960.0, 123088,1,Recherche Data Gouv
+41.0,Data INRAE, LABERCA,123960.0, 123454,1,Recherche Data Gouv
+42.0,Data INRAE, SADAPT Dataverse,123960.0, 123458,1,Recherche Data Gouv
+43.0,Data INRAE, UMR-STLO Dataverse,123960.0, 123482,1,Recherche Data Gouv
+44.0,Data INRAE, Plateforme ESV Dataverse,123960.0, 123534,1,Recherche Data Gouv
+45.0,Data INRAE, UE Maraichage Dataverse,123960.0, 124014,1,Recherche Data Gouv
+46.0,Data INRAE, CIRM - Centre International de Ressources Microbiennes,123960.0, 124101,1,Recherche Data Gouv
+47.0,Data INRAE, EOSC-Pillar,123960.0, 140924,1,Recherche Data Gouv
+48.0,Data INRAE, LESSEM,123960.0, 141099,1,Recherche Data Gouv
+49.0,Data INRAE, UMR BF2I,123960.0, 141125,1,Recherche Data Gouv
+50.0,Data INRAE, MoSAR,123960.0, 142213,1,Recherche Data Gouv
+51.0,Data INRAE, UMR SPO,123960.0, 142287,1,Recherche Data Gouv
+52.0,Data INRAE, Spodoptera littoralis genome mining brings insights on the dynamic of expansion of gustatory receptors in polyphagous noctuidae,123960.0, 142523,1,Recherche Data Gouv
+53.0,Data INRAE, Baptiste Girault,123960.0, 142525,1,Recherche Data Gouv
+54.0,Data INRAE, ARABREED,123960.0, 146190,1,Recherche Data Gouv
+55.0,Data INRAE, GABI Dataverse,123960.0, 148124,1,Recherche Data Gouv
+56.0,Data INRAE, UR EFNO Ecosystèmes forestiers,123960.0, 148485,1,Recherche Data Gouv
+57.0,Data INRAE, Institut Européen de la Forêt cultivée,123960.0, 148621,1,Recherche Data Gouv
+58.0,Data INRAE, UMR AGIR Dataverse,123960.0, 148963,1,Recherche Data Gouv
+59.0,Data INRAE, Thèse : Résilience du système cyathostomes x microbiote digestif à une perturbation,123960.0, 150145,1,Recherche Data Gouv
+60.0,Data INRAE, URZF (Unité de recherche Zoologie forestière),123960.0, 151188,1,Recherche Data Gouv
+61.0,Data INRAE, AgroBRC – RARe,123960.0, 151201,1,Recherche Data Gouv
+62.0,Data INRAE, MycSA Dataverse,123960.0, 153180,1,Recherche Data Gouv
+63.0,Data INRAE, URP3F,123960.0, 161334,1,Recherche Data Gouv
+64.0,Data INRAE, IATE research unit,123960.0, 161447,1,Recherche Data Gouv
+65.0,Data INRAE, AgriLoop: Pushing the frontier of circular agriculture by converting residues into novel economic,123960.0, 161451,1,Recherche Data Gouv
+66.0,Data INRAE, social and environmental opportunities,123960.0, 161851,1,Recherche Data Gouv
+67.0,Data INRAE," ""UE PEIMA - Pisciculture Expérimentale INRAE des Monts dArrées""",123960.0, 164988,1,Recherche Data Gouv
+68.0,Data INRAE, UMR Agroécologie,123960.0, 165248,1,Recherche Data Gouv
+69.0,Data INRAE, UR QUAPA,123960.0, 165249,1,Recherche Data Gouv
+70.0,Data INRAE, GQE-Le Moulon,123960.0, 166056,1,Recherche Data Gouv
+71.0,Data INRAE, Lignin database,123960.0, 166916,1,Recherche Data Gouv
+72.0,Data INRAE, Laboratoire Reproduction et Développement des Plantes,123960.0, 172841,1,Recherche Data Gouv
+73.0,Data INRAE, EGFV,123960.0, 176079,1,Recherche Data Gouv
+74.0,Data INRAE, ANR MoBiDiv,123960.0, 176439,1,Recherche Data Gouv
+75.0,Data INRAE, E-MUSE,123960.0, 178271,1,Recherche Data Gouv
+76.0,Data INRAE, BOA,123960.0, 183123,1,Recherche Data Gouv
+77.0,Data INRAE, UMR RECOVER,123960.0, 183433,1,Recherche Data Gouv
+78.0,Data INRAE, ECODEV,123960.0, 188836,1,Recherche Data Gouv
+79.0,Data INRAE, IJPB for Plant Sciences Dataverse,123960.0, 197204,1,Recherche Data Gouv
+80.0,Data INRAE, DACE-DL dataverse,123960.0, 197224,1,Recherche Data Gouv
+81.0,Data INRAE, Institut des Sciences des Plantes de Montpellier,123960.0, 199849,1,Recherche Data Gouv
+82.0,Data INRAE, UMR SayFood,123960.0, 201391,1,Recherche Data Gouv
+83.0,Data INRAE, FRISE,123960.0, 201974,1,Recherche Data Gouv
+84.0,Data INRAE, Sciences du Bois,123960.0, 202158,1,Recherche Data Gouv
+85.0,Data INRAE, UMR 1419 Nutrition,123960.0, 222091,1,Recherche Data Gouv
+86.0,Data INRAE, Métabolisme,123960.0, 347565,1,Recherche Data Gouv
+87.0,Data INRAE, Aquaculture (NuMéA),123960.0, 400066,1,Recherche Data Gouv
+88.0,Data INRAE, Explore2,123960.0, 400401,1,Recherche Data Gouv
+89.0,Data INRAE, UMR 1280 PhAN,123960.0, 451341,1,Recherche Data Gouv
+90.0,Data INRAE," ""Données de lUR 1321 ASTRO - Agrosystèmes tropicaux""",123960.0, 607330,1,Recherche Data Gouv
+91.0,Data INRAE, AGRIBALYSE® – GIS REVALIM,123960.0, 627450,1,Recherche Data Gouv
+92.0,Data INRAE, UMR 1225 Interactions hôtes-agents pathogènes (IHAP),123960.0,,1,Recherche Data Gouv
+93.0,Data INRAE, CESAER,123960.0,,1,Recherche Data Gouv
+94.0,Data INRAE, BFP - Biologie du Fruit et Pathologie,123960.0,,1,Recherche Data Gouv
+95.0,Data INRAE, LEPSE – Laboratoire des Plantes sous Stress Environnementaux,123960.0,,1,Recherche Data Gouv
+96.0,Espace Générique,Revues anonymes,123967.0,142710,1,Recherche Data Gouv
+97.0,DOREL (Université de Lorraine),LMOPS,125166.0,179084,1,Recherche Data Gouv
+98.0,DOREL (Université de Lorraine), Archives Henri-Poincaré,125166.0, 179085,1,Recherche Data Gouv
+99.0,DOREL (Université de Lorraine), IJL,125166.0, 179086,1,Recherche Data Gouv
+100.0,DOREL (Université de Lorraine), URAFPA,125166.0, 179087,1,Recherche Data Gouv
+101.0,DOREL (Université de Lorraine), CREM,125166.0, 179088,1,Recherche Data Gouv
+102.0,DOREL (Université de Lorraine), LEM3,125166.0, 179089,1,Recherche Data Gouv
+103.0,DOREL (Université de Lorraine), CRM2,125166.0, 179090,1,Recherche Data Gouv
+104.0,DOREL (Université de Lorraine), PErSEUs,125166.0, 179091,1,Recherche Data Gouv
+105.0,DOREL (Université de Lorraine), LPCT,125166.0, 179092,1,Recherche Data Gouv
+106.0,DOREL (Université de Lorraine), LOTERR,125166.0, 179093,1,Recherche Data Gouv
+107.0,DOREL (Université de Lorraine), LRGP,125166.0, 179094,1,Recherche Data Gouv
+108.0,DOREL (Université de Lorraine), Calbinotox,125166.0, 179095,1,Recherche Data Gouv
+109.0,DOREL (Université de Lorraine), Silva,125166.0, 179096,1,Recherche Data Gouv
+110.0,DOREL (Université de Lorraine), LIBio,125166.0, 179097,1,Recherche Data Gouv
+111.0,DOREL (Université de Lorraine), DynAMic,125166.0, 179099,1,Recherche Data Gouv
+112.0,DOREL (Université de Lorraine), CRAN,125166.0, 179100,1,Recherche Data Gouv
+113.0,DOREL (Université de Lorraine), IECL,125166.0, 179101,1,Recherche Data Gouv
+114.0,DOREL (Université de Lorraine), LCOMS,125166.0, 179103,1,Recherche Data Gouv
+115.0,DOREL (Université de Lorraine), ERPI,125166.0, 179104,1,Recherche Data Gouv
+116.0,DOREL (Université de Lorraine), APEMAC,125166.0, 179105,1,Recherche Data Gouv
+117.0,DOREL (Université de Lorraine), LGIPM,125166.0, 179106,1,Recherche Data Gouv
+118.0,DOREL (Université de Lorraine), GREEN,125166.0, 179107,1,Recherche Data Gouv
+119.0,DOREL (Université de Lorraine), CITHEFOR,125166.0, 179108,1,Recherche Data Gouv
+120.0,DOREL (Université de Lorraine), Direction de la Documentation,125166.0, 179110,1,Recherche Data Gouv
+121.0,DOREL (Université de Lorraine), DevAH,125166.0, 179111,1,Recherche Data Gouv
+122.0,DOREL (Université de Lorraine), IMoPA,125166.0, 179115,1,Recherche Data Gouv
+123.0,DOREL (Université de Lorraine), SIMPA,125166.0, 179116,1,Recherche Data Gouv
+124.0,DOREL (Université de Lorraine), NGERE,125166.0, 179117,1,Recherche Data Gouv
+125.0,DOREL (Université de Lorraine), CEREFIGE,125166.0, 179120,1,Recherche Data Gouv
+126.0,DOREL (Université de Lorraine), LSE,125166.0, 179121,1,Recherche Data Gouv
+127.0,DOREL (Université de Lorraine), IFG,125166.0, 179122,1,Recherche Data Gouv
+128.0,DOREL (Université de Lorraine), CERCLE,125166.0, 179123,1,Recherche Data Gouv
+129.0,DOREL (Université de Lorraine), CEGIL,125166.0, 179124,1,Recherche Data Gouv
+130.0,DOREL (Université de Lorraine), IRENEE,125166.0, 179125,1,Recherche Data Gouv
+131.0,DOREL (Université de Lorraine), ÉCRITURES,125166.0, 179126,1,Recherche Data Gouv
+132.0,DOREL (Université de Lorraine), IDEA,125166.0, 179127,1,Recherche Data Gouv
+133.0,DOREL (Université de Lorraine), LIS,125166.0, 179128,1,Recherche Data Gouv
+134.0,DOREL (Université de Lorraine), 2LPN,125166.0, 179130,1,Recherche Data Gouv
+135.0,DOREL (Université de Lorraine), LISEC,125166.0, 179131,1,Recherche Data Gouv
+136.0,DOREL (Université de Lorraine), InterPsy,125166.0, 179132,1,Recherche Data Gouv
+137.0,DOREL (Université de Lorraine), 2L2S,125166.0, 179133,1,Recherche Data Gouv
+138.0,DOREL (Université de Lorraine), LCP-A2MC,125166.0, 179136,1,Recherche Data Gouv
+139.0,DOREL (Université de Lorraine), LCPME,125166.0, 179137,1,Recherche Data Gouv
+140.0,DOREL (Université de Lorraine), LORIA,125166.0, 179138,1,Recherche Data Gouv
+141.0,DOREL (Université de Lorraine), LEMTA,125166.0, 179139,1,Recherche Data Gouv
+142.0,DOREL (Université de Lorraine), LAE,125166.0, 179140,1,Recherche Data Gouv
+143.0,DOREL (Université de Lorraine), L2CM,125166.0, 179141,1,Recherche Data Gouv
+144.0,DOREL (Université de Lorraine), CRULH,125166.0, 179142,1,Recherche Data Gouv
+145.0,DOREL (Université de Lorraine), HISCANT-MA,125166.0, 179143,1,Recherche Data Gouv
+146.0,DOREL (Université de Lorraine), Centre Pierre Janet,125166.0, 179144,1,Recherche Data Gouv
+147.0,DOREL (Université de Lorraine), LIEC,125166.0, 179145,1,Recherche Data Gouv
+148.0,Université de Strasbourg,Joint Research Unit Chemistry of Complex Matter,125167.0,134623,1,Recherche Data Gouv
+149.0,Université de Strasbourg, Laboratory of Bioimaging and Pathologies - LBP - UMR 7021,125167.0, 134652,1,Recherche Data Gouv
+150.0,Université de Strasbourg, Sociétés,125167.0, 147059,1,Recherche Data Gouv
+151.0,Université de Strasbourg, Acteurs,125167.0, 156728,1,Recherche Data Gouv
+152.0,Université de Strasbourg, Gouvernement en Europe - SAGE - UMR 7363,125167.0, 156865,1,Recherche Data Gouv
+153.0,Université de Strasbourg, Institut des Neurosciences Cellulaires et Intégratives - INCI - UPR 3212,125167.0, 157710,1,Recherche Data Gouv
+154.0,Université de Strasbourg, iCUBE - Science des Données et Connaissances - UMR 7357,125167.0, 158541,1,Recherche Data Gouv
+155.0,Université de Strasbourg, Santé de la Vigne et Qualité du Vin - SVQV - UMR_A 1131,125167.0, 161283,1,Recherche Data Gouv
+156.0,Université de Strasbourg, Institut Pluridisciplinaire Hubert Curien - IPHC - UMR 7178,125167.0, 163728,1,Recherche Data Gouv
+157.0,Université de Strasbourg, Institut National des Sciences Appliquées Strasbourg - INSA Strasbourg,125167.0, 175534,1,Recherche Data Gouv
+158.0,Université de Strasbourg, Institut de génétique,125167.0, 176316,1,Recherche Data Gouv
+159.0,Université de Strasbourg, biologie moléculaire et cellulaire - IGBMC - UMR 7104,125167.0, 218119,1,Recherche Data Gouv
+160.0,Université de Strasbourg, Droit,125167.0, 628836,1,Recherche Data Gouv
+161.0,Université de Strasbourg, religion,125167.0,,1,Recherche Data Gouv
+162.0,Université de Strasbourg, entreprise et société - DRES - UMR 7354,125167.0,,1,Recherche Data Gouv
+163.0,Université de Strasbourg, Laboratoire d’Innovation Moléculaire et Applications - LIMA - UMR 7042,125167.0,,1,Recherche Data Gouv
+164.0,Université de Strasbourg, Institut de physique et chimie des Matériaux de Strasbourg - IPCMS - UMR7504,125167.0,,1,Recherche Data Gouv
+165.0,Université de Strasbourg," ""GEO - Groupe détudes orientales",125167.0,,1,Recherche Data Gouv
+166.0,Université de Strasbourg," slaves et néo-helléniques - UR 1340""",125167.0,,1,Recherche Data Gouv
+167.0,Data Repository Grenoble Alpes,OSUG,125168.0,142915,1,Recherche Data Gouv
+168.0,Data Repository Grenoble Alpes, Litt&Arts,125168.0, 145397,1,Recherche Data Gouv
+169.0,Data Repository Grenoble Alpes, Gipsa-Lab,125168.0, 146390,1,Recherche Data Gouv
+170.0,Data Repository Grenoble Alpes, SPINTEC,125168.0, 150583,1,Recherche Data Gouv
+171.0,Data Repository Grenoble Alpes, Observatoire de la Transition Énergétique,125168.0, 158365,1,Recherche Data Gouv
+172.0,Data Repository Grenoble Alpes, Institut de Biologie Structurale,125168.0, 176444,1,Recherche Data Gouv
+173.0,Data Repository Grenoble Alpes, Laboratoire d’électrochimie et de physicochimie des matériaux et des interfaces ,125168.0, 285147,1,Recherche Data Gouv
+174.0,Lillodata - Entrepôt de données de l'Université de Lille,SCALab,125169.0,142260,1,Recherche Data Gouv
+175.0,Lillodata - Entrepôt de données de l'Université de Lille, IEMN,125169.0, 145484,1,Recherche Data Gouv
+176.0,Lillodata - Entrepôt de données de l'Université de Lille, TVES - ULR 4477 ,125169.0, 147065,1,Recherche Data Gouv
+177.0,Lillodata - Entrepôt de données de l'Université de Lille, GERiiCO,125169.0, 147157,1,Recherche Data Gouv
+178.0,Lillodata - Entrepôt de données de l'Université de Lille, Lexique,125169.0, 148245,1,Recherche Data Gouv
+179.0,Lillodata - Entrepôt de données de l'Université de Lille, Espace,125169.0, 148262,1,Recherche Data Gouv
+180.0,Lillodata - Entrepôt de données de l'Université de Lille, Populations,125169.0, 148520,1,Recherche Data Gouv
+181.0,Lillodata - Entrepôt de données de l'Université de Lille, Sociétés,125169.0, 149320,1,Recherche Data Gouv
+182.0,Lillodata - Entrepôt de données de l'Université de Lille, Unité de Glycobiologie Structurale et Fonctionnelle (UGSF) - UMR 8576,125169.0, 150224,1,Recherche Data Gouv
+183.0,Lillodata - Entrepôt de données de l'Université de Lille, UREPSSS,125169.0, 151309,1,Recherche Data Gouv
+184.0,Lillodata - Entrepôt de données de l'Université de Lille, CRIStAL,125169.0, 157548,1,Recherche Data Gouv
+185.0,Lillodata - Entrepôt de données de l'Université de Lille, PSITEC,125169.0, 162923,1,Recherche Data Gouv
+186.0,Lillodata - Entrepôt de données de l'Université de Lille, UMET ,125169.0, 168803,1,Recherche Data Gouv
+187.0,Lillodata - Entrepôt de données de l'Université de Lille, Lille économie management - UMR 9221,125169.0, 168824,1,Recherche Data Gouv
+188.0,Lillodata - Entrepôt de données de l'Université de Lille, L2EP,125169.0, 185786,1,Recherche Data Gouv
+189.0,Lillodata - Entrepôt de données de l'Université de Lille, Unité Evolution,125169.0, 192761,1,Recherche Data Gouv
+190.0,Lillodata - Entrepôt de données de l'Université de Lille, Ecologie et Paléontologie (Evo-Eco-Paléo),125169.0, 307986,1,Recherche Data Gouv
+191.0,Lillodata - Entrepôt de données de l'Université de Lille, UCCS,125169.0, 569140,1,Recherche Data Gouv
+192.0,Lillodata - Entrepôt de données de l'Université de Lille, PhLAM,125169.0, 573737,1,Recherche Data Gouv
+193.0,Lillodata - Entrepôt de données de l'Université de Lille, Laboratoire de Mécanique des Fluides de Lille - Kampé de Fériet,125169.0, 596458,1,Recherche Data Gouv
+194.0,Lillodata - Entrepôt de données de l'Université de Lille, UMR transfrontalière BioEcoAgro,125169.0, 610401,1,Recherche Data Gouv
+195.0,Lillodata - Entrepôt de données de l'Université de Lille," ""Boutique des sciences de lUniversité de Lille""",125169.0,,1,Recherche Data Gouv
+196.0,Lillodata - Entrepôt de données de l'Université de Lille, CIIL,125169.0,,1,Recherche Data Gouv
+197.0,Lillodata - Entrepôt de données de l'Université de Lille, MABLAB,125169.0,,1,Recherche Data Gouv
+198.0,Université Toulouse Jean-Jaurès,Centre for anglophone studies (CAS),125170.0,142851,1,Recherche Data Gouv
+199.0,Université Toulouse Jean-Jaurès," ""Centre dEtudes Ibériques et Ibéro-Américaines (CEIIBA-Toulouse)""",125170.0, 142852,1,Recherche Data Gouv
+200.0,Université Toulouse Jean-Jaurès, Centre d’Etudes et de Recherches en Psychopathologie et Psychologie de la Santé (CERPPS),125170.0, 142853,1,Recherche Data Gouv
+201.0,Université Toulouse Jean-Jaurès," ""Centre de Recherches et dEtudes Germaniques (CREG)""",125170.0, 142854,1,Recherche Data Gouv
+202.0,Université Toulouse Jean-Jaurès, Equipe de Recherche sur les Rationalités Philosophiques et les Savoirs (ERRAPHIS),125170.0, 142855,1,Recherche Data Gouv
+203.0,Université Toulouse Jean-Jaurès, Laboratoire Cliniques Pathologique et Interculturelle (LCPI),125170.0, 142857,1,Recherche Data Gouv
+204.0,Université Toulouse Jean-Jaurès, Laboratoire de NeuroPsychoLinguistique (LNPL),125170.0, 142858,1,Recherche Data Gouv
+205.0,Université Toulouse Jean-Jaurès, Laboratoire de Psychologie de la Socialisation – Développement et Travail (LPS-DT),125170.0, 142859,1,Recherche Data Gouv
+206.0,Université Toulouse Jean-Jaurès, Laboratoire de Recherche en Audiovisuel - Savoirs,125170.0, 142860,1,Recherche Data Gouv
+207.0,Université Toulouse Jean-Jaurès, Praxis et Poïétiques en Art (LARA-SEPPIA),125170.0, 142861,1,Recherche Data Gouv
+208.0,Université Toulouse Jean-Jaurès, Lettres,125170.0, 142862,1,Recherche Data Gouv
+209.0,Université Toulouse Jean-Jaurès, Langages et Arts - Création,125170.0, 142863,1,Recherche Data Gouv
+210.0,Université Toulouse Jean-Jaurès, Recherche,125170.0, 142864,1,Recherche Data Gouv
+211.0,Université Toulouse Jean-Jaurès, Émergence en Arts,125170.0, 142865,1,Recherche Data Gouv
+212.0,Université Toulouse Jean-Jaurès, Textes,125170.0, 142866,1,Recherche Data Gouv
+213.0,Université Toulouse Jean-Jaurès, Images,125170.0, 142867,1,Recherche Data Gouv
+214.0,Université Toulouse Jean-Jaurès, Spectacles (LLA CREATIS),125170.0, 142868,1,Recherche Data Gouv
+215.0,Université Toulouse Jean-Jaurès, Patrimoine,125170.0, 142869,1,Recherche Data Gouv
+216.0,Université Toulouse Jean-Jaurès, Littérature,125170.0,,1,Recherche Data Gouv
+217.0,Université Toulouse Jean-Jaurès, Histoire (PLH),125170.0,,1,Recherche Data Gouv
+218.0,Université Toulouse Jean-Jaurès," ""Centre dÉtude et de Recherche Travail",125170.0,,1,Recherche Data Gouv
+219.0,Université Toulouse Jean-Jaurès, Organisation,125170.0,,1,Recherche Data Gouv
+220.0,Université Toulouse Jean-Jaurès," Pouvoir (CERTOP)""",125170.0,,1,Recherche Data Gouv
+221.0,Université Toulouse Jean-Jaurès, Cognition,125170.0,,1,Recherche Data Gouv
+222.0,Université Toulouse Jean-Jaurès, Langues,125170.0,,1,Recherche Data Gouv
+223.0,Université Toulouse Jean-Jaurès, Langage,125170.0,,1,Recherche Data Gouv
+224.0,Université Toulouse Jean-Jaurès, Ergonomie (CLLE),125170.0,,1,Recherche Data Gouv
+225.0,Université Toulouse Jean-Jaurès, Education,125170.0,,1,Recherche Data Gouv
+226.0,Université Toulouse Jean-Jaurès, Formation,125170.0,,1,Recherche Data Gouv
+227.0,Université Toulouse Jean-Jaurès, Travail,125170.0,,1,Recherche Data Gouv
+228.0,Université Toulouse Jean-Jaurès, Savoirs (EFTS),125170.0,,1,Recherche Data Gouv
+229.0,Université Toulouse Jean-Jaurès, France,125170.0,,1,Recherche Data Gouv
+230.0,Université Toulouse Jean-Jaurès, Amériques,125170.0,,1,Recherche Data Gouv
+231.0,Université Toulouse Jean-Jaurès, Espagne - Sociétés,125170.0,,1,Recherche Data Gouv
+232.0,Université Toulouse Jean-Jaurès, pouvoirs,125170.0,,1,Recherche Data Gouv
+233.0,Université Toulouse Jean-Jaurès, acteurs (FRAMESPA),125170.0,,1,Recherche Data Gouv
+234.0,Université Toulouse Jean-Jaurès," ""Géographie de lEnvironnement (GEODE)""",125170.0,,1,Recherche Data Gouv
+235.0,Université Toulouse Jean-Jaurès, Laboratoire Interdisciplinaire Solidarités,125170.0,,1,Recherche Data Gouv
+236.0,Université Toulouse Jean-Jaurès, Sociétés,125170.0,,1,Recherche Data Gouv
+237.0,Université Toulouse Jean-Jaurès, Territoires (LISST),125170.0,,1,Recherche Data Gouv
+238.0,Université Toulouse Jean-Jaurès, Travaux et Recherches Archéologiques sur les Cultures,125170.0,,1,Recherche Data Gouv
+239.0,Université Toulouse Jean-Jaurès, les Espaces et les Sociétés (TRACES),125170.0,,1,Recherche Data Gouv
+240.0,Entrepôt de données ouvertes de l'Université Paris Nanterre - UPN,,125171.0,,1,Recherche Data Gouv
+241.0,Institut de Recherche pour le Développement,,145305.0,,1,Recherche Data Gouv
+242.0,Centre de Coopération Internationale en Recherche Agronomique pour le Développement,,146139.0,,1,Recherche Data Gouv
+243.0,Data Univ. Gustave Eiffel,CENSE,148866.0,158390,1,Recherche Data Gouv
+244.0,Data Univ. Gustave Eiffel, Battery data,148866.0, 163209,1,Recherche Data Gouv
+245.0,Data Univ. Gustave Eiffel, ACIMP - Asphalt pavement laboratory slabs,148866.0, 174195,1,Recherche Data Gouv
+246.0,Data Univ. Gustave Eiffel, Experimental abdominal data,148866.0, 186455,1,Recherche Data Gouv
+247.0,Data Univ. Gustave Eiffel, TerDOUEST,148866.0, 195602,1,Recherche Data Gouv
+248.0,Data Univ. Gustave Eiffel, SUBDENSE,148866.0, 198298,1,Recherche Data Gouv
+249.0,Data Univ. Gustave Eiffel, DéCoF-Ré,148866.0, 202059,1,Recherche Data Gouv
+250.0,Data Univ. Gustave Eiffel, Optical Fibers embedded in cementitious materials for UltraSonic imaging and monitoring,148866.0, 344891,1,Recherche Data Gouv
+251.0,Data Univ. Gustave Eiffel, City-FAB,148866.0, 599618,1,Recherche Data Gouv
+252.0,Data Univ. Gustave Eiffel, SCaNING - Suivi des infrastructures neuves et existantes par Capteurs Noyés pour évaluer les Indicateurs Nécessaires à leur Gestion durable,148866.0, 606543,1,Recherche Data Gouv
+253.0,École nationale des ponts et chaussées,CERMICS,148870.0,158623,1,Recherche Data Gouv
+254.0,École nationale des ponts et chaussées, HM&Co,148870.0, 158624,1,Recherche Data Gouv
+255.0,École nationale des ponts et chaussées, Laboratoire Navier,148870.0, 158626,1,Recherche Data Gouv
+256.0,École nationale des ponts et chaussées, CEREA,148870.0, 158857,1,Recherche Data Gouv
+257.0,Institut d’études politiques de Paris,,148974.0,,1,Recherche Data Gouv
+258.0,Inria,MIMESIS,148975.0,167534,1,Recherche Data Gouv
+259.0,Autorité de Sûreté Nucléaire et de Radioprotection,URSûr 201722597T,150479.0,221935,1,Recherche Data Gouv
+260.0,Autorité de Sûreté Nucléaire et de Radioprotection, UREnv 201722596S,150479.0, 221946,1,Recherche Data Gouv
+261.0,Autorité de Sûreté Nucléaire et de Radioprotection, URSan 201722594P,150479.0, 221947,1,Recherche Data Gouv
+262.0,Institut national de la santé et de la recherche médicale,Collection Générique Inserm,150892.0,152449,1,Recherche Data Gouv
+263.0,Institut national de la santé et de la recherche médicale, Biologie cellulaire,150892.0, 152451,1,Recherche Data Gouv
+264.0,Institut national de la santé et de la recherche médicale, développement et évolution,150892.0, 152453,1,Recherche Data Gouv
+265.0,Institut national de la santé et de la recherche médicale, Génétique,150892.0, 152460,1,Recherche Data Gouv
+266.0,Institut national de la santé et de la recherche médicale, génomique et bioinformatique,150892.0, 152461,1,Recherche Data Gouv
+267.0,Institut national de la santé et de la recherche médicale, Bases moléculaires et structurales du vivant,150892.0, 152462,1,Recherche Data Gouv
+268.0,Institut national de la santé et de la recherche médicale, Cancer,150892.0, 152463,1,Recherche Data Gouv
+269.0,Institut national de la santé et de la recherche médicale, Technologies pour la santé,150892.0, 152464,1,Recherche Data Gouv
+270.0,Institut national de la santé et de la recherche médicale, Santé publique,150892.0, 152465,1,Recherche Data Gouv
+271.0,Institut national de la santé et de la recherche médicale, Physiopathologie,150892.0, 152466,1,Recherche Data Gouv
+272.0,Institut national de la santé et de la recherche médicale, métabolisme,150892.0,,1,Recherche Data Gouv
+273.0,Institut national de la santé et de la recherche médicale, nutrition,150892.0,,1,Recherche Data Gouv
+274.0,Institut national de la santé et de la recherche médicale, Neurosciences,150892.0,,1,Recherche Data Gouv
+275.0,Institut national de la santé et de la recherche médicale, sciences cognitives,150892.0,,1,Recherche Data Gouv
+276.0,Institut national de la santé et de la recherche médicale, neurologie,150892.0,,1,Recherche Data Gouv
+277.0,Institut national de la santé et de la recherche médicale, psychiatrie,150892.0,,1,Recherche Data Gouv
+278.0,Institut national de la santé et de la recherche médicale, Immunologie,150892.0,,1,Recherche Data Gouv
+279.0,Institut national de la santé et de la recherche médicale, inflammation,150892.0,,1,Recherche Data Gouv
+280.0,Institut national de la santé et de la recherche médicale, infectiologie et microbiologie,150892.0,,1,Recherche Data Gouv
+281.0,Data_UMontpellier,AGAP Institut,150975.0,339776,1,Recherche Data Gouv
+282.0,Data_UMontpellier, AMAP,150975.0, 339782,1,Recherche Data Gouv
+283.0,Data_UMontpellier, CEFE,150975.0, 339786,1,Recherche Data Gouv
+284.0,Data_UMontpellier, EuroMov DHM,150975.0, 339798,1,Recherche Data Gouv
+285.0,Data_UMontpellier, HSM,150975.0, 339802,1,Recherche Data Gouv
+286.0,Data_UMontpellier, IATE,150975.0, 339805,1,Recherche Data Gouv
+287.0,Data_UMontpellier, ISEM,150975.0, 339812,1,Recherche Data Gouv
+288.0,Data_UMontpellier, L2C,150975.0, 339818,1,Recherche Data Gouv
+289.0,Data_UMontpellier, LIRMM,150975.0, 339821,1,Recherche Data Gouv
+290.0,Data_UMontpellier, LMGC,150975.0, 339825,1,Recherche Data Gouv
+291.0,Data_UMontpellier, MARBEC,150975.0, 339827,1,Recherche Data Gouv
+292.0,Data_UMontpellier, MIVEGEC,150975.0, 339830,1,Recherche Data Gouv
+293.0,Data_UMontpellier, OREME,150975.0, 339834,1,Recherche Data Gouv
+294.0,Data_UMontpellier, SPO,150975.0, 339840,1,Recherche Data Gouv
+295.0,Data_UMontpellier, IES,150975.0, 344892,1,Recherche Data Gouv
+296.0,Data_UMontpellier, IGF,150975.0, 344893,1,Recherche Data Gouv
+297.0,Data_UMontpellier, PhyMedExp,150975.0, 600726,1,Recherche Data Gouv
+298.0,Entrepôt de données INSEI,,152471.0,,1,Recherche Data Gouv
+299.0,Sorbonne Université,Données associées aux mémoires de master de Sorbonne Université,152472.0,179083,1,Recherche Data Gouv
+300.0,Arts et Métiers Sciences et technologies - Arts et Metiers Institute of Technology,,152473.0,,1,Recherche Data Gouv
+301.0,Université Paris-Saclay,JUstice In Climate Change Exposure (JUICCE),157728.0,171135,1,Recherche Data Gouv
+302.0,Université Paris-Saclay, Acompañamiento para la Gobernanza Adaptiva de la Tierra en Apurímac (AGATA),157728.0, 172581,1,Recherche Data Gouv
+303.0,Université Paris-Saclay, Chaire CoPack,157728.0, 188811,1,Recherche Data Gouv
+304.0,Data Paris 8,,158629.0,,1,Recherche Data Gouv
+305.0,Université d'Artois,UCCS,160283.0,176254,1,Recherche Data Gouv
+306.0,Institut Pasteur,,160284.0,,1,Recherche Data Gouv
+307.0,ONERA,Space Weather Events,160285.0,568624,1,Recherche Data Gouv
+308.0,Data UPPA,,161753.0,,1,Recherche Data Gouv
+309.0,Université de Rennes,UMR CNRS 6226 - Institut des sciences chimiques de Rennes (ISCR),162882.0,163908,1,Recherche Data Gouv
+310.0,Université de Rennes, UMR 6118 - Géosiences Rennes,162882.0, 163915,1,Recherche Data Gouv
+311.0,Université de Rennes, UMR INRAE 1349 - Institut de génétique,162882.0, 163927,1,Recherche Data Gouv
+312.0,Université de Rennes, environnement et protection des plantes (IGEPP),162882.0, 163928,1,Recherche Data Gouv
+313.0,Université de Rennes, UMR INSERM 1241 / UMR INRAE 1341 - Nutrition,162882.0, 178981,1,Recherche Data Gouv
+314.0,Université de Rennes, Métabolismes et Cancer (NuMeCan),162882.0, 347525,1,Recherche Data Gouv
+315.0,Université de Rennes, UMR 6553 - Ecobio - Ecosystèmes,162882.0,,1,Recherche Data Gouv
+316.0,Université de Rennes, Biodiversité,162882.0,,1,Recherche Data Gouv
+317.0,Université de Rennes, Evolution,162882.0,,1,Recherche Data Gouv
+318.0,Université de Rennes, IRMAR - UMR CNRS 6625 - Institut de recherche mathématique de Rennes,162882.0,,1,Recherche Data Gouv
+319.0,CNRS Research Data,BETA,163280.0,161262,1,Recherche Data Gouv
+320.0,CNRS Research Data, ICMCB,163280.0, 167583,1,Recherche Data Gouv
+321.0,CNRS Research Data, Dat@OSUC,163280.0, 175564,1,Recherche Data Gouv
+322.0,CNRS Research Data, dataLNCMI,163280.0, 178605,1,Recherche Data Gouv
+323.0,CNRS Research Data, IDEES,163280.0, 191897,1,Recherche Data Gouv
+324.0,CNRS Research Data, French Fluid Dynamics Database,163280.0, 193082,1,Recherche Data Gouv
+325.0,CNRS Research Data, MEDG,163280.0, 209188,1,Recherche Data Gouv
+326.0,CNRS Research Data, Data Robotics : French Research Infrastructure Robotex2.0,163280.0, 348857,1,Recherche Data Gouv
+327.0,CNRS Research Data, LOCIE,163280.0, 438903,1,Recherche Data Gouv
+328.0,CNRS Research Data, PHENIX,163280.0, 575235,1,Recherche Data Gouv
+329.0,CNRS Research Data, CASP16-CAPRI MassiveFold Data,163280.0, 607303,1,Recherche Data Gouv
+330.0,CNRS Research Data, LJP,163280.0, 609307,1,Recherche Data Gouv
+331.0,Data repository CY Cergy Paris Université,,163810.0,,1,Recherche Data Gouv
+332.0,Université Côte d'Azur,Laboratoire Géoazur,163811.0,174190,1,Recherche Data Gouv
+333.0,Université Côte d'Azur," ""Laboratoire Dinformatique Signaux et Systèmes de Sophia-Antipolis""",163811.0, 174193,1,Recherche Data Gouv
+334.0,Université Côte d'Azur, Institut Sophia Agrobiotech,163811.0, 174197,1,Recherche Data Gouv
+335.0,ENAC,Telecom,165021.0,197003,1,Recherche Data Gouv
+336.0,ENAC, Transport Aérien - TA,165021.0, 197004,1,Recherche Data Gouv
+337.0,ENAC, II - Informatique Interactive,165021.0, 222042,1,Recherche Data Gouv
+338.0,ENAC, OPTIM,165021.0, 284520,1,Recherche Data Gouv
+339.0,Isara,AGE,165098.0,616600,1,Recherche Data Gouv
+340.0,Isara, LER,165098.0, 616618,1,Recherche Data Gouv
+341.0,Data Nantes Université,ERC Promises,165099.0,174253,1,Recherche Data Gouv
+342.0,Data Nantes Université," ""Observatoire des Sciences de lUnivers Nantes Atlantique (Osuna)""",165099.0, 174520,1,Recherche Data Gouv
+343.0,Data Nantes Université, Laboratoire MIP,165099.0, 176077,1,Recherche Data Gouv
+344.0,Data Nantes Université, ANR-DEMCOM - Durable and Environmental design of Monitored COncrete structures in Marine environment,165099.0, 179212,1,Recherche Data Gouv
+345.0,Data Nantes Université, Laboratoire de Planétologie et Géosciences (LPG),165099.0, 201219,1,Recherche Data Gouv
+346.0,Data Nantes Université, Laboratoire IREENA - Institut de Recherche en Energie Electrique de Nantes Atlantique ,165099.0, 596554,1,Recherche Data Gouv
+347.0,Data Nantes Université, Laboratoire CEISAM - Chimie et Interdisciplinarité : Synthèse,165099.0, 599378,1,Recherche Data Gouv
+348.0,Data Nantes Université, Analyse,165099.0, 600524,1,Recherche Data Gouv
+349.0,Data Nantes Université, Modélisation,165099.0, 603040,1,Recherche Data Gouv
+350.0,Data Nantes Université, ERC IceFloods,165099.0,,1,Recherche Data Gouv
+351.0,Data Nantes Université, Laboratoire LETG - Littoral - Environnement - Télédetection - Géomatique (UMR CNRS 6554),165099.0,,1,Recherche Data Gouv
+352.0,Entrepôt de données Avignon Université,Agro&Sciences,165768.0,174660,1,Recherche Data Gouv
+353.0,Entrepôt de données Avignon Université, Culture Patrimoines Sociétés Numériques,165768.0, 178272,1,Recherche Data Gouv
+354.0,Université Le Havre Normandie,URCOM - Unité de Recherche en Chimie Organique et Macromoléculaire ,168825.0,175285,1,Recherche Data Gouv
+355.0,Université Le Havre Normandie, GREAH - Groupe de Recherche en Electrotechnique et Automatique du Havre,168825.0, 176149,1,Recherche Data Gouv
+356.0,Université Le Havre Normandie, LMAH - Laboratoire de Mathématiques Appliquées du Havre ,168825.0, 176167,1,Recherche Data Gouv
+357.0,Université Le Havre Normandie, LITIS - Laboratoire d’Informatique et du Traitement de l’Information et des Systèmes,168825.0, 179064,1,Recherche Data Gouv
+358.0,Université Le Havre Normandie, LOMC - Laboratoire Ondes et Milieux Complexes,168825.0, 179065,1,Recherche Data Gouv
+359.0,Université Le Havre Normandie, SEBIO - Stress Environnementaux et BIOsurveillance des milieux aquatiques,168825.0, 179066,1,Recherche Data Gouv
+360.0,Toulouse INP,IMFT,168826.0,172874,1,Recherche Data Gouv
+361.0,Toulouse INP, LGC,168826.0, 174376,1,Recherche Data Gouv
+362.0,Univ-Clermont-Auvergne,TIRAMISU,168828.0,197313,1,Recherche Data Gouv
+363.0,Univ-Clermont-Auvergne, Institut Pascal,168828.0, 201555,1,Recherche Data Gouv
+364.0,Univ-Clermont-Auvergne, UMR 1095 GDEC ,168828.0, 208982,1,Recherche Data Gouv
+365.0,Univ-Clermont-Auvergne, Unité de Nutrition Humaine - UNH - UMR 1019,168828.0, 598564,1,Recherche Data Gouv
+366.0,Univ-Clermont-Auvergne, iGReD Génétique,168828.0, 631112,1,Recherche Data Gouv
+367.0,Univ-Clermont-Auvergne, Reproduction et Développement,168828.0,,1,Recherche Data Gouv
+368.0,Ecole supérieure des agricultures,GRAPPE,174694.0,191947,1,Recherche Data Gouv
+369.0,Ecole supérieure des agricultures, URSE,174694.0, 192360,1,Recherche Data Gouv
+370.0,Ecole supérieure des agricultures, LEVA,174694.0, 192364,1,Recherche Data Gouv
+371.0,Ecole supérieure des agricultures, LARESS,174694.0, 192366,1,Recherche Data Gouv
+372.0,Ecole supérieure des agricultures, BAGAP-ESA,174694.0, 192368,1,Recherche Data Gouv
+373.0,Recherche Bourgogne-Franche-Comté,BSB,174695.0,168827,1,Recherche Data Gouv
+374.0,Recherche Bourgogne-Franche-Comté, Université Marie et Louis Pasteur,174695.0, 175567,1,Recherche Data Gouv
+375.0,Recherche Bourgogne-Franche-Comté, Université Bourgogne Europe,174695.0, 175568,1,Recherche Data Gouv
+376.0,Recherche Bourgogne-Franche-Comté, Université de Technologie de Belfort Montbéliard,174695.0, 175569,1,Recherche Data Gouv
+377.0,Recherche Bourgogne-Franche-Comté, SUPMICROTECH-ENSMM,174695.0, 175572,1,Recherche Data Gouv
+378.0,Recherche Bourgogne-Franche-Comté, Institut Agro Dijon,174695.0, 175573,1,Recherche Data Gouv
+379.0,Recherche Bourgogne-Franche-Comté, Arts et Métiers Campus de Cluny,174695.0, 183125,1,Recherche Data Gouv
+380.0,DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse.,CIML,176466.0,221986,1,Recherche Data Gouv
+381.0,DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse., Institut Fresnel,176466.0, 601040,1,Recherche Data Gouv
+382.0,DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse., Luminy Génétique et biophysique des plantes (LGBP-AMU-CEA-CNRS),176466.0, 627611,1,Recherche Data Gouv
+383.0,DAT'AMU _ Entrepôt de données de recherche d'Aix Marseille Université. DAT'AMU _ Aix Marseille University research data warehouse., Theories and Approaches of Genomic Complexity (TAGC),176466.0, 627612,1,Recherche Data Gouv
+384.0,Data Université de Limoges,"""CREOP - Centre de Recherche sur lEntreprise",176467.0,192324,1,Recherche Data Gouv
+385.0,Data Université de Limoges," les Organisations et le Patrimoine""",176467.0, 192325,1,Recherche Data Gouv
+386.0,Data Université de Limoges," ""LAPE - Laboratoire dAnalyse et de Prospectives Economiques""",176467.0, 192365,1,Recherche Data Gouv
+387.0,Data Université de Limoges, OMIJ - Observatoire des mutations institutionnelles et juridiques,176467.0, 192367,1,Recherche Data Gouv
+388.0,Data Université de Limoges, GEOLAB,176467.0, 192369,1,Recherche Data Gouv
+389.0,Data Université de Limoges, CeReS,176467.0, 192370,1,Recherche Data Gouv
+390.0,Data Université de Limoges, CRIHAM,176467.0, 192372,1,Recherche Data Gouv
+391.0,Data Université de Limoges, EHIC,176467.0, 192373,1,Recherche Data Gouv
+392.0,Data Université de Limoges, FrED,176467.0, 192375,1,Recherche Data Gouv
+393.0,Data Université de Limoges, GRESCO,176467.0, 192376,1,Recherche Data Gouv
+394.0,Data Université de Limoges, CRIBL,176467.0, 192377,1,Recherche Data Gouv
+395.0,Data Université de Limoges, EpiMaCT,176467.0, 192378,1,Recherche Data Gouv
+396.0,Data Université de Limoges, P&T,176467.0, 192379,1,Recherche Data Gouv
+397.0,Data Université de Limoges, RESINFIT,176467.0, 192380,1,Recherche Data Gouv
+398.0,Data Université de Limoges, CAPTuR,176467.0, 192382,1,Recherche Data Gouv
+399.0,Data Université de Limoges, HAVAE,176467.0, 192385,1,Recherche Data Gouv
+400.0,Data Université de Limoges, LABCiS,176467.0, 192386,1,Recherche Data Gouv
+401.0,Data Université de Limoges, NEURIT,176467.0, 192387,1,Recherche Data Gouv
+402.0,Data Université de Limoges, VieSanté,176467.0, 192388,1,Recherche Data Gouv
+403.0,Data Université de Limoges, IRCER,176467.0, 192389,1,Recherche Data Gouv
+404.0,Data Université de Limoges, GC2D,176467.0, 192390,1,Recherche Data Gouv
+405.0,Data Université de Limoges, E2Lim,176467.0, 192391,1,Recherche Data Gouv
+406.0,Data Université de Limoges, XLIM,176467.0,,1,Recherche Data Gouv
+407.0,La Rochelle Université,,178229.0,,1,Recherche Data Gouv
+408.0,Université Polytechnique Hauts-de-France,"""LAMIH - Laboratoire dAutomatique",180916.0,185829,1,Recherche Data Gouv
+409.0,Université Polytechnique Hauts-de-France," de Mécanique et dInformatique Industrielles et Humaines""",180916.0, 185839,1,Recherche Data Gouv
+410.0,Université Polytechnique Hauts-de-France, LARSH - Laboratoire de Recherche Sociétés & Humanités,180916.0, 569299,1,Recherche Data Gouv
+411.0,Université Polytechnique Hauts-de-France, IEMN,180916.0,,1,Recherche Data Gouv
+412.0,Data UT3,Institut de Recherche en Informatique de Toulouse (IRIT),180949.0,201880,1,Recherche Data Gouv
+413.0,Data UT3, Institut de Pharmacologie et Biologie Structurale (IPBS),180949.0, 284981,1,Recherche Data Gouv
+414.0,Data UT3, Institut des Maladies Métaboliques et Cardiovasculaires (I2MC),180949.0, 285008,1,Recherche Data Gouv
+415.0,Data UT3," ""Centre dEtudes Spatiales de la Biosphère (CESBIO)""",180949.0, 285011,1,Recherche Data Gouv
+416.0,Data UT3," ""Centre Interuniversitaire de Recherche et dIngénierie des Matériaux (CIRIMAT)""",180949.0, 285062,1,Recherche Data Gouv
+417.0,Data UT3," ""Centre de Recherche sur la Biodiversité et lEnvironnement (CRBE)""",180949.0, 285065,1,Recherche Data Gouv
+418.0,Data UT3, Géosciences Environnement Toulouse (GET),180949.0, 285066,1,Recherche Data Gouv
+419.0,INSA Toulouse,,185832.0,,1,Recherche Data Gouv
+420.0,Università di Corsica Pasquale Paoli,Laboratoire « Sciences pour l’Environnement » (UMR CNRS 6134 SPE),185833.0,398084,1,Recherche Data Gouv
+421.0,Università di Corsica Pasquale Paoli, Laboratoire « Lieux,185833.0, 398085,1,Recherche Data Gouv
+422.0,Università di Corsica Pasquale Paoli, Identités,185833.0, 398087,1,Recherche Data Gouv
+423.0,Università di Corsica Pasquale Paoli, eSpaces,185833.0, 398088,1,Recherche Data Gouv
+424.0,Università di Corsica Pasquale Paoli, Activités » (UMR CNRS 6240 LISA),185833.0, 398089,1,Recherche Data Gouv
+425.0,Università di Corsica Pasquale Paoli, Equipe Méditerranéenne de Recherche Juridique EMRJ (UR 7311),185833.0, 398090,1,Recherche Data Gouv
+426.0,Università di Corsica Pasquale Paoli, BioScope Corse Méditerranée Dynamique des Infections en Milieu Insulaire (UR 7310),185833.0, 398091,1,Recherche Data Gouv
+427.0,Università di Corsica Pasquale Paoli, Plateforme PAGLIA ORBA,185833.0, 398092,1,Recherche Data Gouv
+428.0,Università di Corsica Pasquale Paoli, Plateforme « Médiathèque Culturelle de la Corse et des Corses » (M3C),185833.0, 398093,1,Recherche Data Gouv
+429.0,Università di Corsica Pasquale Paoli, Plateforme LOCUS,185833.0, 398094,1,Recherche Data Gouv
+430.0,Università di Corsica Pasquale Paoli, Laboratoire « Stella Mare » (UAR CNRS 3514),185833.0,,1,Recherche Data Gouv
+431.0,Università di Corsica Pasquale Paoli, Fédération de Recherche « Environnement et Société » (FR CNRS 3041),185833.0,,1,Recherche Data Gouv
+432.0,Università di Corsica Pasquale Paoli," ""Institut dEtudes Scientifiques de Cargèse (UAR CNRS 820)""",185833.0,,1,Recherche Data Gouv
+433.0,Université Rennes 2,,185838.0,,1,Recherche Data Gouv
+434.0,Data ensfea,transitions éducation,186563.0,187783,1,Recherche Data Gouv
+435.0,Data ensfea, transitions territoires,186563.0, 187784,1,Recherche Data Gouv
+436.0,Data ensfea, transitions agro écologiques,186563.0, 187786,1,Recherche Data Gouv
+437.0,Recherche Data PSL,Recherche Data Observatoire de Paris - PSL,192454.0,214706,1,Recherche Data Gouv
+438.0,Recherche Data PSL, Recherche Data MINES Paris - PSL,192454.0, 214707,1,Recherche Data Gouv
+439.0,Recherche Data PSL, Recherche Data ESPCI Paris - PSL,192454.0, 214708,1,Recherche Data Gouv
+440.0,Recherche Data PSL, Recherche Data ENC - PSL,192454.0, 214713,1,Recherche Data Gouv
+441.0,Recherche Data PSL, Recherche Data Dauphine - PSL,192454.0, 214714,1,Recherche Data Gouv
+442.0,Recherche Data PSL, Recherche Data Chimie ParisTech - PSL,192454.0, 214716,1,Recherche Data Gouv
+443.0,Data Centrale Lyon,UMR LMFA,192455.0,347777,1,Recherche Data Gouv
+444.0,Data Centrale Lyon, UMR LTDS,192455.0, 347778,1,Recherche Data Gouv
+445.0,Data Centrale Lyon, UMR LIRIS,192455.0, 347779,1,Recherche Data Gouv
+446.0,Data Centrale Lyon, UMR INL,192455.0, 347780,1,Recherche Data Gouv
+447.0,Data Centrale Lyon, UMR ICJ,192455.0, 347781,1,Recherche Data Gouv
+448.0,Data Centrale Lyon, UMR AMPERE,192455.0, 347782,1,Recherche Data Gouv
+449.0,Espace institutionnel de l'université Paris 1 Panthéon-Sorbonne,,197394.0,,1,Recherche Data Gouv
+450.0,Corpus Humanum - UMPV,ARTDEV | Acteurs,201329.0,218608,1,Recherche Data Gouv
+451.0,Corpus Humanum - UMPV, Ressources et Territoires Dans le Développement,201329.0, 218609,1,Recherche Data Gouv
+452.0,Corpus Humanum - UMPV, ASM | Archéologie des Sociétés Méditerranéennes,201329.0, 218610,1,Recherche Data Gouv
+453.0,Corpus Humanum - UMPV," ""CEFE | Centre dÉcologie Fonctionnelle et Évolutive""",201329.0, 218611,1,Recherche Data Gouv
+454.0,Corpus Humanum - UMPV," ""CEMM | Centre dÉtudes Médiévales de Montpellier""",201329.0, 218612,1,Recherche Data Gouv
+455.0,Corpus Humanum - UMPV, CORHIS | Communication,201329.0, 218613,1,Recherche Data Gouv
+456.0,Corpus Humanum - UMPV, Ressources Humaines & Intervention Sociale,201329.0, 218614,1,Recherche Data Gouv
+457.0,Corpus Humanum - UMPV," ""CREG | Centre de Recherches et dEtudes Germaniques""",201329.0, 218615,1,Recherche Data Gouv
+458.0,Corpus Humanum - UMPV, CRISES | Centre de Recherches Interdisciplinaires en Sciences humaines et Sociales de Montpellier,201329.0, 218616,1,Recherche Data Gouv
+459.0,Corpus Humanum - UMPV," ""DIPRALANG | Laboratoire de Sociolinguistique",201329.0, 218617,1,Recherche Data Gouv
+460.0,Corpus Humanum - UMPV," dAnthropologie des Pratiques Langagières et de Didactique des Langues-Cultures""",201329.0, 218618,1,Recherche Data Gouv
+461.0,Corpus Humanum - UMPV, EMMA | Etudes Montpelliéraines du Monde Anglophone,201329.0, 218619,1,Recherche Data Gouv
+462.0,Corpus Humanum - UMPV, EPSYLON | Dynamique des Capacités Humaines et des Conduites de Santé,201329.0, 218620,1,Recherche Data Gouv
+463.0,Corpus Humanum - UMPV," ""IRCL | Institut de recherches sur la Renaissance",201329.0, 218621,1,Recherche Data Gouv
+464.0,Corpus Humanum - UMPV," lâge Classique et les Lumières""",201329.0, 218624,1,Recherche Data Gouv
+465.0,Corpus Humanum - UMPV, IRIEC | Institut de Recherche Intersite en Études Culturelles,201329.0, 218625,1,Recherche Data Gouv
+466.0,Corpus Humanum - UMPV," ""LAGAM | Laboratoire de Géographie et dAménagement de Montpellier""",201329.0, 218626,1,Recherche Data Gouv
+467.0,Corpus Humanum - UMPV," ""LERASS-CERIC | Cercle dEtude et de Recherche en Information-Communication""",201329.0, 218627,1,Recherche Data Gouv
+468.0,Corpus Humanum - UMPV, LHUMAIN | Langages HUmanités Médiations Apprentissages Interactions Numérique,201329.0, 218629,1,Recherche Data Gouv
+469.0,Corpus Humanum - UMPV," ""LEIRIS | Laboratoire dÉtudes Interdisciplinaires sur le Réel et les Imaginaires Sociaux""",201329.0, 218630,1,Recherche Data Gouv
+470.0,Corpus Humanum - UMPV, PRAXILING,201329.0, 218631,1,Recherche Data Gouv
+471.0,Corpus Humanum - UMPV, LIRDEF | Laboratoire Interdisciplinaire de Recherche en Didactique,201329.0,,1,Recherche Data Gouv
+472.0,Corpus Humanum - UMPV, Éducation et Formation,201329.0,,1,Recherche Data Gouv
+473.0,Corpus Humanum - UMPV, ReSO | Recherches sur les Suds et les Orients,201329.0,,1,Recherche Data Gouv
+474.0,Corpus Humanum - UMPV, RIRRA 21 | Représenter,201329.0,,1,Recherche Data Gouv
+475.0,Corpus Humanum - UMPV, Inventer la Réalité,201329.0,,1,Recherche Data Gouv
+476.0,Corpus Humanum - UMPV, du Romantisme au XXIe siècle,201329.0,,1,Recherche Data Gouv
+477.0,Corpus Humanum - UMPV, SENS | Savoirs,201329.0,,1,Recherche Data Gouv
+478.0,Corpus Humanum - UMPV, ENvironnement,201329.0,,1,Recherche Data Gouv
+479.0,Corpus Humanum - UMPV, Sociétés,201329.0,,1,Recherche Data Gouv
+480.0,Data Unicaen,,209077.0,,1,Recherche Data Gouv
+481.0,Institut Mines-Télécom,IMT Nord Europe,209078.0,209404,1,Recherche Data Gouv
+482.0,Institut Mines-Télécom, IMT Mines Alès,209078.0, 601077,1,Recherche Data Gouv
+483.0,Institut Mines-Télécom, IMT Mines Albi,209078.0, 601078,1,Recherche Data Gouv
+484.0,Institut Mines-Télécom, IMT Atlantique,209078.0, 601079,1,Recherche Data Gouv
+485.0,Institut Mines-Télécom, Mines Saint-Etienne,209078.0, 601080,1,Recherche Data Gouv
+486.0,Institut Mines-Télécom, IMT-BS,209078.0, 601081,1,Recherche Data Gouv
+487.0,Institut Mines-Télécom, Télécom Paris,209078.0, 602049,1,Recherche Data Gouv
+488.0,Institut Mines-Télécom, Telecom SudParis,209078.0, 602050,1,Recherche Data Gouv
+489.0,Data Le Mans Université,,209351.0,,1,Recherche Data Gouv
+490.0,Enssib - École nationale supérieure des sciences de l'information et des bibliothèques, Collection ELICO-ENSSIB,218077.0,328796,1,Recherche Data Gouv
+491.0,Enssib - École nationale supérieure des sciences de l'information et des bibliothèques,  Collection Centre Gabriel Naudé,218077.0, 328859,1,Recherche Data Gouv
+492.0,Enssib - École nationale supérieure des sciences de l'information et des bibliothèques," ""Collection Travaux scientifiques de lEnssib""",218077.0, 339585,1,Recherche Data Gouv
+493.0,Data Recherche URN,,279206.0,,1,Recherche Data Gouv
+494.0,TSE data portal,TSE Food economics data,279207.0,557082,1,Recherche Data Gouv
+495.0,Université Toulouse Capitole,,444750.0,,1,Recherche Data Gouv
+496.0,Institut Supérieur de l'Aéronautique et de l'Espace (ISAE-SUPAERO),Rotor noise,555906.0,628173,1,Recherche Data Gouv
+497.0,Université de Haute-Alsace (UHA),Centre de recherche sur les économies,555907.0,610405,1,Recherche Data Gouv
+498.0,Université de Haute-Alsace (UHA), les sociétés,555907.0, 631964,1,Recherche Data Gouv
+499.0,Université de Haute-Alsace (UHA), les arts et les techniques (CRESAT),555907.0,,1,Recherche Data Gouv
+500.0,Université de Haute-Alsace (UHA), Laboratoire de Physique et Mécanique Textiles (LPMT),555907.0,,1,Recherche Data Gouv
+501.0,Université de Poitiers - Research Data,,569296.0,,1,Recherche Data Gouv
+502.0,Université de Technologie de Compiègne,AVENUES - Modélisation multi-échelle des systèmes urbains,598130.0,607333,1,Recherche Data Gouv
+503.0,Université de Technologie de Compiègne, BMBI - Biomécanique et Bioingénierie,598130.0, 607334,1,Recherche Data Gouv
+504.0,Université de Technologie de Compiègne, COSTECH -  Connaissance Organisation et Systèmes TECHniques,598130.0, 607335,1,Recherche Data Gouv
+505.0,Université de Technologie de Compiègne, GEC - Génie enzymatique et cellulaire,598130.0, 607336,1,Recherche Data Gouv
+506.0,Université de Technologie de Compiègne, HEUDIASYC - Heuristique et diagnostic des systèmes complexes,598130.0, 607337,1,Recherche Data Gouv
+507.0,Université de Technologie de Compiègne, LMAC - Laboratoire de mathématiques appliquées de Compiègne,598130.0, 607340,1,Recherche Data Gouv
+508.0,Université de Technologie de Compiègne, ROBERVAL - Mécanique,598130.0, 607341,1,Recherche Data Gouv
+509.0,Université de Technologie de Compiègne, énergie et électricité,598130.0, 607347,1,Recherche Data Gouv
+510.0,Université de Technologie de Compiègne, TIMR - Transformations intégrées de la matière renouvelable,598130.0,,1,Recherche Data Gouv
