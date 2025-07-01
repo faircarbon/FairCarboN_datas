@@ -22,38 +22,38 @@ st.set_page_config(
 )
 
 
+with st.spinner("Récupération de l'ensemble des datasets"):
+    base = "https://entrepot.recherche.data.gouv.fr"
+    rows = 10
+    start = 0
+    page = 1
+    condition = True # emulate do-while
 
-base = "https://entrepot.recherche.data.gouv.fr"
-rows = 10
-start = 0
-page = 1
-condition = True # emulate do-while
 
+    response_init = requests.get(base + '/api/v1/search?q=*&type=dataset')
+    response_init.raise_for_status()  # Sécurité : stoppe si erreur
+    data_init = response_init.json().get("data", {})
+    total_count = data_init.get("total_count", 0)
 
-response_init = requests.get(base + '/api/v1/search?q=*')
-response_init.raise_for_status()  # Sécurité : stoppe si erreur
-data_init = response_init.json().get("data", {})
-total_count = data_init.get("total_count", 0)
+    all_items = []
 
-all_items = []
+    while (condition):
+        url = base + '/api/v1/search?q=*&type=dataset' + "&start=" + str(start)
+        
+        response = requests.get(url)
+        response.raise_for_status()  # Sécurité : stoppe si erreur
 
-while (condition):
-    url = base + '/api/v1/search?q=*' + "&start=" + str(start)
-    
-    response = requests.get(url)
-    response.raise_for_status()  # Sécurité : stoppe si erreur
+        data = response.json().get("data", {})
+        items = data.get("items", [])
 
-    data = response.json().get("data", {})
-    items = data.get("items", [])
+        if not items:
+            break
 
-    if not items:
-        break
-
-    all_items.extend(items)
-    start = start + rows
-    page += 1
-    print(page)
-    condition = start < total_count
+        all_items.extend(items)
+        start = start + rows
+        page += 1
+        print(page)
+        condition = start < total_count
 
 
 # 🔍 Filtrer uniquement les datasets
@@ -69,7 +69,7 @@ filtered_data = [
 df = pd.DataFrame(filtered_data)
 
 # 💾 Sauvegarde en CSV
-df.to_csv("Data/all_datasets_rdg.csv", index=False)
+df.to_csv("Data/RechercheDataGouv/all_datasets_rdg.csv", index=False)
 
 # 🖥️ Affichage Streamlit
 st.write(f"{len(df)} éléments de type 'dataset' récupérés.")

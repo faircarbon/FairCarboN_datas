@@ -209,14 +209,6 @@ def recup_dataverses_rdg_recursive(api, output_filename="all_dataverses_rdg.csv"
 #création du connecteur
 api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
 
-#à partir de la racine on peut filtrer les identifiants de l'ensemble des collections...
-#RDG = api_rdg.get_dataverse_contents("root")
-#content_test = RDG.json()
-#st.write(content_test)
-
-test =api_rdg.get_dataverse_contents('TEMPO')
-test_resp = test.json()
-st.write(test_resp)
 
 #récupération des dataverses présents dans RDG
 d = datetime.date.today()
@@ -228,14 +220,39 @@ fichier = rf'tableau_dataverses_rdg-{d}.csv'
 # Load the previously saved dataverses
 df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
 # Split path into hierarchical levels
-df[['level_0', 'level_1', 'level_2']] = df['path'].str.split('/', expand=True, n=2)
+df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)
 df['val']=1
-
-df.dropna(axis=0,inplace=True)
-
+df.fillna('', inplace=True)
 st.dataframe(df)
+liste_entrepots_rdg = df['name'].values
+st.write(len(liste_entrepots_rdg))
 
-fig = px.sunburst(df, path=['level_0', 'level_1', 'level_2'], values='val')
+liste_entrepots_rdg_visu0 = set(df['level_0'].values)
+liste_entrepots_rdg_visu1 = set(df['level_1'].values)
+liste_entrepots_rdg_visu2 = set(df['level_2'].values)
+liste_entrepots_rdg_visu3 = set(df['level_3'].values)
+liste_entrepots_rdg_visu4 = set(df['level_4'].values)
+liste_entrepots_rdg_visu5 = set(df['level_5'].values)
+#liste_entrepots_rdg_visu6 = set(df['level_6'].values)
+l0 = len(liste_entrepots_rdg_visu0)
+l1 = len(liste_entrepots_rdg_visu1)
+l2 = len(liste_entrepots_rdg_visu2)
+l3 = len(liste_entrepots_rdg_visu3)
+l4 = len(liste_entrepots_rdg_visu4)
+l5 = len(liste_entrepots_rdg_visu5)
+#l6 = len(liste_entrepots_rdg_visu6)
+st.write(l0)
+st.write(l1)
+st.write(l2)
+st.write(l3)
+st.write(l4)
+st.write(l5)
+#st.write(l6)
+st.write("Total",l0+l1+l2+l3+l4+l5)
+
+df_drop = df.dropna(axis=0)
+
+fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
 fig.update_layout(
                 title=f'Visuel des différents Dataverses',
                 width=1000,
