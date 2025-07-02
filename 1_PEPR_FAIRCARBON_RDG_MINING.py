@@ -7,7 +7,7 @@ import datetime
 import numpy as np
 import re
 import plotly.express as px
-
+import requests
 import os
 import json
 
@@ -76,72 +76,6 @@ def Recup_contenu_dataset(api,persistenteUrl):
 
 ##################################################################################################################
 ######### RECUPERATION DES ENTREPOTS RDG #########################################################################
-def Recup_dataverses_rdg(api, fichier):
-    """récupération de différents sous-dataverses existants dans RDG
-    Paramètre = la connexion api réalisée , le nom du fichier où les enregistrer"""
-    RDG = api.get_dataverse_contents("root")
-    RDG_json = RDG.json()
-    liste_dataverses_1= []
-    liste_ids = []
-    for d in range(len(RDG_json['data'])):
-        if RDG_json['data'][d]['type']=="dataverse":
-            liste_dataverses_1.append(RDG_json['data'][d]['title'])
-            liste_ids.append(RDG_json['data'][d]['id'])
-
-    df_liste_dataverses_1=pd.DataFrame(data=[liste_dataverses_1,liste_ids], index=['Dataverses_niv1','Ids'])
-    df_liste_dataverses_1=df_liste_dataverses_1.T
-    
-    liste = []
-    ids = []
-    for i in range(len(df_liste_dataverses_1)):
-        datav = api.get_dataverse_contents(df_liste_dataverses_1.loc[i,'Ids'])
-        datav_dv = datav.json()
-        liste_dataverses_2 = []
-        ids_niv2 = []
-        for d in range(len(datav_dv['data'])):
-            try:
-                if datav_dv['data'][d]['type']=="dataverse":
-                    liste_dataverses_2.append(datav_dv['data'][d]['title'])
-                    ids_niv2.append(datav_dv['data'][d]['id'])
-            except:
-                    liste_dataverses_2.append()
-                    ids_niv2.append()
-        liste.append(liste_dataverses_2)
-        ids.append(ids_niv2)
-            
-    df_liste_dataverses_1['Dataverses_niv2']=liste
-    df_liste_dataverses_1['Ids_niv2']=ids
-    df_liste_dataverses_1.to_csv(f"Data\RechercheDataGouv\liste_dataverses_rdg.csv")
-            
-    df_liste_dataverses_2=pd.DataFrame(data=[liste,ids], index=['Dataverses_niv2','Ids_niv2'])
-    df_liste_dataverses_2=df_liste_dataverses_2.T
-    df_liste_dataverses_2.to_csv(f"Data\RechercheDataGouv\liste_dataverses_rdg2.csv")
-
-    data = pd.read_csv(f"Data\RechercheDataGouv\liste_dataverses_rdg.csv")
-    data.drop(columns=['Unnamed: 0'], inplace=True)
-    for i in range(len(data)):
-            data.loc[i,'val']=int(len(re.split(',',data.loc[i,'Dataverses_niv2'].replace('[','').replace(']','').replace("'",'').strip())))
-
-    som = sum(data['val'].values)
-    new_data = pd.DataFrame(index=np.arange(0,som), columns=['niv1','niv2'])
-    i=0
-    for j in range(len(data)):
-        for k in range(int(data.loc[j,'val'])):
-            new_data.loc[i,'niv1']=data.loc[j,'Dataverses_niv1']
-            new_data.loc[i,'ids_niv1']=data.loc[j,'Ids']
-            new_data.loc[i,'niv2']=re.split(',',data.loc[j,'Dataverses_niv2'].replace('[','').replace(']','').strip())[k]
-            new_data.loc[i,'niv2']=new_data.loc[i,'niv2'].replace("'","")
-            try:
-                new_data.loc[i,'ids_niv2']=re.split(',',data.loc[j,'Ids_niv2'].replace('[','').replace(']','').replace('"','').strip())[k]
-            except:
-                pass
-            i+=1
-            print(i)
-    new_data['val']=1
-    new_data['niv0']="Recherche Data Gouv"
-    new_data.to_csv(f"Data\RechercheDataGouv\{fichier}")
-    return new_data
-
 
 def get_all_subdataverses(api, dataverse_id, parent_path="root"):
     """
@@ -206,6 +140,20 @@ def recup_dataverses_rdg_recursive(api, output_filename="all_dataverses_rdg.csv"
     st.write(f"Saved dataverse hierarchy to: {output_path}")
     return df
 
+def Recup_contenu_dataverse(api,s):
+    """récupération du contenu du dataverse
+    Paramètre = la connexion api réalisée, l'identifiant du dataverse"""
+    datav = api.get_dataverse_contents(s)
+    datav_contenu = datav.json()
+    return datav_contenu
+
+def Recup_contenu_dataset(api,persistenteUrl):
+    """récupération du contenu du dataset
+    Paramètre = la connexion api réalisée,identifiant du dataset"""
+    dataset = api.get_dataset(persistenteUrl)
+    dataset_contenu = dataset.json()
+    return dataset_contenu
+
 #création du connecteur
 api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
 
@@ -213,19 +161,23 @@ api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
 #récupération des dataverses présents dans RDG
 d = datetime.date.today()
 fichier = rf'tableau_dataverses_rdg-{d}.csv'
+
+# Code à décommenter pour faire la récupération
 #with st.spinner('Recupération des dataverses disponibles et leurs identifiants'):
 #    data = recup_dataverses_rdg_recursive(api_rdg)
 
 
 # Load the previously saved dataverses
 df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
+
+
+
+
 # Split path into hierarchical levels
 df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)
 df['val']=1
 df.fillna('', inplace=True)
-st.dataframe(df)
 liste_entrepots_rdg = df['name'].values
-st.write(len(liste_entrepots_rdg))
 
 liste_entrepots_rdg_visu0 = set(df['level_0'].values)
 liste_entrepots_rdg_visu1 = set(df['level_1'].values)
@@ -233,29 +185,172 @@ liste_entrepots_rdg_visu2 = set(df['level_2'].values)
 liste_entrepots_rdg_visu3 = set(df['level_3'].values)
 liste_entrepots_rdg_visu4 = set(df['level_4'].values)
 liste_entrepots_rdg_visu5 = set(df['level_5'].values)
-#liste_entrepots_rdg_visu6 = set(df['level_6'].values)
+
 l0 = len(liste_entrepots_rdg_visu0)
 l1 = len(liste_entrepots_rdg_visu1)
 l2 = len(liste_entrepots_rdg_visu2)
 l3 = len(liste_entrepots_rdg_visu3)
 l4 = len(liste_entrepots_rdg_visu4)
 l5 = len(liste_entrepots_rdg_visu5)
-#l6 = len(liste_entrepots_rdg_visu6)
-st.write(l0)
-st.write(l1)
-st.write(l2)
-st.write(l3)
-st.write(l4)
-st.write(l5)
-#st.write(l6)
+
+cola,colb =st.columns([0.8,0.2])
+with cola:
+    st.title('Etude du contenu de Recherche Data Gouv')
+with colb:
+    st.metric(label='Nombre de collections total', value=len(liste_entrepots_rdg))
+
+col1,col2,col3,col4,col5 = st.columns(5)
+with col1:
+    st.metric(label="NB au niveau 1", value=l1)
+with col2:
+    st.metric(label="NB au niveau 2", value=l2)
+with col3:
+    st.metric(label="NB au niveau 3", value=l3)
+with col4:
+    st.metric(label="NB au niveau 4", value=l4)
+with col5:
+    st.metric(label="NB au niveau 5", value=l5)
+
+
 st.write("Total",l0+l1+l2+l3+l4+l5)
 
 df_drop = df.dropna(axis=0)
 
 fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
 fig.update_layout(
-                title=f'Visuel des différents Dataverses',
                 width=1000,
                 height=1000)
 
+st.subheader("Visualisation de la struturation des entrepôts (2 premiers niveaux)")
 st.plotly_chart(fig, use_container_width=True)
+
+stest = "84494"
+test = Recup_contenu_dataverse(api_rdg,stest)
+
+
+#testurl = "https://doi.org/10.57745/IVWMIR"
+#testtest = Recup_contenu_dataset(api_rdg,testurl)
+#st.write(testtest)
+
+
+
+# code pour faire la récupération de l'ensemble des datasets
+@st.cache_data
+def Recup_datasets_metadata():
+    base = "https://entrepot.recherche.data.gouv.fr"
+    rows = 10
+    start = 0
+    page = 1
+    condition = True # emulate do-while
+
+
+    response_init = requests.get(base + '/api/v1/search?q=*&type=dataset')
+    response_init.raise_for_status()  # Sécurité : stoppe si erreur
+    data_init = response_init.json().get("data", {})
+    total_count = data_init.get("total_count", 0)
+
+    all_items = []
+
+    while (condition):
+        url = base + '/api/v1/search?q=*&type=dataset' + "&start=" + str(start)
+        
+        response = requests.get(url)
+        response.raise_for_status()  # Sécurité : stoppe si erreur
+
+        data = response.json().get("data", {})
+        items = data.get("items", [])
+
+        if not items:
+            break
+
+        all_items.extend(items)
+        start = start + rows
+        page += 1
+        print(page)
+        condition = start < total_count
+
+
+    # 🔍 Filtrer uniquement les datasets
+    dataset_items = [item for item in all_items if item.get("type") == "dataset"]
+
+    # 🎯 Extraction des champs souhaités
+    filtered_data = [
+            {"name": item.get("name"), 
+            "global_id": item.get("global_id"), 
+            'entrepot':item.get('publisher'), 
+            'parent':item.get('storageIdentifier'), 
+            "Date_Création":item.get('createdAt'),
+            "Date_Update":item.get('updatedAt'),
+            "Mots_clés":item.get('keywords'),
+            "Sujet":item.get('subjects'), 
+            "Auteurs":item.get('authors')}
+            for item in dataset_items
+    ]
+
+    # 📊 DataFrame
+    df2 = pd.DataFrame(filtered_data)
+
+    df2['PersistentUrl'] = df2['global_id'].str.replace(r'^doi:', 'https://doi.org/', regex=True)
+
+    # 💾 Sauvegarde en CSV
+    df2.to_csv("Data/RechercheDataGouv/all_datasets_rdg.csv", index=False)
+    return df2
+
+df2 = Recup_datasets_metadata()
+
+def recup_license(df2):
+    df2['status']=""
+    df2['license']=""
+    for i, item in enumerate(df2["PersistentUrl"]):
+        ex = Recup_contenu_dataset(api_rdg, item)
+        df2['status'].loc[i] = ex['status']
+        try:
+            df2['license'].loc[i] =ex['data']['latestVersion']['license']['name']
+        except:
+            df2['license'].loc[i] ='License inconnue'
+    return df2
+
+def transform_name(name):
+    name = name.strip()
+    if ',' in name:
+        # Format: "Lastname, Firstname"
+        parts = [part.strip().title() for part in name.split(',', 1)]
+        if len(parts) == 2:
+            return f"{parts[1]} {parts[0]}"
+    else:
+        # Format: "Lastname Firstname"
+        parts = name.split()
+        if len(parts) >= 2:
+            return f"{' '.join(parts[1:]).title()} {parts[0].title()}"
+    return name.title()  # fallback
+
+# Append transformed names to original list
+df2['Auteurs'] = df2['Auteurs'].apply(
+    lambda author_list: author_list + [transform_name(name) for name in author_list]
+    if isinstance(author_list, list) else author_list
+)
+
+df3 =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
+liste_contacts = df3['Contact'].values
+
+df2_filtré = df2[df2["Auteurs"].apply(lambda auteurs: any(nom in liste_contacts for nom in auteurs))]
+
+
+col1, col2 = st.columns(2)
+with col1:
+    st.metric(label='Nombre de datasets récupérés', value=len(df2))
+with col2:
+    st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2_filtré))
+st.dataframe(df2_filtré)
+
+df2_filtré['Date_Update'] = pd.to_datetime(df2_filtré['Date_Update'])
+df2_filtré['Value']=1
+
+df2_filtré['Year'] = df2_filtré['Date_Update'].dt.year
+
+# Aggregate (e.g., sum) values by year
+df_yearly = df2_filtré.groupby('Year')['Value'].sum().reset_index()
+
+# Plot aggregated data
+fig_test = px.bar(df_yearly, x='Year', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
+st.plotly_chart(fig_test, use_container_width=True)
