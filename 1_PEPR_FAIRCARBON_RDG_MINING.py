@@ -333,20 +333,37 @@ df2['Auteurs'] = df2['Auteurs'].apply(
 df3 =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
 liste_contacts = df3['Contact'].values
 
-df2_filtré = df2[df2["Auteurs"].apply(lambda auteurs: any(nom in liste_contacts for nom in auteurs))]
+#df2_filtré = df2[df2["Auteurs"].apply(lambda auteurs: any(nom in liste_contacts for nom in auteurs))]
 
+df2["Contacts_trouvés"] = df2["Auteurs"].apply(
+    lambda auteurs: [nom for nom in auteurs if nom in liste_contacts]
+)
 
-col1, col2 = st.columns(2)
-with col1:
-    st.metric(label='Nombre de datasets récupérés', value=len(df2))
-with col2:
-    st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2_filtré))
-st.dataframe(df2_filtré)
+# Filtrer ensuite les lignes où au moins un contact a été trouvé
+df2_filtré = df2[df2["Contacts_trouvés"].apply(lambda x: len(x) > 0)]
+
+liste_contacts_trouves = list(set(nom for sous_liste in df2["Contacts_trouvés"] for nom in sous_liste))
 
 df2_filtré['Date_Update'] = pd.to_datetime(df2_filtré['Date_Update'])
 df2_filtré['Value']=1
 
 df2_filtré['Year'] = df2_filtré['Date_Update'].dt.year
+
+df2_filtré_recent = df2_filtré[df2_filtré['Year']>=2023]
+
+
+col1, col2, col3, col4 = st.columns(4)
+with col1:
+    st.metric(label='Nombre de datasets récupérés', value=len(df2))
+with col2:
+    st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2_filtré))
+with col3:
+    st.metric(label='Nombre de datasets entre 2023 et 2025', value=len(df2_filtré_recent))
+with col4:
+    st.metric(label='Nombre de contacts', value=len(liste_contacts_trouves))
+st.dataframe(df2_filtré)
+
+
 
 # Aggregate (e.g., sum) values by year
 df_yearly = df2_filtré.groupby('Year')['Value'].sum().reset_index()
