@@ -283,7 +283,8 @@ def Recup_datasets_metadata():
             "Date_Update":item.get('updatedAt'),
             "Mots_clés":item.get('keywords'),
             "Sujet":item.get('subjects'), 
-            "Auteurs":item.get('authors')}
+            "Auteurs":item.get('authors'),
+            "Sources":item.get('publications')}
             for item in dataset_items
     ]
 
@@ -296,18 +297,55 @@ def Recup_datasets_metadata():
     df2.to_csv("Data/RechercheDataGouv/all_datasets_rdg.csv", index=False)
     return df2
 
-df2 = Recup_datasets_metadata()
 
-def recup_license(df2):
-    df2['status']=""
-    df2['license']=""
+def recup_license_publication(df2):
+    df2['status'] = ""
+    df2['license'] = ""
+    df2['publication_DOI'] = ""
+
     for i, item in enumerate(df2["PersistentUrl"]):
-        ex = Recup_contenu_dataset(api_rdg, item)
-        df2['status'].loc[i] = ex['status']
         try:
-            df2['license'].loc[i] =ex['data']['latestVersion']['license']['name']
-        except:
-            df2['license'].loc[i] ='License inconnue'
+            ex = Recup_contenu_dataset(api_rdg, item)
+        except Exception as e:
+            # If API call fails entirely
+            df2.loc[i, 'status'] = f"Erreur API: {type(e).__name__}"
+            df2.loc[i, 'license'] = 'Erreur API'
+            df2.loc[i, 'publication_DOI'] = 'Erreur API'
+            continue
+
+        status = ex.get('status', 'inconnu')
+        df2.loc[i, 'status'] = status
+
+        # 🚫 Skip if status is not 'OK'
+        if status.lower() != 'ok':
+            df2.loc[i, 'license'] = 'Non récupéré'
+            df2.loc[i, 'publication_DOI'] = 'Non récupérée'
+            continue
+
+        # ✅ License
+        try:
+            df2.loc[i, 'license'] = ex['data']['latestVersion']['license']['name']
+        except (KeyError, TypeError):
+            df2.loc[i, 'license'] = 'License inconnue'
+
+        # ✅ Publication DOI
+        try:
+            fields = ex['data']['latestVersion']['metadataBlocks']['citation']['fields']
+            publication_found = False
+
+            for field in fields:
+                if field.get('typeName') == "publication":
+                    values = field.get('value', [])
+                    publication_dois = [pub.get('publicationIDNumber', {}).get('value') for pub in values]
+                    df2.loc[i, 'publication_DOI'] = "; ".join(publication_dois)
+                    publication_found = True
+                    break
+
+            if not publication_found:
+                df2.loc[i, 'publication_DOI'] = 'pas de publication trouvée'
+        except (KeyError, TypeError):
+            df2.loc[i, 'publication_DOI'] = 'pas de publication trouvée'
+
     return df2
 
 def transform_name(name):
@@ -323,6 +361,9 @@ def transform_name(name):
         if len(parts) >= 2:
             return f"{' '.join(parts[1:]).title()} {parts[0].title()}"
     return name.title()  # fallback
+
+
+df2 = Recup_datasets_metadata()
 
 # Append transformed names to original list
 df2['Auteurs'] = df2['Auteurs'].apply(
@@ -363,7 +404,8 @@ with col4:
     st.metric(label='Nombre de contacts', value=len(liste_contacts_trouves))
 st.dataframe(df2_filtré)
 
-
+df2_filtré.reset_index(inplace=True)
+df2_filtré.drop(columns='index', inplace=True)
 
 # Aggregate (e.g., sum) values by year
 df_yearly = df2_filtré.groupby('Year')['Value'].sum().reset_index()
@@ -371,3 +413,14 @@ df_yearly = df2_filtré.groupby('Year')['Value'].sum().reset_index()
 # Plot aggregated data
 fig_test = px.bar(df_yearly, x='Year', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
 st.plotly_chart(fig_test, use_container_width=True)
+
+df2_filtré_completé = recup_license_publication(df2_filtré)
+st.dataframe(df2_filtré_completé[df2_filtré_completé['Year']>=2023])
+
+
+url_test = "https://entrepot.recherche.data.gouv.fr" + '/api/v1/search?q="Benjamin Loubet"&type=dataset'        
+response_t = requests.get(url_test)
+response_t.raise_for_status()  # Sécurité : stoppe si erreur
+data_t = response_t.json().get("data", {})
+items_t = data_t.get("items", [])
+st.write(items_t)
