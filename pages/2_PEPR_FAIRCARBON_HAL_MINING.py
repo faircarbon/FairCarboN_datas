@@ -29,7 +29,6 @@ from nltk.corpus import stopwords
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 
-
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
@@ -43,61 +42,14 @@ st.set_page_config(
         'About': "développé par Jérôme Dutroncy"}
 )
 
+# Download necessary NLTK data files (run once)
+#nltk.download('punkt_tab')
+#nltk.download('stopwords')
+#nltk.download('wordnet')
+
 ######################################################################################################################
-########### CHOIX VISUELS ############################################################################################
+########### FONCTIONS SUPPORTS #######################################################################################
 ######################################################################################################################
-# taille et couleurs des sous-titres
-couleur_subtitles = (250,150,150)
-taille_subtitles = "25px"
-couleur_subsubtitles = (60,150,160)
-taille_subsubtitles = "25px"
-
-###############################################################################################
-########### TRANSFORMATION FICHIER XLS ########################################################
-###############################################################################################
-@st.cache_data
-def read_data():
-    # Chemin vers le fichier Excel
-    fichier_excel = "Data\FairCarboN_RNSR_copie.xlsx"
-    # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(fichier_excel, sheet_name=1,header=0, engine='openpyxl')
-    # Transformation du fichier en csv
-    df.to_csv("Data\FairCarboN_RNSR_copie.csv", index=False, encoding="utf-8")
-
-    ######## NETTOYAGES EVENTUELS ######################
-
-    # filtrer les lignes incomplètes
-    df_filtré = df.dropna(subset=["Latitude", "Longitude","Acronyme projet","Acronyme unité"])
-    # Renommer les colonnes
-    df_filtré_renommé = df_filtré.rename(columns={
-        "Acronyme projet": "projet",
-        "Acronyme unité": "laboratoire"
-    })
-    df_filtré_renommé.to_csv("Data\FairCarboN_RNSR_copie_filtré_renommé.csv", index=False)
-
-    return df_filtré_renommé
-
-# Charger les données
-df = read_data()
-
-###############################################################################################
-########### REQUETES HAL ######################################################################
-###############################################################################################
-start_year=2023
-end_year=2025
-st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
-
-df_research = df[['projet','laboratoire']][df['Type_Data']=='Contact']
-df_research.reset_index(inplace=True)
-df_research.drop(columns='index', inplace=True)
-
-liste_chercheurs = df_research['laboratoire']
-liste_projet = df_research['projet']
-#Liste_chercheurs = ['Claire Chenu']
-#requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
-#reponse = requests.get(requete_api_hal, timeout=5)
-#print(reponse.json()['response']['docs'][-1])
-
 def intersect_lists(row):
     return list(set(row['Labo_filter2']) & set(row['Labo_']))
 
@@ -114,10 +66,71 @@ def translate_list(titles, languages):
             translated.append(title)
     return translated
 
-# Download necessary NLTK data files (run once)
-nltk.download('punkt_tab')
-nltk.download('stopwords')
-nltk.download('wordnet')
+def translate_clean(df_global_hal):
+    translated = translate_list(df_global_hal['Titre_bis'].values, df_global_hal['Langue_bis'].values)
+    df_global_hal['translated']=translated
+    filtered_titles = []
+    for title in df_global_hal['translated']:
+        title = re.sub(r'[^\w\s]', '', title)
+        words = word_tokenize(title)
+        filtered = [word for word in words if word.lower() not in stop_words]
+        filtered_ = [word for word in filtered if word.lower() not in stop_words_fr]
+        filtered_titles.append(" ".join(filtered_))
+    df_global_hal['filtered']=filtered_titles
+    return df_global_hal
+
+def filtre_labo1(row):
+    try:
+        return [item for item in row['Labo_all'] if row['Auteur_recherché'] in item]
+    except:
+        return []
+
+# Fonction pour extraire le suffixe après le dernier '_'
+def filtre_labo2(liste):
+    try:
+        return [item.split('_')[-1] for item in liste]
+    except:
+        return []
+
+###############################################################################################
+########### TRANSFORMATION FICHIER XLS ########################################################
+###############################################################################################
+@st.cache_data
+def read_data(path):
+    # Chemin vers le fichier Excel
+    #fichier_excel = "Data\FairCarboN_Datas_V2.xlsx"
+    # Lecture du fichier Excel dans un DataFrame
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    # Transformation du fichier en csv
+    df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
+
+    return df
+
+# Charger les données
+df = read_data("Data\FairCarboN_Datas_Contacts")
+
+###############################################################################################
+########### REQUETES HAL ######################################################################
+###############################################################################################
+start_year=2023
+end_year=2025
+st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
+
+liste_chercheurs = df['Contact']
+liste_projet = df['projet']
+
+# Exemple de requête
+#Liste_chercheurs = ['Claire Chenu']
+#requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
+#reponse = requests.get(requete_api_hal, timeout=5)
+#test_liste_coll=[]
+#st.write(reponse.json()['response']['docs'][0]['collCode_s'])
+#test_liste_coll.append(reponse.json()['response']['docs'][0]['collCode_s'])
+#st.write(test_liste_coll)
+
+###############################################################################################
+########### ACQUISITION DONNEES DE HAL ########################################################
+###############################################################################################
 
 # Initialize tools
 stop_words = set(stopwords.words('english'))
@@ -126,7 +139,24 @@ lemmatizer = WordNetLemmatizer()
 
 @st.cache_data
 def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_words, stop_words_fr):
-    liste_columns_hal = ['Store','Auteur_recherché','Projet','Ids','Titre et auteurs','Uri','Type','Type de document', 'Date de production','Collection','Collection_code','Auteur_organisme','Auteur','Labo_all','Labo_','Titre','Langue','Mots_Clés']
+    liste_columns_hal = ['Store',
+                         'Auteur_recherché',
+                         'Projet',
+                         'Ids',
+                         'Titre et auteurs',
+                         'Uri',
+                         'Type',
+                         'Type de document', 
+                         'Date de production',
+                         'Collection',
+                         'Collection_code',
+                         'Organisme',
+                         'Auteur',
+                         'Labo_all',
+                         'Labo_',
+                         'Titre',
+                         'Langue',
+                         'Mots_Clés']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
@@ -141,34 +171,20 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_wo
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
 
-    df_global_hal['Labo_filter1'] = df_global_hal['Labo_all']
-    df_global_hal['Labo_filter2'] = df_global_hal['Labo_all']
+    
+    df_global_hal['Labo_filter1'] = df_global_hal.apply(filtre_labo1, axis=1)
+    df_global_hal['Labo_filter2'] = df_global_hal['Labo_filter1'].apply(filtre_labo2)
 
-    for i in range(len(df_global_hal)):
-        try:
-            df_global_hal['Labo_filter1'].loc[i] = [item for item in df_global_hal['Labo_all'].loc[i] if df_global_hal['Auteur_recherché'].loc[i] in item]
-        except:
-            pass
-        try:
-            df_global_hal['Labo_filter2'].loc[i] = [item.split('_')[-1] for item in df_global_hal['Labo_filter1'].loc[i]]
-        except:
-            pass
 
+    # Colonne Auteur Labo qui est la résultante
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
+
+    # On ne garde qu'un titre
     df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
+    # On ne garde qu'une langue
     df_global_hal['Langue_bis'] = df_global_hal['Langue'].apply(lambda row: row[0])
     #df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
-    translated = translate_list(df_global_hal['Titre_bis'].values, df_global_hal['Langue_bis'].values)
-    df_global_hal['translated']=translated
-    filtered_titles = []
-    for title in df_global_hal['translated']:
-        title = re.sub(r'[^\w\s]', '', title)
-        words = word_tokenize(title)
-        filtered = [word for word in words if word.lower() not in stop_words]
-        filtered_ = [word for word in filtered if word.lower() not in stop_words_fr]
-        filtered_titles.append(" ".join(filtered_))
-    df_global_hal['filtered']=filtered_titles
     
     return df_global_hal
 
@@ -211,14 +227,16 @@ with col2:
         choix_a = choix_auteur
 
 df_global_hal_proj =df_global_hal[df_global_hal['Projet'].isin(choix_p)][df_global_hal['Auteur_recherché'].isin(choix_a)]
+ifc = df_global_hal_proj['Ids'][df_global_hal_proj['In_FairCarboN']==True].drop_duplicates()
+In_FC = len(ifc)
 
-In_FC = len(df_global_hal_proj[df_global_hal_proj['In_FairCarboN']==True])
 
-
-col1,col2 = st.columns(2)
+col1,col2,col3 = st.columns([0.25,0.25,0.5])
 with col1:
-    st.metric(label=f'Nombre de dépôts dans HAL ({In_FC} dans la collection)',value=len(list(set(df_global_hal_proj['Titre_bis']))))
+    st.metric(label=f'Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_bis']))))
 with col2:
+    st.metric(label="dans la collection FairCarboN", value=In_FC)
+with col3:
     st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
 
 # Nombre de ligne par auteur
@@ -262,24 +280,29 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-df_inter = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','filtered','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
 
-df_final = df_inter[['Projet','Type de document','Date de production','filtered','In_FairCarboN']].drop_duplicates()
-df_test = df_final.copy()
-df_test.reset_index(inplace=True)
-df_test.drop(columns='index', inplace=True)
-#df_test = df_final_english[df_final_english['Projet']=='SLAM-B']
+df_final = df_inter[['Projet','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+df_final.reset_index(inplace=True)
+df_final.drop(columns='index', inplace=True)
 
-#st.dataframe(df_test['filtered'])
 
-#st.dataframe(df_inter)
+###############################################################################################
+########### ESSAIS DE CLUSTERING ##############################################################
+###############################################################################################
 
-clustering1 = st.checkbox(label='clustering_v1')
+st.title(f":grey[Analyse par clustering]")
 
-clustering2 = st.checkbox(label='clustering_v2')
+col1, col2 = st.columns(2)
+with col1:
+    clustering1 = st.checkbox(label='clustering_v1')
+with col2:
+    clustering2 = st.checkbox(label='clustering_v2')
 
 if clustering1:
     st.subheader('Clustering TF-IDF + KMEANS')
+
+    df_test = translate_clean(df_final)
 
     # Vectorize
     vectorizer = TfidfVectorizer(max_df=0.8, min_df=2, ngram_range=(1,2))
@@ -402,6 +425,8 @@ if clustering1:
 
 elif clustering2:
     st.subheader('Clusters avec embeddings')
+
+    df_test = translate_clean(df_final)
 
     model = SentenceTransformer('all-MiniLM-L6-v2')  # Small & fast model
     embeddings = model.encode(df_test['filtered'], show_progress_bar=False)

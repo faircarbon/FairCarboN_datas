@@ -25,10 +25,13 @@ st.set_page_config(
         'About': "développé par Jérôme Dutroncy"}
 )
 
+######################################################################################################################
+########### FONCTIONS SUPPORTS #######################################################################################
+######################################################################################################################
+
 def to_rgb_string(rgb_tuple):
     r, g, b = (int(255 * c) for c in rgb_tuple)
     return f"rgb({r}, {g}, {b})"
-
 
 ###############################################################################################
 ########### TRANSFORMATION FICHIER XLS ########################################################
@@ -41,17 +44,6 @@ def read_data(path):
     df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
-
-    ######## NETTOYAGES EVENTUELS ######################
-
-    # filtrer les lignes incomplètes
-    #df_filtré = df.dropna(subset=["Latitude", "Longitude","projet","laboratoire"])
-    # Renommer les colonnes
-    #df_filtré_renommé = df_filtré.rename(columns={
-    #    "Acronyme projet": "projet",
-    #    "Acronyme unité": "laboratoire"
-    #})
-    #df_filtré_renommé.to_csv("Data\FairCarboN_Datas_V2_renommé.csv", index=False)
 
     return df
 
@@ -69,9 +61,7 @@ project_color_map = {project: colors[i % len(colors)] for i, project in enumerat
 ########### NOMBRE LABOS PAR PROJET #######################################################
 ###############################################################################################
 
-st.title("Data de FAIRCARBON")
-
-
+st.title(f":grey[Analyse générale des données de FAIRCARBON]")
 col1 , col2, col3 = st.columns(3)
 with col1:
     compte_labos_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Labo"].value_counts()
@@ -92,12 +82,10 @@ with col1:
         marker_color=bar_colors  # Assign custom colors
     ))
 
-    
-
     fig0.update_layout(height=400,
                        margin=dict(t=0))
 
-    st.subheader("Nombre d'unités")
+    st.subheader(f":grey[Nombre d'unités]")
     st.plotly_chart(fig0, use_container_width=True)
 
 with col2:
@@ -122,7 +110,7 @@ with col2:
     fig0b.update_layout(height=400,
                         margin=dict(t=0))
 
-    st.subheader("Nombre de contacts")
+    st.subheader(f":grey[Nombre de contacts]")
     st.plotly_chart(fig0b, use_container_width=True)
 
 with col3:
@@ -147,15 +135,20 @@ with col3:
     fig0c.update_layout(height=400,
                         margin=dict(t=0))
 
-    st.subheader("Nombre de sites")
+    st.subheader(f":grey[Nombre de sites]")
     st.plotly_chart(fig0c, use_container_width=True)
 
 ###############################################################################################
 ########### FILTRAGE ##########################################################################
 ###############################################################################################
 
-# Choix Projet
-Selection_projets = st.multiselect('Projets',options=projects)
+col1, col2 = st.columns([0.4,0.6])
+with col1:
+    st.subheader(f":grey[Choix du projet visualisé]")
+    st.markdown("Pas de choix = tous les projets")
+with col2:
+    # Choix Projet
+    Selection_projets = st.multiselect('',options=projects)
 
 if len(Selection_projets)==0: #aucun choix
     df_selected = df_Labo_Site #le dataframe ne change pas, c'est l'original
@@ -176,12 +169,15 @@ grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'
 grouped_contacts = df_contacts_selected.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
 #choix de visualisation
-col1, col2, col3 =st.columns(3)
+col1, col2, col3, col4 =st.columns([0.4,0.2,0.2,0.2])
 with col1:
-    Unites = st.checkbox('Unités')
+    st.subheader(f":grey[Choix de visualisation]")
+    st.markdown("Choix obligatoire")
 with col2:
-    Sites = st.checkbox('Sites')
+    Unites = st.checkbox('Unités')
 with col3:
+    Sites = st.checkbox('Sites')
+with col4:
     Unites_Sites = st.checkbox('Unités & Sites')
 
 if Unites:
@@ -205,6 +201,12 @@ else:
     data_sigles = []
     data_projet = []
 
+
+###############################################################################################
+########### COMPTES GENERAUX ##################################################################
+###############################################################################################
+
+st.title(f":grey[Cartographie des projets de FairCarboN]")
 col1, col2 = st.columns(2)
 with col1:
     st.metric(label='Nombre lieux représentées',value=len(grouped_))
@@ -349,9 +351,9 @@ with col3:
 
 
 ###############################################################################################
-########### ANALYSE LABOS MULTI PROJETS #######################################################
+########### ANALYSE PARTICIPATIONS ET EXCLUSIVITE #############################################
 ###############################################################################################
-
+st.title(f":grey[Analyse des participations dans FairCarboN]")
 col1, col2 = st.columns(2)
 
 with col1:
@@ -398,7 +400,7 @@ with col1:
                 margin=dict(l=100, r=20, t=60, b=40)
             )
 
-    st.subheader("Proportion d'exclusivité des Unités dans les projets FairCarboN")
+    st.subheader(f":grey[Proportion d'exclusivité des Unités]")
     st.plotly_chart(fig2, use_container_width=True)
 
 with col2:
@@ -433,15 +435,14 @@ with col2:
                 margin=dict(l=100, r=20, t=60, b=40)
             )
 
-    st.subheader("Proportion d'exclusivité des Contacts dans les projets FairCarboN")
+    st.subheader(f":grey[Proportion d'exclusivité des Contacts]")
     st.plotly_chart(fig2b, use_container_width=True)
 
 
 ###############################################################################################
-########### ANALYSE LABOS MULTI PROJETS BIS ###################################################
+########### ANALYSE LIENS PAR VISU GRAPHE #####################################################
 ###############################################################################################
-
-
+st.title(f":grey[Analyse des liens dans FairCarboN]")
 data = {
     'Sigles': data_sigles,
     'Projet': data_projet
@@ -544,5 +545,5 @@ fig3 = go.Figure(
 )
 
 # Affichage
-st.subheader("Liens entre unités et projets")
+st.subheader(f":grey[Liens entre unités ou sites / et projets]")
 st.plotly_chart(fig3, use_container_width=True)
