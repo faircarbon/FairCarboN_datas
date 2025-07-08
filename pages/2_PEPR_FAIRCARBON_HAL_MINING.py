@@ -91,10 +91,14 @@ def filtre_labo2(liste):
         return [item.split('_')[-1] for item in liste]
     except:
         return []
+    
+def extraire_doi(cellule):
+    morceaux = cellule.split(';')
+    for m in morceaux:
+        if m.strip().startswith('10.'):
+            return m.strip()
+    return ""  # ou "" si tu préfères une chaîne vide
 
-###############################################################################################
-########### TRANSFORMATION FICHIER XLS ########################################################
-###############################################################################################
 @st.cache_data
 def read_data(path):
     # Chemin vers le fichier Excel
@@ -106,39 +110,8 @@ def read_data(path):
 
     return df
 
-# Charger les données
-df = read_data("Data\FairCarboN_Datas_Contacts")
-
-###############################################################################################
-########### REQUETES HAL ######################################################################
-###############################################################################################
-start_year=2023
-end_year=2025
-st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
-
-liste_chercheurs = df['Contact']
-liste_projet = df['projet']
-
-# Exemple de requête
-#Liste_chercheurs = ['Claire Chenu']
-#requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
-#reponse = requests.get(requete_api_hal, timeout=5)
-#test_liste_coll=[]
-#st.write(reponse.json()['response']['docs'][0]['collCode_s'])
-#test_liste_coll.append(reponse.json()['response']['docs'][0]['collCode_s'])
-#st.write(test_liste_coll)
-
-###############################################################################################
-########### ACQUISITION DONNEES DE HAL ########################################################
-###############################################################################################
-
-# Initialize tools
-stop_words = set(stopwords.words('english'))
-stop_words_fr = set(stopwords.words('french'))
-lemmatizer = WordNetLemmatizer()
-
 @st.cache_data
-def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_words, stop_words_fr):
+def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     liste_columns_hal = ['Store',
                          'Auteur_recherché',
                          'Projet',
@@ -156,7 +129,8 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_wo
                          'Labo_',
                          'Titre',
                          'Langue',
-                         'Mots_Clés']
+                         'Mots_Clés',
+                         'Publication_source']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
@@ -185,15 +159,46 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, stop_wo
     df_global_hal['Langue_bis'] = df_global_hal['Langue'].apply(lambda row: row[0])
     #df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
+    df_global_hal['DOI'] = df_global_hal['Publication_source'].apply(extraire_doi)
     
     return df_global_hal
 
+# Charger les données
+df = read_data("Data\FairCarboN_Datas_Contacts")
 
-df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet, stop_words= stop_words, stop_words_fr=stop_words_fr)
+###############################################################################################
+########### REQUETES HAL ######################################################################
+###############################################################################################
+start_year=2023
+end_year=2025
+st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
+
+liste_chercheurs = df['Contact']
+liste_projet = df['projet']
+
+# Exemple de requête
+#Liste_chercheurs = ['Olivier Bornet']
+#requete_api_hal = f'http://api.archives-ouvertes.fr/search/?q=text:"{Liste_chercheurs[0].lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s'
+#reponse = requests.get(requete_api_hal, timeout=5)
+#test_liste_coll=[]
+#st.write(reponse.json()['response']['docs'][4])
+#test_liste_coll.append(reponse.json()['response']['docs'][0]['collCode_s'])
+#st.write(test_liste_coll)
+
+###############################################################################################
+########### ACQUISITION DONNEES DE HAL ########################################################
+###############################################################################################
+
+df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
 
 df_global_hal.to_csv("test_csv.csv",index=False, encoding="utf-8")
 
+# Tableau de l'existant dans la collection FAIRCARBON
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
+
+###############################################################################################
+########### VISUALISATION GENERALE ############################################################
+###############################################################################################
 
 col1,col2 = st.columns(2)
 
@@ -205,22 +210,27 @@ with col1:
 with col2:
     st.metric(label="Nombre de contacts trouvés dans HAL", value=len(set(df_global_hal['Auteur_recherché'])))
     st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_bis'][df_global_hal['Type de document']=="ART"].values)))
-    st.metric(label="Nombre d'artciles dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'][filtered_df['Type de document']=="ART"].values)))
+    st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'][filtered_df['Type de document']=="ART"].values)))
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
+###############################################################################################
+########### FILTRAGE ##########################################################################
+###############################################################################################
 
 projets = list(set(df_global_hal['Projet']))
 auteurs = list(set(df_global_hal['Auteur_recherché']))
 col1,col2 = st.columns(2)
 with col1:
-    choix_projet = st.multiselect(label='Projets', options=projets )
+    st.subheader(f":grey[Choix du/des projet(s) visualisé(s)]")
+    choix_projet = st.multiselect(label='', options=projets )
     if len(choix_projet)==0:
         choix_p = projets
     else:
         choix_p = choix_projet
 with col2:
-    choix_auteur = st.multiselect(label='Auteur(e)s', options=list(set(df_global_hal['Auteur_recherché'][df_global_hal['Projet'].isin(choix_p)])))
+    st.subheader(f":grey[Choix de(s) l'auteur(e(s)) visualisé(e(s))]")
+    choix_auteur = st.multiselect(label='', options=list(set(df_global_hal['Auteur_recherché'][df_global_hal['Projet'].isin(choix_p)])))
     if len(choix_auteur)==0:
         choix_a = df_global_hal['Auteur_recherché'][df_global_hal['Projet'].isin(choix_p)]
     else:
@@ -280,7 +290,10 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-df_inter = df_global_hal_proj[['Auteur_recherché','Projet','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal_proj[['Auteur_recherché','Ids','Projet','Titre_bis','DOI','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+
+st.dataframe(df_inter)
+st.session_state['df_hal'] = df_inter
 
 df_final = df_inter[['Projet','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
 df_final.reset_index(inplace=True)
@@ -292,6 +305,11 @@ df_final.drop(columns='index', inplace=True)
 ###############################################################################################
 
 st.title(f":grey[Analyse par clustering]")
+
+# Initialize tools
+stop_words = set(stopwords.words('english'))
+stop_words_fr = set(stopwords.words('french'))
+lemmatizer = WordNetLemmatizer()
 
 col1, col2 = st.columns(2)
 with col1:
