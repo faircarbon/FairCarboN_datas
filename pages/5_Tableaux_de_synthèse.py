@@ -29,4 +29,8 @@ st.set_page_config(
 ###############################################################################################
 
 df_hal = st.session_state['df_hal']
+df_rdg = st.session_state['df_rdg']
+df_zenodo = st.session_state['df_zenodo']
 st.dataframe(df_hal)
+st.dataframe(df_rdg)
+st.dataframe(df_zenodo)

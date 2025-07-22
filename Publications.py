@@ -13,7 +13,7 @@ def afficher_texte_reponse_api_hal(requete_api_hal: str):
 def afficher_erreur_api(erreur):
     print(f"Erreur lors de l'appel à l'API HAL : {erreur}")
 
-def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str) -> pd.DataFrame:
+def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> pd.DataFrame : 
     """Interroge l'API HAL et retourne les publications dans un DataFrame"""
     reponse_df = pd.DataFrame()  # DataFrame vide par défaut
 
@@ -28,6 +28,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str) ->
         docs = data.get('response', {}).get('docs', [])
         if not docs:
             print("Aucun document trouvé.")
+            print(auteur)
             return reponse_df
 
         # Listes pour stocker les valeurs

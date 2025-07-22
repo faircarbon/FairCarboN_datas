@@ -242,6 +242,17 @@ def extraire_urls(source):
         return [item['url'] for item in source if isinstance(item, dict) and 'url' in item]
     return []
 
+def get_suffix_after_third_slash(source_list):
+    if not source_list:
+        return []
+    
+    suffixes = []
+    for url in source_list:
+        parts = url.split("/", 3)  # split into at most 4 parts
+        if len(parts) > 3:
+            suffixes.append(parts[3])  # the part after the third "/"
+    return suffixes
+
 
 # code pour faire la récupération de l'ensemble des datasets
 @st.cache_data
@@ -284,7 +295,8 @@ def Recup_datasets_metadata():
 
     # 🎯 Extraction des champs souhaités
     filtered_data = [
-            {"name": item.get("name"), 
+            {"Nom_archive":"Recherche Data Gouv",
+            "Titre_unique": item.get("name"), 
             "global_id": item.get("global_id"), 
             'entrepot':item.get('publisher'), 
             'parent':item.get('storageIdentifier'), 
@@ -303,6 +315,7 @@ def Recup_datasets_metadata():
     df2['PersistentUrl'] = df2['global_id'].str.replace(r'^doi:', 'https://doi.org/', regex=True)
     # Application de la fonction
     df2["Sources"] = df2["Sources"].apply(extraire_urls)
+    df2["DOI sources"] = df2["Sources"].apply(get_suffix_after_third_slash)
 
     # 💾 Sauvegarde en CSV
     df2.to_csv("Data/RechercheDataGouv/all_datasets_rdg.csv", index=False)
@@ -390,6 +403,8 @@ liste_contacts = df3['Contact'].values
 df2["Contacts_trouvés"] = df2["Auteurs"].apply(
     lambda auteurs: [nom for nom in auteurs if nom in liste_contacts]
 )
+df2['Auteur_recherché'] = df2["Contacts_trouvés"]
+df2 = df2.explode('Auteur_recherché').reset_index(drop=True)
 
 # Filtrer ensuite les lignes où au moins un contact a été trouvé
 df2_filtré = df2[df2["Contacts_trouvés"].apply(lambda x: len(x) > 0)]
@@ -399,10 +414,11 @@ liste_contacts_trouves = list(set(nom for sous_liste in df2["Contacts_trouvés"]
 df2_filtré['Date_Update'] = pd.to_datetime(df2_filtré['Date_Update'])
 df2_filtré['Value']=1
 
-df2_filtré['Year'] = df2_filtré['Date_Update'].dt.year
+df2_filtré['Date de publication'] = df2_filtré['Date_Update'].dt.year
 
-df2_filtré_recent = df2_filtré[df2_filtré['Year']>=2023]
+df2_filtré_recent = df2_filtré[df2_filtré['Date de publication']>=2023]
 
+st.session_state['df_rdg'] = df2_filtré
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
@@ -419,10 +435,10 @@ df2_filtré.reset_index(inplace=True)
 df2_filtré.drop(columns='index', inplace=True)
 
 # Aggregate (e.g., sum) values by year
-df_yearly = df2_filtré.groupby('Year')['Value'].sum().reset_index()
+df_yearly = df2_filtré.groupby('Date de publication')['Value'].sum().reset_index()
 
 # Plot aggregated data
-fig_test = px.bar(df_yearly, x='Year', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
+fig_test = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
 st.plotly_chart(fig_test, use_container_width=True)
 
 

@@ -86,14 +86,14 @@ def Recup_contenu_zenodo(url_zenodo, params_zenodo, headers_zenodo, auteur_reche
     contenu = recuperation_zenodo(url_zenodo, params_zenodo, headers_zenodo)
 
     donnees = {
-        'Store': [],
+        'Nom_archive': [],
         'Auteur_recherché': [],
         'Projet': [],
         'ID': [],
-        'Titre': [],
+        'Titre_unique': [],
         'Auteur': [],
         'Résumé': [],
-        'Date de publication': [],
+        'Date': [],
         'Publication Url': []
     }
 
@@ -101,21 +101,21 @@ def Recup_contenu_zenodo(url_zenodo, params_zenodo, headers_zenodo, auteur_reche
         metadata = item.get('metadata', {})
         creators = metadata.get('creators', [{}])
 
-        donnees['Store'].append('Zenodo')
+        donnees['Nom_archive'].append('Zenodo')
         donnees['Auteur_recherché'].append(auteur_recherche)
         donnees['Projet'].append(projet)
         donnees['ID'].append(item.get('id', ''))
-        donnees['Titre'].append(item.get('title', ''))
+        donnees['Titre_unique'].append(item.get('title', ''))
         donnees['Auteur'].append(creators[0].get('name', '') if creators else '')
         donnees['Résumé'].append(metadata.get('description', ''))
-        donnees['Date de publication'].append(metadata.get('publication_date', ''))
+        donnees['Date'].append(metadata.get('publication_date', ''))
         donnees['Publication Url'].append(metadata.get('doi', ''))
 
     return pd.DataFrame(donnees)
 
 @st.cache_data
 def acquisition_data_zenodo(liste_chercheurs, liste_projet):
-    liste_columns = ['Store','Auteur_recherché','Projet','ID','Titre','Auteur',"Résumé","Date de publication","Publication Url"]
+    liste_columns = ['Nom_archive','Auteur_recherché','Projet','ID','Titre_unique','Auteur',"Résumé","Date","Publication Url"]
     df_global_zenodo = pd.DataFrame(columns=liste_columns)
     for i, s in enumerate(liste_chercheurs):
         params_zenodo = {'q': f'"{s.lower()}"',
@@ -126,9 +126,12 @@ def acquisition_data_zenodo(liste_chercheurs, liste_projet):
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
         df_global_zenodo = dfi
+    df_global_zenodo["Date"] = pd.to_datetime(df_global_zenodo["Date"], errors="coerce")
+    df_global_zenodo["Date de publication"]= df_global_zenodo["Date"].dt.year
     df_global_zenodo.sort_values(by='ID', inplace=True, ascending=False)
     df_global_zenodo.reset_index(inplace=True)
     df_global_zenodo.drop(columns='index', inplace=True)
+
     return df_global_zenodo
 
 ######################################################################################################################
@@ -147,4 +150,5 @@ liste_projet = df['projet']
 
 df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_projet)
 
+st.session_state['df_zenodo'] = df_global_zenodo
 st.dataframe(df_global_zenodo)

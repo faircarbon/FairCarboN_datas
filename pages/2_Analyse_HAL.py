@@ -165,7 +165,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     df_global_hal['Labo_unique'] = df_global_hal['Auteur_Labo'].apply(lambda row: row[0] if (len(row)>0) else None)
     #df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
-    df_global_hal['DOI'] = df_global_hal['Publication_source'].apply(extraire_doi)
+    df_global_hal['DOI sources'] = df_global_hal['Publication_source'].apply(extraire_doi)
     
     return df_global_hal
 
@@ -346,7 +346,7 @@ fig_pareto_pub.update_layout(
         side='right',
         range=[0, 110]
     ),
-    legend=dict(x=0.01, y=0.99),
+    legend=dict(x=0.80, y=0.5),
     margin=dict(l=40, r=40, t=60, b=80),
     height=500
 )
@@ -376,7 +376,7 @@ fig_pareto.add_trace(go.Scatter(
 
 # Layout with dual axes
 fig_pareto.update_layout(
-    title='Pareto des auteurs par labo (Top 20)',
+    title="Pareto des publication avec nombre d'auteurs par labo (Top 20)",
     xaxis=dict(title='Labo'),
     yaxis=dict(title='Nombre d\'auteurs', side='left'),
     yaxis2=dict(
@@ -385,7 +385,7 @@ fig_pareto.update_layout(
         side='right',
         range=[0, 110]
     ),
-    legend=dict(x=0.01, y=0.99),
+    legend=dict(x=0.80, y=0.5),
     margin=dict(l=40, r=40, t=60, b=80),
     height=500
 )
@@ -406,7 +406,7 @@ st.plotly_chart(fig_pareto_pub, use_container_width=True)
 st.plotly_chart(fig_pareto, use_container_width=True)
 
 ###########################################################################################################################################
-df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
 
 df_inter.to_csv("test_csv.csv",index=False, encoding="utf-8")
 
