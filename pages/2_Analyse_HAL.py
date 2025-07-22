@@ -101,18 +101,23 @@ def extraire_doi(cellule):
 
 @st.cache_data
 def read_data(path):
-    # Chemin vers le fichier Excel
-    #fichier_excel = "Data\FairCarboN_Datas_V2.xlsx"
+    """
+    lecture d'un fichier excel, retourné dans le script en format csv prêt à l'emploi
+
+    Paramètres: 
+        un chemin vers un fichier excel
+    retour: 
+        un tableau CSV
+    """
     # Lecture du fichier Excel dans un DataFrame
     df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
-
     return df
 
 @st.cache_data
 def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
-    liste_columns_hal = ['Store',
+    liste_columns_hal = ['Nom_archive',
                          'Auteur_recherché',
                          'Projet',
                          'Ids',
@@ -154,9 +159,10 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     df_global_hal['Auteur_Labo'] = df_global_hal.apply(intersect_lists, axis=1)
 
     # On ne garde qu'un titre
-    df_global_hal['Titre_bis'] = df_global_hal['Titre'].apply(lambda row: row[0])
+    df_global_hal['Titre_unique'] = df_global_hal['Titre'].apply(lambda row: row[0])
     # On ne garde qu'une langue
-    df_global_hal['Langue_bis'] = df_global_hal['Langue'].apply(lambda row: row[0])
+    df_global_hal['Langue_unique'] = df_global_hal['Langue'].apply(lambda row: row[0])
+    df_global_hal['Labo_unique'] = df_global_hal['Auteur_Labo'].apply(lambda row: row[0] if (len(row)>0) else None)
     #df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
     df_global_hal['DOI'] = df_global_hal['Publication_source'].apply(extraire_doi)
@@ -169,8 +175,11 @@ df = read_data("Data\FairCarboN_Datas_Contacts")
 ###############################################################################################
 ########### REQUETES HAL ######################################################################
 ###############################################################################################
-start_year=2023
-end_year=2025
+d = datetime.date.today()
+
+start_year=2024
+end_year=d.year
+#st.slider(label='Choix plage de dates',min_value=2020, max_value=2025)
 st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
 
 liste_chercheurs = df['Contact']
@@ -191,8 +200,6 @@ liste_projet = df['projet']
 
 df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
 
-df_global_hal.to_csv("test_csv.csv",index=False, encoding="utf-8")
-
 # Tableau de l'existant dans la collection FAIRCARBON
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
 
@@ -204,13 +211,13 @@ col1,col2 = st.columns(2)
 
 with col1:
     st.metric(label="Nombre de contacts étudiés", value=len(set(liste_chercheurs)))
-    st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Titre_bis'].values)))
-    st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'].values)))
+    st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Titre_unique'].values)))
+    st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Titre_unique'].values)))
 
 with col2:
     st.metric(label="Nombre de contacts trouvés dans HAL", value=len(set(df_global_hal['Auteur_recherché'])))
-    st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_bis'][df_global_hal['Type de document']=="ART"].values)))
-    st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Titre_bis'][filtered_df['Type de document']=="ART"].values)))
+    st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_unique'][df_global_hal['Type de document']=="ART"].values)))
+    st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Titre_unique'][filtered_df['Type de document']=="ART"].values)))
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
@@ -243,24 +250,47 @@ In_FC = len(ifc)
 
 col1,col2,col3 = st.columns([0.25,0.25,0.5])
 with col1:
-    st.metric(label=f'Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_bis']))))
+    st.metric(label=f'Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_unique']))))
 with col2:
     st.metric(label="dans la collection FairCarboN", value=In_FC)
 with col3:
     st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
 
 # Nombre de ligne par auteur
-unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_bis']].drop_duplicates()
+unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_unique']].drop_duplicates()
 row_counts = unique_person_titles['Auteur_recherché'].value_counts().reset_index()
 row_counts.columns = ['Titre', 'compte']
 
-# Box plot using Plotly
-fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Titre'], title="Distribution du nombre de publications")
-
-unique_projet_titles = df_global_hal_proj[['Projet','Titre_bis']].drop_duplicates()
+unique_projet_titles = df_global_hal_proj[['Projet','Titre_unique']].drop_duplicates()
 projects_count = unique_projet_titles['Projet'].value_counts().reset_index()
 projects_count.columns = ['Projet', 'compte']
 
+unique_labo_titles = df_global_hal_proj[['Labo_unique','Titre_unique']].drop_duplicates()
+labo_count = unique_labo_titles['Labo_unique'].value_counts().reset_index()
+labo_count.columns = ['Labo', 'compte']
+top10_labo_count = labo_count.sort_values(by='compte', ascending=False).head(20)
+
+df_pareto = labo_count.sort_values(by='compte', ascending=False).reset_index(drop=True)
+df_pareto['cum_percentage'] = df_pareto['compte'].cumsum() / df_pareto['compte'].sum() * 100
+
+# 3. Limit to top N labs
+top_n = 20
+df_pareto_plot = df_pareto.head(top_n)
+
+unique_auteurs_titles = df_global_hal_proj[['Labo_unique','Auteur_recherché']].drop_duplicates()
+labo_count2 = unique_auteurs_titles['Labo_unique'].value_counts().reset_index()
+labo_count2.columns = ['Labo', 'compte']
+top10_labo_count2 = labo_count2.sort_values(by='compte', ascending=False).head(20)
+
+# Sort by count descending
+df_pareto2 = labo_count2.sort_values(by='compte', ascending=False).reset_index(drop=True)
+df_pareto2['cum_percentage'] = df_pareto2['compte'].cumsum() / df_pareto2['compte'].sum() * 100
+
+# Limit to top N labs for readability
+df_pareto_plot2 = df_pareto2.head(top_n)
+
+
+###################################################################################################################################
 fig = px.pie(
     projects_count,
     names='Projet',
@@ -279,6 +309,88 @@ fig1 = px.pie(
 fig1.update_traces(textinfo='label')
 fig1.update_layout(showlegend=False)
 
+# Box plot using Plotly
+fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Titre'], title="Distribution du nombre de publications")
+
+
+fig_pareto_pub = go.Figure()
+
+# Bar: publication count
+fig_pareto_pub.add_trace(go.Bar(
+    x=df_pareto_plot['Labo'],
+    y=df_pareto_plot['compte'],
+    name='Nombre de publications',
+    marker_color='mediumseagreen',
+    yaxis='y1'
+))
+
+# Line: cumulative percentage
+fig_pareto_pub.add_trace(go.Scatter(
+    x=df_pareto_plot['Labo'],
+    y=df_pareto_plot['cum_percentage'],
+    name='Pourcentage cumulé',
+    yaxis='y2',
+    mode='lines+markers',
+    marker=dict(color='darkorange'),
+    line=dict(width=2)
+))
+
+# 5. Layout with dual axes
+fig_pareto_pub.update_layout(
+    title='Pareto des publications par labo (Top 20)',
+    xaxis=dict(title='Labo'),
+    yaxis=dict(title='Nombre de publications', side='left'),
+    yaxis2=dict(
+        title='Pourcentage cumulé (%)',
+        overlaying='y',
+        side='right',
+        range=[0, 110]
+    ),
+    legend=dict(x=0.01, y=0.99),
+    margin=dict(l=40, r=40, t=60, b=80),
+    height=500
+)
+
+# Create bar + line plot (Pareto)
+fig_pareto = go.Figure()
+
+# Bar for publication counts
+fig_pareto.add_trace(go.Bar(
+    x=df_pareto_plot2['Labo'],
+    y=df_pareto_plot2['compte'],
+    name='Nombre d\'auteurs',
+    marker_color='steelblue',
+    yaxis='y1'
+))
+
+# Line for cumulative %
+fig_pareto.add_trace(go.Scatter(
+    x=df_pareto_plot2['Labo'],
+    y=df_pareto_plot2['cum_percentage'],
+    name='Pourcentage cumulé',
+    yaxis='y2',
+    mode='lines+markers',
+    marker=dict(color='darkorange'),
+    line=dict(width=2)
+))
+
+# Layout with dual axes
+fig_pareto.update_layout(
+    title='Pareto des auteurs par labo (Top 20)',
+    xaxis=dict(title='Labo'),
+    yaxis=dict(title='Nombre d\'auteurs', side='left'),
+    yaxis2=dict(
+        title='Pourcentage cumulé (%)',
+        overlaying='y',
+        side='right',
+        range=[0, 110]
+    ),
+    legend=dict(x=0.01, y=0.99),
+    margin=dict(l=40, r=40, t=60, b=80),
+    height=500
+)
+
+
 # Affichage
 col1,col2 = st.columns(2)
 with col1:
@@ -286,18 +398,19 @@ with col1:
         st.plotly_chart(fig, use_container_width=True)
     else:
         st.plotly_chart(fig1, use_container_width=True)
+    
 with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
+st.plotly_chart(fig_pareto_pub, use_container_width=True)
+st.plotly_chart(fig_pareto, use_container_width=True)
 
-df_inter = df_global_hal_proj[['Auteur_recherché','Ids','Projet','Titre_bis','DOI','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+###########################################################################################################################################
+df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
 
-st.dataframe(df_inter)
+df_inter.to_csv("test_csv.csv",index=False, encoding="utf-8")
+
 st.session_state['df_hal'] = df_inter
-
-df_final = df_inter[['Projet','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
-df_final.reset_index(inplace=True)
-df_final.drop(columns='index', inplace=True)
 
 
 ###############################################################################################

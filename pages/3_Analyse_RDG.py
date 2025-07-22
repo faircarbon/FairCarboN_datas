@@ -30,6 +30,23 @@ BASE_URL_RDG="https://entrepot.recherche.data.gouv.fr/"
 API_TOKEN_RDG="13b493ed-e02b-4e65-95de-d97d6896916a"
 
 ###################### CREATION CONNEXION #############################
+@st.cache_data
+def read_data(path):
+    """
+    lecture d'un fichier excel, retourné dans le script en format csv prêt à l'emploi
+
+    Paramètres: 
+        un chemin vers un fichier excel
+    retour: 
+        un tableau CSV
+    """
+    # Lecture du fichier Excel dans un DataFrame
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    # Transformation du fichier en csv
+    df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
+    return df
+
+
 def connect_to_dataverse(BASE_URL, API_TOKEN):
     try:
         # Create d'une connexion à l'api
@@ -160,9 +177,6 @@ fichier = rf'tableau_dataverses_rdg-{d}.csv'
 
 # Load the previously saved dataverses
 df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
-
-
-
 
 # Split path into hierarchical levels
 df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)

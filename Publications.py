@@ -56,7 +56,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str) ->
 
         # Construction du DataFrame
         reponse_df = pd.DataFrame({
-            'Store': sources,
+            'Nom_archive': sources,
             'Auteur_recherché': [auteur] * len(ids),
             'Projet': [projet] * len(ids),
             'Ids': ids,
