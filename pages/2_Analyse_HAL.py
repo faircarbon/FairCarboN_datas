@@ -125,7 +125,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
                          'Uri',
                          'Type',
                          'Type de document', 
-                         'Date de production',
+                         'Date de publication',
                          'Collection',
                          'Collection_code',
                          'Organisme',
@@ -134,7 +134,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
                          'Labo_',
                          'Titre',
                          'Langue',
-                         'Mots_Clés',
+                         'Mots_clés',
                          'Publication_source']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
@@ -166,6 +166,9 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     #df_global_hal['Mots_Clés'] = df_global_hal['Mots_Clés'].apply(lambda x: ' '.join(x))
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
     df_global_hal['DOI sources'] = df_global_hal['Publication_source'].apply(extraire_doi)
+    df_global_hal['Mots_clés_'] = df_global_hal['Mots_clés'].apply(
+    lambda x: '/'.join(x) if isinstance(x, list) else ''
+)
     
     return df_global_hal
 
@@ -376,7 +379,7 @@ fig_pareto.add_trace(go.Scatter(
 
 # Layout with dual axes
 fig_pareto.update_layout(
-    title="Pareto des publication avec nombre d'auteurs par labo (Top 20)",
+    title="Pareto des publications avec nombre d'auteurs par labo (Top 20)",
     xaxis=dict(title='Labo'),
     yaxis=dict(title='Nombre d\'auteurs', side='left'),
     yaxis2=dict(
@@ -406,11 +409,16 @@ st.plotly_chart(fig_pareto_pub, use_container_width=True)
 st.plotly_chart(fig_pareto, use_container_width=True)
 
 ###########################################################################################################################################
-df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de production','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','In_FairCarboN']].drop_duplicates()
+df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
+    lambda x: x.split('/') if isinstance(x, str) and x else []
+)
 
 df_inter.to_csv("test_csv.csv",index=False, encoding="utf-8")
 
 st.session_state['df_hal'] = df_inter
+
+df_final= df_inter.copy()
 
 
 ###############################################################################################

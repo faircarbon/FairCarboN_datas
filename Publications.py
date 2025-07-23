@@ -65,7 +65,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
             'Uri': uris,
             'Type': types,
             'Type de document': docTypes,
-            'Date de production': dates,
+            'Date de publication': dates,
             'Collection':collection,
             'Collection_code': collection_codes,
             'Organisme':organisme,
@@ -74,7 +74,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
             'Labo_': labos,
             'Titre': titres,
             'Langue': languages,
-            'Mots_Clés': mots_cles,
+            'Mots_clés': mots_cles,
             "Publication_source":publication
         })
 
