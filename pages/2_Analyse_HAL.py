@@ -144,7 +144,8 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
+        #url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -434,8 +435,6 @@ st.session_state['df_hal'] = df_inter
 
 df_final= df_inter.copy()
 
-st.dataframe(df_final[df_final['Auteur_recherché']=="Wafa Malik"])
-
 
 ###############################################################################################
 ########### ESSAIS DE CLUSTERING ##############################################################
@@ -682,4 +681,3 @@ elif clustering2:
 
 else:
     st.write("")
-
