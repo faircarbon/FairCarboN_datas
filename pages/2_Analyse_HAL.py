@@ -434,7 +434,7 @@ st.session_state['df_hal'] = df_inter
 
 df_final= df_inter.copy()
 
-st.dataframe(df_final)
+st.dataframe(df_final[df_final['Auteur_recherché']=="Wafa Malik"])
 
 
 ###############################################################################################

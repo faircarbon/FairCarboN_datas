@@ -21,7 +21,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
         return doc.get(key, default)
 
     try:
-        reponse = requests.get(requete_api_hal, timeout=5)
+        reponse = requests.get(requete_api_hal, timeout=100)
         reponse.raise_for_status()  # Déclenche une exception HTTP si erreur
         data = reponse.json()
 
@@ -29,6 +29,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
         if not docs:
             print("Aucun document trouvé.")
             print(auteur)
+            print(data)
             return reponse_df
 
         # Listes pour stocker les valeurs
