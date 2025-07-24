@@ -191,7 +191,7 @@ d = datetime.date.today()
 start_year=2024
 end_year=d.year
 #st.slider(label='Choix plage de dates',min_value=2020, max_value=2025)
-st.title(f":grey[Etude des publications sur HAL de {start_year} à {end_year}]")
+st.title(f":grey[Etude des publications sur HAL]")
 
 liste_chercheurs = df['Contact']
 liste_projet = df['projet']
@@ -224,13 +224,13 @@ col1,col2 = st.columns(2)
 
 with col1:
     st.metric(label="Nombre de contacts étudiés", value=len(set(liste_chercheurs)))
-    st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Titre_unique'].values)))
-    st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Titre_unique'].values)))
+    st.metric(label="Nombre de dépôts HAL global", value=len(set(df_global_hal['Ids'].values)))
+    st.metric(label="Nombre de dépôts HAL dans la collection FairCarboN", value=len(set(filtered_df['Ids'].values)))
 
 with col2:
     st.metric(label="Nombre de contacts trouvés dans HAL", value=len(set(df_global_hal['Auteur_recherché'])))
-    st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Titre_unique'][df_global_hal['Type de document']=="ART"].values)))
-    st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Titre_unique'][filtered_df['Type de document']=="ART"].values)))
+    st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Ids'][df_global_hal['Type de document']=="ART"].values)))
+    st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Ids'][filtered_df['Type de document']=="ART"].values)))
 
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
@@ -263,11 +263,11 @@ In_FC = len(ifc)
 
 col1,col2,col3 = st.columns([0.25,0.25,0.5])
 with col1:
-    st.metric(label=f'Nombre de dépôts dans HAL',value=len(list(set(df_global_hal_proj['Titre_unique']))))
+    st.metric(label=f'Nombre de dépôts dans HAL depuis {start_year}',value=len(list(set(df_global_hal_proj['Ids'][df_global_hal_proj['Date de publication']>=start_year]))))
 with col2:
     st.metric(label="dans la collection FairCarboN", value=In_FC)
 with col3:
-    st.metric(label="Nombre d'auteur(e)s", value=len(list(set(df_global_hal_proj['Auteur_recherché']))))
+    st.metric(label=f"Nombre d'auteur(e)s ayant publié depuis {start_year}", value=len(list(set(df_global_hal_proj['Auteur_recherché'][df_global_hal_proj['Date de publication']>=start_year]))))
 
 # Nombre de ligne par auteur
 unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_unique']].drop_duplicates()
