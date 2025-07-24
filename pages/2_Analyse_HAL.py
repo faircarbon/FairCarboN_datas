@@ -135,11 +135,16 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
                          'Titre',
                          'Langue',
                          'Mots_clés',
-                         'Publication_source']
+                         'Publication_source',
+                         'ANR project acronyme',
+                         'ANR project titre',
+                         'EU project acronyme',
+                         'EU project titre',
+                         'Financement']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -167,8 +172,10 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     #df_global_hal['combined'] = df_global_hal['Titre_bis'] + ' ' + df_global_hal['Mots_Clés']
     df_global_hal['DOI sources'] = df_global_hal['Publication_source'].apply(extraire_doi)
     df_global_hal['Mots_clés_'] = df_global_hal['Mots_clés'].apply(
-    lambda x: '/'.join(x) if isinstance(x, list) else ''
-)
+    lambda x: '/'.join(x) if isinstance(x, list) else '')
+    df_global_hal['ANR project acronyme_'] = df_global_hal['ANR project acronyme'].apply(
+    lambda x: '/'.join(x) if isinstance(x, list) else '')
+
     
     return df_global_hal
 
@@ -202,6 +209,8 @@ liste_projet = df['projet']
 ###############################################################################################
 
 df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
+
+
 
 # Tableau de l'existant dans la collection FAIRCARBON
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
@@ -409,16 +418,23 @@ st.plotly_chart(fig_pareto_pub, use_container_width=True)
 st.plotly_chart(fig_pareto, use_container_width=True)
 
 ###########################################################################################################################################
-df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal_proj[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','In_FairCarboN']].drop_duplicates()
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )
+df_inter['ANR project acronyme'] = df_inter['ANR project acronyme_'].apply(
+    lambda x: x.split('/') if isinstance(x, str) and x else []
+)
+
+df_inter['DOI sources'] = df_inter['DOI sources'].apply(lambda x: [x])
 
 df_inter.to_csv("test_csv.csv",index=False, encoding="utf-8")
 
 st.session_state['df_hal'] = df_inter
 
 df_final= df_inter.copy()
+
+st.dataframe(df_final)
 
 
 ###############################################################################################

@@ -35,6 +35,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
         ids, labels, uris, types, docTypes, dates = [], [], [], [], [], []
         authors, collection, collection_codes, labo_all, labos, titres = [], [], [], [], [], []
         languages, mots_cles, sources, organisme, publication = [], [], [], [], []
+        ANRacronym, ANRTitle, EUacronym, EUTitle, fundings = [], [], [], [], []
 
         for doc in docs:
             ids.append(int(safe_get(doc, 'docid', 0)))
@@ -54,6 +55,11 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
             mots_cles.append(safe_get(doc, 'keyword_s', []))
             publication.append(safe_get(doc, 'label_s', []))
             sources.append('HAL')
+            ANRacronym.append(safe_get(doc, 'anrProjectAcronym_s', []))
+            ANRTitle.append(safe_get(doc, 'anrProjectTitle_s', []))
+            EUacronym.append(safe_get(doc, 'europeanProjectAcronym_s', []))
+            EUTitle.append(safe_get(doc, 'europeanProjectTitle_s', []))
+            fundings.append(safe_get(doc, 'funding_s', []))
 
         # Construction du DataFrame
         reponse_df = pd.DataFrame({
@@ -75,8 +81,12 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
             'Titre': titres,
             'Langue': languages,
             'Mots_clés': mots_cles,
-            "Publication_source":publication
-        })
+            "Publication_source":publication,
+            'ANR project acronyme':ANRacronym,
+            'ANR project titre':ANRTitle,
+            'EU project acronyme':EUacronym,
+            'EU project titre':EUTitle,
+            'Financement':fundings})
 
     except (requests.RequestException, json.decoder.JSONDecodeError, ValueError) as err:
         afficher_erreur_api(err)

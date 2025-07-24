@@ -165,6 +165,29 @@ def Recup_contenu_dataset(api,persistenteUrl):
 #création du connecteur
 api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
 
+def extract_funding_info_from_url(url):
+
+    try:
+        data = Recup_contenu_dataset(api_rdg,url)
+
+        project_info = data['data']['latestVersion']['metadataBlocks']['citation']['fields']
+
+        # Initialiser les valeurs
+        grant_number = None
+        acronym = None
+
+        for field in project_info:
+            if field['typeName'] == 'grantNumber':
+                grant_number = field['value'][0]['grantNumberValue']['value']
+            if field['typeName'] == 'project':
+                acronym = field['value'][0]['projectAcronym']['value']
+
+        return pd.Series([grant_number, acronym])
+
+    except Exception as e:
+        print(f"Erreur pour l'URL {url}: {e}")
+        return pd.Series([None, None])
+
 
 #récupération des dataverses présents dans RDG
 d = datetime.date.today()
@@ -233,10 +256,6 @@ stest = "84494"
 test = Recup_contenu_dataverse(api_rdg,stest)
 
 
-#testurl = "https://doi.org/10.57745/IVWMIR"
-#testtest = Recup_contenu_dataset(api_rdg,testurl)
-#st.write(testtest)
-
 def extraire_urls(source):
     if isinstance(source, list):
         return [item['url'] for item in source if isinstance(item, dict) and 'url' in item]
@@ -244,7 +263,7 @@ def extraire_urls(source):
 
 def get_suffix_after_third_slash(source_list):
     if not source_list:
-        return []
+        return ''
     
     suffixes = []
     for url in source_list:
@@ -313,6 +332,9 @@ def Recup_datasets_metadata():
     df2 = pd.DataFrame(filtered_data)
 
     df2['PersistentUrl'] = df2['global_id'].str.replace(r'^doi:', 'https://doi.org/', regex=True)
+
+    #df2[['grant_number', 'project_acronym']] = df2['PersistentUrl'].apply(extract_funding_info_from_url)
+
     # Application de la fonction
     df2["Sources"] = df2["Sources"].apply(extraire_urls)
     df2["DOI sources"] = df2["Sources"].apply(get_suffix_after_third_slash)
@@ -429,10 +451,10 @@ with col3:
     st.metric(label='Nombre de datasets entre 2023 et 2025', value=len(df2_filtré_recent))
 with col4:
     st.metric(label='Nombre de contacts', value=len(liste_contacts_trouves))
-st.dataframe(df2_filtré)
 
 df2_filtré.reset_index(inplace=True)
 df2_filtré.drop(columns='index', inplace=True)
+st.dataframe(df2_filtré)
 
 # Aggregate (e.g., sum) values by year
 df_yearly = df2_filtré.groupby('Date de publication')['Value'].sum().reset_index()
@@ -445,9 +467,19 @@ st.plotly_chart(fig_test, use_container_width=True)
 #st.dataframe(df2_filtré[df2_filtré['Year']>=2023])
 
 
-#url_test = "https://entrepot.recherche.data.gouv.fr" + '/api/v1/search?q="Benjamin Loubet"&type=dataset'        
+#url_test = "https://entrepot.recherche.data.gouv.fr" + '/api/v1/search?q="Laurent Augusto"&type=dataset'        
 #response_t = requests.get(url_test)
 #response_t.raise_for_status()  # Sécurité : stoppe si erreur
 #data_t = response_t.json().get("data", {})
 #items_t = data_t.get("items", [])
 #st.write(items_t)
+
+#testurl = "https://doi.org/10.57745/NEBK4J"
+#testtest = Recup_contenu_dataset(api_rdg,testurl)
+#st.write(testtest)
+
+#df2_test = df2_filtré[df2_filtré['Auteur_recherché']=="Laurent Augusto"]
+
+#df2_test[['grant_number', 'project_acronym']] = df2_test['PersistentUrl'].apply(extract_funding_info_from_url)
+
+#st.dataframe(df2_test)
