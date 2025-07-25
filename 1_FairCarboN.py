@@ -438,6 +438,52 @@ with col2:
     st.subheader(f":grey[Proportion d'exclusivité des Contacts]")
     st.plotly_chart(fig2b, use_container_width=True)
 
+###############################################################################################
+########### ANALYSE CONTACTS ##################################################################
+###############################################################################################
+
+df_Contacts_ok = df_contacts_selected #[df_contacts_selected['Confiance']=="ok"]
+
+counts = df_Contacts_ok.groupby(['projet', 'Fonction']).size().reset_index(name='Nombre')
+
+# Calculer le total par projet
+totals = counts.groupby('projet')['Nombre'].transform('sum')
+
+# Ajouter une colonne proportion (en %)
+counts['Proportion'] = counts['Nombre'] / totals * 100
+
+
+fig_fonction = px.bar(
+    counts,
+    y='projet',
+    x='Proportion',
+    color='Fonction',
+    orientation='h',
+    text=counts['Nombre'],
+    #text=counts['Proportion'].map(lambda x: f'{x:.1f}%'),
+    #title='Répartition proportionnelle des fonctions par projet',
+    labels={'Proportion': 'Proportion (%)', 'Projet': 'Projet'},
+    color_discrete_sequence=px.colors.qualitative.Set3
+)
+
+fig_fonction.update_layout(
+    barmode='stack',
+    yaxis=dict(categoryorder='total ascending'),
+    xaxis=dict(ticksuffix='%')
+)
+
+fig_fonction.update_traces(
+    textposition='inside',
+    insidetextanchor='start',  # ou 'middle', 'end'
+    textangle=0,# assure l'horizontalité
+    textfont_size=20               
+)
+
+fig_fonction.update_layout(barmode='stack')
+col1, col2 = st.columns(2)
+with col1:
+    st.subheader(f":grey[Répartition des fonctions par projet]")
+    st.plotly_chart(fig_fonction, use_container_width=True)
 
 ###############################################################################################
 ########### ANALYSE LIENS PAR VISU GRAPHE #####################################################
