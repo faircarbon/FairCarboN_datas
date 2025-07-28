@@ -120,7 +120,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
         #url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, releasedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -131,7 +131,6 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
     df_global_hal.reset_index(inplace=True)
     df_global_hal.drop(columns='index', inplace=True)
 
-    
     df_global_hal['Labo_filter1'] = df_global_hal.apply(filtre_labo1, axis=1)
     df_global_hal['Labo_filter2'] = df_global_hal['Labo_filter1'].apply(filtre_labo2)
 
@@ -209,10 +208,11 @@ with col2:
     st.metric(label="Nombre d'articles global", value=len(set(df_global_hal['Ids'][df_global_hal['Type de document']=="ART"].values)))
     st.metric(label="Nombre d'articles dans la collection FairCarboN", value=len(set(filtered_df['Ids'][filtered_df['Type de document']=="ART"].values)))
 
-# Aggregate (e.g., sum) values by year
-df_yearly = df_inter.groupby('Date de publication')['Value'].sum().reset_index()
+df_unique = df_inter[['Ids','Date de publication','Value']].drop_duplicates()
+# Agréger les valeurs par année
+df_yearly = df_unique.groupby('Date de publication')['Value'].sum().reset_index()
 
-# Plot aggregated data
+# Créer le graphique
 fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
 st.plotly_chart(fig_dates, use_container_width=True)
 
@@ -245,7 +245,7 @@ In_FC = len(ifc)
 
 col1,col2,col3 = st.columns([0.25,0.25,0.5])
 with col1:
-    st.metric(label=f'Nombre de dépôts dans HAL depuis {start_year}',value=len(list(set(df_global_hal_proj['Ids'][df_global_hal_proj['Date de publication']>=start_year]))))
+    st.metric(label=f'Nombre de dépôts dans HAL depuis {start_year}',value=len(set(df_global_hal_proj['Ids'][df_global_hal_proj['Date de publication']>=start_year])))
 with col2:
     st.metric(label="dans la collection FairCarboN", value=In_FC)
 with col3:

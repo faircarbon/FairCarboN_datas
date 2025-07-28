@@ -44,7 +44,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str)-> 
             uris.append(safe_get(doc, 'uri_s', ''))
             types.append(safe_get(doc, 'submitType_s', ''))
             docTypes.append(safe_get(doc, 'docType_s', ''))
-            dates.append(safe_get(doc, 'producedDateY_i', None))
+            dates.append(safe_get(doc, 'releasedDateY_i', None))
             authors.append(safe_get(doc, 'authLastNameFirstName_s', []))
             collection.append(safe_get(doc, 'collName_s', ['Collection_inexistante']))
             collection_codes.append(safe_get(doc, 'collCode_s', ['Code_inexistant']))
