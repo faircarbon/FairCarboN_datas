@@ -33,9 +33,6 @@ def to_rgb_string(rgb_tuple):
     r, g, b = (int(255 * c) for c in rgb_tuple)
     return f"rgb({r}, {g}, {b})"
 
-###############################################################################################
-########### TRANSFORMATION FICHIER XLS ########################################################
-###############################################################################################
 @st.cache_data
 def read_data(path):
     # Chemin vers le fichier Excel
@@ -47,6 +44,9 @@ def read_data(path):
 
     return df
 
+######################################################################################################################
+########### DONNEES INITIALES ########################################################################################
+######################################################################################################################
 # Charger les données
 df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
 df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
@@ -57,9 +57,9 @@ laboratoires = sorted(df_Labo_Site['laboratoire'].unique())
 colors = plt.cm.tab20.colors  # Palette de couleurs
 project_color_map = {project: colors[i % len(colors)] for i, project in enumerate(projects)}
 
-###############################################################################################
-########### NOMBRE LABOS PAR PROJET #######################################################
-###############################################################################################
+######################################################################################################################
+########### NOMBRE LABOS PAR PROJET ##################################################################################
+######################################################################################################################
 
 st.title(f":grey[Analyse générale des données de FAIRCARBON]")
 col1 , col2, col3 = st.columns(3)
@@ -142,6 +142,19 @@ with col3:
 ########### FILTRAGE ##########################################################################
 ###############################################################################################
 
+#choix de visualisation
+col1, col2, col3, col4 =st.columns([0.4,0.2,0.2,0.2])
+with col1:
+    st.subheader(f":grey[Choix de visualisation]")
+    st.markdown("Choix obligatoire")
+with col2:
+    Unites = st.checkbox('Unités')
+with col3:
+    Sites = st.checkbox('Sites')
+with col4:
+    Unites_Sites = st.checkbox('Unités & Sites')
+
+
 col1, col2 = st.columns([0.4,0.6])
 with col1:
     st.subheader(f":grey[Choix du projet visualisé]")
@@ -168,17 +181,6 @@ laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='
 grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 grouped_contacts = df_contacts_selected.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
-#choix de visualisation
-col1, col2, col3, col4 =st.columns([0.4,0.2,0.2,0.2])
-with col1:
-    st.subheader(f":grey[Choix de visualisation]")
-    st.markdown("Choix obligatoire")
-with col2:
-    Unites = st.checkbox('Unités')
-with col3:
-    Sites = st.checkbox('Sites')
-with col4:
-    Unites_Sites = st.checkbox('Unités & Sites')
 
 if Unites:
     grouped_ = grouped[grouped['Type_Data']=='Labo']

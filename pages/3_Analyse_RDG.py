@@ -29,7 +29,10 @@ st.set_page_config(
 BASE_URL_RDG="https://entrepot.recherche.data.gouv.fr/"
 API_TOKEN_RDG="13b493ed-e02b-4e65-95de-d97d6896916a"
 
-###################### CREATION CONNEXION #############################
+######################################################################################################################
+########### FONCTIONS SUPPORTS #######################################################################################
+######################################################################################################################
+
 @st.cache_data
 def read_data(path):
     """
@@ -46,7 +49,7 @@ def read_data(path):
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df
 
-
+###################### CREATION CONNEXION #############################
 def connect_to_dataverse(BASE_URL, API_TOKEN):
     try:
         # Create d'une connexion à l'api
@@ -162,8 +165,9 @@ def Recup_contenu_dataset(api,persistenteUrl):
     dataset_contenu = dataset.json()
     return dataset_contenu
 
-#création du connecteur
+########## création du connecteur ###################################################################
 api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
+#####################################################################################################
 
 def extract_funding_info_from_url(url):
 
@@ -188,74 +192,6 @@ def extract_funding_info_from_url(url):
         print(f"Erreur pour l'URL {url}: {e}")
         return pd.Series([None, None])
 
-
-#récupération des dataverses présents dans RDG
-d = datetime.date.today()
-fichier = rf'tableau_dataverses_rdg-{d}.csv'
-
-# Code à décommenter pour faire la récupération
-#with st.spinner('Recupération des dataverses disponibles et leurs identifiants'):
-#    data = recup_dataverses_rdg_recursive(api_rdg)
-
-
-# Load the previously saved dataverses
-df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
-
-# Split path into hierarchical levels
-df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)
-df['val']=1
-df.fillna('', inplace=True)
-liste_entrepots_rdg = df['name'].values
-
-liste_entrepots_rdg_visu0 = set(df['level_0'].values)
-liste_entrepots_rdg_visu1 = set(df['level_1'].values)
-liste_entrepots_rdg_visu2 = set(df['level_2'].values)
-liste_entrepots_rdg_visu3 = set(df['level_3'].values)
-liste_entrepots_rdg_visu4 = set(df['level_4'].values)
-liste_entrepots_rdg_visu5 = set(df['level_5'].values)
-
-l0 = len(liste_entrepots_rdg_visu0)
-l1 = len(liste_entrepots_rdg_visu1)
-l2 = len(liste_entrepots_rdg_visu2)
-l3 = len(liste_entrepots_rdg_visu3)
-l4 = len(liste_entrepots_rdg_visu4)
-l5 = len(liste_entrepots_rdg_visu5)
-
-cola,colb =st.columns([0.8,0.2])
-with cola:
-    st.title('Etude du contenu de Recherche Data Gouv')
-with colb:
-    st.metric(label='Nombre de collections total', value=len(liste_entrepots_rdg))
-
-col1,col2,col3,col4,col5 = st.columns(5)
-with col1:
-    st.metric(label="NB au niveau 1", value=l1)
-with col2:
-    st.metric(label="NB au niveau 2", value=l2)
-with col3:
-    st.metric(label="NB au niveau 3", value=l3)
-with col4:
-    st.metric(label="NB au niveau 4", value=l4)
-with col5:
-    st.metric(label="NB au niveau 5", value=l5)
-
-
-st.write("Total",l0+l1+l2+l3+l4+l5)
-
-df_drop = df.dropna(axis=0)
-
-fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
-fig.update_layout(
-                width=1000,
-                height=1000)
-
-st.subheader("Visualisation de la struturation des entrepôts (2 premiers niveaux)")
-st.plotly_chart(fig, use_container_width=True)
-
-stest = "84494"
-test = Recup_contenu_dataverse(api_rdg,stest)
-
-
 def extraire_urls(source):
     if isinstance(source, list):
         return [item['url'] for item in source if isinstance(item, dict) and 'url' in item]
@@ -272,6 +208,27 @@ def get_suffix_after_third_slash(source_list):
             suffixes.append(parts[3])  # the part after the third "/"
     return suffixes
 
+def forcer_en_liste(val):
+    if isinstance(val, list):
+        return val
+    elif pd.isna(val):
+        return []
+    else:
+        return [val]
+    
+def transform_name(name):
+    name = name.strip()
+    if ',' in name:
+        # Format: "Lastname, Firstname"
+        parts = [part.strip().title() for part in name.split(',', 1)]
+        if len(parts) == 2:
+            return f"{parts[1]} {parts[0]}"
+    else:
+        # Format: "Lastname Firstname"
+        parts = name.split()
+        if len(parts) >= 2:
+            return f"{' '.join(parts[1:]).title()} {parts[0].title()}"
+    return name.title()  # fallback
 
 # code pour faire la récupération de l'ensemble des datasets
 @st.cache_data
@@ -339,9 +296,33 @@ def Recup_datasets_metadata():
     df2["Sources"] = df2["Sources"].apply(extraire_urls)
     df2["DOI sources"] = df2["Sources"].apply(get_suffix_after_third_slash)
 
+    # Append transformed names to original list
+    df2['Auteurs'] = df2['Auteurs'].apply(
+        lambda author_list: author_list + [transform_name(name) for name in author_list]
+        if isinstance(author_list, list) else author_list
+    )
+
+    df2["Contacts_trouvés"] = df2["Auteurs"].apply(
+        lambda auteurs: [nom for nom in auteurs if nom in liste_contacts]
+    )
+    df2['Auteur_recherché'] = df2["Contacts_trouvés"]
+    df2 = df2.explode('Auteur_recherché').reset_index(drop=True)
+
+    df2['DOI sources'] = df2['DOI sources'].apply(forcer_en_liste)
+
+    # Filtrer ensuite les lignes où au moins un contact a été trouvé
+    df2_filtré = df2[df2['Auteur_recherché'].notna() & (df2['Auteur_recherché'] != '')]
+    df2_merged = df2_filtré.merge(df_contacts_grouped, on='Auteur_recherché', how='left')
+    df2_merged.reset_index(drop=True)
+
+    df2_merged['Date_Update'] = pd.to_datetime(df2_merged['Date_Update'])
+    df2_merged['Value']=1
+
+    df2_merged['Date de publication'] = df2_merged['Date_Update'].dt.year
+
     # 💾 Sauvegarde en CSV
-    df2.to_csv("Data/RechercheDataGouv/all_datasets_rdg.csv", index=False)
-    return df2
+    df2_merged.to_csv(f"Data/RechercheDataGouv/all_datasets_rdg_{d}.csv", index=False)
+    return df2_merged
 
 
 def recup_license_publication(df2):
@@ -394,77 +375,182 @@ def recup_license_publication(df2):
 
     return df2
 
-def transform_name(name):
-    name = name.strip()
-    if ',' in name:
-        # Format: "Lastname, Firstname"
-        parts = [part.strip().title() for part in name.split(',', 1)]
-        if len(parts) == 2:
-            return f"{parts[1]} {parts[0]}"
-    else:
-        # Format: "Lastname Firstname"
-        parts = name.split()
-        if len(parts) >= 2:
-            return f"{' '.join(parts[1:]).title()} {parts[0].title()}"
-    return name.title()  # fallback
+######################################################################################################################
+########### DONNEES INITIALES ########################################################################################
+######################################################################################################################
 
+#récupération des dataverses présents dans RDG
+d = datetime.date.today()
+fichier = rf'tableau_dataverses_rdg-{d}.csv'
+start_year=2024
+end_year=d.year
 
+# Code à décommenter pour faire la récupération des dataverses
+#with st.spinner('Recupération des dataverses disponibles et leurs identifiants'):
+#    data = recup_dataverses_rdg_recursive(api_rdg)
+
+# Load the previously saved dataverses
+df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
+df_contacts =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
+df_contacts['Auteur_recherché']=df_contacts['Contact']
+df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(lambda x: ', '.join(sorted(set(x)))).reset_index()
+
+liste_contacts = df_contacts['Contact'].values
 df2 = Recup_datasets_metadata()
 
-# Append transformed names to original list
-df2['Auteurs'] = df2['Auteurs'].apply(
-    lambda author_list: author_list + [transform_name(name) for name in author_list]
-    if isinstance(author_list, list) else author_list
-)
+df2['projet'] = df2['projet'].str.split(',').apply(lambda x: [p.strip() for p in x if p.strip()])
+df2 = df2.explode('projet').reset_index(drop=True)
 
-df3 =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
-liste_contacts = df3['Contact'].values
+st.session_state['df_rdg'] = df2
 
-#df2_filtré = df2[df2["Auteurs"].apply(lambda auteurs: any(nom in liste_contacts for nom in auteurs))]
+######################################################################################################################
+########### Visualisation contenu dataverses RDG #####################################################################
+######################################################################################################################
 
-df2["Contacts_trouvés"] = df2["Auteurs"].apply(
-    lambda auteurs: [nom for nom in auteurs if nom in liste_contacts]
-)
-df2['Auteur_recherché'] = df2["Contacts_trouvés"]
-df2 = df2.explode('Auteur_recherché').reset_index(drop=True)
+# Split path into hierarchical levels
+df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)
+df['val']=1
+df.fillna('', inplace=True)
+liste_entrepots_rdg = df['name'].values
 
-# Filtrer ensuite les lignes où au moins un contact a été trouvé
-df2_filtré = df2[df2["Contacts_trouvés"].apply(lambda x: len(x) > 0)]
+liste_entrepots_rdg_visu0 = set(df['level_0'].values)
+liste_entrepots_rdg_visu1 = set(df['level_1'].values)
+liste_entrepots_rdg_visu2 = set(df['level_2'].values)
+liste_entrepots_rdg_visu3 = set(df['level_3'].values)
+liste_entrepots_rdg_visu4 = set(df['level_4'].values)
+liste_entrepots_rdg_visu5 = set(df['level_5'].values)
 
-liste_contacts_trouves = list(set(nom for sous_liste in df2["Contacts_trouvés"] for nom in sous_liste))
+l0 = len(liste_entrepots_rdg_visu0)
+l1 = len(liste_entrepots_rdg_visu1)
+l2 = len(liste_entrepots_rdg_visu2)
+l3 = len(liste_entrepots_rdg_visu3)
+l4 = len(liste_entrepots_rdg_visu4)
+l5 = len(liste_entrepots_rdg_visu5)
 
-df2_filtré['Date_Update'] = pd.to_datetime(df2_filtré['Date_Update'])
-df2_filtré['Value']=1
+cola,colb =st.columns([0.8,0.2])
+with cola:
+    st.title('Etude du contenu de Recherche Data Gouv')
+with colb:
+    st.metric(label='Nombre de collections total', value=len(liste_entrepots_rdg))
 
-df2_filtré['Date de publication'] = df2_filtré['Date_Update'].dt.year
+col1,col2,col3,col4,col5 = st.columns(5)
+with col1:
+    st.metric(label="NB au niveau 1", value=l1)
+with col2:
+    st.metric(label="NB au niveau 2", value=l2)
+with col3:
+    st.metric(label="NB au niveau 3", value=l3)
+with col4:
+    st.metric(label="NB au niveau 4", value=l4)
+with col5:
+    st.metric(label="NB au niveau 5", value=l5)
 
-df2_filtré_recent = df2_filtré[df2_filtré['Date de publication']>=2023]
 
-st.session_state['df_rdg'] = df2_filtré
+st.write("Total",l0+l1+l2+l3+l4+l5)
+
+df_drop = df.dropna(axis=0)
+
+fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
+fig.update_layout(
+                width=1000,
+                height=1000)
+
+st.subheader("Visualisation de la struturation des entrepôts (2 premiers niveaux)")
+st.plotly_chart(fig, use_container_width=True)
+
+# Aggregate (e.g., sum) values by year
+df_yearly = df2.groupby('Date de publication')['Value'].sum().reset_index()
+
+# Plot aggregated data
+fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
+st.plotly_chart(fig_dates, use_container_width=True)
+
+#stest = "84494"
+#test = Recup_contenu_dataverse(api_rdg,stest)
+
+###############################################################################################
+########### FILTRAGE ##########################################################################
+###############################################################################################
+projets = list(set(df2['projet']))
+auteurs = list(set(df2['Auteur_recherché']))
+col1,col2 = st.columns(2)
+with col1:
+    st.subheader(f":grey[Choix du/des projet(s) visualisé(s)]")
+    choix_projet = st.multiselect(label='', options=projets )
+    if len(choix_projet)==0:
+        choix_p = projets
+    else:
+        choix_p = choix_projet
+with col2:
+    st.subheader(f":grey[Choix de(s) l'auteur(e(s)) visualisé(e(s))]")
+    choix_auteur = st.multiselect(label='', options=list(set(df2['Auteur_recherché'][df2['projet'].isin(choix_p)])))
+    if len(choix_auteur)==0:
+        choix_a = df2['Auteur_recherché'][df2['projet'].isin(choix_p)]
+    else:
+        choix_a = choix_auteur
+
+
+######################################################################################################################
+########### Visualisation contenu RDG ################################################################################
+######################################################################################################################
+
+df_rdg_proj =df2[df2['projet'].isin(choix_p)][df2['Auteur_recherché'].isin(choix_a)][df2['Date de publication']>=start_year]
 
 col1, col2, col3, col4 = st.columns(4)
 with col1:
     st.metric(label='Nombre de datasets récupérés', value=len(df2))
 with col2:
-    st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2_filtré))
+    st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2))
 with col3:
-    st.metric(label='Nombre de datasets entre 2023 et 2025', value=len(df2_filtré_recent))
+    st.metric(label=f'Nombre de datasets entre {start_year} et {end_year}', value=len(df_rdg_proj))
 with col4:
-    st.metric(label='Nombre de contacts', value=len(liste_contacts_trouves))
-
-df2_filtré.reset_index(inplace=True)
-df2_filtré.drop(columns='index', inplace=True)
-st.dataframe(df2_filtré)
-
-# Aggregate (e.g., sum) values by year
-df_yearly = df2_filtré.groupby('Date de publication')['Value'].sum().reset_index()
-
-# Plot aggregated data
-fig_test = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
-st.plotly_chart(fig_test, use_container_width=True)
+    st.metric(label='Nombre de contacts', value=len(set(df_rdg_proj['Auteur_recherché'].values)))
 
 
-#st.dataframe(df2_filtré[df2_filtré['Year']>=2023])
+unique_projet_titles = df_rdg_proj[['projet','Titre_unique']].drop_duplicates()
+projects_count = unique_projet_titles['projet'].value_counts().reset_index()
+projects_count.columns = ['Projet', 'compte']
+
+unique_person_titles = df_rdg_proj[['Auteur_recherché','Titre_unique']].drop_duplicates()
+row_counts = unique_person_titles['Auteur_recherché'].value_counts().reset_index()
+row_counts.columns = ['Auteur', 'compte']
+
+###################################################################################################################################
+fig = px.pie(
+    projects_count,
+    names='Projet',
+    values='compte',
+    title='Répartition des publications parmi les membres des projets',
+    color_discrete_sequence=px.colors.qualitative.Set3,
+    hole=0.3  
+)
+
+fig1 = px.pie(
+    projects_count,
+    names='Projet',
+    values='compte',
+    title='Participation aux projets',
+    color_discrete_sequence=px.colors.qualitative.Set3,
+    hole=0.3
+)
+fig1.update_traces(textinfo='label')
+fig1.update_layout(showlegend=False)
+
+# Box plot using Plotly
+fig2 = px.box(row_counts, y='compte', points="all",hover_data=['Auteur'], title="Distribution du nombre de publications parmi ces membres")
+fig2.update_traces(marker_color='tomato', line_color='tomato')
+
+# Affichage
+col1,col2 = st.columns(2)
+with col1:
+    if len(choix_auteur)==0:
+        st.plotly_chart(fig, use_container_width=True)
+    else:
+        st.plotly_chart(fig1, use_container_width=True)
+    
+with col2:
+    st.plotly_chart(fig2, use_container_width=True)
+
 
 
 #url_test = "https://entrepot.recherche.data.gouv.fr" + '/api/v1/search?q="Laurent Augusto"&type=dataset'        
