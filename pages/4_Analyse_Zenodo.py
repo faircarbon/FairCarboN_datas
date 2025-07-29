@@ -131,6 +131,8 @@ def acquisition_data_zenodo(liste_chercheurs, liste_projet):
     df_global_zenodo.sort_values(by='ID', inplace=True, ascending=False)
     df_global_zenodo.reset_index(inplace=True)
     df_global_zenodo.drop(columns='index', inplace=True)
+    # 💾 Sauvegarde en CSV
+    df_global_zenodo.to_csv(f"Data/Zenodo/all_datasets_zenodo_{d}.csv", index=False)
 
     return df_global_zenodo
 
@@ -163,7 +165,6 @@ df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_projet)
 df_global_zenodo['Value']=1
 
 st.session_state['df_zenodo'] = df_global_zenodo
-st.dataframe(df_global_zenodo)
 
 # Aggregate (e.g., sum) values by year
 df_yearly = df_global_zenodo.groupby('Date de publication')['Value'].sum().reset_index()
@@ -250,7 +251,7 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-params_zenodo_test = {'q': f'"{"philippe+ciais"}"',
-                            'access_token': zenodo_token}
-test = response = requests.get(url_zenodo, params=params_zenodo_test, headers=headers_zenodo)
-st.write(test.json())
+#params_zenodo_test = {'q': f'"{"philippe+ciais"}"',
+#                            'access_token': zenodo_token}
+#test = response = requests.get(url_zenodo, params=params_zenodo_test, headers=headers_zenodo)
+#st.write(test.json())
