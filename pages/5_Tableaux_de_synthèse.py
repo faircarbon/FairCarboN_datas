@@ -108,7 +108,7 @@ with colA:
         st.plotly_chart(fig_datasets,use_container_width=True)
     else:
         st.markdown('Aucune communication ou publication déposées à ce jour')
-    df_selected['Value']=1    
+    df_selected['Value']=1 
     #df_unique = df_selected[['Titre_unique','Date de publication','Value']].drop_duplicates()
     # Agréger les valeurs par année
     #df_yearly = df_unique.groupby('Date de publication')['Value'].sum().reset_index()
@@ -135,6 +135,12 @@ with colA:
         title=title,
         barmode='stack'  # ou 'group' pour barres côte à côte
     )
+
+    fig_dates.update_xaxes(
+                            tickmode='linear',     
+                            dtick=1,          # intervalle d’un an
+                            tickformat='d'    # format entier (pas de virgule, ni décimales)
+                        )
 
     # Afficher dans Streamlit
     st.plotly_chart(fig_dates, use_container_width=True)
@@ -164,9 +170,15 @@ with colB:
 
         # Créer le graphique
         fig_dates_datasets = px.bar(df_yearly_datasets, x='Date de publication', y='Value', title=f'Dépôts rattachés à {df_selected_datasets["Auteur_recherché"].values[0]}')
+        fig_dates_datasets.update_xaxes(
+                            tickmode='linear',     
+                            dtick=1,          # intervalle d’un an
+                            tickformat='d'    # format entier (pas de virgule, ni décimales)
+                        )
+        
         st.plotly_chart(fig_dates_datasets, use_container_width=True)
     else:
-        st.markdown('Aucun dataset déposé à ce jour')
+        pass
 
     
 
