@@ -4,12 +4,9 @@ from pyDataverse.models import Dataset
 from pyDataverse.utils import read_file
 from pyDataverse.api import NativeApi
 import datetime
-import numpy as np
-import re
 import plotly.express as px
 import requests
 import os
-import json
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -320,6 +317,9 @@ def Recup_datasets_metadata():
 
     df2_merged['Date de publication'] = df2_merged['Date_Update'].dt.year
 
+    df2_merged['projet'] = df2_merged['projet'].str.split(',').apply(lambda x: [p.strip() for p in x if p.strip()])
+    df2_merged = df2_merged.explode('projet').reset_index(drop=True)
+
     # 💾 Sauvegarde en CSV
     df2_merged.to_csv(f"Data/RechercheDataGouv/all_datasets_rdg_{d}.csv", index=False)
     return df2_merged
@@ -397,9 +397,6 @@ df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(l
 
 liste_contacts = df_contacts['Contact'].values
 df2 = Recup_datasets_metadata()
-
-df2['projet'] = df2['projet'].str.split(',').apply(lambda x: [p.strip() for p in x if p.strip()])
-df2 = df2.explode('projet').reset_index(drop=True)
 
 st.session_state['df_rdg'] = df2
 
@@ -496,14 +493,13 @@ with col2:
 
 df_rdg_proj =df2[df2['projet'].isin(choix_p)][df2['Auteur_recherché'].isin(choix_a)][df2['Date de publication']>=start_year]
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
+
 with col1:
-    st.metric(label='Nombre de datasets récupérés', value=len(df2))
-with col2:
     st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df2))
-with col3:
+with col2:
     st.metric(label=f'Nombre de datasets entre {start_year} et {end_year}', value=len(df_rdg_proj))
-with col4:
+with col3:
     st.metric(label='Nombre de contacts', value=len(set(df_rdg_proj['Auteur_recherché'].values)))
 
 

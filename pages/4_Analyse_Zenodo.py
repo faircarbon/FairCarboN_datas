@@ -1,15 +1,9 @@
 import streamlit as st
 import pandas as pd
-from pyDataverse.models import Dataset
-from pyDataverse.utils import read_file
-from pyDataverse.api import NativeApi
 import datetime
-import numpy as np
-import re
 import plotly.express as px
 import requests
-import os
-import json
+
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -114,14 +108,16 @@ def Recup_contenu_zenodo(url_zenodo, params_zenodo, headers_zenodo, auteur_reche
     return pd.DataFrame(donnees)
 
 @st.cache_data
-def acquisition_data_zenodo(liste_chercheurs, liste_projet):
+def acquisition_data_zenodo(liste_chercheurs,liste_chercheurs_bis, liste_projet):
     liste_columns = ['Nom_archive','Auteur_recherché','Projet','ID','Titre_unique','Auteur',"Résumé","Date","Publication Url"]
     df_global_zenodo = pd.DataFrame(columns=liste_columns)
-    for i, s in enumerate(liste_chercheurs):
-        params_zenodo = {'q': f'"{s.lower()}"',
-                            'access_token': zenodo_token}
+    for i, s in enumerate(liste_chercheurs_bis):
+        print(i)
+        params_zenodo = {'q': f'metadata.creators.person_or_org.name:"{s}"', # f'"{s.lower()}"'
+                         'size':50,
+                        'access_token': zenodo_token}
                     
-        df = Recup_contenu_zenodo(url_zenodo,params_zenodo, headers_zenodo, s, liste_projet[i])
+        df = Recup_contenu_zenodo(url_zenodo,params_zenodo, headers_zenodo, liste_chercheurs[i], liste_projet[i])
         dfi = pd.concat([df_global_zenodo,df], axis=0)
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
@@ -135,7 +131,6 @@ def acquisition_data_zenodo(liste_chercheurs, liste_projet):
     df_global_zenodo.to_csv(f"Data/Zenodo/all_datasets_zenodo_{d}.csv", index=False)
 
     return df_global_zenodo
-
 
 
 ######################################################################################################################
@@ -158,10 +153,15 @@ st.title(":grey[Analyse des dépôts dans Zenodo]")
 
 # Charger les données
 df = read_data("Data\FairCarboN_Datas_Contacts")
+# Séparer la chaîne en deux parties (Prénom et Nom)
+df[['Prenom', 'Nom']] = df['Contact'].str.rsplit(' ', n=1, expand=True)
+df['Contact_bis'] = df['Nom'] + ', ' + df['Prenom']
+st.dataframe(df['Contact_bis'])
 liste_chercheurs = df['Contact']
+liste_chercheurs_bis = df['Contact_bis']
 liste_projet = df['projet']
 
-df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_projet)
+df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_chercheurs_bis, liste_projet)
 df_global_zenodo['Value']=1
 
 st.session_state['df_zenodo'] = df_global_zenodo
@@ -196,14 +196,12 @@ with col2:
 
 df_zenodo_proj =df_global_zenodo[df_global_zenodo['Projet'].isin(choix_p)][df_global_zenodo['Auteur_recherché'].isin(choix_a)][df_global_zenodo['Date de publication']>=start_year]
 
-col1, col2, col3, col4 = st.columns(4)
+col1, col2, col3 = st.columns(3)
 with col1:
-    st.metric(label='Nombre de datasets récupérés', value=len(df_global_zenodo))
-with col2:
     st.metric(label='Nombre de datasets rattachés à nos contacts', value=len(df_global_zenodo))
-with col3:
+with col2:
     st.metric(label=f'Nombre de datasets entre {start_year} et {end_year}', value=len(df_zenodo_proj))
-with col4:
+with col3:
     st.metric(label='Nombre de contacts', value=len(set(df_zenodo_proj['Auteur_recherché'].values)))
 
 unique_projet_titles = df_zenodo_proj[['Projet','Titre_unique']].drop_duplicates()
@@ -251,7 +249,74 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-#params_zenodo_test = {'q': f'"{"philippe+ciais"}"',
-#                            'access_token': zenodo_token}
-#test = response = requests.get(url_zenodo, params=params_zenodo_test, headers=headers_zenodo)
-#st.write(test.json())
+
+
+"""def Recup_data_zenodo_test():
+    url_zenodo = 'https://zenodo.org/api/records/'
+    zenodo_token = "OMMGEVUcApEKSt4JEkSK7OzpqZQPMvGKAlB2yP2MXG6APstRn2hWpiHfpjaA"
+    headers_zenodo = {"Content-Type": "application/json"}
+    
+    rows = 10
+    start = 0
+    page = 1
+    condition = True # emulate do-while
+
+    params_zenodo = {'q': '"philippe Ciais"',
+                     'size':{page},
+                     's':{start},
+                    'access_token': zenodo_token}
+
+
+    response_init = requests.get(url_zenodo, params_zenodo)
+    response_init.raise_for_status()  # Sécurité : stoppe si erreur
+    data_init = response_init.json().get('hits', {}).get('hits', [])
+    total_count = len(data_init)
+    print(total_count)
+
+    all_items = []
+
+    while (condition):
+        
+        response = requests.get(url_zenodo, params_zenodo)
+        response.raise_for_status()  # Sécurité : stoppe si erreur
+
+        data = response.json().get('hits', {}).get('hits', [])
+
+        #st.write(data)
+
+
+        if not data:
+                    break
+
+        all_items.extend(data)
+        start = start + rows
+        page += 1
+        print(page)
+        condition = start < total_count
+
+
+    # 🔍 Filtrer uniquement les datasets
+    #dataset_items = [item for item in all_items if item.get("creators").get("name") == "Camille Crapart"]
+
+    # 🎯 Extraction des champs souhaités
+    filtered_data = [
+                {"Nom_archive":"Recherche Data Gouv",
+                #"Titre_unique": item.get("title"), 
+                }
+                for item in all_items
+        ]
+
+    # 📊 DataFrame
+    df2 = pd.DataFrame(filtered_data)
+    return all_items
+
+import requests
+zenodo_token_test = "OMMGEVUcApEKSt4JEkSK7OzpqZQPMvGKAlB2yP2MXG6APstRn2hWpiHfpjaA"
+r = requests.get("https://zenodo.org/api/records",params={'access_token': zenodo_token_test,'q':'camille crapart'})
+r.status_code
+# 401
+#test = r.json().get('hits', {}).get('hits', [])
+#st.write(test)
+
+data_test = Recup_data_zenodo_test()
+st.write(data_test)"""

@@ -1,33 +1,9 @@
 import streamlit as st
-from PIL import Image
 import pandas as pd
-import matplotlib.pyplot as plt
-from io import BytesIO
-import base64
 import plotly.express as px
-from wordcloud import WordCloud
 import plotly.graph_objects as go
 from Publications import afficher_publications_hal
 import datetime
-import requests
-import seaborn as sns
-from deep_translator import GoogleTranslator
-from stqdm import stqdm
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.cluster import KMeans
-from sklearn.decomposition import PCA
-from sklearn.decomposition import TruncatedSVD
-from sklearn.metrics.pairwise import cosine_similarity
-from sklearn.metrics import silhouette_score
-from sentence_transformers import SentenceTransformer
-import numpy as np
-from sklearn.preprocessing import normalize
-from sklearn.cluster import DBSCAN
-import re
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -91,7 +67,7 @@ def read_data(path):
     return df
 
 @st.cache_data
-def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
+def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_sollicitation):
     liste_columns_hal = ['Nom_archive',
                          'Auteur_recherché',
                          'Projet',
@@ -115,13 +91,14 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet):
                          'ANR project titre',
                          'EU project acronyme',
                          'EU project titre',
-                         'Financement']
+                         'Financement',
+                         'Sollicitation']
     df_global_hal = pd.DataFrame(columns=liste_columns_hal)
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
         #url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, releasedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
-        df = afficher_publications_hal(url_type, s, liste_projet.iloc[i])
+        df = afficher_publications_hal(url_type, s, liste_projet.iloc[i], liste_sollicitation[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
@@ -163,12 +140,13 @@ end_year=d.year
 #st.slider(label='Choix plage de dates',min_value=2020, max_value=2025)
 liste_chercheurs = df['Contact']
 liste_projet = df['projet']
+liste_sollicitation = df['Sollicitation']
 
 ###############################################################################################
 ########### ACQUISITION DONNEES DE HAL ########################################################
 ###############################################################################################
 st.success("Connexion établie avec HAL")
-df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet)
+df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet, liste_sollicitation=liste_sollicitation)
 
 # Tableau de l'existant dans la collection FAIRCARBON
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
@@ -177,7 +155,7 @@ filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names:
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
 ###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','In_FairCarboN']].drop_duplicates()
+df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','In_FairCarboN','Sollicitation']].drop_duplicates()
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )

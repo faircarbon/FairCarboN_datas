@@ -1,15 +1,9 @@
 import streamlit as st
 import pandas as pd
-from pyDataverse.models import Dataset
-from pyDataverse.utils import read_file
-from pyDataverse.api import NativeApi
-import datetime
-import numpy as np
 import re
 import plotly.express as px
-import requests
-import os
-import json
+import plotly.graph_objects as go
+
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -34,7 +28,7 @@ df_zenodo = st.session_state['df_zenodo']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
-df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','DOI sources','In_FairCarboN']]
+df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','DOI sources','In_FairCarboN','Sollicitation']]
 df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication']]
 df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication']]
 
@@ -71,6 +65,12 @@ df_concat['Pattern'] = df_concat['Uri'].apply(extract_pattern)
 ###############################################################################################
 ########### VISUALISATIONS INDIVIDUELLES #######################################################
 ###############################################################################################
+if 'count' not in st.session_state:
+    st.session_state.count = 0
+def increment_counter():
+    st.session_state.count += 1
+def reset_counter():
+    st.session_state.count = 0
 
 st.dataframe(df_concat)
 
@@ -78,12 +78,34 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-Selection_p = st.selectbox(label='Selection', options=p)
+
+col1, col2, col3, col4 = st.columns([0.8,0.05,0.05,0.1])
+with col1:
+    try:
+        Selection_p = st.selectbox(label='Selection', options=p, index=st.session_state.count)
+    except:
+        Selection_p = ""
+        reset_counter()
+with col2:
+    st.markdown('')
+    st.markdown('')
+    button1 = st.button(':heavy_plus_sign:',on_click=increment_counter)
+with col3:
+    st.markdown('')
+    st.markdown('')
+    button2 =st.button('R',on_click=reset_counter)
+with col4:
+    if df_concat['Sollicitation'][df_concat['Auteur_recherché']==Selection_p].values[0] =='NON':
+        st.image('Data/nok.png', width=80, caption="Sollicitation")
+    else:
+        st.image('Data/ok.png', width=80)
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
 df_selected.drop(columns='index', inplace=True)
 
+if st.session_state.count > len(p):
+        st.session_state.count = 0
 
 colA, colB =st.columns(2)
 with colA:
@@ -94,56 +116,71 @@ with colA:
     with col2:
         st.subheader(f":grey[Dans FairCarboN]")
         st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL'][df_selected['In_FairCarboN']==True]))
-    if len(df_selected)>0:
-        row_counts_hal = df_selected['Pattern'].value_counts().reset_index()
+    df_selected_hal = df_selected[df_selected['Nom_archive']=='HAL']
+    if len(df_selected_hal)>0:
+        row_counts_hal = df_selected_hal['Pattern'].value_counts().reset_index()
         row_counts_hal.columns = ['Archive HAL', 'compte']
-        fig_datasets = px.pie(
-                                row_counts_hal,
-                                names='Archive HAL',
-                                values='compte',
-                                title='Répartition des publications sur différents guichets HAL',
-                                color_discrete_sequence=px.colors.qualitative.Set3,
-                                hole=0.3  
-                            )
+
+                # Calcul du total et du pourcentage
+        total = row_counts_hal['compte'].sum()
+        # Calcul des pourcentages
+        total = row_counts_hal['compte'].sum()
+        row_counts_hal['pourcentage'] = (row_counts_hal['compte'] / total) * 100
+
+        # Génération des étiquettes conditionnelles
+        labels = row_counts_hal['Archive HAL']
+        values = row_counts_hal['compte']
+        text_labels = [
+            f"{pct:.1f}%" if pct > 1 else "" 
+            for label, pct in zip(labels, row_counts_hal['pourcentage'])
+        ]
+
+        # Création du graphique avec go.Figure
+        fig_datasets = go.Figure(
+            data=[go.Pie(
+                labels=labels,
+                values=values,
+                text=text_labels,
+                textinfo='text',  # N'affiche que text, donc rien si vide
+                hoverinfo='percent+value',
+                hole=0.3,
+                marker=dict(colors=px.colors.qualitative.Set3)
+            )]
+        )
+
+        fig_datasets.update_layout(
+            title='Répartition des publications sur différents guichets HAL',
+            showlegend=True
+        )
         st.plotly_chart(fig_datasets,use_container_width=True)
+
+        df_selected_hal['Value']=1 
+        df_unique = df_selected_hal[['Titre_unique', 'Date de publication', 'Value', 'Type de document']].drop_duplicates()
+        df_yearly = df_unique.groupby(['Date de publication', 'Type de document'])['Value'].sum().reset_index()
+
+        # Créer le graphique
+        title = f"Communications rattachées à {df_selected_hal['Auteur_recherché'].values[0]}"
+        fig_dates = px.bar(
+            df_yearly,
+            x='Date de publication',
+            y='Value',
+            color='Type de document',
+            title=title,
+            barmode='stack'  # ou 'group' pour barres côte à côte
+        )
+
+        fig_dates.update_xaxes(
+                                tickmode='linear',     
+                                dtick=1,          # intervalle d’un an
+                                tickformat='d'    # format entier (pas de virgule, ni décimales)
+                            )
+
+        # Afficher dans Streamlit
+        st.plotly_chart(fig_dates, use_container_width=True)
+
     else:
-        st.markdown('Aucune communication ou publication déposées à ce jour')
-    df_selected['Value']=1 
-    #df_unique = df_selected[['Titre_unique','Date de publication','Value']].drop_duplicates()
-    # Agréger les valeurs par année
-    #df_yearly = df_unique.groupby('Date de publication')['Value'].sum().reset_index()
-
-    # Créer le graphique
-    #fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title=f'Communications rattachées à {df_selected["Auteur_recherché"].values[0]}')
-    #st.plotly_chart(fig_dates, use_container_width=True)
-
-    df_unique = df_selected[['Titre_unique', 'Date de publication', 'Value', 'Type de document']].drop_duplicates()
-
-    # S'assurer que "Date de publication" est bien en datetime, puis extraire l'année
-    #df_unique['Année'] = pd.to_datetime(df_unique['Date de publication']).dt.year
-
-    # Agréger par année et type de document
-    df_yearly = df_unique.groupby(['Date de publication', 'Type de document'])['Value'].sum().reset_index()
-
-    # Créer le graphique
-    title = f"Communications rattachées à {df_selected['Auteur_recherché'].values[0]}"
-    fig_dates = px.bar(
-        df_yearly,
-        x='Date de publication',
-        y='Value',
-        color='Type de document',
-        title=title,
-        barmode='stack'  # ou 'group' pour barres côte à côte
-    )
-
-    fig_dates.update_xaxes(
-                            tickmode='linear',     
-                            dtick=1,          # intervalle d’un an
-                            tickformat='d'    # format entier (pas de virgule, ni décimales)
-                        )
-
-    # Afficher dans Streamlit
-    st.plotly_chart(fig_dates, use_container_width=True)
+        pass
+    
 
 with colB:
     st.subheader(f":grey[Datasets ouverts]")
@@ -180,7 +217,7 @@ with colB:
     else:
         pass
 
-    
+st.dataframe(df_selected_datasets)
 
 
 ###############################################################################################

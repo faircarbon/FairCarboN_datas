@@ -218,7 +218,7 @@ if clustering1:
 elif clustering2:
     st.subheader('Clusters avec embeddings')
 
-    df_test = translate_clean(df_final)
+    df_test = translate_clean(df_hal)
 
     model = SentenceTransformer('all-MiniLM-L6-v2')  # Small & fast model
     embeddings = model.encode(df_test['filtered'], show_progress_bar=False)
