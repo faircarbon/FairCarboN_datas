@@ -278,7 +278,8 @@ def Recup_datasets_metadata():
             "Mots_clés":item.get('keywords'),
             "Sujet":item.get('subjects'), 
             "Auteurs":item.get('authors'),
-            "Sources":item.get('publications')}
+            "Sources":item.get('publications'),
+            "Type de document":"dataset-rdg"}
             for item in dataset_items
     ]
 

@@ -29,8 +29,8 @@ df_zenodo = st.session_state['df_zenodo']
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
 df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','DOI sources','In_FairCarboN','Sollicitation']]
-df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication']]
-df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication']]
+df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
+df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication','Type de document']]
 
 df_concat = pd.concat([df_hal_reduit,df_rdg_reduit,df_zenodo_reduit], axis=0)
 df_concat['In_FairCarboN'] = df_concat['In_FairCarboN'].fillna(False)
@@ -72,7 +72,6 @@ def increment_counter():
 def reset_counter():
     st.session_state.count = 0
 
-st.dataframe(df_concat)
 
 df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
@@ -201,12 +200,16 @@ with colB:
         st.plotly_chart(fig_datasets,use_container_width=True)
 
         df_selected_datasets['Value']=1    
-        df_unique_datasets = df_selected_datasets[['Titre_unique','Date de publication','Value']].drop_duplicates()
+        df_unique_datasets = df_selected_datasets[['Titre_unique','Date de publication','Value','Type de document']].drop_duplicates()
         # Agréger les valeurs par année
-        df_yearly_datasets = df_unique_datasets.groupby('Date de publication')['Value'].sum().reset_index()
+        df_yearly_datasets = df_unique_datasets.groupby(['Date de publication', 'Type de document'])['Value'].sum().reset_index()
 
         # Créer le graphique
-        fig_dates_datasets = px.bar(df_yearly_datasets, x='Date de publication', y='Value', title=f'Dépôts rattachés à {df_selected_datasets["Auteur_recherché"].values[0]}')
+        fig_dates_datasets = px.bar(df_yearly_datasets, 
+                                    x='Date de publication', 
+                                    y='Value', 
+                                    title=f'Dépôts rattachés à {df_selected_datasets["Auteur_recherché"].values[0]}',
+                                    color='Type de document')
         fig_dates_datasets.update_xaxes(
                             tickmode='linear',     
                             dtick=1,          # intervalle d’un an
@@ -216,8 +219,6 @@ with colB:
         st.plotly_chart(fig_dates_datasets, use_container_width=True)
     else:
         pass
-
-st.dataframe(df_selected_datasets)
 
 
 ###############################################################################################

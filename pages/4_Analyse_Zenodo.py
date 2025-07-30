@@ -88,12 +88,14 @@ def Recup_contenu_zenodo(url_zenodo, params_zenodo, headers_zenodo, auteur_reche
         'Auteur': [],
         'Résumé': [],
         'Date': [],
-        'Publication Url': []
+        'Publication Url': [],
+        'Type de document':[]
     }
 
     for item in contenu:
         metadata = item.get('metadata', {})
         creators = metadata.get('creators', [{}])
+        resource_type = metadata.get('resource_type',[{}])
 
         donnees['Nom_archive'].append('Zenodo')
         donnees['Auteur_recherché'].append(auteur_recherche)
@@ -104,12 +106,13 @@ def Recup_contenu_zenodo(url_zenodo, params_zenodo, headers_zenodo, auteur_reche
         donnees['Résumé'].append(metadata.get('description', ''))
         donnees['Date'].append(item.get('created', ''))
         donnees['Publication Url'].append(metadata.get('doi', ''))
+        donnees['Type de document'].append(resource_type.get('type',''))
 
     return pd.DataFrame(donnees)
 
 @st.cache_data
 def acquisition_data_zenodo(liste_chercheurs,liste_chercheurs_bis, liste_projet):
-    liste_columns = ['Nom_archive','Auteur_recherché','Projet','ID','Titre_unique','Auteur',"Résumé","Date","Publication Url"]
+    liste_columns = ['Nom_archive','Auteur_recherché','Projet','ID','Titre_unique','Auteur',"Résumé","Date","Publication Url",'Type de document']
     df_global_zenodo = pd.DataFrame(columns=liste_columns)
     for i, s in enumerate(liste_chercheurs_bis):
         print(i)
@@ -249,74 +252,12 @@ with col2:
     st.plotly_chart(fig2, use_container_width=True)
 
 
-
-
-"""def Recup_data_zenodo_test():
-    url_zenodo = 'https://zenodo.org/api/records/'
-    zenodo_token = "OMMGEVUcApEKSt4JEkSK7OzpqZQPMvGKAlB2yP2MXG6APstRn2hWpiHfpjaA"
-    headers_zenodo = {"Content-Type": "application/json"}
-    
-    rows = 10
-    start = 0
-    page = 1
-    condition = True # emulate do-while
-
-    params_zenodo = {'q': '"philippe Ciais"',
-                     'size':{page},
-                     's':{start},
-                    'access_token': zenodo_token}
-
-
-    response_init = requests.get(url_zenodo, params_zenodo)
-    response_init.raise_for_status()  # Sécurité : stoppe si erreur
-    data_init = response_init.json().get('hits', {}).get('hits', [])
-    total_count = len(data_init)
-    print(total_count)
-
-    all_items = []
-
-    while (condition):
-        
-        response = requests.get(url_zenodo, params_zenodo)
-        response.raise_for_status()  # Sécurité : stoppe si erreur
-
-        data = response.json().get('hits', {}).get('hits', [])
-
-        #st.write(data)
-
-
-        if not data:
-                    break
-
-        all_items.extend(data)
-        start = start + rows
-        page += 1
-        print(page)
-        condition = start < total_count
-
-
-    # 🔍 Filtrer uniquement les datasets
-    #dataset_items = [item for item in all_items if item.get("creators").get("name") == "Camille Crapart"]
-
-    # 🎯 Extraction des champs souhaités
-    filtered_data = [
-                {"Nom_archive":"Recherche Data Gouv",
-                #"Titre_unique": item.get("title"), 
-                }
-                for item in all_items
-        ]
-
-    # 📊 DataFrame
-    df2 = pd.DataFrame(filtered_data)
-    return all_items
-
-import requests
-zenodo_token_test = "OMMGEVUcApEKSt4JEkSK7OzpqZQPMvGKAlB2yP2MXG6APstRn2hWpiHfpjaA"
-r = requests.get("https://zenodo.org/api/records",params={'access_token': zenodo_token_test,'q':'camille crapart'})
-r.status_code
-# 401
-#test = r.json().get('hits', {}).get('hits', [])
-#st.write(test)
-
-data_test = Recup_data_zenodo_test()
-st.write(data_test)"""
+params_zenodo_bis = {'q': f'metadata.creators.person_or_org.name:"Clivot, Hugues"', # f'"{s.lower()}"'
+                         'size':50,
+                        'access_token': zenodo_token}
+liste_chercheurs_ = ['Hugues Clivot']
+liste_projet_ = ['CANETE']
+contenu_test = recuperation_zenodo(url_zenodo, params_zenodo_bis, headers_zenodo)
+st.write(contenu_test)                    
+test = Recup_contenu_zenodo(url_zenodo,params_zenodo_bis, headers_zenodo, liste_chercheurs_[0], liste_projet_[0])
+st.dataframe(test)
