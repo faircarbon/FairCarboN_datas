@@ -117,7 +117,7 @@ def acquisition_data_zenodo(liste_chercheurs,liste_chercheurs_bis, liste_projet)
     for i, s in enumerate(liste_chercheurs_bis):
         print(i)
         params_zenodo = {'q': f'metadata.creators.person_or_org.name:"{s}"', # f'"{s.lower()}"'
-                         'size':50,
+                         'size':60,
                         'access_token': zenodo_token}
                     
         df = Recup_contenu_zenodo(url_zenodo,params_zenodo, headers_zenodo, liste_chercheurs[i], liste_projet[i])
@@ -159,7 +159,6 @@ df = read_data("Data\FairCarboN_Datas_Contacts")
 # Séparer la chaîne en deux parties (Prénom et Nom)
 df[['Prenom', 'Nom']] = df['Contact'].str.rsplit(' ', n=1, expand=True)
 df['Contact_bis'] = df['Nom'] + ', ' + df['Prenom']
-st.dataframe(df['Contact_bis'])
 liste_chercheurs = df['Contact']
 liste_chercheurs_bis = df['Contact_bis']
 liste_projet = df['projet']

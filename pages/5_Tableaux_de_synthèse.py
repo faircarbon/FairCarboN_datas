@@ -213,7 +213,11 @@ with colB:
         fig_dates_datasets.update_xaxes(
                             tickmode='linear',     
                             dtick=1,          # intervalle d’un an
-                            tickformat='d'    # format entier (pas de virgule, ni décimales)
+                            tickformat='d',    # format entier (pas de virgule, ni décimales)
+                            range=[min(df_yearly['Date de publication'].values)-0.5, 2025 + 0.5]
+                        )
+        fig_dates_datasets.update_yaxes(
+                            range=[0,max(df_yearly.groupby('Date de publication')['Value'].sum())]
                         )
         
         st.plotly_chart(fig_dates_datasets, use_container_width=True)
