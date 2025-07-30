@@ -257,6 +257,6 @@ params_zenodo_bis = {'q': f'metadata.creators.person_or_org.name:"Clivot, Hugues
 liste_chercheurs_ = ['Hugues Clivot']
 liste_projet_ = ['CANETE']
 contenu_test = recuperation_zenodo(url_zenodo, params_zenodo_bis, headers_zenodo)
-st.write(contenu_test)                    
+#st.write(contenu_test)                    
 test = Recup_contenu_zenodo(url_zenodo,params_zenodo_bis, headers_zenodo, liste_chercheurs_[0], liste_projet_[0])
-st.dataframe(test)
+#st.dataframe(test)
