@@ -127,6 +127,10 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_s
     lambda x: '/'.join(x) if isinstance(x, list) else '')
     df_global_hal['ANR project acronyme_'] = df_global_hal['ANR project acronyme'].apply(
     lambda x: '/'.join(x) if isinstance(x, list) else '')
+    df_global_hal['EU project acronyme_'] = df_global_hal['EU project acronyme'].apply(
+    lambda x: '/'.join(x) if isinstance(x, list) else '')
+    df_global_hal['Financement_'] = df_global_hal['Financement'].apply(
+    lambda x: '/'.join(x) if isinstance(x, list) else '')
     return df_global_hal
 
 ######################################################################################################################
@@ -155,11 +159,17 @@ filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names:
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
 ###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','In_FairCarboN','Sollicitation']].drop_duplicates()
+df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )
 df_inter['ANR project acronyme'] = df_inter['ANR project acronyme_'].apply(
+    lambda x: x.split('/') if isinstance(x, str) and x else []
+)
+df_inter['EU project acronyme'] = df_inter['EU project acronyme_'].apply(
+    lambda x: x.split('/') if isinstance(x, str) and x else []
+)
+df_inter['Financement'] = df_inter['Financement_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )
 

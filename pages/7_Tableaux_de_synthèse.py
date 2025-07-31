@@ -18,6 +18,37 @@ st.set_page_config(
         'About': "développé par Jérôme Dutroncy"}
 )
 
+def is_empty_list(val):
+    # Si c'est une liste, vérifier si vide
+    if isinstance(val, list):
+        return len(val) == 0
+    # Si c'est une chaîne vide
+    elif isinstance(val, str):
+        return val.strip() == ""
+    # Si c'est NaN (float('nan')) ou None
+    elif val is None or (isinstance(val, float) and pd.isna(val)):
+        return True
+    # Sinon, considérer que ce n'est pas vide
+    else:
+        return False
+
+def extract_pattern(uri):
+    if not isinstance(uri, str):
+        return None
+    match = re.match(r'https://([^/]+)', uri)
+    return match.group(1) if match else None
+
+def contient_mots_cles(val):
+    if isinstance(val, str):
+        # Recherche mots-clés dans la chaîne
+        return any(mot in val for mot in mots_cles_recherches)
+    elif isinstance(val, list):
+        # Recherche mots-clés dans la liste (éléments convertis en str)
+        return any(any(mot in str(elem) for mot in mots_cles_recherches) for elem in val)
+    else:
+        # Pour NaN, float, None, etc., on retourne False
+        return False
+    
 ###############################################################################################
 ########### RECUPERATION DES DATAFRAMES #######################################################
 ###############################################################################################
@@ -29,7 +60,7 @@ df_zenodo = st.session_state['df_zenodo']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
-df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','DOI sources','In_FairCarboN','Sollicitation']]
+df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','EU project acronyme','Financement','DOI sources','In_FairCarboN','Sollicitation']]
 df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
 df_indores_reduit = df_indores[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
 df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication','Type de document']]
@@ -44,8 +75,8 @@ df_concat['ANR project acronyme'] = df_concat['ANR project acronyme'].apply(lamb
 df_concat['ANR project acronyme'] = df_concat['ANR project acronyme'].apply(lambda lst: [mot.lower() for mot in lst])
 df_concat['Référencement par mots clés'] = df_concat['Mots_clés'].apply(
     lambda liste: any(mot in liste for mot in mots_cles_recherches))
-df_concat['Projet ANR dans FairCarboN'] = df_concat['ANR project acronyme'].apply(
-    lambda liste: any(mot in liste for mot in mots_cles_recherches))
+df_concat['Projet ANR dans FairCarboN'] = df_concat['ANR project acronyme'].apply(contient_mots_cles)
+df_concat['Financement dans FairCarboN'] = df_concat['Financement'].apply(contient_mots_cles)
 df_concat["Contient Zenodo"] = df_concat["DOI sources"].apply(
     lambda lst: any("zenodo" in s for s in lst) if isinstance(lst, list) else False
 )
@@ -53,16 +84,8 @@ df_concat["Contient hal"] = df_concat["DOI sources"].apply(
     lambda lst: any("hal" in s for s in lst) if isinstance(lst, list) else False
 )
 
-def is_empty_list(x):
-    return isinstance(x, list) and len(x) == 0
-
-def extract_pattern(uri):
-    if not isinstance(uri, str):
-        return None
-    match = re.match(r'https://([^/]+)', uri)
-    return match.group(1) if match else None
-
-df_concat["projet ANR à vérifier"] = df_concat["ANR project acronyme"].apply(is_empty_list)  & (df_concat["In_FairCarboN"]==False)
+df_concat["Sans_référencement"] = (
+    df_concat["ANR project acronyme"].apply(is_empty_list) & df_concat["EU project acronyme"].apply(is_empty_list) & df_concat['Financement'].apply(is_empty_list))
 df_concat['Pattern'] = df_concat['Uri'].apply(extract_pattern)
 
 ###############################################################################################
@@ -79,7 +102,6 @@ def reset_counter():
 df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
-
 
 col1, col2, col3, col4 = st.columns([0.8,0.05,0.05,0.1])
 with col1:
@@ -185,10 +207,15 @@ with colA:
     
 
 with colB:
-    st.subheader(f":grey[Datasets ouverts]")
-    liste_entrepots = ['Recherche Data Gouv','Zenodo', 'Data InDoRes']
-    df_selected_datasets = df_selected[df_selected['Nom_archive'].isin(liste_entrepots)]
-    st.metric(label='', value=len(df_selected_datasets))
+    col1, col2 =st.columns(2)
+    with col1:
+        st.subheader(f":grey[Datasets ouverts]")
+        liste_entrepots = ['Recherche Data Gouv','Zenodo', 'Data InDoRes']
+        df_selected_datasets = df_selected[df_selected['Nom_archive'].isin(liste_entrepots)]
+        st.metric(label='', value=len(df_selected_datasets))
+    with col2:
+        st.subheader(f":grey[Non référencés]")
+        st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]))
     if len(df_selected_datasets)>0:
         row_counts_datasets = df_selected_datasets['Nom_archive'].value_counts().reset_index()
         row_counts_datasets.columns = ['Archive', 'compte']
@@ -230,7 +257,8 @@ with colB:
     else:
         pass
 
-st.dataframe(df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique']], hide_index=True)
+df_selected_solli = df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Sans_référencement']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
+st.dataframe(df_selected_solli, hide_index=True)
 ###############################################################################################
 ########### AUTRES ANALYSES ###################################################################
 ###############################################################################################
