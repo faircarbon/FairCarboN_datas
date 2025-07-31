@@ -9,7 +9,7 @@ import requests
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
 st.set_page_config(
-    page_title="FAIRCARBON RDG DATA MINING",
+    page_title="FAIRCARBON ZENODO DATA",
     page_icon="👋",
     layout="wide",
     initial_sidebar_state="expanded",

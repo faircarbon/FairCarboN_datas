@@ -9,7 +9,7 @@ import plotly.graph_objects as go
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
 st.set_page_config(
-    page_title="FAIRCARBON RDG DATA MINING",
+    page_title="FAIRCARBON DATA GLOBAL",
     page_icon="👋",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -24,17 +24,20 @@ st.set_page_config(
 
 df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
+df_indores = st.session_state['df_InDoRes']
 df_zenodo = st.session_state['df_zenodo']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
 df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','DOI sources','In_FairCarboN','Sollicitation']]
 df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
+df_indores_reduit = df_indores[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
 df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication','Type de document']]
 
-df_concat = pd.concat([df_hal_reduit,df_rdg_reduit,df_zenodo_reduit], axis=0)
+df_concat = pd.concat([df_hal_reduit,df_rdg_reduit,df_indores_reduit,df_zenodo_reduit], axis=0)
 df_concat['In_FairCarboN'] = df_concat['In_FairCarboN'].fillna(False)
 df_concat['Type de document'] = df_concat['Type de document'].fillna('DATASET')
+df_concat['Sollicitation'] = df_concat['Sollicitation'].fillna('NON')
 df_concat['Mots_clés'] = df_concat['Mots_clés'].apply(lambda x: [] if not isinstance(x, list) else x)
 df_concat['Mots_clés'] = df_concat['Mots_clés'].apply(lambda lst: [mot.lower() for mot in lst])
 df_concat['ANR project acronyme'] = df_concat['ANR project acronyme'].apply(lambda x: [] if not isinstance(x, list) else x)
@@ -94,10 +97,10 @@ with col3:
     st.markdown('')
     button2 =st.button('R',on_click=reset_counter)
 with col4:
-    if df_concat['Sollicitation'][df_concat['Auteur_recherché']==Selection_p].values[0] =='NON':
+    if df_concat['Sollicitation'][df_concat['Auteur_recherché']==Selection_p].values[0]=='NON':
         st.image('Data/nok.png', width=80, caption="Sollicitation")
     else:
-        st.image('Data/ok.png', width=80)
+        st.image('Data/ok.png', width=80, caption="Sollicitation")
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
@@ -178,12 +181,12 @@ with colA:
         st.plotly_chart(fig_dates, use_container_width=True)
 
     else:
-        pass
+        df_yearly = pd.DataFrame()
     
 
 with colB:
     st.subheader(f":grey[Datasets ouverts]")
-    liste_entrepots = ['Recherche Data Gouv','Zenodo']
+    liste_entrepots = ['Recherche Data Gouv','Zenodo', 'Data InDoRes']
     df_selected_datasets = df_selected[df_selected['Nom_archive'].isin(liste_entrepots)]
     st.metric(label='', value=len(df_selected_datasets))
     if len(df_selected_datasets)>0:
@@ -210,15 +213,18 @@ with colB:
                                     y='Value', 
                                     title=f'Dépôts rattachés à {df_selected_datasets["Auteur_recherché"].values[0]}',
                                     color='Type de document')
-        fig_dates_datasets.update_xaxes(
+        
+        if len(df_yearly)>0:
+            fig_dates_datasets.update_xaxes(
                             tickmode='linear',     
                             dtick=1,          # intervalle d’un an
                             tickformat='d',    # format entier (pas de virgule, ni décimales)
                             range=[min(df_yearly['Date de publication'].values)-0.5, 2025 + 0.5]
                         )
-        fig_dates_datasets.update_yaxes(
-                            range=[0,max(df_yearly.groupby('Date de publication')['Value'].sum())]
-                        )
+        
+            fig_dates_datasets.update_yaxes(
+                                range=[0,max(df_yearly.groupby('Date de publication')['Value'].sum())]
+                            )
         
         st.plotly_chart(fig_dates_datasets, use_container_width=True)
     else:

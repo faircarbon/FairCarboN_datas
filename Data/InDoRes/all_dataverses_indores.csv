@@ -1,0 +1,139 @@
+name,id,parent,path
+Data InDoRes,dataindores,,Data InDoRes
+Collections MNHN,23,dataindores,Data InDoRes/Collections MNHN
+DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux),31,dataindores,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)
+OHM Pyrénées Haut Vicdessos,132,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Pyrénées Haut Vicdessos
+OHMi Estarreja,2179,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHMi Estarreja
+OHMi Nunavik,2180,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHMi Nunavik
+OHM Oyapock,2181,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Oyapock
+OHMi Téssékéré,2182,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHMi Téssékéré
+OHM Littoral Caraïbe,2183,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Littoral Caraïbe
+OHM Fessenheim,2184,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Fessenheim
+OHMi Patagonia-Bahia Exploradores,2185,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHMi Patagonia-Bahia Exploradores
+OHM Bassin minier de Provence,2186,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Bassin minier de Provence
+OHM Littoral méditerranéen,2187,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Littoral méditerranéen
+OHM Pays de Bitche,2188,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Pays de Bitche
+OHM Vallée du Rhône,2189,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHM Vallée du Rhône
+OHMi Pima County,2190,31,Data InDoRes/DRIIHM (Dispositif de Recherche Interdisciplinaire sur les Interactions Hommes-Milieux)/OHMi Pima County
+Réseau des Zones Ateliers (RZA - LTER France),35,dataindores,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)
+Zone atelier territoires uranifères,36,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier territoires uranifères
+Zone Atelier Seine,37,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone Atelier Seine
+PIREN-Seine,2178,37,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone Atelier Seine/PIREN-Seine
+Zone atelier Loire,38,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Loire
+"Site Atelier ""Blois""",4724,38,"Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Loire/Site Atelier ""Blois"""
+"Plateforme ""Têtes de Bassin""",25159,38,"Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Loire/Plateforme ""Têtes de Bassin"""
+"Plateforme ""Grands Cours d'Eau""",25160,38,"Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Loire/Plateforme ""Grands Cours d'Eau"""
+Zone atelier bassin du Rhône,39,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier bassin du Rhône
+Zone atelier bassin de la Moselle,40,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier bassin de la Moselle
+Zone atelier Alpes,42,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Alpes
+Zone atelier arc jurassien,43,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier arc jurassien
+Zone atelier Armorique,44,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Armorique
+Zone atelier Plaine et Val de Sèvre,45,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre
+Plantes adventices / weeds,19281,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Plantes adventices / weeds
+Oiseaux / birds,19282,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Oiseaux / birds
+Pollinisateurs / pollinators,19283,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Pollinisateurs / pollinators
+Rendement / yield,19284,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Rendement / yield
+Général / general,19285,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Général / general
+Fonctions écologiques,25706,45,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Plaine et Val de Sèvre/Fonctions écologiques
+Zone atelier environnementale urbaine,46,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier environnementale urbaine
+Zone atelier Hwange,47,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Hwange
+Zone atelier Pyrénées Garonne,48,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Pyrénées Garonne
+Zone atelier Brest Iroise,49,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone atelier Brest Iroise
+Zone Atelier Antarctique et Terres Australes,10295,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone Atelier Antarctique et Terres Australes
+Zone Atelier Santé Environnement Camargue,10296,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone Atelier Santé Environnement Camargue
+Zone Atelier Argonne,10297,35,Data InDoRes/Réseau des Zones Ateliers (RZA - LTER France)/Zone Atelier Argonne
+Centre de Recherche en Paléontologie - Paris (CR2P),54,dataindores,Data InDoRes/Centre de Recherche en Paléontologie - Paris (CR2P)
+BOREA,114,dataindores,Data InDoRes/BOREA
+"Institut de minéralogie, de physique des matériaux et de cosmochimie (IMPMC)",115,dataindores,"Data InDoRes/Institut de minéralogie, de physique des matériaux et de cosmochimie (IMPMC)"
+Centre d'Ecologie Fonctionnelle et Evolutive (CEFE),123,dataindores,Data InDoRes/Centre d'Ecologie Fonctionnelle et Evolutive (CEFE)
+Institut des Sciences de l'Évolution de Montpellier (ISEM),128,dataindores,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)
+Génomique,2332,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Génomique
+Écologie,2335,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Écologie
+Environnement,2337,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Environnement
+Morphologie,2338,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Morphologie
+Archéobiologie,2339,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Archéobiologie
+Anthropologie,2340,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Anthropologie
+Cytologie,2341,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Cytologie
+Évolution expérimentale,2342,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Évolution expérimentale
+Collections,6013,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Collections
+Projets,18024,128,Data InDoRes/Institut des Sciences de l'Évolution de Montpellier (ISEM)/Projets
+BioArch,151,dataindores,Data InDoRes/BioArch
+iEES-Paris,152,dataindores,Data InDoRes/iEES-Paris
+GEODE (Géographie de l'Environnement) UMR 5602,195,dataindores,Data InDoRes/GEODE (Géographie de l'Environnement) UMR 5602
+GEOLAB (Laboratoire de géographie physique et environnementale),1756,dataindores,Data InDoRes/GEOLAB (Laboratoire de géographie physique et environnementale)
+PatriNat,1773,dataindores,Data InDoRes/PatriNat
+EDYTEM,1777,dataindores,Data InDoRes/EDYTEM
+Station biologique de Roscoff,1909,dataindores,Data InDoRes/Station biologique de Roscoff
+Laboratoire de biologie intégrative des modèles marins,1910,dataindores,Data InDoRes/Laboratoire de biologie intégrative des modèles marins
+ECOBIO UMR 6553 Ecosystèmes Biodiversité Evolution,2082,dataindores,Data InDoRes/ECOBIO UMR 6553 Ecosystèmes Biodiversité Evolution
+Pelagis,2087,dataindores,Data InDoRes/Pelagis
+Xper3,2259,dataindores,Data InDoRes/Xper3
+Fédération Île-de-France de Recherche sur l'Environnement (FIRE),2284,dataindores,Data InDoRes/Fédération Île-de-France de Recherche sur l'Environnement (FIRE)
+"Institut de Systématique, Evolution, Biodiversité (ISYEB)",2285,dataindores,"Data InDoRes/Institut de Systématique, Evolution, Biodiversité (ISYEB)"
+Centre de recherche en écologie expérimentale et prédictive (CEREEP Ecotron IDF),2314,dataindores,Data InDoRes/Centre de recherche en écologie expérimentale et prédictive (CEREEP Ecotron IDF)
+Littoral - Environnement - Télédétection - Géomatique (LETG),2315,dataindores,Data InDoRes/Littoral - Environnement - Télédétection - Géomatique (LETG)
+ANR ARICO,2331,2315,Data InDoRes/Littoral - Environnement - Télédétection - Géomatique (LETG)/ANR ARICO
+Projet LATITUDE,26683,2315,Data InDoRes/Littoral - Environnement - Télédétection - Géomatique (LETG)/Projet LATITUDE
+Publications scientifiques du Muséum national d'Histoire naturelle,2615,dataindores,Data InDoRes/Publications scientifiques du Muséum national d'Histoire naturelle
+Geodiversitas,2719,2615,Data InDoRes/Publications scientifiques du Muséum national d'Histoire naturelle/Geodiversitas
+"Écologie, systématique et évolution ",2718,dataindores,"Data InDoRes/Écologie, systématique et évolution "
+Centre d'Etudes Biologiques de Chizé (CEBC),2868,dataindores,Data InDoRes/Centre d'Etudes Biologiques de Chizé (CEBC)
+UMR Eco-anthropologie,3460,dataindores,Data InDoRes/UMR Eco-anthropologie
+MECADEV (Mécanismes adaptatifs & Evolution),4082,dataindores,Data InDoRes/MECADEV (Mécanismes adaptatifs & Evolution)
+Centre d'Ecologie et des Sciences de la Conservation (CESCO),4102,dataindores,Data InDoRes/Centre d'Ecologie et des Sciences de la Conservation (CESCO)
+LIttoral ENvironnement et Sociétés (LIENSs),4996,dataindores,Data InDoRes/LIttoral ENvironnement et Sociétés (LIENSs)
+AnaEE France,5050,dataindores,Data InDoRes/AnaEE France
+Biogéosciences,5056,dataindores,Data InDoRes/Biogéosciences
+PACEA,5081,dataindores,Data InDoRes/PACEA
+Projects,5082,5081,Data InDoRes/PACEA/Projects
+GravettoNiches,5083,5082,Data InDoRes/PACEA/Projects/GravettoNiches
+NeandRoots,10496,5082,Data InDoRes/PACEA/Projects/NeandRoots
+Centre de Recherche sur la Conservation,5099,dataindores,Data InDoRes/Centre de Recherche sur la Conservation
+Documents graphiques,5146,5099,Data InDoRes/Centre de Recherche sur la Conservation/Documents graphiques
+Projets,5150,5099,Data InDoRes/Centre de Recherche sur la Conservation/Projets
+Centre de Recherche sur la Biodiversité et l’Environnement (CRBE),5151,dataindores,Data InDoRes/Centre de Recherche sur la Biodiversité et l’Environnement (CRBE)
+BARCODRAIN,22697,5151,Data InDoRes/Centre de Recherche sur la Biodiversité et l’Environnement (CRBE)/BARCODRAIN
+ECOFEED,25884,5151,Data InDoRes/Centre de Recherche sur la Biodiversité et l’Environnement (CRBE)/ECOFEED
+UMR Écologie et Dynamique des Systèmes Anthropisés (EDYSAN),5917,dataindores,Data InDoRes/UMR Écologie et Dynamique des Systèmes Anthropisés (EDYSAN)
+IMPRINT (projet ANR),5923,5917,Data InDoRes/UMR Écologie et Dynamique des Systèmes Anthropisés (EDYSAN)/IMPRINT (projet ANR)
+"Centre de Recherche en Archéologie, Archéosciences, Histoire (CReAAH)",6017,dataindores,"Data InDoRes/Centre de Recherche en Archéologie, Archéosciences, Histoire (CReAAH)"
+Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim),6175,dataindores,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)
+Trident,6176,6175,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident
+Experimental datasets,6177,6176,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Experimental datasets
+Others,6187,6177,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Experimental datasets/Others
+Sheep,6188,6177,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Experimental datasets/Sheep
+Pigs,6189,6177,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Experimental datasets/Pigs
+Modern datasets,6178,6176,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Modern datasets
+Ungulates,6184,6178,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Modern datasets/Ungulates
+Primates,6185,6178,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Modern datasets/Primates
+Others,6186,6178,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Modern datasets/Others
+Fossil datasets,6179,6176,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Fossil datasets
+Africa,6180,6179,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Fossil datasets/Africa
+Asia,6181,6179,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Fossil datasets/Asia
+Europe,6182,6179,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Fossil datasets/Europe
+Others,6183,6179,Data InDoRes/Laboratoire Paléontologie Evolution Paléoécosystèmes Paléoprimatologie (Palevoprim)/Trident/Fossil datasets/Others
+Institut méditerranéen de biodiversité et d'écologie marine et continentale (IMBE),10498,dataindores,Data InDoRes/Institut méditerranéen de biodiversité et d'écologie marine et continentale (IMBE)
+O3HP (Oak Observatory at OHP),17990,10498,Data InDoRes/Institut méditerranéen de biodiversité et d'écologie marine et continentale (IMBE)/O3HP (Oak Observatory at OHP)
+ENTROPIE (Écologie Marine Tropicale des Océans Pacifique et Indien),18109,dataindores,Data InDoRes/ENTROPIE (Écologie Marine Tropicale des Océans Pacifique et Indien)
+ESCO Lynx 2024,18120,dataindores,Data InDoRes/ESCO Lynx 2024
+Station marine de Dinard,19286,dataindores,Data InDoRes/Station marine de Dinard
+Projet ACaPELA,19287,19286,Data InDoRes/Station marine de Dinard/Projet ACaPELA
+Columbian ground squirrel long-term research project,20268,dataindores,Data InDoRes/Columbian ground squirrel long-term research project
+Golfe de St Tropez,20581,dataindores,Data InDoRes/Golfe de St Tropez
+"Environnement, Ville, Société",20654,dataindores,"Data InDoRes/Environnement, Ville, Société"
+Prairie dogs: John Hoogland's longterm research,21492,dataindores,Data InDoRes/Prairie dogs: John Hoogland's longterm research
+Aire marine protégée de la côte agathoise,21549,dataindores,Data InDoRes/Aire marine protégée de la côte agathoise
+Histoire Naturelle des Humanités Préhistoriques,21592,dataindores,Data InDoRes/Histoire Naturelle des Humanités Préhistoriques
+Réserve naturelle nationale de Cerbère-Banyuls,21593,dataindores,Data InDoRes/Réserve naturelle nationale de Cerbère-Banyuls
+Parc national des Calanques,22675,dataindores,Data InDoRes/Parc national des Calanques
+Parc national de Port-Cros,22676,dataindores,Data InDoRes/Parc national de Port-Cros
+Parc naturel marin Golfe du Lion,22694,dataindores,Data InDoRes/Parc naturel marin Golfe du Lion
+Département Ecologie Physiologie Ethologie,22696,dataindores,Data InDoRes/Département Ecologie Physiologie Ethologie
+Carsten Schradin,29348,22696,Data InDoRes/Département Ecologie Physiologie Ethologie/Carsten Schradin
+"EGCE (Evolution, Génomes, Comportement et Ecologie)",24613,dataindores,"Data InDoRes/EGCE (Evolution, Génomes, Comportement et Ecologie)"
+Projet ANR BitterTox,24755,24613,"Data InDoRes/EGCE (Evolution, Génomes, Comportement et Ecologie)/Projet ANR BitterTox"
+"MIVEGEC (Maladies infectieuses et vecteurs : Ecologie, Génétique, Evolution et Contrôle",25351,dataindores,"Data InDoRes/MIVEGEC (Maladies infectieuses et vecteurs : Ecologie, Génétique, Evolution et Contrôle"
+"ECONERGY #119: Long-term observatory of king penguin ecophysiology, behaviour, growth and breeding success",25506,dataindores,"Data InDoRes/ECONERGY #119: Long-term observatory of king penguin ecophysiology, behaviour, growth and breeding success"
+Bush Karoo rat and striped mice long-term research project - BKR,29339,dataindores,Data InDoRes/Bush Karoo rat and striped mice long-term research project - BKR
+2025 Lodge Structure Paper,29347,29339,Data InDoRes/Bush Karoo rat and striped mice long-term research project - BKR/2025 Lodge Structure Paper
+Osmolality and water harshness,29460,29339,Data InDoRes/Bush Karoo rat and striped mice long-term research project - BKR/Osmolality and water harshness

@@ -12,7 +12,7 @@ import os
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
 st.set_page_config(
-    page_title="FAIRCARBON RDG DATA",
+    page_title="FAIRCARBON DATA INDORES",
     page_icon="👋",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -22,9 +22,9 @@ st.set_page_config(
 )
 
 ######################################################################################################################
-######################## RDG #########################################################################################
-BASE_URL_RDG="https://entrepot.recherche.data.gouv.fr/"
-API_TOKEN_RDG="13b493ed-e02b-4e65-95de-d97d6896916a"
+######################## INDORES #########################################################################################
+BASE_URL_InDoRes="https://data.indores.fr"
+API_TOKEN_InDoRes="ed5d820c-1fbb-4909-a3fe-42f3fd8fddbe"
 
 ######################################################################################################################
 ########### FONCTIONS SUPPORTS #######################################################################################
@@ -56,8 +56,8 @@ def connect_to_dataverse(BASE_URL, API_TOKEN):
             
         # vérification de la connexion
         if response['status']=='OK':
-            st.session_state['rdg_api'] = api
-            st.success("Connexion établie avec Recherche Data Gouv")
+            st.session_state['IndoRes_api'] = api
+            st.success("Connexion établie avec Data InDoRes")
         else:
             st.error("Connexion échouée!")
     except Exception as e:
@@ -83,9 +83,9 @@ def Recup_contenu_dataset(api,persistenteUrl):
     return dataset_contenu
 
 ##################################################################################################################
-######### RECUPERATION DES ENTREPOTS RDG #########################################################################
+######### RECUPERATION DES ENTREPOTS DATA INDORES ################################################################
 
-def get_all_subdataverses(api, dataverse_id, parent_path="root"):
+def get_all_subdataverses(api, dataverse_id, parent_path="dataindores"):
     """
     Recursively fetch all sub-dataverses under a given dataverse.
     
@@ -120,7 +120,7 @@ def get_all_subdataverses(api, dataverse_id, parent_path="root"):
     return results
 
 
-def recup_dataverses_rdg_recursive(api, output_filename="all_dataverses_rdg.csv"):
+def recup_dataverses_indores_recursive(api, output_filename="all_dataverses_indores.csv"):
     """
     Recursively retrieves all dataverses starting from 'root' in Recherche Data Gouv.
     
@@ -128,21 +128,21 @@ def recup_dataverses_rdg_recursive(api, output_filename="all_dataverses_rdg.csv"
     - api: dataverse API connection
     - output_filename: name of the output CSV file
     """
-    all_data = get_all_subdataverses(api, "root", parent_path="Recherche Data Gouv")
+    all_data = get_all_subdataverses(api, "dataindores", parent_path="Data InDoRes") #changer root et parent path
     df = pd.DataFrame(all_data)
     
     # Optional: add root level manually if needed
     root_entry = {
-        "name": "Recherche Data Gouv",
-        "id": "root",
+        "name": "Data InDoRes",
+        "id": "dataindores",
         "parent": None,
-        "path": "Recherche Data Gouv"
+        "path": "Data InDoRes"
     }
     df = pd.concat([pd.DataFrame([root_entry]), df], ignore_index=True)
 
     # Output path
-    os.makedirs("Data/RechercheDataGouv", exist_ok=True)
-    output_path = os.path.join("Data", "RechercheDataGouv", output_filename)
+    os.makedirs("Data/InDoRes", exist_ok=True)
+    output_path = os.path.join("Data", "InDoRes", output_filename) 
     
     df.to_csv(output_path, index=False)
     st.write(f"Saved dataverse hierarchy to: {output_path}")
@@ -163,13 +163,13 @@ def Recup_contenu_dataset(api,persistenteUrl):
     return dataset_contenu
 
 ########## création du connecteur ###################################################################
-api_rdg = connect_to_dataverse(BASE_URL_RDG,  API_TOKEN_RDG)
+api_InDoRes = connect_to_dataverse(BASE_URL_InDoRes,  API_TOKEN_InDoRes)
 #####################################################################################################
 
 def extract_funding_info_from_url(url):
 
     try:
-        data = Recup_contenu_dataset(api_rdg,url)
+        data = Recup_contenu_dataset(api_InDoRes,url)
 
         project_info = data['data']['latestVersion']['metadataBlocks']['citation']['fields']
 
@@ -230,14 +230,14 @@ def transform_name(name):
 # code pour faire la récupération de l'ensemble des datasets
 @st.cache_data
 def Recup_datasets_metadata():
-    base = "https://entrepot.recherche.data.gouv.fr"
+    base = "https://data.indores.fr" # changer la base
     rows = 10
     start = 0
     page = 1
     condition = True # emulate do-while
 
 
-    response_init = requests.get(base + '/api/v1/search?q=*&type=dataset')
+    response_init = requests.get(base + '/api/v1/search?q=*&type=dataset') # changer la suite du path
     response_init.raise_for_status()  # Sécurité : stoppe si erreur
     data_init = response_init.json().get("data", {})
     total_count = data_init.get("total_count", 0)
@@ -245,7 +245,7 @@ def Recup_datasets_metadata():
     all_items = []
 
     while (condition):
-        url = base + '/api/v1/search?q=*&type=dataset' + "&start=" + str(start)
+        url = base + '/api/v1/search?q=*&type=dataset' + "&start=" + str(start) # changer la suite du path
         
         response = requests.get(url)
         response.raise_for_status()  # Sécurité : stoppe si erreur
@@ -268,7 +268,7 @@ def Recup_datasets_metadata():
 
     # 🎯 Extraction des champs souhaités
     filtered_data = [
-            {"Nom_archive":"Recherche Data Gouv",
+            {"Nom_archive":"Data InDoRes",
             "Titre_unique": item.get("name"), 
             "global_id": item.get("global_id"), 
             'entrepot':item.get('publisher'), 
@@ -279,7 +279,7 @@ def Recup_datasets_metadata():
             "Sujet":item.get('subjects'), 
             "Auteurs":item.get('authors'),
             "Sources":item.get('publications'),
-            "Type de document":"dataset-rdg"}
+            "Type de document":"dataset-indores"}
             for item in dataset_items
     ]
 
@@ -322,7 +322,7 @@ def Recup_datasets_metadata():
     df2_merged = df2_merged.explode('projet').reset_index(drop=True)
 
     # 💾 Sauvegarde en CSV
-    df2_merged.to_csv(f"Data/RechercheDataGouv/all_datasets_rdg_{d}.csv", index=False)
+    df2_merged.to_csv(f"Data/InDoRes/all_datasets_InDoRes_{d}.csv", index=False)
     return df2_merged
 
 
@@ -333,7 +333,7 @@ def recup_license_publication(df2):
 
     for i, item in enumerate(df2["PersistentUrl"]):
         try:
-            ex = Recup_contenu_dataset(api_rdg, item)
+            ex = Recup_contenu_dataset(api_InDoRes, item)
         except Exception as e:
             # If API call fails entirely
             df2.loc[i, 'status'] = f"Erreur API: {type(e).__name__}"
@@ -387,10 +387,10 @@ end_year=d.year
 
 # Code à décommenter pour faire la récupération des dataverses
 #with st.spinner('Recupération des dataverses disponibles et leurs identifiants'):
-#    data = recup_dataverses_rdg_recursive(api_rdg)
+#    data = recup_dataverses_indores_recursive(api_InDoRes)
 
 # Load the previously saved dataverses
-df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
+df = pd.read_csv("Data/InDoRes/all_dataverses_InDoRes.csv")
 df_contacts =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
 df_contacts['Auteur_recherché']=df_contacts['Contact']
 df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(lambda x: ', '.join(sorted(set(x)))).reset_index()
@@ -398,37 +398,37 @@ df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(l
 liste_contacts = df_contacts['Contact'].values
 df2 = Recup_datasets_metadata()
 
-st.session_state['df_rdg'] = df2
+st.session_state['df_InDoRes'] = df2
 
 ######################################################################################################################
 ########### Visualisation contenu dataverses RDG #####################################################################
 ######################################################################################################################
 
 # Split path into hierarchical levels
-df[['level_0','level_1','level_2','level_3','level_4','level_5']] = df['path'].str.split('/', expand=True, n=5)
+df[['level_0','level_1','level_2','level_3']] = df['path'].str.split('/', expand=True, n=3) #,'level_4','level_5'
 df['val']=1
 df.fillna('', inplace=True)
-liste_entrepots_rdg = df['name'].values
+liste_entrepots_InDoRes = df['name'].values
 
-liste_entrepots_rdg_visu0 = set(df['level_0'].values)
-liste_entrepots_rdg_visu1 = set(df['level_1'].values)
-liste_entrepots_rdg_visu2 = set(df['level_2'].values)
-liste_entrepots_rdg_visu3 = set(df['level_3'].values)
-liste_entrepots_rdg_visu4 = set(df['level_4'].values)
-liste_entrepots_rdg_visu5 = set(df['level_5'].values)
+liste_entrepots_InDoRes_visu0 = set(df['level_0'].values)
+liste_entrepots_InDoRes_visu1 = set(df['level_1'].values)
+liste_entrepots_InDoRes_visu2 = set(df['level_2'].values)
+liste_entrepots_InDoRes_visu3 = set(df['level_3'].values)
+#liste_entrepots_InDoRes_visu4 = set(df['level_4'].values)
+#liste_entrepots_InDoRes_visu5 = set(df['level_5'].values)
 
-l0 = len(liste_entrepots_rdg_visu0)
-l1 = len(liste_entrepots_rdg_visu1)
-l2 = len(liste_entrepots_rdg_visu2)
-l3 = len(liste_entrepots_rdg_visu3)
-l4 = len(liste_entrepots_rdg_visu4)
-l5 = len(liste_entrepots_rdg_visu5)
+l0 = len(liste_entrepots_InDoRes_visu0)
+l1 = len(liste_entrepots_InDoRes_visu1)
+l2 = len(liste_entrepots_InDoRes_visu2)
+l3 = len(liste_entrepots_InDoRes_visu3)
+#l4 = len(liste_entrepots_InDoRes_visu4)
+#l5 = len(liste_entrepots_InDoRes_visu5)
 
 cola,colb =st.columns([0.8,0.2])
 with cola:
-    st.title('Etude du contenu de Recherche Data Gouv')
+    st.title('Etude du contenu de Data InDoRes')
 with colb:
-    st.metric(label='Nombre de collections total', value=len(liste_entrepots_rdg))
+    st.metric(label='Nombre de collections total', value=len(liste_entrepots_InDoRes))
 
 col1,col2,col3,col4,col5 = st.columns(5)
 with col1:
@@ -438,12 +438,14 @@ with col2:
 with col3:
     st.metric(label="NB au niveau 3", value=l3)
 with col4:
-    st.metric(label="NB au niveau 4", value=l4)
+    pass
+    #st.metric(label="NB au niveau 4", value=l4)
 with col5:
-    st.metric(label="NB au niveau 5", value=l5)
+    pass
+    #st.metric(label="NB au niveau 5", value=l5)
 
 
-#st.write("Total",l0+l1+l2+l3+l4+l5)
+#st.write("Total",l0+l1+l2+l3) #+l4+l5
 
 df_drop = df.dropna(axis=0)
 

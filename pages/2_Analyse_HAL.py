@@ -9,7 +9,7 @@ import datetime
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
 st.set_page_config(
-    page_title="FAIRCARBON HAL DATA MINING",
+    page_title="FAIRCARBON HAL DATA",
     page_icon="👋",
     layout="wide",
     initial_sidebar_state="expanded",
