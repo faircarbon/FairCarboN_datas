@@ -207,15 +207,18 @@ with colA:
     
 
 with colB:
-    col1, col2 =st.columns(2)
+    col1, col2, col3 =st.columns(3)
     with col1:
-        st.subheader(f":grey[Datasets ouverts]")
+        st.subheader(f":grey[DS ouverts]")
         liste_entrepots = ['Recherche Data Gouv','Zenodo', 'Data InDoRes']
         df_selected_datasets = df_selected[df_selected['Nom_archive'].isin(liste_entrepots)]
         st.metric(label='', value=len(df_selected_datasets))
     with col2:
-        st.subheader(f":grey[Non référencés]")
+        st.subheader(f":grey[Pas de ref.]")
         st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]))
+    with col3:
+        st.subheader(f":grey[ap. 2023]")
+        st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True][df_selected["Date de publication"]>=2023]))
     if len(df_selected_datasets)>0:
         row_counts_datasets = df_selected_datasets['Nom_archive'].value_counts().reset_index()
         row_counts_datasets.columns = ['Archive', 'compte']
