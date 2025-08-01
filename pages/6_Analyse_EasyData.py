@@ -61,7 +61,7 @@ def extract_authors_from_iso19115_3(xml_content):
     except Exception as e:
         return [f"[Erreur extraction auteurs: {e}]"]
 
-st.title('Etude du contenu de EasyData')
+st.title(":grey[Etude du contenu de EaSy Data]")
 
 url_easydata = "https://www.easydata.earth/api/csw"
 

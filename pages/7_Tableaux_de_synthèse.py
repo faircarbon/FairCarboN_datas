@@ -103,6 +103,7 @@ def increment_counter():
 def reset_counter():
     st.session_state.count = 0
 
+st.title(":grey[Synthèse des analyses par individu]")
 
 df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
@@ -265,7 +266,7 @@ with colB:
     else:
         pass
 
-df_selected_solli = df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Sans_référencement']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
+df_selected_solli = df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
 st.dataframe(df_selected_solli, hide_index=True)
 
 df_selected_solli_ssref = df_selected_solli[['Nom_archive', 'Date de publication','Titre_unique','Sans_référencement']][df_selected['Sans_référencement']==True]

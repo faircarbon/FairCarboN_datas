@@ -426,7 +426,7 @@ l3 = len(liste_entrepots_InDoRes_visu3)
 
 cola,colb =st.columns([0.8,0.2])
 with cola:
-    st.title('Etude du contenu de Data InDoRes')
+    st.title(":grey[Etude du contenu de Data InDoRes]")
 with colb:
     st.metric(label='Nombre de collections total', value=len(liste_entrepots_InDoRes))
 
