@@ -54,7 +54,7 @@ df_reduit['NOM'] = df_reduit['NOM'].str.upper()
 df_reduit['MOYENS_PRODUCTION'].fillna('NON RENSEIGNE', inplace=True)
 df_reduit['SOURCE'].fillna('NON RENSEIGNE', inplace=True)
 
-fig = px.sunburst(df_reduit, path=['NATURE','TYPE','NOM','PROJET'], values='Value', color='NATURE',  # La couleur sera attribuée au 1er niveau
+fig = px.sunburst(df_reduit, path=['NATURE','TYPE','NOM'], values='Value', color='NATURE',  # La couleur sera attribuée au 1er niveau
     color_discrete_map={
         'PRODUITES': 'lightgreen',
         'PRE_EXISTANTES': 'pink'})
