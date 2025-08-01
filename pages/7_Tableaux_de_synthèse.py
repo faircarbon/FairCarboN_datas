@@ -3,6 +3,11 @@ import pandas as pd
 import re
 import plotly.express as px
 import plotly.graph_objects as go
+import os
+import io
+import pickle
+from unidecode import unidecode
+import datetime
 
 
 ###############################################################################################
@@ -52,7 +57,7 @@ def contient_mots_cles(val):
 ###############################################################################################
 ########### RECUPERATION DES DATAFRAMES #######################################################
 ###############################################################################################
-
+d = datetime.date.today()
 df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
 df_indores = st.session_state['df_InDoRes']
@@ -262,6 +267,50 @@ with colB:
 
 df_selected_solli = df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Sans_référencement']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
 st.dataframe(df_selected_solli, hide_index=True)
+
+df_selected_solli_ssref = df_selected_solli[['Nom_archive', 'Date de publication','Titre_unique','Sans_référencement']][df_selected['Sans_référencement']==True]
+
+Selection_p_ = unidecode(Selection_p).replace(" ", "_")
+
+# Spécifie le dossier d'export
+export_path = "./Data/Publications_HAL_sans_ref/"
+os.makedirs(export_path, exist_ok=True)
+
+# Nom des fichiers
+csv_filename = os.path.join(export_path, f"HAL_{Selection_p_}_{d}.csv")
+pkl_filename = os.path.join(export_path, f"HAL_{Selection_p_}_{d}.pkl")
+
+if st.button("Sauvegarde et téléchargement"):
+    col1, col2 = st.columns(2)
+    # Proposer le téléchargement des fichiers
+
+    with col1:
+        df_selected_solli_ssref.to_csv(csv_filename, index=False)
+        st.success(f"Fichiers enregistrés en csv dans `{export_path}` (côté serveur).")
+        # CSV
+        csv_buffer = io.StringIO()
+        df_selected_solli_ssref.to_csv(csv_buffer, index=False)
+        st.download_button(
+                label="Télécharger le CSV",
+                data=csv_buffer.getvalue().encode('utf-8'),
+                file_name=f"HAL_{Selection_p_}_{d}.csv",
+                mime="text/csv"
+            )
+    with col2:
+        with open(pkl_filename, "wb") as f:
+            pickle.dump(df_selected_solli_ssref, f)
+        st.success(f"Fichiers enregistrés en pickle dans `{export_path}` (côté serveur).")
+        # Pickle
+        pkl_buffer = io.BytesIO()
+        pickle.dump(df_selected_solli_ssref, pkl_buffer)
+        pkl_buffer.seek(0)
+        st.download_button(
+                label="Télécharger le fichier Pickle",
+                data=pkl_buffer,
+                file_name=f"HAL_{Selection_p_}_{d}.pkl",
+                mime="application/octet-stream"
+            )
+
 ###############################################################################################
 ########### AUTRES ANALYSES ###################################################################
 ###############################################################################################
