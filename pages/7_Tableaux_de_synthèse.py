@@ -23,6 +23,22 @@ st.set_page_config(
         'About': "développé par Jérôme Dutroncy"}
 )
 
+@st.cache_data
+def read_data(path):
+    """
+    lecture d'un fichier excel, retourné dans le script en format csv prêt à l'emploi
+
+    Paramètres: 
+        un chemin vers un fichier excel
+    retour: 
+        un tableau CSV
+    """
+    # Lecture du fichier Excel dans un DataFrame
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    # Transformation du fichier en csv
+    df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
+    return df
+
 def is_empty_list(val):
     # Si c'est une liste, vérifier si vide
     if isinstance(val, list):
@@ -58,6 +74,7 @@ def contient_mots_cles(val):
 ########### RECUPERATION DES DATAFRAMES #######################################################
 ###############################################################################################
 d = datetime.date.today()
+df = read_data("Data\FairCarboN_Datas_Contacts")
 df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
 df_indores = st.session_state['df_InDoRes']
@@ -109,7 +126,7 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-col1, col2, col3, col4 = st.columns([0.8,0.05,0.05,0.1])
+col1, col2, col3, col4, col5 = st.columns([0.7,0.05,0.05,0.1,0.1])
 with col1:
     try:
         Selection_p = st.selectbox(label='Selection', options=p, index=st.session_state.count)
@@ -129,6 +146,10 @@ with col4:
         st.image('Data/nok.png', width=80, caption="Sollicitation")
     else:
         st.image('Data/ok.png', width=80, caption="Sollicitation")
+with col5:
+    st.markdown("Projet(s):")
+    for i in range(len(df['projet'][df['Contact']==Selection_p].values)):
+        st.markdown(df['projet'][df['Contact']==Selection_p].values[i])
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
@@ -153,8 +174,7 @@ with colA:
 
                 # Calcul du total et du pourcentage
         total = row_counts_hal['compte'].sum()
-        # Calcul des pourcentages
-        total = row_counts_hal['compte'].sum()
+
         row_counts_hal['pourcentage'] = (row_counts_hal['compte'] / total) * 100
 
         # Génération des étiquettes conditionnelles
