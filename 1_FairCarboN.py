@@ -38,7 +38,7 @@ def read_data(path):
     # Chemin vers le fichier Excel
     #fichier_excel = "Data\FairCarboN_Datas_V2.xlsx"
     # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=0,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
 
