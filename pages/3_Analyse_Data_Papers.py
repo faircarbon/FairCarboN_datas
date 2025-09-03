@@ -61,18 +61,8 @@ liste_ESSD_titres = df["ESSD_titres_tuples"].drop_duplicates()
 
 
 st.title(f":grey[Etude des data papers publiés (via scraping)]")
-col1, col2= st.columns(2)
-with col1:
-    st.metric(label='NB Articles - Data In Brief', value=len(liste_DIB_titres)) #int(df['DataInBrief'].sum())
-    st.metric(label='NB Articles - Earth System Science Data', value=len(liste_ESSD_titres)) #int(df['EarthSystemScienceData'].sum())
-with col2:
-    st.metric(label='Nombre de contacts', value=len(df['Contact'][df['DataInBrief']>0].drop_duplicates()))
-    st.metric(label='Nombre de contacts', value=len(df['Contact'][df['EarthSystemScienceData']>0].drop_duplicates()))
 
-
-
-
-st.title(f":grey[Analyse des liens pour les data papers]")
+st.title(f":grey[Analyse des liens]")
 
 # 1) On "explose" la colonne titre
 df_long_DIB = df.explode("DIB_titres_tuples").dropna(subset=["DIB_titres_tuples"])
@@ -171,7 +161,7 @@ unit_trace = go.Scatter(
         line_width=2
     ),
     textfont=dict(
-        size=12,
+        size=2,
         color='black'
     )
 )
@@ -188,7 +178,7 @@ unit_trace2 = go.Scatter(
         line_width=2
     ),
     textfont=dict(
-        size=12,
+        size=2,
         color='black'
     )
 )
@@ -201,7 +191,7 @@ project_trace = go.Scatter(
     hoverinfo='text',
     marker=dict(
         color='green',
-        size=25,
+        size=10,
         line_width=2
     ),
     textfont=dict(
@@ -217,7 +207,7 @@ project_trace2 = go.Scatter(
     hoverinfo='text',
     marker=dict(
         color='green',
-        size=25,
+        size=10,
         line_width=2
     ),
     textfont=dict(
@@ -253,8 +243,21 @@ fig2 = go.Figure(
 )
 
 # Affichage
-st.subheader(f":grey[Pour Data In Brief]")
+col1, col2, col3 = st.columns([0.5,0.25,0.25])
+with col1:
+    st.subheader(f":grey[Pour Data In Brief]")
+with col2:
+    st.metric(label='NB Articles', value=len(liste_DIB_titres))
+with col3:
+    st.metric(label='Nombre de contacts', value=len(df['Contact'][df['DataInBrief']>0].drop_duplicates()))
 st.plotly_chart(fig, use_container_width=True)
 
-st.subheader(f":grey[Pour ESSD]")
-st.plotly_chart(fig2, use_container_width=True)
+col1, col2, col3 = st.columns([0.5,0.25,0.25])
+with col1:
+    st.subheader(f":grey[Pour Earth System Science Data]")
+with col2:
+    st.metric(label='NB Articles', value=len(liste_ESSD_titres))
+with col3:
+    st.metric(label='Nombre de contacts', value=len(df['Contact'][df['EarthSystemScienceData']>0].drop_duplicates()))
+
+st.plotly_chart(fig2, use_container_width=True)  
