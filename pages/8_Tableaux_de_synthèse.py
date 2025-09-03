@@ -34,7 +34,7 @@ def read_data(path):
         un tableau CSV
     """
     # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=0,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df
@@ -82,7 +82,7 @@ df_zenodo = st.session_state['df_zenodo']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
-df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','EU project acronyme','Financement','DOI sources','In_FairCarboN','Sollicitation']]
+df_hal_reduit = df_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Uri','Titre_unique','Date de publication','Mots_clés','Type de document','ANR project acronyme','EU project acronyme','Financement','DOI sources','In_FairCarboN','Sollicitation']]
 df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
 df_indores_reduit = df_indores[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
 df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication','Type de document']]
@@ -98,7 +98,12 @@ df_concat['ANR project acronyme'] = df_concat['ANR project acronyme'].apply(lamb
 df_concat['Référencement par mots clés'] = df_concat['Mots_clés'].apply(
     lambda liste: any(mot in liste for mot in mots_cles_recherches))
 df_concat['Projet ANR dans FairCarboN'] = df_concat['ANR project acronyme'].apply(contient_mots_cles)
-df_concat['Financement dans FairCarboN'] = df_concat['Financement'].apply(contient_mots_cles)
+
+df_concat["Financement_split"] = df_concat["Financement"].apply(
+    lambda lst: [part for elem in lst for part in str(elem).split(" ")] if isinstance(lst, list) else []
+)
+df_concat["Financement_split"] = df_concat["Financement_split"].apply(lambda lst: [mot.lower() for mot in lst])
+df_concat['Financement dans FairCarboN'] = df_concat['Financement_split'].apply(contient_mots_cles)
 df_concat["Contient Zenodo"] = df_concat["DOI sources"].apply(
     lambda lst: any("zenodo" in s for s in lst) if isinstance(lst, list) else False
 )
@@ -167,6 +172,7 @@ with colA:
     with col2:
         st.subheader(f":grey[Dans FairCarboN]")
         st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL'][df_selected['In_FairCarboN']==True]))
+    
     df_selected_hal = df_selected[df_selected['Nom_archive']=='HAL']
     if len(df_selected_hal)>0:
         row_counts_hal = df_selected_hal['Pattern'].value_counts().reset_index()
@@ -243,7 +249,7 @@ with colB:
         st.subheader(f":grey[Pas de ref.]")
         st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]))
     with col3:
-        st.subheader(f":grey[ap. 2023]")
+        st.subheader(f":grey[à vérifier]")
         st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True][df_selected["Date de publication"]>=2023]))
     if len(df_selected_datasets)>0:
         row_counts_datasets = df_selected_datasets['Nom_archive'].value_counts().reset_index()
@@ -286,10 +292,12 @@ with colB:
     else:
         pass
 
-df_selected_solli = df_selected[['Auteur_recherché','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
+df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
 st.dataframe(df_selected_solli, hide_index=True)
 
-df_selected_solli_ssref = df_selected_solli[['Nom_archive', 'Date de publication','Titre_unique','Sans_référencement']][df_selected['Sans_référencement']==True]
+df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
+df_selected_solli_avecrefmalplacee = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Financement dans FairCarboN']==True]
+df_averifier = pd.concat([df_selected_solli_ssref,df_selected_solli_avecrefmalplacee], axis=0)
 
 Selection_p_ = unidecode(Selection_p).replace(" ", "_")
 
@@ -306,11 +314,11 @@ if st.button("Sauvegarde et téléchargement"):
     # Proposer le téléchargement des fichiers
 
     with col1:
-        df_selected_solli_ssref.to_csv(csv_filename, index=False)
+        df_averifier.to_csv(csv_filename, index=False)
         st.success(f"Fichiers enregistrés en csv dans `{export_path}` (côté serveur).")
         # CSV
         csv_buffer = io.StringIO()
-        df_selected_solli_ssref.to_csv(csv_buffer, index=False)
+        df_averifier.to_csv(csv_buffer, index=False)
         st.download_button(
                 label="Télécharger le CSV",
                 data=csv_buffer.getvalue().encode('utf-8'),
@@ -319,11 +327,11 @@ if st.button("Sauvegarde et téléchargement"):
             )
     with col2:
         with open(pkl_filename, "wb") as f:
-            pickle.dump(df_selected_solli_ssref, f)
+            pickle.dump(df_averifier, f)
         st.success(f"Fichiers enregistrés en pickle dans `{export_path}` (côté serveur).")
         # Pickle
         pkl_buffer = io.BytesIO()
-        pickle.dump(df_selected_solli_ssref, pkl_buffer)
+        pickle.dump(df_averifier, pkl_buffer)
         pkl_buffer.seek(0)
         st.download_button(
                 label="Télécharger le fichier Pickle",

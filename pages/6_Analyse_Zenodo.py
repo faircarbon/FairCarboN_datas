@@ -32,7 +32,7 @@ def read_data(path):
         un tableau CSV
     """
     # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=0,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df

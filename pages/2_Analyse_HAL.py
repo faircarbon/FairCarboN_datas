@@ -117,6 +117,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_s
 
     # On ne garde qu'un titre
     df_global_hal['Titre_unique'] = df_global_hal['Titre'].apply(lambda row: row[0])
+    df_global_hal['Premier_auteur'] = df_global_hal['Auteur'].apply(lambda row: row[0])
     # On ne garde qu'une langue
     df_global_hal['Langue_unique'] = df_global_hal['Langue'].apply(lambda row: row[0])
     df_global_hal['Labo_unique'] = df_global_hal['Auteur_Labo'].apply(lambda row: row[0] if (len(row)>0) else None)
@@ -159,7 +160,7 @@ filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names:
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
 ###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
+df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )
@@ -175,6 +176,8 @@ df_inter['Financement'] = df_inter['Financement_'].apply(
 
 df_inter['DOI sources'] = df_inter['DOI sources'].apply(lambda x: [x])
 df_inter['Value']=1
+
+st.dataframe(df_inter)
 
 df_inter.to_csv(f"Data/HAL/all_publications_hal_{d}.csv",index=False, encoding="utf-8")
 
