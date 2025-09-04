@@ -177,8 +177,6 @@ df_inter['Financement'] = df_inter['Financement_'].apply(
 df_inter['DOI sources'] = df_inter['DOI sources'].apply(lambda x: [x])
 df_inter['Value']=1
 
-st.dataframe(df_inter)
-
 df_inter.to_csv(f"Data/HAL/all_publications_hal_{d}.csv",index=False, encoding="utf-8")
 
 st.session_state['df_hal'] = df_inter

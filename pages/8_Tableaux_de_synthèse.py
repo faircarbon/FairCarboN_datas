@@ -160,6 +160,11 @@ df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
 df_selected.drop(columns='index', inplace=True)
 
+df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
+df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
+df_selected_solli_avecrefmalplacee = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Financement dans FairCarboN']==True]
+df_averifier = pd.concat([df_selected_solli_ssref,df_selected_solli_avecrefmalplacee], axis=0)
+
 if st.session_state.count > len(p):
         st.session_state.count = 0
 
@@ -250,7 +255,7 @@ with colB:
         st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]))
     with col3:
         st.subheader(f":grey[à vérifier]")
-        st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True][df_selected["Date de publication"]>=2023]))
+        st.metric(label='', value=len(df_averifier))
     if len(df_selected_datasets)>0:
         row_counts_datasets = df_selected_datasets['Nom_archive'].value_counts().reset_index()
         row_counts_datasets.columns = ['Archive', 'compte']
@@ -292,13 +297,7 @@ with colB:
     else:
         pass
 
-df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
-st.dataframe(df_selected_solli, hide_index=True)
-
-df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
-df_selected_solli_avecrefmalplacee = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Financement dans FairCarboN']==True]
-df_averifier = pd.concat([df_selected_solli_ssref,df_selected_solli_avecrefmalplacee], axis=0)
-
+st.dataframe(df_averifier, hide_index=True)
 Selection_p_ = unidecode(Selection_p).replace(" ", "_")
 
 # Spécifie le dossier d'export
