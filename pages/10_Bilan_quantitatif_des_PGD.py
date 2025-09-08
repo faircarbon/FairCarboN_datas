@@ -51,6 +51,7 @@ def make_mask(df: pd.DataFrame):
     regex2 = r"^&.*&$"
     regex2b = r"^/&.*&/$"
     regex3 = r"^µ.*µ$"
+    regex4 = "done"
     for col in df.columns:
         # accompagné
         mask.loc[df[col].astype(str).str.match(regex, na=False), col] = 0.5
@@ -60,6 +61,8 @@ def make_mask(df: pd.DataFrame):
         mask.loc[df[col].astype(str).str.match(regex2b, na=False), col] = 0.8
         # non concerné
         mask.loc[df[col].astype(str).str.match(regex3, na=False), col] = 0.2
+        # analysé
+        mask.loc[df[col].astype(str).str.match(regex4, na=False), col] = 0.9
 
     return mask.T  # transpose pour affichage Plotly
     
@@ -118,7 +121,7 @@ Partage = ['Description partage', 'Potentiel réutilisation',
 Conservation = ['Justification conservation long terme',
        'Volume_conservation', 'Unités', 'Date début conservation',
        'Date fin conservation', 'Nom_Archive', 'Dispositions finales',
-       'Contact_conservation', 'Couts_conservation']
+       'Contact_conservation', 'Couts_conservation','Analyse_réalisée']
 
 
 df_selected["projet_index"] = df_selected["projet"].astype(str) + " // " + df_selected['Nom PR abrégé'].astype(str)
@@ -176,7 +179,7 @@ fig2.add_trace(
         z=mask1.values,
         x=df1.index,
         y=df1.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df1.columns.T.fillna(''),
         hoverinfo='text'
@@ -191,7 +194,7 @@ fig2.add_trace(
         z=mask2.values,
         x=df2.index,
         y=df2.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df2.columns.T.fillna(''),
         hoverinfo='text'
@@ -206,7 +209,7 @@ fig2.add_trace(
         z=mask3.values,
         x=df3.index,
         y=df3.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df3.columns.T.fillna(''),
         hoverinfo='text'
@@ -221,7 +224,7 @@ fig2.add_trace(
         z=mask4.values,
         x=df4.index,
         y=df4.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df4.columns.T.fillna(''),
         hoverinfo='text'
@@ -236,7 +239,7 @@ fig2.add_trace(
         z=mask5.values,
         x=df5.index,
         y=df5.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df5.columns.T.fillna(''),
         hoverinfo='text'
@@ -251,7 +254,7 @@ fig2.add_trace(
         z=mask6.values,
         x=df6.index,
         y=df6.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df6.columns.T.fillna(''),
         hoverinfo='text'
@@ -266,7 +269,7 @@ fig2.add_trace(
         z=mask7.values,
         x=df7.index,
         y=df7.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df7.columns.T.fillna(''),
         hoverinfo='text'
@@ -281,7 +284,7 @@ fig2.add_trace(
         z=mask8.values,
         x=df8.index,
         y=df8.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df8.columns.T.fillna(''),
         hoverinfo='text'
@@ -296,7 +299,7 @@ fig2.add_trace(
         z=mask9.values,
         x=df9.index,
         y=df9.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df9.columns.T.fillna(''),
         hoverinfo='text'
@@ -311,7 +314,7 @@ fig2.add_trace(
         z=mask10.values,
         x=df10.index,
         y=df10.columns,
-        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'skyblue'],[0.8,'darkorange'],[0.9,'red'],[1,'royalblue']],
         showscale=False,
         text=df10.columns.T.fillna(''),
         hoverinfo='text'
