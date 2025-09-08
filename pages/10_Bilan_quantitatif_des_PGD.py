@@ -46,10 +46,20 @@ def make_mask(df: pd.DataFrame):
     # Mettre 1 si non vide
     mask[df.notna()] = 1
 
-    # Détection des chaînes qui commencent et finissent par "/"
+
     regex = r"^/.*/$"
+    regex2 = r"^&.*&$"
+    regex2b = r"^/&.*&/$"
+    regex3 = r"^µ.*µ$"
     for col in df.columns:
+        # accompagné
         mask.loc[df[col].astype(str).str.match(regex, na=False), col] = 0.5
+        # info partielle
+        mask.loc[df[col].astype(str).str.match(regex2, na=False), col] = 0.7
+        # accompagné info partielle
+        mask.loc[df[col].astype(str).str.match(regex2b, na=False), col] = 0.8
+        # non concerné
+        mask.loc[df[col].astype(str).str.match(regex3, na=False), col] = 0.2
 
     return mask.T  # transpose pour affichage Plotly
     
@@ -111,7 +121,7 @@ Conservation = ['Justification conservation long terme',
        'Contact_conservation', 'Couts_conservation']
 
 
-df_selected["projet_index"] = df_selected["projet"].astype(str) + " // " + df_selected['Nom PR abrégé'].astype(str) #df.index.astype(str)  
+df_selected["projet_index"] = df_selected["projet"].astype(str) + " // " + df_selected['Nom PR abrégé'].astype(str)
 df_selected = df_selected.set_index("projet_index", drop=False)
 
 # Définir manuellement les blocs
@@ -166,7 +176,7 @@ fig2.add_trace(
         z=mask1.values,
         x=df1.index,
         y=df1.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df1.columns.T.fillna(''),
         hoverinfo='text'
@@ -181,7 +191,7 @@ fig2.add_trace(
         z=mask2.values,
         x=df2.index,
         y=df2.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df2.columns.T.fillna(''),
         hoverinfo='text'
@@ -196,7 +206,7 @@ fig2.add_trace(
         z=mask3.values,
         x=df3.index,
         y=df3.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df3.columns.T.fillna(''),
         hoverinfo='text'
@@ -211,7 +221,7 @@ fig2.add_trace(
         z=mask4.values,
         x=df4.index,
         y=df4.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df4.columns.T.fillna(''),
         hoverinfo='text'
@@ -226,7 +236,7 @@ fig2.add_trace(
         z=mask5.values,
         x=df5.index,
         y=df5.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df5.columns.T.fillna(''),
         hoverinfo='text'
@@ -241,7 +251,7 @@ fig2.add_trace(
         z=mask6.values,
         x=df6.index,
         y=df6.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df6.columns.T.fillna(''),
         hoverinfo='text'
@@ -256,7 +266,7 @@ fig2.add_trace(
         z=mask7.values,
         x=df7.index,
         y=df7.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df7.columns.T.fillna(''),
         hoverinfo='text'
@@ -271,7 +281,7 @@ fig2.add_trace(
         z=mask8.values,
         x=df8.index,
         y=df8.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df8.columns.T.fillna(''),
         hoverinfo='text'
@@ -286,7 +296,7 @@ fig2.add_trace(
         z=mask9.values,
         x=df9.index,
         y=df9.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df9.columns.T.fillna(''),
         hoverinfo='text'
@@ -301,7 +311,7 @@ fig2.add_trace(
         z=mask10.values,
         x=df10.index,
         y=df10.columns,
-        colorscale=[[0,'lightgray'],[0.5,'sandybrown'],[1,'steelblue']],
+        colorscale=[[0,'white'],[0.2,'gray'],[0.5,'sandybrown'],[0.7,'steelblue'],[0.8,'darkorange'],[1,'royalblue']],
         showscale=False,
         text=df10.columns.T.fillna(''),
         hoverinfo='text'
@@ -311,18 +321,18 @@ fig2.add_trace(
 
 
 fig2.update_layout(height= 2000)
-fig2.update_yaxes(autorange='reversed',dtick=1,row=1, col=1,title_text="Renseignement du projet",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=2, col=1,title_text="Renseignement du plan",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=3, col=1,title_text="Description du produit de R",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=4, col=1,title_text="Existantes",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=5, col=1,title_text="Produites",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=6, col=1,title_text="Documentations",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=7, col=1,title_text="Traitement des données",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=8, col=1,title_text="Stockage",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=9, col=1,title_text="Partage",title_font=dict(size=14, family="Arial", color="black"))
-fig2.update_yaxes(autorange='reversed',dtick=1,row=10, col=1,title_text="Conservation",title_font=dict(size=14, family="Arial", color="black"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=1, col=1,title_text="Renseignement du projet",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=2, col=1,title_text="Renseignement du plan",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=3, col=1,title_text="Description du produit de R",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=4, col=1,title_text="Existantes",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=5, col=1,title_text="Produites",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=6, col=1,title_text="Documentations",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=7, col=1,title_text="Traitement des données",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=8, col=1,title_text="Stockage",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=9, col=1,title_text="Partage",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
+fig2.update_yaxes(autorange='reversed',dtick=1,row=10, col=1,title_text="Conservation",title_font=dict(size=14, family="Arial", color="black"),tickfont=dict(size=12, family="Arial", color="red"))
 # Modifier uniquement le X du subplot 1
-fig2.update_xaxes(side='top',tickangle=90,dtick=1, row=1, col=1)
+fig2.update_xaxes(side='top',tickangle=90,dtick=1, row=1, col=1, tickfont=dict(size=12, family="Arial", color="brown"))
 
 # Modifier uniquement le X du subplot 2
 fig2.update_xaxes(showticklabels=False, row=2, col=1)
