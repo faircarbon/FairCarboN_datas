@@ -84,42 +84,40 @@ else:
 
 renseignements_projet = ['DMP Opidor', 'Modèle PGD', 'Financeur', 'Titre_complet', 'projet',
        'Résumé', 'Sources de financement', 'Date de début', 'Date de fin',
-       'Noms_Partenaires','Acronymes_Partenaires','ROR_Partenaires','Coordinateur','Affiliation_Coordinateur','ORCID_Coordinateur']
+       'Noms_Partenaires','Acronymes_Partenaires','ID_Partenaires','Coordinateur','Affiliation_Coordinateur','ID_Coordinateur']
 renseignements_plan =['Titre du plan','Date_création_plan','Date_dernière_modif', 'Numéro de livrable',
        'Version', 'Objet', 'Domaine OCDE', 'Langue_PGD', 'Responsable du plan',
-       'Identifiant_archive', 'Licence', 'Autres_docs_associés','ID_Autres_docs_associés','autres PGD associés','ID_autres PGD associés']
+       'ID_PGD', 'Licence_PGD', 'Autres_docs_associés','ID_Autres_docs_associés']
 
 Description_PR = ['Nom PR abrégé', 'Nom PR', 'Type', 'Données_personnelles?',
        'Description succinte PR', 'WP_tache', 'Mots clés contrôlés',
-       'mots_clés', 'Langue_PR', 'personne contact_PR', 'Date de publication',
-       'Identifiant_PR', 'Type_identifiant_PR', 'Ethique']
+       'Mots_clés', 'Langue_PR', 'personne contact_PR', 'Ethique']
 
-Donnees_existantes = ['Justification_existantes','Format_existantes', 'ID_Source_ données_réutilisées','Version_données réutilisées',
+Donnees_existantes = ['Justification_Existantes','Variables_Existantes','Nature_Existantes','Format_Existantes','Volume_Existantes', 'ID_Source_ données_réutilisées','Version_données réutilisées',
        'Licence_données réutilisées','Couts_euros_réutilisation']
 
-Donnees_produites = ['Nom méthode production','Description méthode production', 'Nature des données',
-       'Equipements_production', 'Protocoles_production','ID_Protocoles_production', 'Contact_production',
+Donnees_produites = ['Variables_Produites','Description méthode production', 'Nature_Produites','Format_Produites','Volume_Produites',
+       'Equipements_production', 'Protocoles_production', 'Contact_production',
        'Couts_production']
 
-Documentations = ['Description documentation', 'Documents','ID_Documents',
-       'Standards métadonnées', 'langue_métadonnées', 'logiciel',
+Documentations = ['Description documentation', 'Documents',
+       'Standards métadonnées', 'Liste_métadonnées', 'logiciel',
        'Contact_documentation', 'Couts_documentation', 'Procédure qualité',
-       'docs_qualité', 'ID_docs_qualité','Contact_qualité', 'Aspects juridiques généraux',
-       'docs_ juridiques', 'Contact_ juridiques',
-       'Description méthode éthique', 'docs_éthiques','ID_docs_éthiques', 'Contact_éthiques']
+       'docs_qualité','Contact_qualité', 'Aspects juridiques généraux',
+       'Description méthode éthique', 'docs_éthiques']
 
-Traitement_donnees = ['Description Traitement des données', 'Références_traitements','ID_Références_traitements',
+Traitement_donnees = ['Description Traitement des données', 'Références_traitements',
        'Equipements traitements', 'Contact_traitements', 'Couts_traitements']
        
-Stockage = ['Description besoin stockage', 'volume', 'volume_unités',
-       'Equipements_stockage', 'Docs_stockage','ID_Docs_stockage', 'Description sécurité',
+Stockage = ['Description besoin stockage', 'Volume_Stockage',
+       'Equipements_stockage','Mode_accès', 'Docs_stockage', 'Description sécurité',
        'Couts_stockage']
 
 Partage = ['Description partage', 'Potentiel réutilisation',
-       'Entrepot','Date de diffusion','Mode_accès','Format','URL_acces','Licence_Partage', 'Contact_partage'] 
+       'Entrepot','Date de diffusion','Format','URL_acces','Licence_Partage', 'Contact_partage'] 
        
 Conservation = ['Justification conservation long terme',
-       'Volume_conservation', 'Unités', 'Date début conservation',
+       'Volume_conservation', 'Date début conservation',
        'Date fin conservation', 'Nom_Archive', 'Dispositions finales',
        'Contact_conservation', 'Couts_conservation','Analyse_réalisée']
 
