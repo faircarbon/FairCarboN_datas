@@ -70,11 +70,40 @@ def contient_mots_cles(val):
         # Pour NaN, float, None, etc., on retourne False
         return False
     
+def colored_text(text, color="black", bold=False, size="16px"):
+    """
+    Affiche du texte stylisé dans Streamlit.
+
+    Args:
+        text (str): le texte à afficher
+        color (str): couleur CSS (ex: "red", "#ff8800", "rgb(0,200,100)")
+        bold (bool): True pour mettre en gras
+        size (str): taille de police (ex: "16px", "1.2em")
+    """
+    style = f"color:{color}; font-size:{size};display:flex; justify-content:center;align-items:center; height:5vh;"
+    if bold:
+        style += " font-weight:bold;"
+    st.markdown(f"<span style='{style}'>{text}</span>", unsafe_allow_html=True)
+    
 ###############################################################################################
 ########### RECUPERATION DES DATAFRAMES #######################################################
 ###############################################################################################
 d = datetime.date.today()
 df = read_data("Data\FairCarboN_Datas_Contacts")
+
+df['DataInBrief'].fillna(0, inplace=True)
+df['EarthSystemScienceData'].fillna(0, inplace=True)
+df['Recensement'].fillna("NON", inplace=True)
+df['Sollicitation'] = df['Sollicitation'].fillna('NON')
+df["Data In Brief papers"] = df["DIB_titres"].apply(
+    lambda x: x.split("/") if isinstance(x, str) and x else []
+)
+df["Earth System Science Data papers"] = df["ESSD_titres"].apply(
+    lambda x: x.split("/") if isinstance(x, str) and x else []
+)
+df_long_DIB = df.explode("Data In Brief papers").dropna(subset=["Data In Brief papers"])
+df_long_ESSD = df.explode("Earth System Science Data papers").dropna(subset=["Earth System Science Data papers"])
+
 df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
 df_indores = st.session_state['df_InDoRes']
@@ -90,7 +119,6 @@ df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','
 df_concat = pd.concat([df_hal_reduit,df_rdg_reduit,df_indores_reduit,df_zenodo_reduit], axis=0)
 df_concat['In_FairCarboN'] = df_concat['In_FairCarboN'].fillna(False)
 df_concat['Type de document'] = df_concat['Type de document'].fillna('DATASET')
-df_concat['Sollicitation'] = df_concat['Sollicitation'].fillna('NON')
 df_concat['Mots_clés'] = df_concat['Mots_clés'].apply(lambda x: [] if not isinstance(x, list) else x)
 df_concat['Mots_clés'] = df_concat['Mots_clés'].apply(lambda lst: [mot.lower() for mot in lst])
 df_concat['ANR project acronyme'] = df_concat['ANR project acronyme'].apply(lambda x: [] if not isinstance(x, list) else x)
@@ -131,8 +159,10 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-col1, col2, col3, col4, col5 = st.columns([0.7,0.05,0.05,0.1,0.1])
+col1, col2, col3, col4, col5, col6, col7 = st.columns([0.25,0.05,0.05,0.2,0.125,0.125,0.25])
 with col1:
+    st.markdown('')
+    st.markdown('')
     try:
         Selection_p = st.selectbox(label='Selection', options=p, index=st.session_state.count)
     except:
@@ -141,20 +171,33 @@ with col1:
 with col2:
     st.markdown('')
     st.markdown('')
+    st.markdown('')
+    st.markdown('')
     button1 = st.button(':heavy_plus_sign:',on_click=increment_counter)
 with col3:
     st.markdown('')
     st.markdown('')
+    st.markdown('')
+    st.markdown('')
     button2 =st.button('R',on_click=reset_counter)
 with col4:
-    if df_concat['Sollicitation'][df_concat['Auteur_recherché']==Selection_p].values[0]=='NON':
-        st.image('Data/nok.png', width=80, caption="Sollicitation")
-    else:
-        st.image('Data/ok.png', width=80, caption="Sollicitation")
+    #st.markdown(f"<span style='color:dimgray;font-weight:bold; font-size:25px;'>Data Papers</span>", unsafe_allow_html=True)
+    st.subheader(f":grey[Data papers]")
+    st.metric(label=' ',value=int(df['DataInBrief'][df['Contact']==Selection_p].values[0])+int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0]),border=True)
 with col5:
-    st.markdown("Projet(s):")
+    if df['Recensement'][df['Contact']==Selection_p].values[0]=='NON':
+        st.image('Data/nok.png', width=120, caption="Recensement")
+    else:
+        st.image('Data/ok.png', width=120, caption="Recensement")
+with col6:
+    if df['Sollicitation'][df['Contact']==Selection_p].values[0]=='NON':
+        st.image('Data/nok.png', width=120, caption="Sollicitation")
+    else:
+        st.image('Data/ok.png', width=120, caption="Sollicitation")
+with col7:
+    #st.markdown("Projet(s):")
     for i in range(len(df['projet'][df['Contact']==Selection_p].values)):
-        st.markdown(df['projet'][df['Contact']==Selection_p].values[i])
+        colored_text(f"{df['projet'][df['Contact']==Selection_p].values[i]}",color="green",bold=True,size="30px")
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
@@ -173,10 +216,10 @@ with colA:
     col1, col2 =st.columns(2)
     with col1:
         st.subheader(f":grey[Publications HAL]")
-        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL']))
+        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL']),border=True)
     with col2:
         st.subheader(f":grey[Dans FairCarboN]")
-        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL'][df_selected['In_FairCarboN']==True]))
+        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL'][df_selected['In_FairCarboN']==True]),border=True)
     
     df_selected_hal = df_selected[df_selected['Nom_archive']=='HAL']
     if len(df_selected_hal)>0:
@@ -249,13 +292,13 @@ with colB:
         st.subheader(f":grey[DS ouverts]")
         liste_entrepots = ['Recherche Data Gouv','Zenodo', 'Data InDoRes']
         df_selected_datasets = df_selected[df_selected['Nom_archive'].isin(liste_entrepots)]
-        st.metric(label='', value=len(df_selected_datasets))
+        st.metric(label='', value=len(df_selected_datasets),border=True)
     with col2:
         st.subheader(f":grey[Pas de ref.]")
-        st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]))
+        st.metric(label='', value=len(df_selected[df_selected["Sans_référencement"]==True]),border=True)
     with col3:
         st.subheader(f":grey[à vérifier]")
-        st.metric(label='', value=len(df_averifier))
+        st.metric(label='', value=len(df_averifier),border=True)
     if len(df_selected_datasets)>0:
         row_counts_datasets = df_selected_datasets['Nom_archive'].value_counts().reset_index()
         row_counts_datasets.columns = ['Archive', 'compte']
@@ -299,6 +342,11 @@ with colB:
 
 st.dataframe(df_averifier, hide_index=True)
 Selection_p_ = unidecode(Selection_p).replace(" ", "_")
+
+if int(df['DataInBrief'][df['Contact']==Selection_p].values)>0:
+    st.dataframe(df_long_DIB["Data In Brief papers"][df_long_DIB['Contact']==Selection_p], hide_index=True)
+if int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values)>0:
+    st.dataframe(df_long_ESSD["Earth System Science Data papers"][df_long_ESSD['Contact']==Selection_p], hide_index=True)
 
 # Spécifie le dossier d'export
 export_path = "./Data/Publications_HAL_sans_ref/"

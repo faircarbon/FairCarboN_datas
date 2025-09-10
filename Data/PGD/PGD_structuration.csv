@@ -1605,7 +1605,157 @@ Des séries temporelles générées avec SWAT seront d’une taille de quelques 
 SWAT (Soil Water Assessment Tool) Documentation: https://swat.tamu.edu/docs/",,"La BDD pour des séries temporelle au site pilote fonctionne avec une liste de métadonnées dont la variable, l’unité en toute lettre et abrégée, la précision, la localisation, et le jour...(aucun standard de métadonnées n’a été suivi ici). Pour chaque site pilote, on va également fournier des données spatialisé qui ont été utilisées pour les simulations avec SWAT, c’est qui comprendra des limites de bassin versant et des données sur les caractéristiques principales du bassin versant, comme la topographie, la géologie/les sols, et la couvertures des sol.
 Pour les fichier netcdf qui stocks les sortis de ORCHIDEE-Clateral, on fournira un « read me » qui donne systématiquement des infos sur les entrées qui ont été utiliser, la résolution spatiale, la période de simulation, et la domaine spatiale de la simulation, les scénarios assumés, et tous paramètres de modèle qui dévient de la paramétrisation par défaut.",Des méthodes extractions et de cartographie pourront être partagées via des publications dans les data paper. Les données spatialisées pourront être facilement exploiter avec un logiciel type QGIS. ,,,,,,,,,,,,,,,"Des BDD avec des séries temporelles des rapports fluviaux pour chaque site pilote va être partager en ligne, car la taille des données sera pas trop énorme.  
 Des simulations avec ORCHIDEE-Clateral, une fois terminer, seront publié en ligne, accompagné par des publications scientifiques.",,Les données sont d’abord stockées sur un serveur du LSCE. ,sur invitation,,,,,,EasyData_RDG,,,,CC BY,,,,,,,,,,done
-Oui,ANR français,Agence nationale de la recherche (ANR),Renforcement des infrastructures: Tours de Flux,RIFT,,ANR-22-PEXF-0004,2023-05-01 00:00:00,2027-04-30 00:00:00,,,,,Jérôme Demarty_Gilles Boulet_Olivier Roupsart,IRD_IRD_CIRAD,,Plan RIFT,2023-05-01 00:00:00,31//01/2024,,1,,Earth and related environmental sciences,fra,Jérôme Demarty_Gilles Boulet_Olivier Roupsart,,,,,PR_TOURS A FLUX,Renforcement des tours à flux,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Oui,ANR français,Agence nationale de la recherche (ANR),Renforcement des infrastructures: Tours de Flux,RIFT,"Le  projet  RIFT  état  un  projet  ciblé  sur  le  renforcement  des  infrastructures  en  région  tropicales  et 
+méditerranéennes, l’observation in situ y est à ce titre au cœur de ses préoccupations. De plus, le projet 
+est centré sur un dispositif de mesure, la Tour de flux, dédié à la mesure quantitative des flux gazeux 
+(CO2 et H2O prioritairement) qui s’échangent entre surface et atmosphère. Les capteurs ne permettant 
+d’accéder seulement qu’à des proxys des flux, pour produire des données de qualité et fiables, il est 
+indispensable de : i) passer par une étape de post traitement des données brutes acquises, ii) d’acquérir 
+en parallèle des données complémentaires sur les conditions climatiques et environnementales",ANR-22-PEXF-0004,2023-05-01 00:00:00,2027-04-30 00:00:00,,,,,Jérôme Demarty_Gilles Boulet_Olivier Roupsart,IRD_IRD_CIRAD,,Plan RIFT,2023-05-01 00:00:00,31//01/2024,,1,"Toutes ces données acquises font l’objet d’un GT « Technique » du projet (GT1) car elles sont jugées 
+essentielles et indispensables au projet RIFT. C’est pourquoi l’effort est mis prioritairement à ce stade 
+dans  le  PDG  sur  ce  cercle  de  données.  Un  second  cercle  est  proposé  en  vue  d’une  valorisation 
+scientifique du projet par le consortium, incluant données et produits élaborés par les GT « Science » 
+du projet RIFT (GT 2,3 et 4). Un premier inventaire de ces produits, non exhaustif à ce stade, a été 
+effectué lors du KOM de RIFT, mais certains d’entre eux restent conditionnés à l’acquisition de données 
+complémentaires hors périmètre du projet RIFT ainsi qu’à des développements méthodologiques et 
+numériques. Certains aspects restant à ce stade encore exploratoires et hypothétiques, il est difficile 
+d’en envisager une planification et une gestion précise. Nous proposerons donc une actualisation dans 
+les prochaines versions du PGD, a minima à échéance de la réunion d’avancement à mi-parcours du 
+projet RIFT. 
+A l’échelle du projet, il a été aussi décidé qu’un ensemble de bonnes pratiques seraient partagées afin 
+de :  
+•  Homogénéiser dans la mesure du possible, les données collectées, produites et/ou analysées 
+et aussi de simplifier le traitement automatisé sans perdre de vue leur FAIRisation ; 
+•  Mettre  en  place  des  procédures  de  qualité  communes  et/ou  spécifiques  (pour  les  objets 
+physiques, les jeux de données etc.), avec un retour d’expérience auprès des communautés 
+intéressées ;  
+•  Respecter  un  code  de  conduite  et  les  aspects  règlementaires  (autorisations  des 
+expérimentation, RGPD, conventions inter organismes et propriété intellectuelle",Earth and related environmental sciences,fra,Jérôme Demarty_Gilles Boulet_Olivier Roupsart,,,,,PR_TOURS A FLUX,Renforcement des tours à flux,Datasets,non,"Le projet comporte 13 sites sous la coordination des PI de sites recensés dans le projet. Chacun de ces 
+sites  inclut  à minima  un  dispositif  de Tour  de flux,  dont  les  relevés  de  tournées,  les  opérations  de 
+maintenance et de jouvence sont organisées par les équipes en charge des sites. Les sites étant pour 
+une très grande majorité localisée dans des pays étrangers, les PI sites se chargent d’établir, si besoin 
+s’en trouve, une convention d’accueil et de collaboration entre leur institut et les partenaires locaux",all,,,,,,,,,,"Les données acquises et produits élaborés sur les stations de flux seront prioritairement délivrées dans 
+un format simple d’accès à tous, de type :  
+•  TXT ou CSV pour les métadonnées et séries temporelles.  
+•  JPEG ou TIFF pour les illustrations et les cartes 
+•  PDF pour tous les rapports et délivrables produits.",qq 100aines de G,,,,," variables hydro-micro-météorologiques qui 
+expliquent le comportement thermo-hydrique et biogéochimique des couverts végétaux environnants
+ Des instruments permettant de suivre et caractériser les états de l’environnement proche, des 
+points de vue climatique, thermo-hydrique, radiatif, etc., et ce à une fréquence de l’ordre de la 
+minute. Le croisement de ces informations avec les données de flux permet d’étudier comment 
+le métabolisme de l'écosystème à la base des flux répond aux forçages biophysiques tels que 
+la  lumière, la  température,  la  pluie,  l'humidité  du  sol,  le  CO2, la  phénologie  et/ou  les  traits 
+structurels et fonctionnels des plantes."," dans le but d’échantillonner de manière intégrée, à haute fréquence et en 
+continu sur des périodes pluriannuelles",,"Les données acquises et produits élaborés sur les stations de flux seront prioritairement délivrées dans 
+un format simple d’accès à tous, de type :  
+•  TXT ou CSV pour les métadonnées et séries temporelles.  
+•  JPEG ou TIFF pour les illustrations et les cartes 
+•  PDF pour tous les rapports et délivrables produits.",qq 100aines de G," &une tour de flux intègre plusieurs capteurs et/ou instruments sur une 
+même structure porteuse,  Des instruments capables de sonder simultanément et à haute fréquence (~20Hz) la covariance 
+des  tourbillons  (i.e. Eddy  covariance,  EC)  et les  concentrations  en  dioxyde  de  carbone,  en 
+vapeur  d’eau,  ainsi  que  la  température, Une tour de flux rassemble donc entre 20 et 30 capteurs, dont le design, la structure, le type et le choix 
+des  capteurs  dépendent  d’une  multitude  autres  éléments  (climat  et  milieu  d’étude,  topographie, 
+ressources, expertise et intérêt thématique du groupe de travail, …). &",,"Jerome Demarty (IRD, Jerome.demarty@ird.fr) – PI PGD  
+IR support RIFT (IRD) – PI formatage et archivage des données 
+Chloé. Ollivier (IRD, Chloé.Ollivier@ird.fr) - Gestionnaire Sénégal/Niakhar2 
+Ibrahim Maïnassara (IRD, Ibrahim.Mainassara@ird.fr) – Gestionnaire Niger/Wankama 
+Gilles Boulet (IRD, Gilles.Boulet@ird.fr) – Gestionnaire Inde/Mule Hole 
+Olivier Roupsard (CIRAD, Olivier.Roupsard@cirad.fr) – Gestionnaire Sénégal/Niakhar 
+Valerie le Dantec (Univ Toulouse, valerie.le-dantec@univ-tlse3.fr) - Gestionnaire Tunisie/Taous 
+Ivan Cornu – (CIRAD, Ivan.Cornu@cirad.fr) - Gestionnaire Cameroun/Cacao 
+Rim Zitouna-Chebbi (INRGREF Tunis, rimzitouna@live.fr) - Gestionnaire Tunisie/Kamech 
+Lionel Jarlan (IRD, lionel.jarlan@ird.fr) - Gestionnaires des données Maroc/Tenfit 
+J.-M. Cohard (Univ Grenoble, Jean-Martial.Cohard@univ-grenoble-alpes.fr) - Gestionnaire Bénin 
+Laurent Kerkoat (CNRS, laurent.kergoat@get.omp.eu) – Gestionnaires Sénégal/Ragola 
+Nicolas Barbier (IRD, nicolas.barbier@ird.fr) - Gestionnaires Cameroun/Forêt 
+Joanes Guillemot (CIRAD, joannes.guillemot@cirad.fr) – Gestionnaires Brésil/Mataflux 
+Vincent Blanfort (CIRAD, vincent.blanfort@cirad.fr) – Gestionnaires Guyane/CAARPAG ","Les ressources financières pour la gestion des données n’ont pas été provisionnée en tant que tel dans 
+le projet RIFT. Toutefois, le recrutement d’un IR sur une durée de 3 ans est prévu dans le cadre du 
+projet, notamment pour travailler sur : i) la mise en place de la suite logicielle EDIPRO qui sera déployée 
+de  manière  commune  à  tous  les  sites,  pour  le  post  traitement  des  données,  ii)  la  génération  de 
+diagnostiques et d’indicateurs d’évaluation de la qualité des données, iii) le formatage et de l’archivage 
+final des données et iv) la formation technique des personnels. Un petit budget a ainsi été provisionné 
+dans RIFT pour assurer le fonctionnement de l’IR, ainsi que la tenue d’un atelier de formation interne 
+sur les aspects production de la donnée (cf. annexe financière). A noter aussi que les moyens généraux 
+et l’émulation interne au comité de pilotage du programme FC seront aussi de bons leviers pour avancer 
+sur tous ces aspects. Enfin, une assistance pourra être demandée aux pôles de données de référence et aux 
+gestionnaires des BBD d’intérêt des SNO présents dans RIFT","Une fiche explicative, fournissant des explications sur le site, les materiels 
+déployés, les conditions de mesures, etc. seront aussi fournies pour chaque tour de flux",,,"&Les métadonnées  seront produites de manière similaire à ce qui est fait dans les observatoires qui 
+incluent les sites de mesure&","Toujours dans l’intention d’harmoniser les procédures de diagnostiques sur chacun des 13 sites, l’apport 
+de la suite logicielle TOVI (https://www.licor.com/env/support/Tovi/home.html) sera testée, en parallèle du 
+développement de routines spécifiques de traitements sous Matlab.",,,"Les données de flux post traitées seront collectées dans l’intention d’être diffusables via le portail de 
+données international FLUXNET qui donne un certain niveau de labélisation de la donnée. La diffusion 
+sous  le  portail  FLUXNET  requiert  la  création  d’un  compte  pour  chaque  PI  de  site,  et l’utilisation  de 
+procédures de formatage et de certification de la donnée.
+Les données de flux extraites de la phase de post traitement seront ensuite exploitées pour produire 
+des d’analyses de certification sur chacun des sites, aussi dans l’idée finale d’établir des diagnostics 
+inter-sites. On s’intéressera de manière commune à tous les sites à :  
+•  La partition des flux de carbone nets de l’écosystème mesurés par les tours, entre flux de nuit 
+et jour pour estimer les composantes GPP et Respiration. Des modèles de respiration seront 
+testés  et  mis  en  œuvre  sur  tous  les  sites,  à  l’aide  des  base  de  données  d’humidité  et  de 
+températures du sol acquises par les tours de flux.  
+•  L’empreinte au sol de la mesure de flux à partir des données de vitesse du vent acquise à la 
+station.  
+•  La correction du flux G à la surface, puis l’évaluation de la fermeture du bilan d’énergie à partir 
+des mesures de flux radiatifs, conductifs et turbulents acquises à la station. 
+",,,"Trois listes mel ont été créés suite au lancement du projet, en regard des instances de gouvernance du 
+projet :  
+•  Comité exécutif, incluant le porteur, les deux co-porteurs RIFT, le manager du programme FC 
+(soit 4 personnes) ;  
+•  Comité de pilotage, incluant le porteur et les deux co-porteurs RIFT, le manager du programme 
+FC, les PI et co-PI des sites de mesures et les responsables de GT (soit 12 personnes) ; 
+•  Ensemble des membres du projet (soit une 40aine de personnes environ).  
+Ces  listes  sont  gérées  directement  par  le  porteur  du  projet  et  utilisable  par  tous  en  vue  d’une 
+communication interne adaptée. 
+Les pourvoyeurs de données restent propriétaires de l’ensemble des données acquises sur leur site, 
+en respect de la convention qu’ils ont établis entre institutions. Ils s’engagent toutefois dans le cadre du 
+projet, à partager sans délai ces données contractuelles à l’ensemble du consortium RIFT, sur la totalité 
+de la durée du projet, afin de ne pas entraver les étapes de post traitement et de certification de la 
+donnée de flux. Tous les membres du consortium s’engagent à ne pas rediffuser les données acquises 
+sur sites et les post traitements spécifiques aux sites à l’extérieur du consortium, tout du moins sans 
+accord préalable des PI sites et post traitements.",,,," Un  post-traitement  des  acquisitions  permet  in  fine 
+d’estimer les échanges de chaleur, de vapeur et de CO2 (donc les flux) qui opèrent entre la 
+surface et l’atmosphère environnante.   Des instruments permettant de suivre et caractériser les états de l’environnement proche, des 
+points de vue climatique, thermo-hydrique, radiatif, etc., et ce à une fréquence de l’ordre de la 
+minute. Le croisement de ces informations avec les données de flux permet d’étudier comment 
+le métabolisme de l'écosystème à la base des flux répond aux forçages biophysiques tels que 
+la  lumière, la  température,  la  pluie,  l'humidité  du  sol,  le  CO2, la  phénologie  et/ou  les  traits 
+structurels et fonctionnels des plantes
+Les  données  de  covariance  acquises  à  20Hz  acquises  seront  traitées  dans  le  but  de  générer  les 
+données de flux sur les 13 sites.  Ces post traitements seront menées soit par les équipes sur place si 
+elles le désirent, ou soit via l’appui de l’ingénieur de recherche qui sera recruté dans le cadre du projet 
+en 2024. L’objectif reste d’avoir une méthode commune et standardisé de post traitement, afin d’être en 
+mesure de délivrer à la fois des chroniques des données de flux standardisées sous un même format, 
+et d’avoir des diagnostiques sur la pertinence des données générées. Cette étape sera réalisée une 
+fois par an à l’aide de la suite logicielle EdiPro, qui est libre de droit de la société CAMPBELL, qui 
+fabrique  des  capteurs  de  flux.  Les  retours  d’expérience  des  personnels  impliqués  sur  les  aspects 
+métrologiques et instrumentaux, et sur les aspects software et post-traitement de la donnée à l’échelle 
+des sites ateliers, seront partagées lors d’atelier et de réunions spécifiques organisées et planifiées 
+dans le GT1. ",,,,,,,"es serveurs institutionnels des laboratoires, avec des sauvegardes 
+sur disque dur. Les données seront également regroupées annuellement sur l’espace collaboratif du 
+projet à HydroSciences Montpellier, avec encore double système de sauvegarde : i) en local sur disques 
+durs externes, ii) sur les serveurs de l’UMR avec système de sauvegarde automatique","Les données ne sont absolument pas de nature sensible et aucune mesure de sécurité n’est à ce jour 
+envisagée. Si tel était le cas, une note de consentement entre les partenaires devra être établi dans les 
+conventions inter partenaires sur site",,,,"Cette diffusion avec FLUXNET reste une incitation très forte et absolument pas une obligation. Ceci s’explique par le fait 
+que les conventions établies entre partenaires sur sites, peuvent inclure des conditions particulières ou 
+des restrictions en lien avec la production et la diffusion des données acquises dans des pays étrangers, 
+ce qui rendrait compliqué, voire impossible, l’établissement de règles communes de diffusion sur tous 
+les sites.   ",,,,"Ils pourront être de ce fait être facilement échangés entre tous les 
+partenaires, notamment du Sud, sous format ZIP ou RAR.  Des formats plus à vocation scientifique 
+(MAT, NETCDF, GEOTIFF) seront exploités lors des échanges inter-équipes et/ou pour la diffusion vers 
+les bases de données.  ",,,,"Toutes les observations listées dans le tableau 1, plus les données de flux issus des post traitements 
+et  de  l’étape  de  certification  finale  du  GT1  seront  bien  entendu  conservées.  Ces  produits  étant  la 
+propriété des sites et des équipes de recherche, ils seront, d’une part, conservés par leur soin sur des 
+espaces de stockage locaux. S’ajoute à ce premier mode de stockage, un moissonnage des données 
+de  flux  certifiés  vers  la  base  de  données  internationale  (FLUXNET)  et  de  l’ensemble  de  données 
+acquises vers les BdD des observatoires auxquels certains sites sont accolés (6 sites sur 13).  
+Concernant les indicateurs, cartes, produits et données complémentaires hautement valorisables du 
+point de vue scientifique, tous issus des WP Sciences, ils seront aussi archivés et sauvegardés, soit 
+dans les bases de données des observatoires quand cela est possible, soit localement chez les équipes 
+en charge de leur production, sur des solutions de type « disque dur externe ». Pour les simulations des 
+modèles les plus importantes, une conservation sur une période d’environ 5 ans est envisagée. En 
+revanche, toutes données de suivi de projet et issus du traitement des données n’ont pas vocation a 
+été gardée au-delà du projet.  ",,,,,,,,
 Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du
 littoral des façades Atlantique et Manche",CABESTAN,ok,ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,,"Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,PR1_BIOCHIMIE BENTHIQ,Processus Biochimiques Benthiques,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du

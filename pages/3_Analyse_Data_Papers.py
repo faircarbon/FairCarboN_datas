@@ -59,6 +59,7 @@ df["ESSD_titres_tuples"] = df["ESSD_titres"].apply(
 liste_DIB_titres = df["DIB_titres_tuples"].drop_duplicates()
 liste_ESSD_titres = df["ESSD_titres_tuples"].drop_duplicates()
 
+st.dataframe(df)
 
 st.title(f":grey[Etude des data papers publiés (via scraping)]")
 
