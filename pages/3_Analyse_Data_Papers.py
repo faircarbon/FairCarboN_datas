@@ -59,7 +59,6 @@ df["ESSD_titres_tuples"] = df["ESSD_titres"].apply(
 liste_DIB_titres = df["DIB_titres_tuples"].drop_duplicates()
 liste_ESSD_titres = df["ESSD_titres_tuples"].drop_duplicates()
 
-st.dataframe(df)
 
 st.title(f":grey[Etude des data papers publiés (via scraping)]")
 
@@ -252,6 +251,7 @@ with col2:
 with col3:
     st.metric(label='Nombre de contacts', value=len(df['Contact'][df['DataInBrief']>0].drop_duplicates()))
 st.plotly_chart(fig, use_container_width=True)
+st.dataframe(df_long_DIB[['Contact','DIB_titres_tuples']], hide_index=True)
 
 col1, col2, col3 = st.columns([0.5,0.25,0.25])
 with col1:
@@ -261,4 +261,5 @@ with col2:
 with col3:
     st.metric(label='Nombre de contacts', value=len(df['Contact'][df['EarthSystemScienceData']>0].drop_duplicates()))
 
-st.plotly_chart(fig2, use_container_width=True)  
+st.plotly_chart(fig2, use_container_width=True)
+st.dataframe(df_long_ESSD[['Contact','ESSD_titres_tuples']],hide_index=True) 

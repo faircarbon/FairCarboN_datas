@@ -1457,11 +1457,11 @@ caractériser la turbulence : la vitesse du vent et la vitesse du courant. A not
 et de courant sont produites par ailleurs, directes ou indirectes (utilisation du coefficient de marrées). Les sources 
 de  ces  données  sont  diverses,  et  par  exemple on  retrouve  :  données  météofrance  pour  des  stations  météo 
 terrestres dans une zone environnante de 10km, données issues des stations météo à bord du bateau (données à 
-dépouiller) ; données des ports autonomes pour le coefficient de marées etc&",,,,,,,&clés USB&,,,,,,,&OSU&,,,,CC BY,,"A ce stade, les BDD existantes à l’internationale ne permettent pas de renseigner le contexte des mesures et leur 
+dépouiller) ; données des ports autonomes pour le coefficient de marées etc&",,,,,,,&clés USB&,,,,,,,&OSU&,,,,CC BY,,"&A ce stade, les BDD existantes à l’internationale ne permettent pas de renseigner le contexte des mesures et leur 
 qualité. Il s’agira donc de DOIser les jeux de données (par campagne ou par site) dans un entrepôt (à définir ; ex. 
 entrepôt d’un ou plusieurs OSU). Un data paper de synthèse pourra mettre en valeur le travail du consortium. En 
 vue de l’homogénéisation des pratiques, il sera également considéré la DOIsation des protocoles pour faciliter leur 
-appropriation à large échelle.",,,&5 à 10ans&,,,,,done
+appropriation à large échelle.&",,,&5 à 10ans&,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),"Carbonium :  Dynamique  du  Carbone  dans  le 
 continuum  terrestre  -  aquatique  :  Soutien  aux 
 infrastructures",CARBONIUM,,ANR-22-PEXF-0006,2023-09-01 00:00:00,2028-08-30 00:00:00,,,,,Laure Gandois_Julien Nemery,CNRS_INP,,Plan CARBONIUM,2023-11-08 00:00:00,2023-12-20 00:00:00,,1,,Earth and related environmental sciences,fra,Laure Gandois_Julien Nemery,,,,,PR7-Echange de C atmo Lacs,Echange de C atmosphérique des Lacs,Datasets,non,,,"  https://in-situ.theia-
@@ -1557,7 +1557,7 @@ Hélène Masclaux sera en charge de la collecte et de l’analyse des données d
 –	Étape 1. Normalisation des concentrations avec les gaz de calibrations ;
 –	Étape 2. Transformation des concentrations en teneur ;
 –	Étape 3. Correction des concentrations / teneur selon les éléments physico-chimiques mesurés à partir d’une routine de calcul sous R ; 
-–	Étape 4. Quand cela est possible, transformation des données de flux corrigés des données météo",,,,,,,&RESANA&,sur invitation,,,,,,EasyData_RDG,,,,CC BY,,Les données seront proposées aux SI concernés par ces écosystèmes (ex. SI OLA) pour être intégrées aux BDD existantes. A identifier et discuter,,,,,,,,done
+–	Étape 4. Quand cela est possible, transformation des données de flux corrigés des données météo",,,,,,,&RESANA&,sur invitation,,,,,,EasyData_RDG,,,,CC BY,,&Les données seront proposées aux SI concernés par ces écosystèmes (ex. SI OLA) pour être intégrées aux BDD existantes. A identifier et discuter&,,,,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),,DEEP-C,,ANR-22-PEXF-0009,2023-08-28 00:00:00,2028-08-27 00:00:00,,,,,Jean-Philippe Jenny_Laurent Millet,INRAE_CNRS,,Plan DEEP-C,2023-11-08 00:00:00,2023-11-08 00:00:00,,1,,Earth and related environmental sciences,fra,Jean-Philippe Jenny_Laurent Millet,,,,,PR2_STOCKS C,Stocks de C,Datasets,non,"Les stocks et des taux d’accumulation du carbone vont être évaluées sur les plans d’eau (eaux lentiques : lacs, réservoirs, étangs, gravières) à travers l’analyse biogéochimique des sédiments de surface, prélevés par carottage",WP2,"  https://in-situ.theia-
 land.fr/skosmos/theia_ozcar_thesaurus/fr/",,,,,,"Les données déjà collecté (synthèse de l’existant) se caractérisent généralement par des datations existantes sur carotte courte, dont il manque encore des profils exaustifs de caractérisation de la matière organique, il s’agira alors de compléter ces données en collectant une nouvelle carotte sur le même site de forage ou à réaliser de nouvelles analyses de carbone organique sur les échantillons restant utilisées lors des datations initiales : 
 –	les données brutes sont celles associées à des mesures physico-chimiques des échantillons (densité apparentes, C/N, carbone total, taux de carbone organique, taux de matière organique ...) pris tous les 5 ans environ soit 10-20 différentes profondeurs sur une archive de 1 m ajustables selon taux de sédimentation sur chaque carotte (carottier gravitaire) qui ne sont pas conservées. Une demi-carotte non échantillonnée sera conservée le temps du projet pour archive. Les datations sont réalisées pour ces carottes, sauf si les datations ont déjà été réalisées auparavant.
@@ -1583,8 +1583,8 @@ Les données photo seront quant à elles converties/compressées et stockées su
 L’usage d’un cahier de laboratoire numérique (eLab) permettra de suivre collectivement les avancées pour chaque sondage. Ce cahier de laboratoire numérique sera partagé via un lien commun avec un accès limité aux contributeurs du WP2. 
 Les fréquences de sauvegarde seront :
 –	Pour l’espace Resana: mensuel, par Olivia Itier-Desgué
-–	Pour eLab : mensuel, par Olivia Itier-Desgué",100Mo,"&RESANA, eLab&",sur invitation,,,,&embargo 2 ans&,,EasyData_RDG,,,,CC BY,,"Les données de sondages seront mises à disposition sur des BDD existantes (extension des BDD existantes à étudier) si possible. BDD identifiées (données brutes et/ou élaborées à définir):
-–	BDD OLA pour les lacs alpins : discussion engagée avec Ghislaine Monnet de AnaEE...Les sondages/carottes seront portées à connaissance via l’outil cybercarothèque et entreposées dans les laboratoires le temps du projet et éventuellement 2 ans après la fin du projet.",,,,,,,,done
+–	Pour eLab : mensuel, par Olivia Itier-Desgué",100Mo,"&RESANA, eLab&",sur invitation,,,,&embargo 2 ans&,,EasyData_RDG,,,,CC BY,,"&Les données de sondages seront mises à disposition sur des BDD existantes (extension des BDD existantes à étudier) si possible. BDD identifiées (données brutes et/ou élaborées à définir):
+–	BDD OLA pour les lacs alpins : discussion engagée avec Ghislaine Monnet de AnaEE...Les sondages/carottes seront portées à connaissance via l’outil cybercarothèque et entreposées dans les laboratoires le temps du projet et éventuellement 2 ans après la fin du projet.&",,,,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),,DEEP-C,,ANR-22-PEXF-0009,2023-08-28 00:00:00,2028-08-27 00:00:00,,,,,Jean-Philippe Jenny_Laurent Millet,INRAE_CNRS,,Plan DEEP-C,2023-11-08 00:00:00,2023-11-08 00:00:00,,1,,Earth and related environmental sciences,fra,Jean-Philippe Jenny_Laurent Millet,,,,,PR3_MODELISATION,Modélisation des flux et stocks de C le long du continuum terre Mer,Modèle,non,"Il s’agira ici de poursuivre les développement de modèles numériques développés par la communauté scientifique (Lauerwald et al.) afin d’établir des bilans de carbone spatialisés à l’échelle des lacs et des bassins-versants. Cet outil s’appuiera notamment sur les modèles ORCHIDEE C-Lateral et SWAT afin de calculer l’altération, l’érosion et le transport de la matière organique et des nutriments. L’amélioration de l’architecture du modèle permettra de tenir compte du role des lacs dans la production de GES et la sequestration sédimentaire de carbone, et de la tester sur des cas d’application existants (Lacs pilotes nouvellement identifiés, et lacs de l’observatoire OLA notamment ; Échelle nationale avec l’OFB). ",WP3,"  https://in-situ.theia-
 land.fr/skosmos/theia_ozcar_thesaurus/fr/",,,,,,"Les données externes, collectées par des personnes tierces ou produites dans d’autres projets; celles produites dans les autres WP de Carbonium sont concernées ; ces données servent autant à alimenter le modèle que le critiquer et appartiennent aux familles de données suivantes : 
 o Observations utilisées pour calibrations/évaluations des flux fluviaux simulé avec des modèles SWAT et ORCHIDEE-Clateral   
@@ -1755,31 +1755,716 @@ dans les bases de données des observatoires quand cela est possible, soit local
 en charge de leur production, sur des solutions de type « disque dur externe ». Pour les simulations des 
 modèles les plus importantes, une conservation sur une période d’environ 5 ans est envisagée. En 
 revanche, toutes données de suivi de projet et issus du traitement des données n’ont pas vocation a 
-été gardée au-delà du projet.  ",,,,,,,,
+été gardée au-delà du projet.  ",,,,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du
-littoral des façades Atlantique et Manche",CABESTAN,ok,ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,,"Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,PR1_BIOCHIMIE BENTHIQ,Processus Biochimiques Benthiques,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du
-littoral des façades Atlantique et Manche",CABESTAN,ok,ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,,"Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,PR2_FLUX C,Quantification des flux de C,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du
-littoral des façades Atlantique et Manche",CABESTAN,ok,ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,,"Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,PR3_SEQUESTRATION SEDIM,Quantification de la séquestration sédimentaire de C et caractérisation de la MO,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR),"Le cycle du carbone de l’interface terre-mer dans le contexte des estrans et des zones humides du
-littoral des façades Atlantique et Manche",CABESTAN,ok,ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,,"Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,PR4_TELEDETECT_MODELISATION,Changement d'échelle: des capteurs in situ à la télédétection et modélisation,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+littoral des façades Atlantique et Manche",CABESTAN,"Les zones humides côtières, du continuum des marais rétro-littoraux à la zone intertidale, sont
+largement représentées sur la façade Manche-Atlantique française. Ces milieux très productifs sont
+le réceptacle d’apports continentaux et peuvent capter et séquestrer durablement le C. Le projet
+CABESTAN a pour objectif de lever des verrous de connaissance sur les processus et les forçages
+qui régissent les flux de C de ces milieux. Nous avons identifié un grand nombre de questions
+originales centrées sur le comportement du C au regard de différents gradients spatiotemporels qui
+caractérisent ces milieux : 1/ comment les processus de captation et de recyclage du C aux
+échelles tidales, diurnes et saisonnières jouent-ils sur la séquestration à long terme du C ? 2/
+Comment évolue la dynamique du C dans le gradient salin, de la zone intertidale aux marais
+salés ? 3/ Les gradients d’eutrophisation se traduisent-ils par un gradient de séquestration du C ?
+4/ Les substrats les plus productifs sont-ils ceux qui séquestrent le plus de C ? 5/ Comment les
+forçages climatiques et tidaux le long de la façade Manche-Atlantique impactent-ils le cycle du C ?
+A l’issue de notre projet les nouvelles connaissances scientifiques permettront d’apporter des
+éléments de réponses sur les évolutions futures de la séquestration du C dans les zones humides
+littorales sous l’effet des changements climatiques et globaux.
+Pour répondre à ces questions nous étudierons 9 zones situées entre le bassin d’Arcachon
+(44.6°N) et l’estuaire de la Canche (50.0°N) avec une approche comparative multi-site aux
+forçages multiples. Pour cela, le projet CABESTAN rassemblera un ensemble de compétences
+complémentaires faites d’experts des sites, de géochimistes, sédimentologues, écologues,
+écophysiologistes, experts en mesure d’assimilation et de flux de C, en analyse de la matière
+organique (MO), en télédétection et en modélisation. Ainsi, le consortium réunit près de 30
+chercheurs issus de 9 laboratoires.
+Le travail collaboratif sera organisé en six tâches. La première est la coordination du projet qui
+comprendra une compilation des connaissances sur la biogéochimie de chaque site et la
+confrontation des méthodes. La deuxième sera consacrée aux processus biogéochimiques
+benthiques et cherchera à déterminer ceux qui contrôlent la balance recyclage/archivage du C en
+identifiant et en quantifiant les processus diagénétiques responsables de la minéralisation de la MO
+et la production d’alcalinité. La tâche 3 aura pour objectif de quantifier les échanges de C aux
+différentes interfaces sédiment-air-eau du domaine intertidal, en incluant le pompage tidal et les
+taux de séquestration. La tâche 4 mettra l’accent sur les stocks et l’origine de la MO sédimentaire.
+La tâche 5 s’intéressera aux changements d’échelle et à l’extrapolation des résultats obtenus en
+utilisant des méthodes lidar et la télédétection. Des cartes de flux de C seront établies à partir d’un
+modèle d’occupation des sols confronté à nos données. La dernière tâche concernera la
+dissémination, la communication et l’exploitation des résultats. A l’issue du projet, les résultats
+attendus sont une quantification 1/ des stocks et des taux de séquestration du C dans les
+sédiments des zones humides étudiées ; 2/ des flux de carbone aux différentes interfaces. Les
+processus et les forçages responsables de ces flux seront mieux connus, et dont les résultats
+alimenteront des modèles permettant de changer d’échelle, établissant des scénarios d’évolution
+des flux en fonction des changements globaux et de fournir des arguments quantitatifs pour la
+préservation des zones humides côtières. CABESTAN est en adéquation avec l’appel d’offre de
+FairCarboN, et plus précisément avec l’axe 1. Ce projet ambitieux, tant par son emprise
+géographique que par le nombre et l’originalité des idées scientifiques fédère ce grand consortium
+qui envisage une subvention de 1,5 M€ sur une durée de 5 ans",ANR-22-PEXF-0007,2023-10-01 00:00:00,2028-09-30 00:00:00,Université de Bordeaux_Nantes Université_CNRS_Université de Cean Normandie_Ecole Polythechnique_Université de Lille_La Rochelle Université_Université d'Angers,,,,Pierre Anschutz,Univ-Bordeaux,,Plan CABESTAN,2024-02-05 00:00:00,2024-02-23 00:00:00,1.2,version initiale,"Le présent plan de gestion de données, dans sa “version 1”, ne constitue qu'une ébauche de
+l'inventaire exhaustif et détaillé des produits de recherche qui seront élaborés dans le cadre du
+projet CABESTAN.
+Notre démarche pour accompagner la mise en place du PGD est la création d’un groupe de
+travail “donnée” (GT PGD) au sein de CABESTAN qui regroupe un représentant par site
+5
+d’étude et par WP (Fig. 1 et 2) et une représentante de l’IR Data Terra (S. Schmidt). Selon la
+diversité des données collectées et des méthodes pour les acquérir, le nombre de
+représentant.e.s de chaque WP peut varier. Ce groupe se réunira autant de fois que nécessaire
+en vue de la révision du présent Plan de Gestion des Données.
+Ce PGD constitue le document de référence pour la centralisation et le stockage des différents
+types de données précisés plus haut, ainsi que pour la mise en place des métadonnées
+associées.
+Une nomenclature permettant le tri des produits de recherche sera mise en place par le GT
+PGD. Elle décrira notamment le type de produit : jeux de données, produit de modèle,
+document de synthèse, etc","Sciences de la Terre et de l’Environnement, Earth and related environmental",fra,Vona Meleder_Pierre Anschutz_Sabine Schmidt,,,Convention attributive d'aide,,&PR1_non travaillés,4 WPs,Datasets,,,,,,,,,,"&Des données préexistantes seront utilisées dans le cadre du projet en respectant les règles de
+confidentialité/utilisation propres à chaque jeu de données.
+Seront notamment utilisées des données d’observation des Services Nationaux d’Observations
+labellisés (SNO): COAST HF, SOMLIT, MOOSE, PHYTOBS. Ces données sont liées à
+l’infrastructure de recherche IR-ILICO&",,,,,&https://www.ir-ilico.fr/?PlanGestionDonnees&,,,,,,"&Les données numériques produites par les capteurs in situ ou ex-situ (laboratoire) utilisés
+dans le cadre du projet, enrichies de leurs métadonnées (navigation, position GPS, calibration,
+etc)&",,,,,,,,,"&Les données seront organisées par site plutot que par WP.
+Une fiche de donnée et de leurs métadonnées sera associée à chaque type de données. Elle
+précisera également les conventions de nommage des différents fichiers afin de retrouver sans
+ambiguïté les métadonnées associées aux données. Les métadonnées génériques suivront les
+standards utilisés dans la communauté lorsqu’ils sont déjà définis (datation, paramètres
+d’environnement, ...) et on suivra les recommandations du pôle Odatis  (https://www.odatis-
+ocean.fr&",,,,,"&Les procédures de contrôle de qualité et d’attribution d’un code qualité aux données seront
+discutées par le groupe de travail constitué autour du plan de gestion des données, composé
+des responsables des WP et de sites, et seront alignées aux standards d’ILICO. Il peut déjà
+être évoqué les méthodologies classiques suivantes:
+– Les instruments de mesures seront calibrés et régulièrement vérifiés.
+8
+– Utilisation de descripteurs statistiques classiques, des visualisations graphiques
+des données&",,,,,,,,,,,,,,"&Resana pour la matière grise, RESANA offre un stockage illimité
+dans un cadre sécurisé (RGPD). Il est possible de déposer des fichiers jusqu'à 2GO (textes,
+photos, vidéos). Ces données sont toutes accessibles à des formats standards ( docx, . xlsx et .
+pptx.)&",,,,,,,"&Les publications seront déposées dans l'archive ouverte libre d’accès HAL.
+Les données issues des équipements utilisés dans le cadre du projet seront déposées dans des
+centres de données afin de permettre un partage pérenne. Les services du pôle Odatis seront
+sollicités pour la sélection des Bases De Données (BDD) les plus adaptées. Ces choix feront
+l'objet d'une révision de ce PGD&",,,,ccby,,"&Les données non bancarisées ni DOIsés seront conservées sur une période de 5 à 10 ans à
+compter de la fin du projet (à repréciser ultérieurement)&",,,5 à 10 ans,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),"Soutien aux infrastructures, Expérimentations Soutien aux infrastructures, Expérimentations 
-Systèmes de culture ",CrosyeN,,ANR-22-PEXF-0005,2023-04-01 00:00:00,2028-03-31 00:00:00,,,,,Yann Nouvellon,CIRAD,,Plan CrosyeN,2024-01-26 00:00:00,2024-02-28 00:00:00,,1,,"Agriculture, Forestry and Fisheries",fra,Yann Nouvellon,,,,,PR1_PROTOCOLES,"Conception harmonisation des protocole, collecte et bancarisation",Texte,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Systèmes de culture ",CrosyeN,,ANR-22-PEXF-0005,2023-04-01 00:00:00,2028-03-31 00:00:00,,,,,Yann Nouvellon,CIRAD,,Plan CrosyeN,2024-01-26 00:00:00,2024-02-28 00:00:00,,1,"Cette première version du plan de gestion des données (PGD) propose un découpage en deux axes (1) un dédié aux 
+données expérimentales produites sur les 8 sites expérimentaux « systèmes de culture » (2) un autre dédié aux 
+indicateurs produits à partir de données existantes. Dans ce PDG, il s’agit à ce stade de bien appréhender le 
+fonctionnement des équipes impliquées dans chaque WP et de fournir autant d’éléments que possible sur les 
+données, à destination des data stewardship qui seront mobilisés dans un second temps, une fois les feuilles de 
+route consolidées à l’échelle de chaque WP","Agriculture, Forestry and Fisheries",fra,Yann Nouvellon,,,,,PR1_PROTOCOLES,"Conception harmonisation des protocole, collecte et bancarisation",Texte,non,"L’enjeu pour ce GT est d’acquérir un panel de données (13 catégories ; Tableau 1 ci-après) inter-comparables afin 
+d’évaluer les systèmes de culture testés et comprendre les processus sous-jacents, à l’échelle de 8 
+expérimentations « systèmes de culture », dont 4 sont situées en France métropolitaine et 4 sont situées en zone 
+tropicale (Cambodge x2, Zimbabwe, Vietnam). ",,"Les thesaurus potentiels identifiés sont :  
+-  Agrovoc
+1
+ pour les données météorologiques, les données agronomiques,  
+-  THEIA/OZCAR
+2
+ pour les données pédologiques, de biodiversité  
+Un dictionnaire de variables dans lequel seront précisés à minima les unités, la définition de la variable, les 
+acronymes, … sera fourni et précisera les équivalences avec les thesaurus identifiés. Un template sera fourni à cet 
+effet. ",,,,,,,,,,,,,,," 
+Parmi les 12 catégories de données, on trouve des données 
+-  Météorologiques 
+-  Pédologiques : propriétés physico-chimiques et hydrauliques, biogéochimie (échange gazeux, éléments 
+minéraux, teneurs en carbone) 
+-  Agronomiques : itinéraire technique, biomasse récoltée/restituée, qualité des produits, phénologie, 
+couverture du sol, … 
+-  De biodiversité : biodiversité végétale, macrofaune du sol, communautés microbiennes 
+-  Economiques (coût des intrants, valeur des productions exportées, etc.) ","La fréquence d’acquisition et les modalités d’échantillonnages seront précisées dans un protocole commun et basés 
+sur les pratiques existantes. Des ordres de grandeurs de la fréquence d’échantillonnage sont mentionnés dans le 
+Tableau 2.  ","Pour chacune des variables identifiées, il s’agira terme de définir la donnée brute (une mesure de sonde, un résultat 
+d’analyse labo, un relevé de biomasse, etc. ; qualifiée ou non), la donnée élaborée (finale) et les données 
+intermédiaires suivant les étapes de traitement de la donnée","La plupart des données sont de types numériques (.csv, .txt, .xlsx).","Les volumes de données sont de l’ordre de 0.25 Go/an/site expérimental, ce qui représente une dizaine de Go pour 
+les 8 sites expérimentaux et les 5 ans du projet.  ",,,"Sur chaque site expérimental, une personne est en charge du suivi du dispositif expérimental, de la coordination de 
+l’échantillonnage, l’analyse des données :  
+-  Lionel Alletto (https://orcid.org/0000-0003-0933-9476), INRAE, UMR AGIR, pour le site de Toulouse-
+Auzeville ;  
+-  Isabelle Bertrand (https://orcid.org/0000-0002-2233-631X), INRAE, UMR Eco&sols pour l’expérimentation 
+DIAMS (Montpellier-Mauguio) ;  
+-  Catherine Hénault (https://orcid.org/0000-0002-1210-2499), INRAE, UMR AgroEcologie, pour le site CASYS 
+de la ferme expérimentale de l’INRAE à Dijon-Époisses ;  
+-  Joël Léonard (https://orcid.org/0000-0002-9907-9104), INRAE, UMR BioEcoAgro, pour l’expérimentation 
+système grandes cultures d’Estrées-Mons ;  
+-  Florent Tivet (https://orcid.org/0000-0003-2330-9660),CIRAD, UPR AÏDA, pour l’expérimentation de Bos-
+Khnor (province de Kampong Cham, Cambodge) ;  
+-  Myriam Adam (https://orcid.org/0000-0002-8873-6762), CIRAD, UMR AGAP, pour l’expérimentation de 
+Battambang Cambodge;  
+-  Pascal Jouquet (https://orcid.org/0000-0002-4189-5133), IRD UMR iEES, pour le l’expérimentation de Bac 
+Giang, Vietnam ;  
+-  Rémi Cardinael (https://orcid.org/0000-0002-9924-3269), CIRAD, UPR AIDA, site expérimental du 
+Zimbabwe. ","Un IE/IR recruté, Benoît Marie, aura en charge la facilitation de la FAIRisation des données en précisant notamment 
+dans les versions ultérieures du PGD les outils, références et templates à utiliser","L’organisation de l’espace de travail passe par une méthode rigoureuse de référencement des données collectées 
+et produites (ex. nom court, sans espace - privilégier les underscore ou tiret du 6, acronymes des sites en 3 lettres, 
+dat0 pour les données brutes…), permettant le partage et l’accès rapide au sein du consortium. Des 
+recommandations seront fournies ultérieurement. ",,,"Les métadonnées doivent reprendre pour partie les items indispensables à nos activités/disciplines (écophysiologie, 
+biogeochimie, agronomie) mais également intégrer ceux qui seront demandés par les entrepôts et Bases De 
+Données (BDD) – à identifier à moyen terme. Les formats des métadonnées seront également précisés (ex. format 
+date, localisation...).  
+Exemple de métadonnées propre à nos activités et qui seront demandées : la période ou date 
+d’échantillonnage (format à définir ; DD:MM:AA HH:MM:SS UTC), la fréquence d’échantillonnage 
+6 
+PGD CrosyeN – version 1 (en cours). 26/01/2024 
+(discret/ponctuel ou mesure en continu), le protocole suivi (pour échantillonnage, préparation de 
+l‘échantillonnage avant analyse, analyse), type de capteur, l’expérimentateur, la référence de la parcelle et 
+ses 4 points GPS (format à définir),… (liste à repréciser ultérieurement)",,,,"Utilisation des descripteurs statistiques classiques, des visualisations graphiques ; Comparaison des niveaux de 
+concentrations aux données issues de la littérature ; Étude des relations entre variables pour identifier les points 
+aberrants.  
+Les données lacunaires seront écartées.  ",,"Un IE/IR recruté, Benoît Marie, aura en charge la facilitation de la FAIRisation des données en précisant notamment 
+dans les versions ultérieures du PGD les outils, références et templates à utiliser",,,,,,,,,,"SCENARIO 1. L’espace mis à disposition du consortium sera privilégié, avec des sauvegardes trimestrielles sur des 
+disques durs.  
+SCENARIO 2. Un espace collaboratif pour le suivi de projet sera mis à disposition et un autre espace dédié au 
+stockage et analyse des données sera proposé.  
+-  Espace collaboratif type OSMOSE / Cloud 
+-  Espace données : serveur 
+ 
+SCENARIO 3. Un espace collaboratif pour le suivi de projet sera mis à disposition ; en revanche, les données 
+produites par chaque partenaire (ex : Datasud) seront stockées et sauvegardées sur les serveurs des labos et seules les qualifiées/prétraitées seront régulièrement partagées via l’espace collaboratif ou tout autre moyen suivant le 
+volume des données",,&insuffisant&,Les données seront partagées sans délai avec le reste des WP (accès à l’espace de travail ou sur demande,,,,,,&lequel&,,,,ccby,,&A ce jour aucune BDD n’a été identifié&,,,5 à 10 ans,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),"Soutien aux infrastructures, Expérimentations Soutien aux infrastructures, Expérimentations 
-Systèmes de culture ",CrosyeN,,ANR-22-PEXF-0005,2023-04-01 00:00:00,2028-03-31 00:00:00,,,,,Yann Nouvellon,CIRAD,,Plan CrosyeN,2024-01-26 00:00:00,2024-02-28 00:00:00,,1,,"Agriculture, Forestry and Fisheries",fra,Yann Nouvellon,,,,,PR2_INDICATEURS,Indicateurs de performances des systèmes,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,ok,ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,,,,,,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,,"Earth and related environmental 
-sciences",,,,,,,PR1_GES ESTUAIRES,"GES esturaires, baies, lagunes, deltas tropicaux",Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,ok,ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,,,,,,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,,"Earth and related environmental 
-sciences",,,,,,,PR2_BILAN C MANGROVES,composantes du bilan C des mangroves,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,ok,ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,,,,,,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,,"Earth and related environmental 
-sciences",,,,,,,PR3_FACTEURS REMINERALISATION,facteurs de contrôle de la reminéralisation du carbon bleu sédimentaire dans les sols des mangroves,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,ok,ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,,,,,,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,,"Earth and related environmental 
-sciences",,,,,,,PR4_APPORT ALGAL,Effet d'apports de matière algales sur la séquestration du carbon bleu sédimentaire dans les mangroves,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+Systèmes de culture ",CrosyeN,,ANR-22-PEXF-0005,2023-04-01 00:00:00,2028-03-31 00:00:00,,,,,Yann Nouvellon,CIRAD,,Plan CrosyeN,2024-01-26 00:00:00,2024-02-28 00:00:00,,1,"Cette première version du plan de gestion des données (PGD) propose un découpage en deux axes (1) un dédié aux 
+données expérimentales produites sur les 8 sites expérimentaux « systèmes de culture » (2) un autre dédié aux 
+indicateurs produits à partir de données existantes. Dans ce PDG, il s’agit à ce stade de bien appréhender le 
+fonctionnement des équipes impliquées dans chaque WP et de fournir autant d’éléments que possible sur les 
+données, à destination des data stewardship qui seront mobilisés dans un second temps, une fois les feuilles de 
+route consolidées à l’échelle de chaque WP","Agriculture, Forestry and Fisheries",fra,Yann Nouvellon,,,,,PR2_INDICATEURS,Indicateurs de performances des systèmes,Datasets,," 
+Dans ce GT2, l’objectif est d’identifier un ensemble d’indicateurs pour l’évaluation des performances multicritères des 
+systèmes de culture testés, ainsi que la faisabilité de leur mise en œuvre pratiques. Ces indicateurs sont construits à 
+partir de données générées sur les sites expérimentaux (cf : GT1). Le travail d’identification des indicateurs et 
+méthodes d’évaluation multicritères les plus pertinents est en cours. Les personnes contacts sont les pilotes du GT2",,,,,,,,,,,,,,,,,,,,,,,,"thodes d’évaluation multicritères les plus pertinents est en cours. Les personnes contacts sont les pilotes du GT2:  
+-  Lionel Alletto (https://orcid.org/0000-0003-0933-9476), INRAE, UMR AGIR;  
+-  Mathilde Sester (https://orcid.org/0000-0002-2329-9119), CIRAD, UPR AIDA.  ",,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,done
+Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,"En régions tropicales, les estuaires et mangroves sont des écosystèmes interconnectés qui jouent un 
+rôle clé dans les émissions de gaz à effet de serre et les stockages de carbone à l’échelle globale. 
+Alors que ces stocks et ces flux sont prépondérants, ils restent encore insuffisamment caractérisés par 
+comparaison à d’autres écosystèmes, d’autant plus qu’ils sont aujourd’hui altérés par l’usage des terres 
+et les changements globaux. Des méthodes quantitatives permettant de rendre compte de la variabilité 
+spatiale et temporelle des stocks et flux de carbone en zones côtières tropicales sont donc nécessaires. 
+Le  projet  TROPECOS  structurera  la  communauté  scientifique  française  travaillant  sur  le  cycle  du 
+carbone en zone côtière dans trois territoires ultramarins (Guyane Française, Guadeloupe, Nouvelle 
+Calédonie) et deux dispositifs de recherche à l’international au Vietnam et au Brésil, en capitalisant sur 
+des investissements humains et technologiques récents, des développements méthodologiques, de 
+nouveaux réseaux de collaboration internationaux, et d’avancées scientifiques dans ces régions. Dans 
+les estuaires tropicaux à partir de la compilation des données existantes et de nouvelles mesures de 
+terrain au Brésil et au Vietnam, et grâce à de nouveaux outils de télédétection et de modélisation, nous 
+serons  en  mesure  de  quantifier  précisément  les  émissions  de  CO
+2
+,  CH
+4
+  et  N
+2
+O  dans  les  deltas, 
+estuaires tidaux, lagunes et panaches fluviaux, d’analyser leur évolution au cours des 20 dernières 
+années et de simuler des émissions futures selon des scenario de gestion des zones côtières (montée 
+du  niveau  marin,  aquaculture,  emprise  urbaine  et  épuration  des  eaux).  Dans  les  mangroves, 
+écosystèmes au taux de stockage du carbone extrêmement élevé, nous déploierons une capacité 
+d’échantillonnage sans précédent, fruit de l’expertise locale des équipes du consortium TROPECOS. 
+Sur 10 sites de mangroves couvrant diverses conditions géomorphologiques et environnementales, 
+nous appliquerons des protocoles standardisés prédéfinis collégialement. Un réseau d’échantillonnage 
+des mangroves à travers des missions ciblées et la formation des partenaires locaux sera mis en place. 
+Les composantes des bilans de carbone des mangroves comprenant la croissance et mortalité de 
+biomasse  aérienne  et  souterraine,  les  échanges  gazeux,  les  échanges  avec  les  masses  d’eau 
+adjacentes et la séquestration dans les sols seront quantifiés par ces méthodes standardisées dont 
+certaines développées récemment par le consortium. Un échantillonnage systématique de sol servira 
+à des datations et des analyses géochimiques pour décrire les sources et les âges de la matière 
+organique, son état de dégradation et son association avec les phases minérales dans les mangroves 
+préservées et polluées, carbonatées et terrigènes, estuarienne, deltaïques, lagunaires et littorales. 
+Nous apporterons de nouveaux éclairages sur les facteurs qui préservent le carbone bleu du sol des 
+mangroves à l’échelle globale. Les processus de reminéralisation, diagenèse      et exsudation racinaire 
+dans les sols anoxiques et la rhizosphère seront étudiés aux échelles centimétrique et millimétrique, 
+ainsi  que  les  fonctionnalités  et  l’activité  enzymatique  des  microbes  (bactéries  et  champignons). 
+L’impact de l’eutrophisation et des dépôts de matière organique labile sur les sols de mangrove sera 
+aussi évalué dans une expérience en mésocosme spécialement conçue pour quantifier d’éventuels 
+effets priming sur les litières, les racines et le carbone ancien du sol. Pour compenser l’éloignement 
+géographique  des  partenaires,  nous  développerons  de  nouveaux  modes  de  communication  et  de 
+formation en ligne, vidéos décrivant des protocoles de mesure sur le terrain, tutoriels, groupes de travail 
+et comités de suivis internationaux et pluridisciplinaires. Afin de faciliter les interactions et minimiser ‘le 
+coût carbone’ du projet, nous organiserons les campagnes de terrain entre deux pôles Atlantique et 
+Indo-Pacifique",ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,oui,oui,oui,Gwenael Abril,BOREA,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,"Le présent plan de gestion de données définit la façon dont seront répertoriées, sécurisées et 
+partagées les données au sein de chaque WP. Les WPs resteront les structures d’organisation 
+et de centralisation des données tout au long du projet, autour desquels s’articulera l'inventaire 
+exhaustif et détaillé des produits de recherche élaborés dans le cadre du projet TROPECOS. De 
+plus,  les  responsables  de  site  seront  aussi  sollicités  pour  les  WP2  et  WP3  et  le  PGD  sera 
+coordonné par le RSF (G. Abril) et la représentante de l’IR Data Terra (S. Schmidt). Selon la 
+diversité des données collectées dans chaque WP, les contributions des référents de site d’étude 
+peuvent varier. Ce PGD constitue le document de référence pour la centralisation et le stockage 
+des  différents  types  de  données  précisés  plus  haut,  ainsi  que  pour  la  mise  en  place  des 
+métadonnées associées. Si nous disposons dès cette version d’un premier niveau de description 
+de la nature des données reporté dans le tableau 1, celui-ci est voué à évoluer et se préciser tout 
+au long du projet. Ainsi, la mise à jour du PGD se fera à chaque réunion de WPs et/ou de comités 
+de suivi de thèses ou de post-docs (fréquence minimale 3 mois)","Earth and related environmental 
+sciences",,Sabine Schmidt,,,,,PR1_GES ESTUAIRES,"GES esturaires, baies, lagunes, deltas tropicaux",Datasets,,,,,,,,,,"&Ceci concerne des données de flux de carbone déjà obtenues sur certains estuaires et certaines 
+mangroves par les partenaires impliqués dans TROPECOS et qui pourront être incorporées à 
+notre BDD. Nous utiliserons aussi des données publiées et compilées dans la littérature, libre de 
+droit, par exemple, le SIG de Dürr et al (2011) donnant la typologie des estuaires mondiaux et la 
+base de données (assez incomplète) de pCO2 associée (Laruelle et al. 2011, SOCAT) et des 
+données de télédétection déjà acquises. L’utilisation de ces données s’accompagnera de toutes 
+les informations utiles à leur utilisation, notamment, des licences établies pour l’usage des dites 
+données&",,&oui&,,,,,,,&oui&,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2).&",&oui&,oui,,,,,"&Enfin, tous les produits de recherche depuis ces données brutes jusqu’aux publications ou vidéos 
+scientifiques  seront  répertoriés  selon  une  nomenclature  permettant  leur  tri  et  référencement. 
+8 
+Cette nomenclature décrira le type de produit tels que jeux de données, cartes, sorties de modèle, 
+document  de  synthèse,  publications,  vidéos.  Le  site  web  du  projet  permettra  de  relayer 
+l’information obtenue par le projet avec le public à travers une page donnant les liens vers toutes 
+les productions doi-sées et vers une chaîne Youtube du projet, ainsi que les réseaux sociaux&",,,&insuffisant&,,,,&insuffisant&,,,,,,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2)&",,,,,"&Pendant le déroulé du projet, nous aurons besoin de deux niveaux de stockage :  
+(1)  Un stockage partagé par les membres du consortium de manière à pouvoir échanger des 
+données tout au long du projet ; ainsi, nos données seront stockées et sauvegardées sur 
+l’espace RESANA dédié à TROPECOS. Nous mettrons en place la procédure d'accès à 
+certaines  de  ces  données  aussi  aux  partenaires  brésiliens  et  vietnamiens.  Pour  les 
+données issues de plusieurs laboratoires analysant un même échantillon (par exemple 
+dans le WP3 sur les carottes sédimentaires), la nomenclature sera définie en préalable 
+des phases d’échantillonnage de manière à être valide toute la durée du projet et sur tous 
+les sites. Les données seront accompagnées de toutes leurs métadonnées telles que la 
+localisation, les procédures de calibration, etc… 
+(2)  Un stockage vers le public sur le web sous forme d’articles scientifiques (HAL, journaux 
+open source) ou de littérature grise DOIsée, en relayant l’information sur un site web du 
+projet, une chaine youtube, et des réseaux sociaux, avec production de contenus video 
+pédagogiques : web-mini conférence et tutoriels filmés sur le terrain. Au fur et à mesure 
+que les données seront qualifiées par WP, nous envisagerons la possibilité de publier un 
+datapaper&",,&resana&,,,,,,,Seanoe,,,,,,"&Les données générées au sein de TROPECOS seront stockées et partagées avec l’accord de 
+leurs  propriétaires,  de  façon  à  ce  que  le  croisement  des  données  permette  la  progression 
+scientifique du groupe. Ceci concerne par exemple la compilation des 8 flux de carbone dans les 
+10  mangroves  (WP2),  ou  tous  les  travaux  de  géochimie  sur  les  carottes  sédimentaires  qui 
+nécessitent  la  construction  de  fichiers  partagés  (WP3).  Au  sein  du  consortium  étendu  aux 
+partenaires Vietnamiens et Brésiliens, il faudra s’accorder sur la façon de co-publier les données 
+en les répartissant et partageant entre groupes de façon à ce que tous puissent les exploiter de 
+façon optimale, en privilégiant les mémoires et thèses, les publications de jeunes chercheurs et 
+les  publications  dans  des  revues  à  fort  impact.  Les  données  issues  du  traitement  d’images 
+satellite  seront  publiées  et  mise  à  disposition  du  projet  sous  forme  de  cartes  ou  de  fichiers 
+numériques synthétiques donnant des tendances d’évolution : biomasse de mangrove (WP2), 
+concentrations  en  Chl  a,  POC,  DOC,  pCO2  dans  les  eaux  estuariennes  (WP1),  données 
+produites par la modélisation numérique servant à interpoler ou extrapoler les mesures in situ 
+(WP1). Une attention particulière sera donnée au sein de chaque WP à la façon dont les données 
+sont  partagées  au  sein  du  consortium  au  cours  du  projet.  La  mise  à  disposition  rapide  des 
+données  impliquera  aussi,  dès  que  les  résultats  seront  validés,  de  discuter  les  modalités  de 
+coauteurship et les contributions de chacun à la rédaction d’articles dans des revues avec impact 
+favorable. Il faudra aussi décider de mentionner dans les métadonnées et/ou remerciements, 
+toutes  les  équipes  propriétaires  des  données  qui  n’auraient  pas  souhaité  contribuer  à  la 
+valorisation, ou toute autre personne ayant aidé à la production des données&",,,,,,,,done
+Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,"En régions tropicales, les estuaires et mangroves sont des écosystèmes interconnectés qui jouent un 
+rôle clé dans les émissions de gaz à effet de serre et les stockages de carbone à l’échelle globale. 
+Alors que ces stocks et ces flux sont prépondérants, ils restent encore insuffisamment caractérisés par 
+comparaison à d’autres écosystèmes, d’autant plus qu’ils sont aujourd’hui altérés par l’usage des terres 
+et les changements globaux. Des méthodes quantitatives permettant de rendre compte de la variabilité 
+spatiale et temporelle des stocks et flux de carbone en zones côtières tropicales sont donc nécessaires. 
+Le  projet  TROPECOS  structurera  la  communauté  scientifique  française  travaillant  sur  le  cycle  du 
+carbone en zone côtière dans trois territoires ultramarins (Guyane Française, Guadeloupe, Nouvelle 
+Calédonie) et deux dispositifs de recherche à l’international au Vietnam et au Brésil, en capitalisant sur 
+des investissements humains et technologiques récents, des développements méthodologiques, de 
+nouveaux réseaux de collaboration internationaux, et d’avancées scientifiques dans ces régions. Dans 
+les estuaires tropicaux à partir de la compilation des données existantes et de nouvelles mesures de 
+terrain au Brésil et au Vietnam, et grâce à de nouveaux outils de télédétection et de modélisation, nous 
+serons  en  mesure  de  quantifier  précisément  les  émissions  de  CO
+2
+,  CH
+4
+  et  N
+2
+O  dans  les  deltas, 
+estuaires tidaux, lagunes et panaches fluviaux, d’analyser leur évolution au cours des 20 dernières 
+années et de simuler des émissions futures selon des scenario de gestion des zones côtières (montée 
+du  niveau  marin,  aquaculture,  emprise  urbaine  et  épuration  des  eaux).  Dans  les  mangroves, 
+écosystèmes au taux de stockage du carbone extrêmement élevé, nous déploierons une capacité 
+d’échantillonnage sans précédent, fruit de l’expertise locale des équipes du consortium TROPECOS. 
+Sur 10 sites de mangroves couvrant diverses conditions géomorphologiques et environnementales, 
+nous appliquerons des protocoles standardisés prédéfinis collégialement. Un réseau d’échantillonnage 
+des mangroves à travers des missions ciblées et la formation des partenaires locaux sera mis en place. 
+Les composantes des bilans de carbone des mangroves comprenant la croissance et mortalité de 
+biomasse  aérienne  et  souterraine,  les  échanges  gazeux,  les  échanges  avec  les  masses  d’eau 
+adjacentes et la séquestration dans les sols seront quantifiés par ces méthodes standardisées dont 
+certaines développées récemment par le consortium. Un échantillonnage systématique de sol servira 
+à des datations et des analyses géochimiques pour décrire les sources et les âges de la matière 
+organique, son état de dégradation et son association avec les phases minérales dans les mangroves 
+préservées et polluées, carbonatées et terrigènes, estuarienne, deltaïques, lagunaires et littorales. 
+Nous apporterons de nouveaux éclairages sur les facteurs qui préservent le carbone bleu du sol des 
+mangroves à l’échelle globale. Les processus de reminéralisation, diagenèse      et exsudation racinaire 
+dans les sols anoxiques et la rhizosphère seront étudiés aux échelles centimétrique et millimétrique, 
+ainsi  que  les  fonctionnalités  et  l’activité  enzymatique  des  microbes  (bactéries  et  champignons). 
+L’impact de l’eutrophisation et des dépôts de matière organique labile sur les sols de mangrove sera 
+aussi évalué dans une expérience en mésocosme spécialement conçue pour quantifier d’éventuels 
+effets priming sur les litières, les racines et le carbone ancien du sol. Pour compenser l’éloignement 
+géographique  des  partenaires,  nous  développerons  de  nouveaux  modes  de  communication  et  de 
+formation en ligne, vidéos décrivant des protocoles de mesure sur le terrain, tutoriels, groupes de travail 
+et comités de suivis internationaux et pluridisciplinaires. Afin de faciliter les interactions et minimiser ‘le 
+coût carbone’ du projet, nous organiserons les campagnes de terrain entre deux pôles Atlantique et 
+Indo-Pacifique",ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,oui,oui,oui,Gwenael Abril,BOREA,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,"Le présent plan de gestion de données définit la façon dont seront répertoriées, sécurisées et 
+partagées les données au sein de chaque WP. Les WPs resteront les structures d’organisation 
+et de centralisation des données tout au long du projet, autour desquels s’articulera l'inventaire 
+exhaustif et détaillé des produits de recherche élaborés dans le cadre du projet TROPECOS. De 
+plus,  les  responsables  de  site  seront  aussi  sollicités  pour  les  WP2  et  WP3  et  le  PGD  sera 
+coordonné par le RSF (G. Abril) et la représentante de l’IR Data Terra (S. Schmidt). Selon la 
+diversité des données collectées dans chaque WP, les contributions des référents de site d’étude 
+peuvent varier. Ce PGD constitue le document de référence pour la centralisation et le stockage 
+des  différents  types  de  données  précisés  plus  haut,  ainsi  que  pour  la  mise  en  place  des 
+métadonnées associées. Si nous disposons dès cette version d’un premier niveau de description 
+de la nature des données reporté dans le tableau 1, celui-ci est voué à évoluer et se préciser tout 
+au long du projet. Ainsi, la mise à jour du PGD se fera à chaque réunion de WPs et/ou de comités 
+de suivi de thèses ou de post-docs (fréquence minimale 3 mois)","Earth and related environmental 
+sciences",,Sabine Schmidt,,,,,PR2_BILAN C MANGROVES,composantes du bilan C des mangroves,Datasets,,,,,,,,,,"&Ceci concerne des données de flux de carbone déjà obtenues sur certains estuaires et certaines 
+mangroves par les partenaires impliqués dans TROPECOS et qui pourront être incorporées à 
+notre BDD. Nous utiliserons aussi des données publiées et compilées dans la littérature, libre de 
+droit, par exemple, le SIG de Dürr et al (2011) donnant la typologie des estuaires mondiaux et la 
+base de données (assez incomplète) de pCO2 associée (Laruelle et al. 2011, SOCAT) et des 
+données de télédétection déjà acquises. L’utilisation de ces données s’accompagnera de toutes 
+les informations utiles à leur utilisation, notamment, des licences établies pour l’usage des dites 
+données&",,&oui&,,,,,,,&oui&,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2).&",&oui&,oui,,,,,"&Enfin, tous les produits de recherche depuis ces données brutes jusqu’aux publications ou vidéos 
+scientifiques  seront  répertoriés  selon  une  nomenclature  permettant  leur  tri  et  référencement. 
+8 
+Cette nomenclature décrira le type de produit tels que jeux de données, cartes, sorties de modèle, 
+document  de  synthèse,  publications,  vidéos.  Le  site  web  du  projet  permettra  de  relayer 
+l’information obtenue par le projet avec le public à travers une page donnant les liens vers toutes 
+les productions doi-sées et vers une chaîne Youtube du projet, ainsi que les réseaux sociaux&",,,&insuffisant&,,,,&insuffisant&,,,,,,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2)&",,,,,"&Pendant le déroulé du projet, nous aurons besoin de deux niveaux de stockage :  
+(1)  Un stockage partagé par les membres du consortium de manière à pouvoir échanger des 
+données tout au long du projet ; ainsi, nos données seront stockées et sauvegardées sur 
+l’espace RESANA dédié à TROPECOS. Nous mettrons en place la procédure d'accès à 
+certaines  de  ces  données  aussi  aux  partenaires  brésiliens  et  vietnamiens.  Pour  les 
+données issues de plusieurs laboratoires analysant un même échantillon (par exemple 
+dans le WP3 sur les carottes sédimentaires), la nomenclature sera définie en préalable 
+des phases d’échantillonnage de manière à être valide toute la durée du projet et sur tous 
+les sites. Les données seront accompagnées de toutes leurs métadonnées telles que la 
+localisation, les procédures de calibration, etc… 
+(2)  Un stockage vers le public sur le web sous forme d’articles scientifiques (HAL, journaux 
+open source) ou de littérature grise DOIsée, en relayant l’information sur un site web du 
+projet, une chaine youtube, et des réseaux sociaux, avec production de contenus video 
+pédagogiques : web-mini conférence et tutoriels filmés sur le terrain. Au fur et à mesure 
+que les données seront qualifiées par WP, nous envisagerons la possibilité de publier un 
+datapaper&",,&resana&,,,,,,,Seanoe,,,,,,"Les données générées au sein de TROPECOS seront stockées et partagées avec l’accord de 
+leurs  propriétaires,  de  façon  à  ce  que  le  croisement  des  données  permette  la  progression 
+scientifique du groupe. Ceci concerne par exemple la compilation des 8 flux de carbone dans les 
+10  mangroves  (WP2),  ou  tous  les  travaux  de  géochimie  sur  les  carottes  sédimentaires  qui 
+nécessitent  la  construction  de  fichiers  partagés  (WP3).  Au  sein  du  consortium  étendu  aux 
+partenaires Vietnamiens et Brésiliens, il faudra s’accorder sur la façon de co-publier les données 
+en les répartissant et partageant entre groupes de façon à ce que tous puissent les exploiter de 
+façon optimale, en privilégiant les mémoires et thèses, les publications de jeunes chercheurs et 
+les  publications  dans  des  revues  à  fort  impact.  Les  données  issues  du  traitement  d’images 
+satellite  seront  publiées  et  mise  à  disposition  du  projet  sous  forme  de  cartes  ou  de  fichiers 
+numériques synthétiques donnant des tendances d’évolution : biomasse de mangrove (WP2), 
+concentrations  en  Chl  a,  POC,  DOC,  pCO2  dans  les  eaux  estuariennes  (WP1),  données 
+produites par la modélisation numérique servant à interpoler ou extrapoler les mesures in situ 
+(WP1). Une attention particulière sera donnée au sein de chaque WP à la façon dont les données 
+sont  partagées  au  sein  du  consortium  au  cours  du  projet.  La  mise  à  disposition  rapide  des 
+données  impliquera  aussi,  dès  que  les  résultats  seront  validés,  de  discuter  les  modalités  de 
+coauteurship et les contributions de chacun à la rédaction d’articles dans des revues avec impact 
+favorable. Il faudra aussi décider de mentionner dans les métadonnées et/ou remerciements, 
+toutes  les  équipes  propriétaires  des  données  qui  n’auraient  pas  souhaité  contribuer  à  la 
+valorisation, ou toute autre personne ayant aidé à la production des données",,,,,,,,done
+Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,"En régions tropicales, les estuaires et mangroves sont des écosystèmes interconnectés qui jouent un 
+rôle clé dans les émissions de gaz à effet de serre et les stockages de carbone à l’échelle globale. 
+Alors que ces stocks et ces flux sont prépondérants, ils restent encore insuffisamment caractérisés par 
+comparaison à d’autres écosystèmes, d’autant plus qu’ils sont aujourd’hui altérés par l’usage des terres 
+et les changements globaux. Des méthodes quantitatives permettant de rendre compte de la variabilité 
+spatiale et temporelle des stocks et flux de carbone en zones côtières tropicales sont donc nécessaires. 
+Le  projet  TROPECOS  structurera  la  communauté  scientifique  française  travaillant  sur  le  cycle  du 
+carbone en zone côtière dans trois territoires ultramarins (Guyane Française, Guadeloupe, Nouvelle 
+Calédonie) et deux dispositifs de recherche à l’international au Vietnam et au Brésil, en capitalisant sur 
+des investissements humains et technologiques récents, des développements méthodologiques, de 
+nouveaux réseaux de collaboration internationaux, et d’avancées scientifiques dans ces régions. Dans 
+les estuaires tropicaux à partir de la compilation des données existantes et de nouvelles mesures de 
+terrain au Brésil et au Vietnam, et grâce à de nouveaux outils de télédétection et de modélisation, nous 
+serons  en  mesure  de  quantifier  précisément  les  émissions  de  CO
+2
+,  CH
+4
+  et  N
+2
+O  dans  les  deltas, 
+estuaires tidaux, lagunes et panaches fluviaux, d’analyser leur évolution au cours des 20 dernières 
+années et de simuler des émissions futures selon des scenario de gestion des zones côtières (montée 
+du  niveau  marin,  aquaculture,  emprise  urbaine  et  épuration  des  eaux).  Dans  les  mangroves, 
+écosystèmes au taux de stockage du carbone extrêmement élevé, nous déploierons une capacité 
+d’échantillonnage sans précédent, fruit de l’expertise locale des équipes du consortium TROPECOS. 
+Sur 10 sites de mangroves couvrant diverses conditions géomorphologiques et environnementales, 
+nous appliquerons des protocoles standardisés prédéfinis collégialement. Un réseau d’échantillonnage 
+des mangroves à travers des missions ciblées et la formation des partenaires locaux sera mis en place. 
+Les composantes des bilans de carbone des mangroves comprenant la croissance et mortalité de 
+biomasse  aérienne  et  souterraine,  les  échanges  gazeux,  les  échanges  avec  les  masses  d’eau 
+adjacentes et la séquestration dans les sols seront quantifiés par ces méthodes standardisées dont 
+certaines développées récemment par le consortium. Un échantillonnage systématique de sol servira 
+à des datations et des analyses géochimiques pour décrire les sources et les âges de la matière 
+organique, son état de dégradation et son association avec les phases minérales dans les mangroves 
+préservées et polluées, carbonatées et terrigènes, estuarienne, deltaïques, lagunaires et littorales. 
+Nous apporterons de nouveaux éclairages sur les facteurs qui préservent le carbone bleu du sol des 
+mangroves à l’échelle globale. Les processus de reminéralisation, diagenèse      et exsudation racinaire 
+dans les sols anoxiques et la rhizosphère seront étudiés aux échelles centimétrique et millimétrique, 
+ainsi  que  les  fonctionnalités  et  l’activité  enzymatique  des  microbes  (bactéries  et  champignons). 
+L’impact de l’eutrophisation et des dépôts de matière organique labile sur les sols de mangrove sera 
+aussi évalué dans une expérience en mésocosme spécialement conçue pour quantifier d’éventuels 
+effets priming sur les litières, les racines et le carbone ancien du sol. Pour compenser l’éloignement 
+géographique  des  partenaires,  nous  développerons  de  nouveaux  modes  de  communication  et  de 
+formation en ligne, vidéos décrivant des protocoles de mesure sur le terrain, tutoriels, groupes de travail 
+et comités de suivis internationaux et pluridisciplinaires. Afin de faciliter les interactions et minimiser ‘le 
+coût carbone’ du projet, nous organiserons les campagnes de terrain entre deux pôles Atlantique et 
+Indo-Pacifique",ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,oui,oui,oui,Gwenael Abril,BOREA,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,"Le présent plan de gestion de données définit la façon dont seront répertoriées, sécurisées et 
+partagées les données au sein de chaque WP. Les WPs resteront les structures d’organisation 
+et de centralisation des données tout au long du projet, autour desquels s’articulera l'inventaire 
+exhaustif et détaillé des produits de recherche élaborés dans le cadre du projet TROPECOS. De 
+plus,  les  responsables  de  site  seront  aussi  sollicités  pour  les  WP2  et  WP3  et  le  PGD  sera 
+coordonné par le RSF (G. Abril) et la représentante de l’IR Data Terra (S. Schmidt). Selon la 
+diversité des données collectées dans chaque WP, les contributions des référents de site d’étude 
+peuvent varier. Ce PGD constitue le document de référence pour la centralisation et le stockage 
+des  différents  types  de  données  précisés  plus  haut,  ainsi  que  pour  la  mise  en  place  des 
+métadonnées associées. Si nous disposons dès cette version d’un premier niveau de description 
+de la nature des données reporté dans le tableau 1, celui-ci est voué à évoluer et se préciser tout 
+au long du projet. Ainsi, la mise à jour du PGD se fera à chaque réunion de WPs et/ou de comités 
+de suivi de thèses ou de post-docs (fréquence minimale 3 mois)","Earth and related environmental 
+sciences",,Sabine Schmidt,,,,,PR3_FACTEURS REMINERALISATION,facteurs de contrôle de la reminéralisation du carbon bleu sédimentaire dans les sols des mangroves,Datasets,,,,,,,,,,"&Ceci concerne des données de flux de carbone déjà obtenues sur certains estuaires et certaines 
+mangroves par les partenaires impliqués dans TROPECOS et qui pourront être incorporées à 
+notre BDD. Nous utiliserons aussi des données publiées et compilées dans la littérature, libre de 
+droit, par exemple, le SIG de Dürr et al (2011) donnant la typologie des estuaires mondiaux et la 
+base de données (assez incomplète) de pCO2 associée (Laruelle et al. 2011, SOCAT) et des 
+données de télédétection déjà acquises. L’utilisation de ces données s’accompagnera de toutes 
+les informations utiles à leur utilisation, notamment, des licences établies pour l’usage des dites 
+données&",,&oui&,,,,,,,&oui&,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2).&",&oui&,oui,,,,,"&Enfin, tous les produits de recherche depuis ces données brutes jusqu’aux publications ou vidéos 
+scientifiques  seront  répertoriés  selon  une  nomenclature  permettant  leur  tri  et  référencement. 
+8 
+Cette nomenclature décrira le type de produit tels que jeux de données, cartes, sorties de modèle, 
+document  de  synthèse,  publications,  vidéos.  Le  site  web  du  projet  permettra  de  relayer 
+l’information obtenue par le projet avec le public à travers une page donnant les liens vers toutes 
+les productions doi-sées et vers une chaîne Youtube du projet, ainsi que les réseaux sociaux&",,,&insuffisant&,,,,&insuffisant&,,,,"&Non  concerné,  à  l'exception  d'expérimentations  avec  des  crabes  dans  le  WP4,  réalisée  en 
+Guadeloupe dans le respect des zones protégées soumises à réglementation. Tous les transports 
+internationaux d’échantillons (pas de matériels biologiques sensibles, principalement des carottes 
+sédimentaires  découpées  et  conditionnées),  se  feront  dans  le  respect  des  conventions 
+internationales (protocole Nagoya), avec une autorisation douanière en bonne et due forme de la 
+part  des  autorités  au  Vietnam  via  les  partenaires  du  LMI  IRD  CARE  et  au  Brésil,  via  les 
+partenaires de l’IRP CNRS VELITROP&",,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2)&",,,,,"&Pendant le déroulé du projet, nous aurons besoin de deux niveaux de stockage :  
+(1)  Un stockage partagé par les membres du consortium de manière à pouvoir échanger des 
+données tout au long du projet ; ainsi, nos données seront stockées et sauvegardées sur 
+l’espace RESANA dédié à TROPECOS. Nous mettrons en place la procédure d'accès à 
+certaines  de  ces  données  aussi  aux  partenaires  brésiliens  et  vietnamiens.  Pour  les 
+données issues de plusieurs laboratoires analysant un même échantillon (par exemple 
+dans le WP3 sur les carottes sédimentaires), la nomenclature sera définie en préalable 
+des phases d’échantillonnage de manière à être valide toute la durée du projet et sur tous 
+les sites. Les données seront accompagnées de toutes leurs métadonnées telles que la 
+localisation, les procédures de calibration, etc… 
+(2)  Un stockage vers le public sur le web sous forme d’articles scientifiques (HAL, journaux 
+open source) ou de littérature grise DOIsée, en relayant l’information sur un site web du 
+projet, une chaine youtube, et des réseaux sociaux, avec production de contenus video 
+pédagogiques : web-mini conférence et tutoriels filmés sur le terrain. Au fur et à mesure 
+que les données seront qualifiées par WP, nous envisagerons la possibilité de publier un 
+datapaper&",,&resana&,,,,,,,Seanoe,,,,,,"Les données générées au sein de TROPECOS seront stockées et partagées avec l’accord de 
+leurs  propriétaires,  de  façon  à  ce  que  le  croisement  des  données  permette  la  progression 
+scientifique du groupe. Ceci concerne par exemple la compilation des 8 flux de carbone dans les 
+10  mangroves  (WP2),  ou  tous  les  travaux  de  géochimie  sur  les  carottes  sédimentaires  qui 
+nécessitent  la  construction  de  fichiers  partagés  (WP3).  Au  sein  du  consortium  étendu  aux 
+partenaires Vietnamiens et Brésiliens, il faudra s’accorder sur la façon de co-publier les données 
+en les répartissant et partageant entre groupes de façon à ce que tous puissent les exploiter de 
+façon optimale, en privilégiant les mémoires et thèses, les publications de jeunes chercheurs et 
+les  publications  dans  des  revues  à  fort  impact.  Les  données  issues  du  traitement  d’images 
+satellite  seront  publiées  et  mise  à  disposition  du  projet  sous  forme  de  cartes  ou  de  fichiers 
+numériques synthétiques donnant des tendances d’évolution : biomasse de mangrove (WP2), 
+concentrations  en  Chl  a,  POC,  DOC,  pCO2  dans  les  eaux  estuariennes  (WP1),  données 
+produites par la modélisation numérique servant à interpoler ou extrapoler les mesures in situ 
+(WP1). Une attention particulière sera donnée au sein de chaque WP à la façon dont les données 
+sont  partagées  au  sein  du  consortium  au  cours  du  projet.  La  mise  à  disposition  rapide  des 
+données  impliquera  aussi,  dès  que  les  résultats  seront  validés,  de  discuter  les  modalités  de 
+coauteurship et les contributions de chacun à la rédaction d’articles dans des revues avec impact 
+favorable. Il faudra aussi décider de mentionner dans les métadonnées et/ou remerciements, 
+toutes  les  équipes  propriétaires  des  données  qui  n’auraient  pas  souhaité  contribuer  à  la 
+valorisation, ou toute autre personne ayant aidé à la production des données",,,,,,,,done
+Oui,ANR français,Agence nationale de la recherche (ANR), Bilans de carbone des écosystèmes côtiers tropicaux dans l’Anthropocène ,TROPECOS,"En régions tropicales, les estuaires et mangroves sont des écosystèmes interconnectés qui jouent un 
+rôle clé dans les émissions de gaz à effet de serre et les stockages de carbone à l’échelle globale. 
+Alors que ces stocks et ces flux sont prépondérants, ils restent encore insuffisamment caractérisés par 
+comparaison à d’autres écosystèmes, d’autant plus qu’ils sont aujourd’hui altérés par l’usage des terres 
+et les changements globaux. Des méthodes quantitatives permettant de rendre compte de la variabilité 
+spatiale et temporelle des stocks et flux de carbone en zones côtières tropicales sont donc nécessaires. 
+Le  projet  TROPECOS  structurera  la  communauté  scientifique  française  travaillant  sur  le  cycle  du 
+carbone en zone côtière dans trois territoires ultramarins (Guyane Française, Guadeloupe, Nouvelle 
+Calédonie) et deux dispositifs de recherche à l’international au Vietnam et au Brésil, en capitalisant sur 
+des investissements humains et technologiques récents, des développements méthodologiques, de 
+nouveaux réseaux de collaboration internationaux, et d’avancées scientifiques dans ces régions. Dans 
+les estuaires tropicaux à partir de la compilation des données existantes et de nouvelles mesures de 
+terrain au Brésil et au Vietnam, et grâce à de nouveaux outils de télédétection et de modélisation, nous 
+serons  en  mesure  de  quantifier  précisément  les  émissions  de  CO
+2
+,  CH
+4
+  et  N
+2
+O  dans  les  deltas, 
+estuaires tidaux, lagunes et panaches fluviaux, d’analyser leur évolution au cours des 20 dernières 
+années et de simuler des émissions futures selon des scenario de gestion des zones côtières (montée 
+du  niveau  marin,  aquaculture,  emprise  urbaine  et  épuration  des  eaux).  Dans  les  mangroves, 
+écosystèmes au taux de stockage du carbone extrêmement élevé, nous déploierons une capacité 
+d’échantillonnage sans précédent, fruit de l’expertise locale des équipes du consortium TROPECOS. 
+Sur 10 sites de mangroves couvrant diverses conditions géomorphologiques et environnementales, 
+nous appliquerons des protocoles standardisés prédéfinis collégialement. Un réseau d’échantillonnage 
+des mangroves à travers des missions ciblées et la formation des partenaires locaux sera mis en place. 
+Les composantes des bilans de carbone des mangroves comprenant la croissance et mortalité de 
+biomasse  aérienne  et  souterraine,  les  échanges  gazeux,  les  échanges  avec  les  masses  d’eau 
+adjacentes et la séquestration dans les sols seront quantifiés par ces méthodes standardisées dont 
+certaines développées récemment par le consortium. Un échantillonnage systématique de sol servira 
+à des datations et des analyses géochimiques pour décrire les sources et les âges de la matière 
+organique, son état de dégradation et son association avec les phases minérales dans les mangroves 
+préservées et polluées, carbonatées et terrigènes, estuarienne, deltaïques, lagunaires et littorales. 
+Nous apporterons de nouveaux éclairages sur les facteurs qui préservent le carbone bleu du sol des 
+mangroves à l’échelle globale. Les processus de reminéralisation, diagenèse      et exsudation racinaire 
+dans les sols anoxiques et la rhizosphère seront étudiés aux échelles centimétrique et millimétrique, 
+ainsi  que  les  fonctionnalités  et  l’activité  enzymatique  des  microbes  (bactéries  et  champignons). 
+L’impact de l’eutrophisation et des dépôts de matière organique labile sur les sols de mangrove sera 
+aussi évalué dans une expérience en mésocosme spécialement conçue pour quantifier d’éventuels 
+effets priming sur les litières, les racines et le carbone ancien du sol. Pour compenser l’éloignement 
+géographique  des  partenaires,  nous  développerons  de  nouveaux  modes  de  communication  et  de 
+formation en ligne, vidéos décrivant des protocoles de mesure sur le terrain, tutoriels, groupes de travail 
+et comités de suivis internationaux et pluridisciplinaires. Afin de faciliter les interactions et minimiser ‘le 
+coût carbone’ du projet, nous organiserons les campagnes de terrain entre deux pôles Atlantique et 
+Indo-Pacifique",ANR-22-PEXF-0012,2023-10-01 00:00:00,2023-09-30 00:00:00,,oui,oui,oui,Gwenael Abril,BOREA,,Plan TROPECOS,2024-03-13 00:00:00,2024-03-29 00:00:00,1.2,version initiale,"Le présent plan de gestion de données définit la façon dont seront répertoriées, sécurisées et 
+partagées les données au sein de chaque WP. Les WPs resteront les structures d’organisation 
+et de centralisation des données tout au long du projet, autour desquels s’articulera l'inventaire 
+exhaustif et détaillé des produits de recherche élaborés dans le cadre du projet TROPECOS. De 
+plus,  les  responsables  de  site  seront  aussi  sollicités  pour  les  WP2  et  WP3  et  le  PGD  sera 
+coordonné par le RSF (G. Abril) et la représentante de l’IR Data Terra (S. Schmidt). Selon la 
+diversité des données collectées dans chaque WP, les contributions des référents de site d’étude 
+peuvent varier. Ce PGD constitue le document de référence pour la centralisation et le stockage 
+des  différents  types  de  données  précisés  plus  haut,  ainsi  que  pour  la  mise  en  place  des 
+métadonnées associées. Si nous disposons dès cette version d’un premier niveau de description 
+de la nature des données reporté dans le tableau 1, celui-ci est voué à évoluer et se préciser tout 
+au long du projet. Ainsi, la mise à jour du PGD se fera à chaque réunion de WPs et/ou de comités 
+de suivi de thèses ou de post-docs (fréquence minimale 3 mois)","Earth and related environmental 
+sciences",,Sabine Schmidt,,,,,PR4_APPORT ALGAL,Effet d'apports de matière algales sur la séquestration du carbon bleu sédimentaire dans les mangroves,Datasets,,,,,,,,,,"&Ceci concerne des données de flux de carbone déjà obtenues sur certains estuaires et certaines 
+mangroves par les partenaires impliqués dans TROPECOS et qui pourront être incorporées à 
+notre BDD. Nous utiliserons aussi des données publiées et compilées dans la littérature, libre de 
+droit, par exemple, le SIG de Dürr et al (2011) donnant la typologie des estuaires mondiaux et la 
+base de données (assez incomplète) de pCO2 associée (Laruelle et al. 2011, SOCAT) et des 
+données de télédétection déjà acquises. L’utilisation de ces données s’accompagnera de toutes 
+les informations utiles à leur utilisation, notamment, des licences établies pour l’usage des dites 
+données&",,&oui&,,,,,,,&oui&,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2).&",&oui&,oui,,,,,"&Enfin, tous les produits de recherche depuis ces données brutes jusqu’aux publications ou vidéos 
+scientifiques  seront  répertoriés  selon  une  nomenclature  permettant  leur  tri  et  référencement. 
+8 
+Cette nomenclature décrira le type de produit tels que jeux de données, cartes, sorties de modèle, 
+document  de  synthèse,  publications,  vidéos.  Le  site  web  du  projet  permettra  de  relayer 
+l’information obtenue par le projet avec le public à travers une page donnant les liens vers toutes 
+les productions doi-sées et vers une chaîne Youtube du projet, ainsi que les réseaux sociaux&",,,&insuffisant&,,,,&insuffisant&,,,,,,,"&Les données produites dans le cadre du projet peuvent être classées en quatre groupes comme 
+détaillé dans le tableau 2 : (1) des données issues de mesures de terrain auxquelles on applique 
+ensuite des analyses chimiques, mathématiques ou informatique pour les convertir en flux de 
+carbone (WP1 et WP2) ; (2) des analyses géochimiques et microbiologiques sur des eaux et des 
+sédiments  (WP2  et  WP3) ;  (3)  des  images  2D  de  gradients  de  concentration  en  éléments 
+géochimiques dans les sédiments, obtenues in situ (WP3) et en conditions expérimentales (WP4) 
+(4) des cartes numériques, produits de traitement d’images satellitaires et de modélisation (WP1 
+et WP2)&",,,,,"&Pendant le déroulé du projet, nous aurons besoin de deux niveaux de stockage :  
+(1)  Un stockage partagé par les membres du consortium de manière à pouvoir échanger des 
+données tout au long du projet ; ainsi, nos données seront stockées et sauvegardées sur 
+l’espace RESANA dédié à TROPECOS. Nous mettrons en place la procédure d'accès à 
+certaines  de  ces  données  aussi  aux  partenaires  brésiliens  et  vietnamiens.  Pour  les 
+données issues de plusieurs laboratoires analysant un même échantillon (par exemple 
+dans le WP3 sur les carottes sédimentaires), la nomenclature sera définie en préalable 
+des phases d’échantillonnage de manière à être valide toute la durée du projet et sur tous 
+les sites. Les données seront accompagnées de toutes leurs métadonnées telles que la 
+localisation, les procédures de calibration, etc… 
+(2)  Un stockage vers le public sur le web sous forme d’articles scientifiques (HAL, journaux 
+open source) ou de littérature grise DOIsée, en relayant l’information sur un site web du 
+projet, une chaine youtube, et des réseaux sociaux, avec production de contenus video 
+pédagogiques : web-mini conférence et tutoriels filmés sur le terrain. Au fur et à mesure 
+que les données seront qualifiées par WP, nous envisagerons la possibilité de publier un 
+datapaper&",,&resana&,,,,,,,Seanoe,,,,,,"&Les données générées au sein de TROPECOS seront stockées et partagées avec l’accord de 
+leurs  propriétaires,  de  façon  à  ce  que  le  croisement  des  données  permette  la  progression 
+scientifique du groupe. Ceci concerne par exemple la compilation des 8 flux de carbone dans les 
+10  mangroves  (WP2),  ou  tous  les  travaux  de  géochimie  sur  les  carottes  sédimentaires  qui 
+nécessitent  la  construction  de  fichiers  partagés  (WP3).  Au  sein  du  consortium  étendu  aux 
+partenaires Vietnamiens et Brésiliens, il faudra s’accorder sur la façon de co-publier les données 
+en les répartissant et partageant entre groupes de façon à ce que tous puissent les exploiter de 
+façon optimale, en privilégiant les mémoires et thèses, les publications de jeunes chercheurs et 
+les  publications  dans  des  revues  à  fort  impact.  Les  données  issues  du  traitement  d’images 
+satellite  seront  publiées  et  mise  à  disposition  du  projet  sous  forme  de  cartes  ou  de  fichiers 
+numériques synthétiques donnant des tendances d’évolution : biomasse de mangrove (WP2), 
+concentrations  en  Chl  a,  POC,  DOC,  pCO2  dans  les  eaux  estuariennes  (WP1),  données 
+produites par la modélisation numérique servant à interpoler ou extrapoler les mesures in situ 
+(WP1). Une attention particulière sera donnée au sein de chaque WP à la façon dont les données 
+sont  partagées  au  sein  du  consortium  au  cours  du  projet.  La  mise  à  disposition  rapide  des 
+données  impliquera  aussi,  dès  que  les  résultats  seront  validés,  de  discuter  les  modalités  de 
+coauteurship et les contributions de chacun à la rédaction d’articles dans des revues avec impact 
+favorable. Il faudra aussi décider de mentionner dans les métadonnées et/ou remerciements, 
+toutes  les  équipes  propriétaires  des  données  qui  n’auraient  pas  souhaité  contribuer  à  la 
+valorisation, ou toute autre personne ayant aidé à la production des données&",,,,,,,,done
 /Non/,/Modèle JD/,Agence nationale de la recherche (ANR),"Optimiser la rhizodéposition 
 pour augmenter la 
 séquestration de carbone dans 
-les agrosystèmes",RhizoSeqC,ok,ANR-23-PEXF-0005,2024-10-01 00:00:00,2029-09-30 00:00:00,,CEREGE_BIAM_DIADE_ECO&SSOL_AGAP_LSCE_ECODIV_SAS_ECOSYS_LGENS,"/Étude des dynamiques du carbone dans les sols, 
+les agrosystèmes",RhizoSeqC,"Dans le contexte du changement climatique et de la sécurité alimentaire, le défi majeur pour les 
+agrosystèmes intensifs est de faire basculer les sols de grandes cultures d'un statut de déstockant 
+en carbone (C) à un statut stockant. Deux leviers peuvent être utilisés pour réaliser cette inversion 
+des  trajectoires  de  séquestration  du  C :  augmenter  les  apports  de  C  directement  dans  le  sol  et 
+favoriser la stabilisation de la matière organique (MO) dans le sol. Le défi à relever est donc de 
+développer  des  systèmes  de  culture  capables  de  combiner  ces  leviers  tout  en  maintenant  une 
+production économiquement attractive. RhizoSeqC s'attaque aux solutions de séquestration de C 
+en proposant d’utiliser une combinaison de plantes d’intérêt agricole sélectionnées pour augmenter 
+la rhizodéposition de C et d'ajouts de phases minérales stabilisantes. Le projet est organisé en 6 
+WPs, dont un WP de coordination (WP0). Il explore l'hypothèse que le continuum plante (WP1), 
+communautés  bactériennes  (WP2),  associations  organo-minérales  du  sol  (WP3)  peut,  tout  en 
+répondant aux exigences agronomiques (WP4), être optimisé pour augmenter la séquestration du 
+carbone dans le sol (WP5). La plante d'intérêt agricole sélectionnée est le sorgho (céréale grain, 
+fourrage) pour son importance en termes de sécurité alimentaire et ses capacités d’adaptation aux 
+effets du changement climatique (stress hydrique et réchauffement). Le type de sol de référence 
+choisi pour croiser les résultats des WP est un arénosol, pour sa faible et fragile teneur en MO native 
+et pour son importante distribution au Nord comme au Sud, sachant que le WP4 permet de tester 
+les plantes sur d’autres types de sols. Le WP1 se focalise sur la rhizodéposition du sorgho pour 
+identifier les zones du génome (QTLs) contrôlant les apports en MO au sol. La sélection des variétés 
+est basée sur l’optimisation de la formation du manchon de sol autour des racines. Dans le WP2, par 
+traçage  isotopique  stables  et  par  approches  omics,  nous  nous  focalisons  sur  les  impacts  de  la 
+rhizodéposition sur les communautés microbiennes et sur la stœchiométrie du couplage C/N dans 
+les biotransformations, avec un accent particulier sur le priming-effet qui pourrait avoir un effet 
+négatif  en  diminuant  le  stock  de  C  initialement  présent.  Le  WP3  se  consacre  au  devenir  du  C 
+rhizodéposé dans différents types de sols et sa stabilisation par les interactions organo-minérales. 
+Les approches de marquage isotopique permettent également de dresser un bilan du C (entrée / 
+sortie / gain) ainsi que de suivre le devenir du C par des techniques d'imagerie in situ. Le WP4 évalue 
+les  propriétés  agronomiques  des  lignées  de  sorgho  sélectionnées  sur  des sites expérimentaux  à 
+climats contrastés (France et Sénégal). Le WP5 capitalise les résultats des quatre premiers WPs en 
+les appliquant sur le terrain pour quantifier avec précision par isotopie et prédire par modélisation 
+la séquestration de carbone. Fort de ses 11 partenaires, RhizoSeqC structure, à l'échelle nationale 
+et  internationale  Nord/Sud,  une  communauté  pluridisciplinaire  de  scientifiques  et  d'acteurs 
+opérationnels.  Les  instituts  de  recherche  impliqués  sont  le  CNRS,  IRD,  CIRAD,  INRAE  et  son 
+équivalent  sénégalais  ISRA,  CEA,  ENS,  2  universités  (Rouen  et  PSL).  RhizoSeqC  s'inscrit 
+principalement dans les priorités de l'axe 3 du PEPR sur trois volets :(1) « augmenter les stocks de C dans les sols », (2) « mieux quantifier la contribution et l’efficacité des racines et de la rhizosphère 
+des  plantes  à  la  séquestration  de  la  matière  organique  »  et  (3)  «  rechercher  de  solutions  des 
+productions  végétale  qui  anticipent  les  conditions  climatiques  futures  ».  Il  est  attendu  que  les 
+résultats de RhizoSeqC promeuvent des innovations agroécologiques dans les systèmes céréaliers 
+du Nord et du Sud. Ces innovations seront en faveur d'une augmentation de la séquestration de 
+carbone dans les sols pour contribuer à répondre aux objectifs de neutralité C tout intégrant les 
+contraintes climatiques à venir.",ANR-23-PEXF-0005,2024-10-01 00:00:00,2029-09-30 00:00:00,,CEREGE_BIAM_DIADE_ECO&SSOL_AGAP_LSCE_ECODIV_SAS_ECOSYS_LGENS,"/Étude des dynamiques du carbone dans les sols, 
 minéralogie et physico-chimie des phases 
 minérales colloïdales, caractérisations aux 
 échelles nano_Étude du microbiote de la rhizosphère, 
@@ -1812,11 +2497,57 @@ mécanismes plante-sol_Étude des dynamiques de la matière organique
 dans les écosystèmes terrestres en utilisant des 
 approches multidisciplinaires telles que la 
 labellisation isotopique/",,Isabelle Basile-Doelsch,INRAE,,Plan RhizoSeqC,2025-02-17 00:00:00,2025-02-25 00:00:00,,version initiale,,"/Agriculture, Changement climatique/",fra,Isabelle Basile-Doelsch,,,,,"/PR1_EXPE_RHIZODEPOSITION/
-",/Expérimentations laboratoire et in-situ/,/Datasets/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+",/Expérimentations laboratoire et in-situ/,/Datasets/,/non/,,"/WP2,3 et 4/","/Thesaurus 
+AnaEE /",,,,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,/oui/,,,,,,"/https://doi. 
+org/10.18167/DV
+N1/TZVGLS /",/RMSL/,"/REGEF - 
+IRMS 
+Sitor et 
+al. 2022/",ok,oui,,,,,/Les données du projet RhizoSeqC ne présentent pas de restrictions légales ou éthiques particulières/,/anonymisation/,,,,,,,,,/oui/,/oui/,/oui/,,/Les serveurs des laboratoires IPSL et LSCE disposent d’une sauvegarde incrémentale quotidienne. /,,/oui/,,"/RDG, datasud et autres/",,,/oui/,CC BY 4.0,,,,,,,,,,done
 /Non/,/Modèle JD/,Agence nationale de la recherche (ANR),"Optimiser la rhizodéposition 
 pour augmenter la 
 séquestration de carbone dans 
-les agrosystèmes",RhizoSeqC,ok,ANR-23-PEXF-0005,2024-10-01 00:00:00,2029-09-30 00:00:00,,CEREGE_BIAM_DIADE_ECO&SSOL_AGAP_LSCE_ECODIV_SAS_ECOSYS_LGENS,"/Étude des dynamiques du carbone dans les sols, 
+les agrosystèmes",RhizoSeqC,"Dans le contexte du changement climatique et de la sécurité alimentaire, le défi majeur pour les 
+agrosystèmes intensifs est de faire basculer les sols de grandes cultures d'un statut de déstockant 
+en carbone (C) à un statut stockant. Deux leviers peuvent être utilisés pour réaliser cette inversion 
+des  trajectoires  de  séquestration  du  C :  augmenter  les  apports  de  C  directement  dans  le  sol  et 
+favoriser la stabilisation de la matière organique (MO) dans le sol. Le défi à relever est donc de 
+développer  des  systèmes  de  culture  capables  de  combiner  ces  leviers  tout  en  maintenant  une 
+production économiquement attractive. RhizoSeqC s'attaque aux solutions de séquestration de C 
+en proposant d’utiliser une combinaison de plantes d’intérêt agricole sélectionnées pour augmenter 
+la rhizodéposition de C et d'ajouts de phases minérales stabilisantes. Le projet est organisé en 6 
+WPs, dont un WP de coordination (WP0). Il explore l'hypothèse que le continuum plante (WP1), 
+communautés  bactériennes  (WP2),  associations  organo-minérales  du  sol  (WP3)  peut,  tout  en 
+répondant aux exigences agronomiques (WP4), être optimisé pour augmenter la séquestration du 
+carbone dans le sol (WP5). La plante d'intérêt agricole sélectionnée est le sorgho (céréale grain, 
+fourrage) pour son importance en termes de sécurité alimentaire et ses capacités d’adaptation aux 
+effets du changement climatique (stress hydrique et réchauffement). Le type de sol de référence 
+choisi pour croiser les résultats des WP est un arénosol, pour sa faible et fragile teneur en MO native 
+et pour son importante distribution au Nord comme au Sud, sachant que le WP4 permet de tester 
+les plantes sur d’autres types de sols. Le WP1 se focalise sur la rhizodéposition du sorgho pour 
+identifier les zones du génome (QTLs) contrôlant les apports en MO au sol. La sélection des variétés 
+est basée sur l’optimisation de la formation du manchon de sol autour des racines. Dans le WP2, par 
+traçage  isotopique  stables  et  par  approches  omics,  nous  nous  focalisons  sur  les  impacts  de  la 
+rhizodéposition sur les communautés microbiennes et sur la stœchiométrie du couplage C/N dans 
+les biotransformations, avec un accent particulier sur le priming-effet qui pourrait avoir un effet 
+négatif  en  diminuant  le  stock  de  C  initialement  présent.  Le  WP3  se  consacre  au  devenir  du  C 
+rhizodéposé dans différents types de sols et sa stabilisation par les interactions organo-minérales. 
+Les approches de marquage isotopique permettent également de dresser un bilan du C (entrée / 
+sortie / gain) ainsi que de suivre le devenir du C par des techniques d'imagerie in situ. Le WP4 évalue 
+les  propriétés  agronomiques  des  lignées  de  sorgho  sélectionnées  sur  des sites expérimentaux  à 
+climats contrastés (France et Sénégal). Le WP5 capitalise les résultats des quatre premiers WPs en 
+les appliquant sur le terrain pour quantifier avec précision par isotopie et prédire par modélisation 
+la séquestration de carbone. Fort de ses 11 partenaires, RhizoSeqC structure, à l'échelle nationale 
+et  internationale  Nord/Sud,  une  communauté  pluridisciplinaire  de  scientifiques  et  d'acteurs 
+opérationnels.  Les  instituts  de  recherche  impliqués  sont  le  CNRS,  IRD,  CIRAD,  INRAE  et  son 
+équivalent  sénégalais  ISRA,  CEA,  ENS,  2  universités  (Rouen  et  PSL).  RhizoSeqC  s'inscrit 
+principalement dans les priorités de l'axe 3 du PEPR sur trois volets :(1) « augmenter les stocks de C dans les sols », (2) « mieux quantifier la contribution et l’efficacité des racines et de la rhizosphère 
+des  plantes  à  la  séquestration  de  la  matière  organique  »  et  (3)  «  rechercher  de  solutions  des 
+productions  végétale  qui  anticipent  les  conditions  climatiques  futures  ».  Il  est  attendu  que  les 
+résultats de RhizoSeqC promeuvent des innovations agroécologiques dans les systèmes céréaliers 
+du Nord et du Sud. Ces innovations seront en faveur d'une augmentation de la séquestration de 
+carbone dans les sols pour contribuer à répondre aux objectifs de neutralité C tout intégrant les 
+contraintes climatiques à venir.",ANR-23-PEXF-0005,2024-10-01 00:00:00,2029-09-30 00:00:00,,CEREGE_BIAM_DIADE_ECO&SSOL_AGAP_LSCE_ECODIV_SAS_ECOSYS_LGENS,"/Étude des dynamiques du carbone dans les sols, 
 minéralogie et physico-chimie des phases 
 minérales colloïdales, caractérisations aux 
 échelles nano_Étude du microbiote de la rhizosphère, 
@@ -1848,32 +2579,655 @@ l’architecture racinaire. Modélisation des
 mécanismes plante-sol_Étude des dynamiques de la matière organique 
 dans les écosystèmes terrestres en utilisant des 
 approches multidisciplinaires telles que la 
-labellisation isotopique/",,Isabelle Basile-Doelsch,INRAE,,Plan RhizoSeqC,2025-02-17 00:00:00,2025-02-25 00:00:00,,version initiale,,"/Agriculture, Changement climatique/",fra,Isabelle Basile-Doelsch,,,,,/PR2_MODELISATION RHIZODEPOSITION/,/Modélisation de la séquestration du carbone par Rhizodéposition/,/Modèle/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+labellisation isotopique/",,Isabelle Basile-Doelsch,INRAE,,Plan RhizoSeqC,2025-02-17 00:00:00,2025-02-25 00:00:00,,version initiale,,"/Agriculture, Changement climatique/",fra,Isabelle Basile-Doelsch,,,,,/PR2_MODELISATION RHIZODEPOSITION/,/Modélisation de la séquestration du carbone par Rhizodéposition/,/Modèle/,/non/,,"/WP1,WP5/","/ https://cropo
+ntology.org : 
+en ce qui 
+concerne les 
+données 
+phénotypique
+s 
+https://geneo
+ntology.fr : en 
+ce qui 
+concerne les 
+données 
+génétiques /",,,,,,,,/Génotypes /,/Rdata/,10 Mo,"/https://doi. 
+org/10.18167/DV
+N1/TZVGLS /",,/&pas de restriction&/,,/oui/,/oui/,/oui/,/oui/,/oui/,,,,,,"/https://gitlab.cira
+d.fr/agap/giv/sorg
+hum_ 
+bcnam_analysis /",,,"/R,Xlsx, +gitlab/",,,,,,/Les données du projet RhizoSeqC ne présentent pas de restrictions légales ou éthiques particulières/,,,,"/Logiciel  R  et  scripts  permettant  les 
+analyses /","/https://gitlab.cirad.fr/agap/g
+iv/sorghum_ bcnam_analysis /",,,,,/oui/,/oui/,/oui/,,/Les serveurs des laboratoires IPSL et LSCE disposent d’une sauvegarde incrémentale quotidienne. /,,/oui/,,"/RDG, datasud et autres/",,,/oui/,CC BY 4.1,,,,,,,,,,done
 /Non/,/Modèle JD/,Agence nationale de la recherche (ANR),,CO2_CMPhi,ok,ANR-23-PEXF-0002,2025-01-01 00:00:00,2029-12-31 00:00:00,"/Laboratoire de Bioénergétique et ingénierie des 
 protéines_Institut de Biosciences et biotechnologies d'Aix-
 Marseille_Laboratoire de Chimie Bactérienne_Institut de Microbiologie de la Méditerranée_Commissariat à l’énergie atomique et aux 
 énergies alternatives CEA/",/UMR 7281_BIAM_ UMR 7283_FR3479_/,,/https://ror.org/0060xzr04_https://ror.org/005yfhm28_https://ror.org/057zme681_https://ror.org/012t91r40_https://ror.org/00jjx8s55/,Hélène Launay,CNRS,,Plan CO2_CMPhi,/17/02/2025/,/19/02/2025/,,/version initiale/,,/Biological Sciences/ ,fra,Hélène Launay,,,,,/PR1_BIOCHIMIE_PHYSIOLOGIE_RuBisCo/,"/Biochimie et Physiologie du RuBisCo/
-",/Datasets/,,,,,,,,,,,,,,,,,,,/oui/,,/oui/,,,/oui/,,,,/oui/,/oui/,,,/oui/,,,/oui/,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,,/oui/,,/oui/,,/oui/,/oui/,,/oui/,/oui/,,,,,,,,,,
+",/Datasets/,/non/,,oui,,,,,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,/oui/,/oui/,,,,/oui/,/oui/,,,/oui/,,,/oui/,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,,/oui/,,/oui/,,/oui/,/oui/,,/oui/,/oui/,,,,,,,,,,done
 /Non/,/Modèle JD/,Agence nationale de la recherche (ANR),,CO2_CMPhi,ok,ANR-23-PEXF-0002,2025-01-01 00:00:00,2029-12-31 00:00:00,"/Laboratoire de Bioénergétique et ingénierie des 
 protéines_Institut de Biosciences et biotechnologies d'Aix-
 Marseille_Laboratoire de Chimie Bactérienne_Institut de Microbiologie de la Méditerranée_Commissariat à l’énergie atomique et aux 
 énergies alternatives CEA/",/UMR 7281_BIAM_ UMR 7283_FR3479_/,,/https://ror.org/0060xzr04_https://ror.org/005yfhm28_https://ror.org/057zme681_https://ror.org/012t91r40_https://ror.org/00jjx8s55/,Hélène Launay,CNRS,,Plan CO2_CMPhi,/17/02/2025/,/19/02/2025/,,/version initiale/,,/Biological Sciences/ ,fra,Hélène Launay,,,,,/PR2_PROTOLES/,"
-/Protocoles de reconstitution de séparation de phase liquide-liquide/ ",/Texte/,,,,,,,,,,/Protocoles de reconstitution de LLPS_Constructions génétiques/,,,/oui/,,"/DOI: 10.1038/s41467-018-07624-w 
+/Protocoles de reconstitution de séparation de phase liquide-liquide/ ",/Texte/,/non/,,oui,,,,,,,/Protocoles de reconstitution de LLPS_Constructions génétiques/,,,/oui/,,"/DOI: 10.1038/s41467-018-07624-w 
 DOI : 10.1073/pnas.2304833120
-DOI :10.1038/s41477-020-00811-y/",/Data papers existants/,/aucune restriction/,,/oui/,,/oui/,,,/oui/,,,,/oui/,/oui/,,,/oui/,,,/oui/,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,,/oui/,,/oui/,,/oui/,/oui/,,/oui/,/oui/,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
+DOI :10.1038/s41477-020-00811-y/",/Data papers existants/,/aucune restriction/,,/oui/,/oui/,/oui/,/oui/,/oui/,/oui/,,,,/oui/,/oui/,,,/oui/,,,/oui/,,,,,,,,,,,,/oui/,/oui/,/oui/,/oui/,,/oui/,,/oui/,,/oui/,/oui/,,/oui/,/oui/,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
 Earth and related environmental sciences ",fra,,,,,,"PR1_EXPE ECO
-",Expériences économiques en laboratoire,Texte,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
-Earth and related environmental sciences ",fra,,,,,,PR2_FRENCHFOOD,FRENCHFOOD,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
-Earth and related environmental sciences ",fra,,,,,,PR3_AGTRADE,AGTRADE,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
-Earth and related environmental sciences ",fra,,,,,,PR4_FLORA,FLORA,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
-Earth and related environmental sciences ",fra,Fabrice Etilé_Anne-Célia Disdier,,,,,PR5_DYNSOC,DYNSOC,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,ok,ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,ok,"Social sciences & humanities
-Earth and related environmental sciences ",fra,Fabrice Etilé_Anne-Célia Disdier,,,,,PR6_SIMUL_POLITIQUES_PUBLIC,Simulations de politiques publiques,Modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+"," Données  issues  d’expériences  en  laboratoire 
+(économie expérimentale)",Datasets,non," Données  qui  représentent  des  choix  individuels  de  sujets  étudiants  et/ou 
+consommateurs lors de jeux économiques réalisés en laboratoire. Plus précisément, 
+ces données prendront la forme de : 
+◦  Décisions lors des jeux/tâches à efectuer ; 
+◦  Réponses à des questons socio-démographiques (âge, genre, niveau d’éducaton, 
+revenus si sujet non-étudiant, etc.), permetant de mieux expliquer les décisions 
+efectuées pendant les jeux. ",WP2_T2.1,,," Décisions individuelles 
+-  Données socio-démographiques 
+-  Choix de consommaton 
+-  Economie expérimentale 
+-  Economie comportementale ",,,"Oui, mais sans risques spécifques (voir plus bas)",non,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,,"Économie expérimentale - Données issues de décisions individuelles en 
+laboratoire ,  Les  données  seront  obtenues  à  partr  des  décisions  individuelles  de  sujets 
+(étudiants  et,  éventuellement,  consommateurs)  lors  d’expériences  en  laboratoire  en 
+économie.  Les  sujets  joueront  à  des  jeux  économiques  permetant  de  révéler  leurs 
+préférences, ou seront amenés à prendre des décisions dans un environnement reproduisant 
+un magasin vendant des biens alimentaires (en quantté réduite).",,,,,,,,,,,,,,,"Les  protocoles  seront  pré-enregistrés  auprès  du  site  de  l’American  Economic  Associaton 
+(htps://www.socialscienceregistry.org).  ","Les  protocoles  seront  pré-enregistrés  auprès  du  site  de  l’American  Economic  Associaton 
+(htps://www.socialscienceregistry.org).  ",,"Les données étant anonymisées, il n’y aura pas, a priori, de contraintes juridiques spécifques","Avant  la  réalisaton  des  expérimentatons,  les  protocoles  seront  soumis  au  comité  éthique 
+« Éthique en commun » (htps://www.ethique-en-commun.org). ",,,"&Les données issues des expériences seront traitées de manière automatsée avec des scripts 
+Stata et/ou R et/ou Python&",,,,,,1 go,"&Le 
+stockage des données sera principalement local sur les ordinateurs utlisés pour les analyses&",,,"&Les données étant anonymisées, aucun risque 
+spécifque n’est à craindre. Les ordinateurs personnels sont, cependant, protégés par des mots 
+de passe&",,,,RDG,,,,,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
+Earth and related environmental sciences ",fra,,,,,,PR2_FRENCHFOOD,FRENCHFOOD,Modèle,non,"Descripton : 
+1.  Spécifcatons économétriques du modèle FRENCHFOOD. Le modèle sera consttué a 
+minima  d’un  système  de  demande  emboité  modélisant  les  achats  alimentaires  des 
+ménages. Les emboitements correspondront aux diférents niveaux d’agrégaton des 
+produits alimentaires tels que décrits par la nomenclature CLASSFOOD (Spiteri et al., 
+2024).
+1
+    Au  niveau  hiérarchique  le  plus  bas,  la  foncton  de  demande  retenue 
+correspondra  à  une  foncton  d’utlité  de  type  CES  ou  équivalente,  compatble  avec 
+l’estmaton  de  modèles  de  choix  discrets.  Ceci  permetra  d’assurer  la  compatbilité 
+avec les analyses des données d’expérience (Ref dans ce document). Le modèle sera 
+calibré  en  réutlisant  les  données  existantes  de  scanner  d’achats  ménages  Kantar 
+WorldPanel. 
+2.  Distributons  des  élastcités-prix  et  revenu  des  achats  alimentaires  des  ménages 
+français, estmées à partr du modèle FRENCHFOOD, pour les catégories de produits 
+alimentaires  de  la  nomenclature  CLASSFOOD.  Ces  distributons  d’élastcités  seront 
+fournies pour diférents segments de ménages défnis selon leur positon dans le cycle 
+de vie, leur niveau de vie et leurs attudes envers les enjeux environnementaux. 
+3.  Matrices  de  coefcients  pour  la  conversion  inputs-outputs  des  commodités 
+alimentaires FAO en produits alimentaires disponibles à l’achat, classés selon le niveau 
+5 de la nomenclature CLASSFOOD. Cete matrice sera établie en tenant compte de la 
+compositon  alimentaire  et  nutritonnelle  des  produits  alimentaires  disponibles  à 
+l’achat.  Elle  permetra  d’interfacer  les  simulatons  réalisées  par  le  modèle 
+FRENCHFOOD avec celles réalisées par le modèle AGTRADE. 
+4.  Matrice de conversion inputs-outputs pour la décompositon de l’ofre de commodités 
+alimentaires  FAOStat  pour  la  France  en  ofre  alimentaire  hors-domicile,  ofre 
+alimentaire  à  domicile  et  gaspillage.  Cete  matrice  devra  réconcilier  les  données 
+agrégées  de  la  FAO,  avec  (i)  les  données  de  scanner  d’achats  des  ménages  Kantar 
+WorkdPanel ; et (ii) les données de l’enquête Budgets de Famille 2011 et 2017 donnant 
+les dépenses pour l’alimentaton à domicile et hors-domicile des ménages. Ce travail 
+tendra  compte  de  la  distributon  des  consommatons  à  l’intérieur  des  diférents 
+segments de ménages caractérisés au point 2","WP1,2,4",,," Données de scanner 
+-  KantarWorldPanel 
+-  Budgets de famille 
+-  FAOStat 
+-  Achats alimentaires 
+-  Ofre alimentaire 
+-  CLASSFOOD ",,,non,"L’analyse  et  la  modélisaton  reposent  sur  l’exploitaton  de  plusieurs  sources  de  données 
+existantes : 
+•  Enquête de scanner d’achats ménages Kantar WorldPanel : (KWP) :  
+o  Données  numériques  commerciales :  les  données  sont  achetées  par  INRAE 
+dans le cadre d’une conventon tri-annuelle. PREFALIM aura accès aux données 
+2002-2023.  Ces  données  ne  peuvent  être  utlisées  que  par  des  chercheurs 
+INRAE  moyennant  paiement  d’un  coût  forfaitaire  de  partcipaton  à 
+l’acquisiton. Les données ne sont accessibles que via la plateforme ODALIM, 
+qui dispose de son propre PGD.  Voir  htps://odalim.inrae.fr  pour  toute 
+demande complémentaire. 
+o  Descripton : KWP suit chaque année un échantllon de plus de 20 000 ménages 
+qui, à l’aide d’un lecteur optque manuel, enregistrent la quantté, la dépense, 
+et le code-barre de leurs achats, y compris en ligne, destnés à la consommaton 
+à domicile (plusieurs millions d’actes d’achat par an). Un ménage reste dans 
+l’échantllon  pendant  4  ans  en  moyenne.  KWP  fournit  des  poids 
+d’échantllonnage permetant d’assurer que les données sont représentatves 
+de la populaton et des marchés. L’enquête content des informatons détaillées 
+sur les caractéristques socio-démographiques des ménages et leurs attudes 
+envers les enjeux environnementaux. 
+•  Enquêtes INSEE Budgets de famille 2011 et 2017, 
+o  Données  numériques  publiques :  les  données  et  métadonnées  sont  mises 
+gratuitement  à  dispositon  des  chercheurs  des  insttutons  de  recherche 
+publique via un formulaire de demande Quetelet-Progedo-Difusion accessible 
+sur htps://data.progedo.fr/ 
+o  Descripton : l’INSEE mène régulièrement une grande enquête natonale auprès 
+d’un échantllon d’environ 10 000 ménages, qui doivent consigner toutes leurs 
+dépenses dans des carnets de consommaton pendant deux semaines. L’INSEE 
+fournit des poids d’échantllonnage permetant d’assurer que les données sont 
+représentatves de la populaton française. Les enquêtes Budgets de famille ne 
+collectent  pas  d’informatons  détaillées  au  niveau  des  produits  ni 
+d’informatons  fables  sur  les  quanttés  achetées,  mais  uniquement  des 
+dépenses  compilées  suivant  la  nomenclature  COICOP.  En  revanche,  les 
+dépenses de restauraton et en boissons pour la consommaton hors-domicile 
+sont renseignées.  
+•  Séries statstques FAOSTAT 
+o  Données numériques publiques : les données et métadonnées sont disponibles 
+et  téléchargeables  gratuitement  depuis  le  site  FAOSTAT 
+(htps://www.fao.org/faostat/en/#home) 
+o  Descripton : la FAO construit des séries statstques au niveau pays-année de 
+producton,  commerce  et  ofre  domestque  de  commodités  alimentaires, 
+compilées suivant la nomenclature CPC 2.0. 
+•  Comptes natonaux annuels détaillés de l’INSEE 
+o  Données numériques publiques : les données et métadonnées sont disponibles 
+et téléchargeables gratuitement depuis le site de l’INSEE, voir par exemple pour 
+l’année  2019,  les  comptes  de  consommaton  détaillés 
+htps://www.insee.fr/fr/statstques/4494154?sommaire=4494218 
+o  Descripton : l’INSEE construit des séries temporelles détaillées d’agrégats de 
+consommaton des ménages français, détaillés par poste selon la nomenclature 
+COICOP, issus des comptes natonaux annuels.  
+•  Enquêtes nutritonnelles INCA3 
+o  Données numériques publiques : les données et métadonnées sont disponibles 
+et  téléchargeables  gratuitement  depuis  le  site  data.gouv.fr 
+htps://www.data.gouv.fr/fr/datasets/donnees-de-consommatons-et-
+habitudes-alimentaires-de-letude-inca-3/ 
+o  Descripton :  Les  données  de  l’étude  INCA3  disponibles  renseignent 
+principalement sur les consommatons alimentaires (suivant la nomenclature 
+CIQUAL),  les  apports  nutritonnels,  les  habitudes  de  préparaton  et  de 
+conservaton  des  aliments,  les  niveaux  d’actvité  physique  et  de  sédentarité 
+ainsi que les données anthropométriques de la populaton âgée de 0 à 79 ans 
+en  France  métropolitaine.  Les  11  tables  de  données  sont  accompagnées  de 
+documents indispensables à leur bonne utlisaton. 
+•  Données AGRIBALYSE 
+o  Données numériques publiques : les données et métadonnées sont disponibles 
+et téléchargeables gratuitement depuis le site htps://agribalyse.ademe.fr/ 
+o  Descripton : AGRIBALYSE® est la base de données publique française la plus 
+exhaustve en matère d’indicateurs environnementaux des produits agricoles 
+et alimentaires fondés sur l’Analyse du Cycle de Vie. Elle fournit des indicateurs 
+d’impacts  environnementaux  pour  les  principales  productons  agricoles 
+françaises et les principaux produits alimentaires consommés en France. ",oui,oui,,,oui,,,&evocation frais plateforme ODALIM&,"Descripton  
+Plusieurs types de méthodes statstques et économétriques seront combinées : 
+-  Algorithmes  statstques  de  classifcaton  permetant  d’identfer  des  segments  de 
+ménages  diférenciés  selon  leurs  attudes  envers  les  enjeux  environnementaux  et 
+l’empreinte carbone de leurs paniers de consommaton. 
+-  Modèles économétriques de demande, estmés sur les données d’achats Kantar par 
+des méthodes de moment ou de maximum de vraisemblance. 
+-  Méthodes  d’optmisaton  linéaire  pour  l’estmaton  des  coefcients  de  conversion 
+inputs-outputs. 
+-  Méthodes d’analyse de distributons statstques. ",,,,,,,,,oui,oui,oui,&oui&,,,,"Relecture par les pairs. 
+Utlisaton d’indicateurs de qualité, tels que la complétude, la précision et la fabilité. 
+Assurance  d'une  documentaton  détaillée  à  chaque  étape  de  traitement  et  d’analyse  des 
+données,  facilitant  l’évaluaton  de  la  qualité  des  résultats  produits  et  la  réplicaton  des 
+analyses.",,,"Les données ré-utlisées sont disponibles auprès de fournisseurs identfés avec des contraintes 
+juridiques variables : 
+-  Données  agrégées  INSEE  et  FAO :  téléchargeables  sans  restricton  à  partr  des  sites 
+INSEE et FAOStat. 
+-  Données INCa : téléchargeables sans restricton à partr du site data.gouv.fr. 
+-  Données Kantar WorldPanel : ces données commerciales ne sont accessibles que dans 
+le cas d’une collaboraton incluant un chercheur INRAE et sous réserve de paiement de 
+frais d’accès à la plate-forme ODALIM. ",,,,"Pour  le  traitement  et  l'analyse  des  données  de  forçage,  nous  utliserons  une  approche 
+systématque  garantssant  la  reproductbilité  des  processus,  notamment  le  netoyage,  la 
+normalisaton, l’agrégaton aux échelles pertnentes, et la constructon des variables utlisées 
+pour l’estmaton des modèles (quanttés, dépenses, prix, caractéristques des ménages). 
+Nous utliserons des langages de programmaton comme Stata, Python, et R pour le traitement 
+des  données  et  les  analyses  statstques/économétriques.  Chaque  étape  du processus  sera 
+documentée et le code source sera commenté pour assurer la transparence et la réutlisaton 
+future. ",,,,,,10Go,"Le traitement et stockage des données Kantar WorldPanel est réalisé sur les serveurs sécurisés 
+de la plate-forme ODALIM. Ces serveurs sont isolés de l’extérieur, et les fchiers sont en double 
+sauvegarde.",,,double sauvegarde,,,,rdg,,,,,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
+Earth and related environmental sciences ",fra,,,,,,PR3_AGTRADE,AGTRADE,Datasets,non,"Descripton : 
+•  Données  représentant  pour  une  année  l’équilibre  du  marché  mondial  agricole 
+(producton, consommaton, commerce). Ces donnée comprendront 2 partes : bilan 
+massique (en tonnes ou calories) et prix associés. Le bilan massique sera basé sur la 
+base de données FABIO, qui est une mise en cohérence des données FAOSTAT. Les prix 
+seront obtenus de FAOSTAT et associés à la base FABIO pour représenter l’équilibre de 
+marché en valeur. 
+•  Données satellites d’émissions de gaz à efet de serre associées à la producton agricole. 
+Les  données  d’émissions  de  gaz  à  efet  de  serre  proviendront  prioritairement  de 
+FAOSTAT, mais les données FAOSTAT étant parfois un peu trop agrégées, elles seront 
+désagrégées à l’aide d’autres sources comme EXIOBASE. 
+•  Données d’usage des sols en provenance de FABIO, FAOSTAT, et SPAM. ",WP6,,," Surfaces 
+•  Productons végétales 
+•  Productons animales 
+•  Commerce internatonal 
+•  Prix 
+•  Emissions de gaz à efet de serre",,,non," Il est fait le choix d’utliser FABIO plutôt 
+que de construire une base de données depuis le début. En revanche, FABIO ne content pas 
+toutes les informatons nécessaires au calibrage du modèle. C’est pourquoi il faudra l’associer 
+à d’autres sources de données.",,,,,,,,,"&Descripton :  Les  données  sont  construites  à  partr  de  sources  hétérogènes  pouvant 
+présentées des nomenclatures diférentes ou des valeurs manquantes. Ces données sources 
+seront harmonisées afn de représenter un équilibre de marché&",,,,,,,,,,,,,,,,,,,"Les données FABIO ne sont publiquement disponibles que dans une version obsolète, pas pour 
+la  version  la  plus  récente.  Après  accord  avec  Martn  Bruckner,  qui  développe  FABIO,  ces 
+données  seront  rendues  publiquement  disponibles  après  une  première  publicaton.  Les 
+données  FAOSTAT  et  SPAM  sont  publiquement  disponibles  et  il  est  possible  de  construire 
+d’autres données à partr d’elles sans contrainte juridique. ",,,,"Les données de calibrage seront traitées de manière automatsée avec des scripts R, ce qui 
+permetra dans le futur de faire une mise à jour de ces données vers des années plus récentes, 
+garantssant une réutlisaton future",,,,,"Besoins de stockage : Le stockage des données sera principalement local sur les ordinateurs 
+utlisés  pour  le  calcul.  Les  seules  données  stockées  dans  un  cloud  seront  les  données  non 
+publiques comme FABIO. ",100 Go,&cloud&,,,,,,,rdg,,"Puisque ces données ont comme fnalité le 
+calibrage  d’un  modèle,  elles  seront  partagées  dans  un  format  permetant  aisément  ce 
+calibrage. Ce format reste à décider mais il devrait être un format base de données, comme 
+Parquet ou GDX",,,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
+Earth and related environmental sciences ",fra,,,,,,PR4_FLORA,FLORA,Datasets,non,"Cartes  mondiales  (ou  a  minima  couvrant  la  France  et  ses  partenaires  commerciaux 
+exportateurs  pour  l’agro-alimentaire)  représentant  trois  indicateurs  environnementaux 
+correspondant  aux  principales  cultures  agricoles  et  produits  issus  de  l’élevage  (ci-après 
+‘produits’) consommés en France, du point de vue de leur lieu de producton : 
+-  Empreinte eau 
+-  Empreinte biodiversité 
+-  Empreinte Émissions de Gaz à efet de serre (GES) 
+Indicateurs environnementaux correspondant aux produits consommés en France prenant en 
+compte le commerce internatonal (i.e. du point de vue ‘ofre’ ou ‘consommaton’) en France : 
+-  Empreinte eau 
+-  Empreinte biodiversité 
+-  Empreinte Émissions de GES ", « Intermediary objectve » 2 ,,,"  Producton agro-alimentaire 
+-  Agriculture 
+-  Elevage 
+-  Commerce internatonal 
+-  Irrigaton 
+-  Emissions de gaz à efet de serre 
+-  Biodiversité ",,,non,"Oui, les entrées couvrent notamment 
+des données accessibles publiquement telles que le commerce internatonal, la producton et 
+la consommaton (base de données FAOSTAT), les cartes de cultures (aire, rendement, dates 
+de cultvaton), ou la base de données spatalisée PREDICTS sur les niveaux de biodiversité",,,,,,,,,,"&Compilaton de données / modèle statstque de régression linéaire / 
+modèle hydrologique / modèle d’émissions&",,,,,,,,,,,,,,,,,,,,,,&Les données seront traitées de manière automatsée avec des scripts Python et/ou R&,,,,,,60 Go,"&Besoins de stockage : Le stockage des données sera principalement local sur les ordinateurs 
+utlisés pour le calcul.  
+Stockage double en local et sur serveur sécurisé (disque externe ou serveur IPSL)&",,,,,,,rdg,,,,,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
+Earth and related environmental sciences ",fra,Fabrice Etilé_Anne-Célia Disdier,,,,,PR5_DYNSOC,DYNSOC,Datasets,non,"Nom du  produit  de  recherche  :  Données  de  forçage  et  de  paramétrage  des 
+modèles GRAFS-CRAFT-LUCCA. 
+Descripton :  
+•  Séries temporelles de données existantes sur la producton, les surfaces, la fertlisaton 
+et  la  biomasse  sur  pied  dans  les  systèmes  agricoles  et  foresters  départementaux 
+français  (statstque  agricole  et  forestère  française).  Ces  données  ont  déjà  été 
+largement compilées dans le cadre de travaux antérieurs et seront complétées pour les 
+années les plus récentes. Les données déjà compilées ont été agrégées au niveau de 
+33  territoires  mais  seront  désagrégées  au  niveau  des  95  départements  de  France 
+métropolitaine. Ces données consttuent les données de forçage des modèles GRAFS, 
+CRAFT  et  LUCCA.  Par  le  couplage  des  modèles  GRAFS-CRAFT-LUCCA-AMG,  nous 
+pourrons efectuer des simulatons numériques des trajectoires passées (depuis 1850) 
+et à l’horizon 2050 des fux d’azote et de carbone liés à l’usage et à la producton des 
+sols agricoles et foresters.  
+•  Matrices de coefcients pour la conversion des données de la statstque agricole en 
+fux  d’azote  et  de  carbone  et  pour  l’allocaton  des  ressources  entre  diférents 
+compartments du système agricole. Ces matrices sont établies à partr de diférents 
+rapports techniques et ont déjà été publiées dans le cadre de la thèse de Julia Le Noë 
+(2018). Elles pourront faire l’objet de rectfcatons et d’amélioratons. 
+•  Séries  temporelles  sur  les  propriétés  physico-chimiques  des  sols ;  teneur  en  argile, 
+densité du sol, teneur en carbonate, pH du sol, stock de carbone, teneur en carbone, 
+teneur  en  azote  (disponible  par  le  Réseau  de  mesures  de  la  qualité  des  sols).  Ces 
+données sont issues de deux campagnes de prélèvement et de mesures des propriétés 
+des sols sur tout le territoire de France métropolitaine menée par l’infrastructure de 
+recherche InfoSols. Ces données consttuent les données de forçage et de validaton du 
+modèle AMG. ",WP5,,,"Statstque agricole 
+•  Statstque forestère 
+•  IGN 
+•  RMQS 
+•  Surfaces 
+•  Productons végétales 
+•  Productons animales 
+•  Cheptel 
+•  Fertlisatons 
+•  Rendements 
+•  Biomasse ligneuse sur pied ",,,non," Les données de ce produit de recherche 
+sont exclusivement des données existantes et ré-utlisées dans le cadre du projet",,,,,,,,,,"Les  méthodes  d'acquisiton  des  données  sont  décrites  dans  les  diférentes 
+statstques. Les nomenclatures renseignées étant variables au cours du temps, les jeux de 
+données sont initalement hétérogènes et feront l’objet d’une homogénéisaton pour re-créer 
+des séries temporelles. Les hypothèses appliquées pour la mise en place de séries temporelles 
+contnues seront explicitement consignées dans une note méthodologique.",,,,,,,,oui,oui,"Les  métadonnées  des  données  de  forçage  et  de  paramétrage  des  modèles  GRAFS,  CRAFT, 
+LUCCA  et  AMG  seront  rendues  interopérables  grâce  à  des  protocoles  de  traitement 
+sémantque et comprendront deux types principaux. Les métadonnées de découverte seront 
+alignées  sur  le  standard  DCAT  (Data  Catalog  Vocabulary)  pour  faciliter  l’accès  aux  jeux  de 
+données. Les métadonnées d'exploitaton fourniront des détails sur les méthodes de collecte, 
+de traitement et d'analyse, s'appuyant sur la modélisaton sémantque. 
+Pour  optmiser  la  geston,  les  données  seront  organisées  par  département  et  par  type 
+(producton,  surfaces,  fertlisaton,  biomasse),  facilitant  ainsi  la  navigaton.  Un  système  de 
+nommage  standardisé  sera  utlisé,  tel que [année][département][type_de_donnée].csv,  par 
+exemple, 2024_85_producton.csv pour le département 85 en 2024. 
+La documentaton inclura des protocoles de collecte détaillant les modalités d’extracton et de 
+compilaton  des  données,  assurant  ainsi  la  transparence  des  processus.  Des  manuels 
+d'utlisaton fourniront des instructons claires sur l'interprétaton et l'utlisaton des données 
+et des métadonnées, y compris des études de cas pour illustrer leur applicaton pratque. 
+Les modèles utlisés sont tous déjà publiés et décrits. Des fches-résumé des besoins de chaque 
+modèle ont été rédigées et pourront accompagner les jeux de données simulées lors de leur.s 
+publicaton.s. ",,,,,"Relecture par les pairs 
+Utlisaton d’indicateurs de qualité, tels que la complétude, la précision et la fabilité. 
+Assurance d'une documentaton détaillée à chaque étape de la collecte des données, incluant 
+la  méthodologie,  les  instruments  utlisés  et  les  conditons  de  collecte.  Cela  permetra  une 
+traçabilité complète des données, facilitant leur évaluaton et leur réutlisaton. ",,,,,,,"Pour le traitement et l'analyse des données de forçage et de paramétrage des modèles GRAFS, 
+CRAFT, LUCCA et AMG nous utliserons une approche systématque. Les données collectées 
+seront  centralisées  dans  une  base  de  données,  suivies  d'un  netoyage  pour  éliminer  les 
+doublons et les anomalies. Nous normaliserons et transformerons les données pour garantr 
+leur  homogénéité,  en  désagrégeant  les  données  précédemment  agrégées  au  niveau  des 
+territoires pour une analyse plus précise à l'échelle des départements. Nous utliserons des langages de programmaton comme Python, R et Excel ainsi que des outls 
+d'analyse tels que Pandas et dplyr, pour efectuer des manipulatons complexes et des analyses 
+statstques. Chaque étape du processus sera documentée dans des rapports détaillés et le 
+code source sera commenté pour assurer la transparence et la réutlisaton future. ",,,,,,10 Go,&cloud&,,,double sauvegarde,," Les  données  seront  partagées  selon  les 
+formats CSV, XLS, TXT, etc.... Elles seront rendues disponibles conformément aux politques de 
+données qui s’y appliquent. Tout partculièrement, la disponibilité des données RMQS utlisées 
+par calibraton et la validaton du module de sol seront rendues disponibles en conformité avec 
+la  conventon  d’utlisaton  des  données  qui  sera  mise  en  place.  Les  données  seront 
+entreposées  localement  par  chacun  des  groupes  de  recherche  responsables  de  leur 
+acquisiton. 
+Ces données auront un haut potentel de réutlisaton pour des projets futurs. ",,"rdg, zenodo",,oui,,,,,,,,,,,,done
+Oui,ANR français  ,Agence nationale de la recherche (ANR),"Transition vers des systèmes ALIMentaires neutres en carbone : PREFérences, bien-être des consommateurs et politiques publiques",PREFALIM,"Deux leviers doivent être mobilisés pour ateindre la neutralité carbone d'ici 2050 : une réducton 
+drastque  des  émissions  de  gaz  à  efet  de  serre  (GES),  et  le  développement  du  stockage  du 
+carbone.  Dans  ce  contexte,  le  projet  PREFALIM  étudiera  comment  les  changements  de 
+comportements et de préférences alimentaires peuvent réduire les émissions de GES agricoles 
+et renforcer le stockage de carbone dans les sols.  
+Dans une large mesure, la queston des préférences alimentaires reste un angle mort des travaux 
+d'évaluaton  des  optons  d'aténuaton  du  changement  climatque.  Or,  les  préférences  des 
+consommateurs apparaissent comme un obstacle aux évolutons souhaitables de la producton 
+agricole et de l’élevage. Elles sont également un obstacle à la mise en place de politques de « prix 
+du  carbone »  qui,  en  augmentant  les  prix  alimentaires,  génèrent  des  pertes  de  bien-être 
+importantes  pour  le  consommateur,  avec  de  larges  efets  redistributfs  en  défaveur  des  plus 
+pauvres, et des impacts politques potentellement déstabilisants pour les Etats. Cependant, ces 
+pertes de bien-être peuvent être aténuées si les préférences des consommateurs évoluent vers 
+des régimes alimentaires à plus faible impact carbone.   
+PREFALIM abordera cete queston de recherche en caractérisant les liens entre les préférences 
+alimentaires et les préoccupatons environnementales des consommateurs, et en identfant la 
+capacité des politques publiques à aligner les premières avec les secondes. Nous analyserons les 
+conséquences  de  changements  de  préférences  alimentaires  sur  la  demande  et  le  commerce 
+alimentaire, et sur l'ofre agricole (cultures et élevage), ainsi que les efets induits sur l'utlisaton 
+des terres et sur l'environnement. Comprendre la malléabilité des préférences alimentaires est 
+également crucial pour évaluer les conséquences en termes de bien-être et de redistributon 
+d'une transiton vers des régimes alimentaires décarbonés.  
+Pour ateindre ces objectfs scientfques, PREFALIM lèvera plusieurs barrières conceptuelles et 
+empiriques  dans  la  modélisaton  de  la  demande  alimentaire  et  de  la  producton  agricole,  la 
+mesure  du  bien-être  des  consommateurs  et  la  modélisaton  biophysique  des  impacts 
+environnementaux.  Les  analyses  combineront  diverses  méthodes  et  modèles  quanttatfs, 
+appliqués  à  des  données  collectées  à  diférentes  échelles  spato-temporelles  (des  ménages 
+français observés ces dernières années aux pays observés au cours des dernières décennies).  
+L’objectf fnal est d’analyser le rôle des préférences alimentaires dans la transiton carbone du 
+secteur alimentaire, selon diférents scénarios politques. Nous procéderons également à des 
+analyses  de  sensibilité  des  résultats  à  des  variatons  de  structures  économiques  et 
+démographiques mondiales, et de risques environnementaux et socio-économiques. Au niveau 
+natonal,  les  résultats  éclaireront  l'analyse  coût-efcacité  des  optons  politques  ciblant  les 
+préférences des consommateurs, et/ou augmentant le prix du carbone comme le recommande 
+le  rapport  Quinet  (2019)  ou  la  stratégie  natonale  bas-carbone.  Au  niveau  internatonal,  les 
+résultats aideront à la concepton des politques publiques, européennes et mondiales, dans le 
+contexte des objectfs climatques du Green Deal et des accords internatonaux négociés dans le 
+cadre de la Conventon-cadre des Natons unies sur les changements climatques (e.g. COP 28 
+UAE « Declaraton on sustainable agriculture, resilient food systems, and climate acton »). Nos 
+travaux fourniront également des pistes pour aténuer les inégalités liées à l'alimentaton, qui 
+devraient contnuer de croître au sein des pays et entre eux",ANR-23-PEXF-0004,2024-01-01 00:00:00,2028-06-30 00:00:00,"UMR Paris-Jourdan Sciences Economiques_UMR Centre Maurice Halbwachs_Laboratoire de géologie de l'Ecole Normale Supérieure_Laboratoire d’Economie Appliquée de Grenoble_Structure et Marchés Agricoles, Ressources et Territoires_Paris-Saclay Applied Economics_Toulouse School of Economics – Research_Institut d'écologie et des sciences de l'environnement de Paris",PJSE_CMH_LG-ENS_GAEL_SMART_PSAE_TSE-R_iEES,,199812873F_20012756V_199812866Y_200817993C_202224181T_201621876N_200517555P,Fabrice Etilé_Anne-Célia Disdier,INRAE_INRAE,,Plan PREFALIM,2025-01-08 00:00:00,2025-01-08 00:00:00,,1,"1.  Assurer l’interopérabilité des modèles :  
+o  Utlisaton des résultats expérimentaux dans FRENCHFOOD, voire AGTRADE 
+o  Echanges  entre  FRENCHFOOD  et  AGTRADE  avec  mise  en  cohérence  de  la 
+demande agrégée natonale de commodités alimentaires et de la demande de 
+produits alimentaires au niveau des ménages 
+o  Utlisaton par FLORA et DYNSOC des résultats d’AGTRADE concernant les choix 
+de producton et les fux commerciaux de commodités alimentaires 
+2.  Garantr la qualité et l’homogénéité des nomenclatures alimentaires et des données 
+de contenu carbone utlisées sur les diférents jeux de données 
+3.  Metre  à  dispositon  de  la  communauté  scientfque  des  jeux  de  données  et  codes 
+suivant les principes FAIR","Social sciences & humanities
+Earth and related environmental sciences ",fra,Fabrice Etilé_Anne-Célia Disdier,,,,,PR6_SIMUL_POLITIQUES_PUBLIC,Simulations de politiques publiques,Modèle,non,"Descripton :  Résultats  de  simulatons  numériques  de  diférents  scénarios  de  politques 
+publiques ciblant les préférences des consommateurs et les prix internatonaux. 
+•  Ajustement  de  long-terme  des  achats  et  consommatons  alimentaires  de  diférents 
+segments socio-économiques de la populaton française. 
+•  Prix à la consommaton des aliments vendus en France 
+•  Ajustements de long-terme en prix et volume des commodités alimentaires échangées 
+entre pays. 
+•  Ajustements de long-terme des productons agricoles au niveau mondial : usage des 
+sols (marges extensive et intensive), intensité technologique.  
+•  Trajectoires passées (depuis 1850) et à l’horizon 2050, au niveau des départements de 
+la France métropolitaine, des fux d’azote et de carbone liés à l’usage et à la producton 
+des sols agricoles et foresters par le couplage des modèles GRAFS-CRAFT-LUCCA-AMG. 
+•  Impacts  GES,  biodiversité  et  eau  des  ajustements  de  long-terme  des  productons 
+agricoles. ",WP6,,," Simulatons  
+•  Prospectves 
+•  Scénarios ",,,non,"Les simulatons seront produites en 
+utlisant des modèles existants et déjà développés et des données d'entrée décrites dans les 
+sectons précédentes. ",,,,,,,,,, Simulatons numériques ,,,,,,,,,,,,,,,,,,,,,,,,,,,,100 Go,,,,,,,,"rdg, zenodo",,,,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
 écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
@@ -1964,7 +3318,7 @@ Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
 SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23549,PR9-NEW MODEL CASTANEA-MAESPA-CNPK,Nouveau modèle CASTANEA-MAESPA-CNPK,Modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,PEACE,,,,,,,,,,,,Plan PEACE,,,,,,,,Antoine Séjourné_Maialen Barret,,,,,PR_INCONNU?,inconnu,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+,,,,PEACE,,,,,,,,,,,,Plan PEACE,,,,,,,,Antoine Séjourné_Maialen Barret,,,,,PR_Non travaillé,inconnu,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Oui,ANR français,Agence nationale de la recherche (ANR),"Cultiver des Écosystèmes Résilients : Améliorer les Économies d'Azote et le Carbone en 
 Agriculture - un Levier d'Efficacité",GREENSCALE,ok,,2025-01-10 00:00:00,31/09/2028,oui,oui,oui,,Jean Alric_Fabien Chardon,"Photosynthèse  & 
 Environnement de l'Institut des 
