@@ -3229,7 +3229,58 @@ agricoles. ",WP6,,," Simulatons
 utlisant des modèles existants et déjà développés et des données d'entrée décrites dans les 
 sectons précédentes. ",,,,,,,,,, Simulatons numériques ,,,,,,,,,,,,,,,,,,,,,,,,,,,,100 Go,,,,,,,,"rdg, zenodo",,,,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3237,9 +3288,73 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23541,PR1_PROTOCOLES,Protocles expérimentaux,Texte,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23541,PR1_PROTOCOLES,Protocles expérimentaux,Texte,non,"Protocoles	expérimentaux	décrivant:
+Les	expériences	de	manipulation	des	pluies	dans	les	sites	de	Puéchabon,	Font-Blanche,
+O3HP	et	Montiers
+Les	mesures	environnementales	et	écophysiologiques	mesurées	dans	l'ensemble	des	8
+sites	expérimentaux	du	projet
+Les	mesures	à	mettre	en	oeuvre	pour	les	différents	groupes	de	travail	du	projet	Drought
+ForC",,,," Exclusion	de	pluie,	Météorologie,	Protocoles	de	mesure",fra,,non,"Les	descriptions	des	protocoles	d'exclusion	de	pluie	et	des	données	environnementales	et
+écophysiologiques	produites	sur	chacun	des	sites	expérimentaux	du	projet	seront	basées	sur	les
+données	existantes	de	chacun	de	groupes	de	recherche	qui	maintiennent	ces	dispositifs
+expérimentaux",,"Protocoles	ICOS	:	http://www.icos-etc.eu/icos/documents/instructions
+Protocoles	AnaEE	France",,,,,,,,"&Expertise	des	chercheurs	impliqués, Les	protocoles	expérimentaux	seront	rédigés	par	les	chercheurs	et	ingénieurs	impliqués	dans	le
+projet	selon	leur	expertise	des	dispositifs	expérimentaux	et	des	méthodes	de	mesure&",,,,,,,,"&Les	protocoles	seront	organisés	par	site	expérimental	et/ou	par	méthode	employée.	Ils	seront
+rédigés	en	français	ou	en	anglais&",,,,,,,&Relecture	par	les	pairs&,,,Librement	accessible	(Licence	Ouverte	d'Etalab	ou	CC_BY)	et	sans	contrainte	juridique,,,,,,,,,,100 Mo,"&Stockage	local	des	informations	par	les	groupes	qui	rédigeront	les	documents	+	stockage
+commun	dans	un	espace	de	travail	partagé	(type	cloud)&",,,&double sauvegarde&,,,,,,doc ou pdf,,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3247,9 +3362,95 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23542,PR2_EXPE_EXISTANTES,Données existantes expérimentales,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23542,PR2_EXPE_EXISTANTES,Données existantes expérimentales,Datasets,non,"Données	environnementales	et	écophysiologiques	dont	la	collecte	a	débuté	avant	le	projet
+Drought	ForC,	et	est	réalisée	par	les	chercheurs	et	personnels	techniques	des	8	sites
+expérimentaux	du	projet,	et	permet	de	suivre	sur	le	long-terme	l'impact	des	dispositifs
+expérimentaux	sur	la	sécheresse	et	le	fonctionnement	des	arbres	et	de	l'écosystème	forestier",WP1,Thesaurus Inrae,"donnée	météorologique	(Thésaurus	INRAE)
+sol	(Thésaurus	INRAE)
+eau	du	sol	(Thésaurus	INRAE)
+carbone	(Thésaurus	INRAE)
+accroissement	de	la	biomasse	(Thésaurus	INRAE)
+écophysiologie	forestière	(Thésaurus	INRAE)
+propriété	physico-chimique	du	sol	(Thésaurus	INRAE)
+analyse	chimique	(Thésaurus	INRAE"," Météorologie,	Flux	de	carbone,	Flux	d'eau,	Sol,	Croissance,	Traits	végétaux,	Chimie	du	sol,
+Interopérabilité,	Référentiels	sémantiques",fra,,non,"&Les	données	de	ce	produit	de	recherche	sont	exclusivement	des	données	existantes	et	ré-
+utilisées	dans	la	cadre	du	projet&",,observation,,,,,,,,"Les	méthodes	d'acquisition	des	données	seront	décrites	dans	les	protocoles	expérimentaux
+fournis	par	chacun	des	sites.	Les	acquisitions	ayant	été	souvent	non	coordonnées	entre	sites,	les
+jeux	de	données	sont	initialement	hétérogènes,	par	nature	et/	mode	de	gestion.
+Les	données	seront,	autant	que	possible,	rendues	interopérables	par	leur	traitement	avec	les
+outils	développés	dans	l'Infrastructure	de	Recherche	AnaEE	France.	La	chaîne	de	traitement	est
+basée	sur	l'annotation	sémantique	et	les	technologie	du	""linked	data"".",,,,,Interopérabilité	sémantique	:	https://hal.inrae.fr/hal-03579553,,,"Les	méta-données	seront	présentées	et	fournies	selon	les	standards	utilisés	par	les
+infrastructures	de	recherche	ICOS	et	AnaEE",,"DCAT	(Data	Catalog	Vocabulary)	:	https://rdamsc.bath.ac.uk/msc/m12
+ISO	19115	:	https://rdamsc.bath.ac.uk/msc/m22
+NetCDF	Attribute	Convention	for	Dataset	Discovery	:	https://rdamsc.bath.ac.uk/msc/m89","&Les	jeux	de	données	rendus	interopérables	par	la	chaîne	de	traitement	sémantique	sont
+accompagnés	de	métadonnées	:	1)	de	métadonnées	de	découverte	aux	standards	DCAT	(enrichi
+pour	compatibilité	avec	le	profil	DCAT	de	DATA	Terra)	et	ISO,	et	2)	de	métadonnées
+d'exploitation	issus	sur	la	modélisation	sémantique&",,,,"Les	jeux	de	données	produits	par	la	chaîne	de	traitement	sémantique	peuvent	bénéficier	de
+vérification	de	qualité	et	cohérence	basée	sur	des	contraintes	SHACL	applicables	aux	données
+produites	au	format	RDF.",,,,,,,"Le	traitement	des	données	sera	effectué	par	chacun	des	groupes	de	recherche	responsable	des
+sites	expérimentaux	selon	les	méthodes	actuellement	appliquées	localement	et	décrites	dans	les
+protocoles	expérimentaux.
+La	mise	en	interopérabilité	des	jeux	de	données	sera	effectuée	avec	les	outils	développés	dans
+AnaEE-France.	La	chaîne	de	traitement	est	basée	sur	l'annotation	sémantique	et	les	technologie
+du	""linked	data"".	
+Ce	traitement	est	aussi	celui	mis	en	oeuvre	dans	le	Projet	Ciblé	ALAMOD	de	FairCarboN	et	les	2
+opérations	s'effectueront	de	manière	coordonnée.",,,,,,,&insuffisant&,,,,,,&Ces	données	auront	un	haut	potentiel	de	réutilisation	pour	des	projets	futurs&,rdg,,"&Les	données	seront	partagées	selon	les	formats	actuellement	en	vigueur	dans	les	infrastructures
+de	recherche	ICOS	et	AnaEE	(CSV,	XLS,	TXT,	etc…&",,,,"&L'ensemble	de	ces	données	a	vocation	à	être	conservé	à	long-terme,	au	delà	de	la	durée	du
+projet	Drought	ForC	dans	les	entrepôts	de	données	du	Carbon	Portal	ICOS	et	l'entrepôt	national
+Recherche	Data	Gouv&",,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3257,9 +3458,78 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23543,PR3_EXPE CHAUFFAGE,Expériences chauffage du sol et sécheresse,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23543,PR3_EXPE CHAUFFAGE,Expériences chauffage du sol et sécheresse,Datasets,non,"L'expérience	MEDSOCLIM	est	commune	aux	sites	expérimentaux	méditerranéens	de	l'O3HP	et
+Puéchabon.	Cette	expérience	vise	à	manipuler	l'humidité	et	la	température	du	sol	sur	de	petites
+placettes	grâce	à	un	dispositif	d'exclusion	de	pluie	par	toit	amovible	et	de	chauffage	du	sol	sans
+contact.",WP1,,,"Expérience,	Exclusion	de	pluie,	Chauffage	du	sol",,,non,"L'expérience	MEDSOCLIM	étant	nouvelle	et	réalisée	dans	le	cadre	du	projet	Drought	ForC,	il
+n'y	a	pas	de	données	pré-existantes	à	ré-utiliser",µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,µnon concernéµ,,"Les	protocoles	seront	rédigés	par	les	responsables	techniques	des	sites	de	Puéchabon	et
+O3HP.
+Les	données	de	caractérisation	du	sol	des	parcelles	seront	obtenues	par	échantillonage	et
+analyses	en	laboratoire	avant	le	démarrage	de	l'expérience
+Les	données	de	température	et	humidité	du	sol	dans	les	parcelles	expérimentales	seront
+acquise	par	des	capteurs	environnementaux	de	type	sondes	TDR	et	sondes	de
+température	(thermocouple,	PT100	ou	T107)	reliées	à	des	centrales	d'acquisition	avec	un
+pas	de	temps	de	30	min","Les	données	de	ce	produit	de	recherche	comprennent:
+Les	protocoles	et	matériels	utilisés	pour	réaliser	l'expérience
+Les	données	de	caractérisation	des	parcelles	et	du	sol	avant	le	démarrage	de	l'expérience
+Les	données	de	température	et	humidité	du	sol	avant	et	pendant	l'expérience",,,,,,,,,&standards Anaee&,,,,,"&La	qualité	et	le	contrôle	des	données	seront	assurés	par	les	équipes	techniques	de	l'O3HP	et	de
+Puéchabon,	et	seront	réalisés	de	façon	similaire	aux	autres	données	collectées	sur	les	dispositifs
+expérimentaux	AnaEE	des	ces	sites&",,,,,,,"Les	données	brutes	seront	vérifiées	et	filtrées	grace	aux	logiciels	R	ou
+Excel,	puis	les	données	traitées	seront	enregistrées	en	format	XLS	et	CSV",,,,,,10 Go,,,,"&La	sécurité	de	ces	données	sera	sous	la	responsabilité	des	sites	expérimentaux	AnaEE	de
+l'O3HP	et	Puéchabon,	selon	les	usages	actuellement	en	vigueur	dans	ces	sites	expérimentaux&",,,,rdg,,xls ou csv,,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3267,9 +3537,88 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23544,PR4_PRODUCTIVITE,Productivités des arbres,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23544,PR4_PRODUCTIVITE,Productivités des arbres,Datasets,non,"&Les	données	nouvelles	sur	la	productivité	des	arbres	comprennent	toutes	les	mesures	qui	seront
+acquises	dans	le	cadre	du	WP2	du	projet	Drought	ForC&",WP2,,,"Croissance,	Dendrochronologie,	Isotopes	C	et	O,	Architecture,	Racines,	Feuilles",,,non,,,,,,,,,,"cquises	dans	le	cadre	du	WP2	du	projet	Drought	ForC,	à	savoir:
+des	mesures	de	dendrochronologie	sur	des	carottes	de	bois	prélevés	dans	les	troncs
+(largeur	de	cernes,	densité	du	bois,	ratio	isotopiques	en	13C	et	18O
+des	mesures	de	traits	foliaires	et	architecturaux	de	branches	(LMA,	13C	foliaire,
+croissance	primaire)
+des	mesures	d'allocation	et	de	croissance	souterraine	des	arbres	(biomasses	et
+croissances	racinaires,	croissances	de	hyphes	mycorhiziens)","Les	données	nouvelles	sur	la	productivité	des	arbres	seront	acquises	par	prélèvement
+d'échantillons	dans	le	différents	sites	expérimentaux	puis	analyse	de	ces	échantillons	en
+laboratoire:
+Des	carottes	de	bois	seront	prélevées	dans	les	troncs	de	certains	arbres	sélectionnés	dans
+chaque	site	et	traitement,	puis	ces	carottes	seront	analysées	par	une	ou	plusieurs
+plateformes	d'analyse	pour	mesurer	les	largeurs	de	cernes,	la	densité	du	bois,	et	les	ratios
+isotopiques	en	13C	et	18O
+Des	feuilles	seront	prélevées	à	différentes	dates	au	cours	du	projet	pour	des	mesures	de
+masse	surfacique	puis	le	ratio	isotopique	en	13C	sera	déterminé	par	une	plateforme
+d'analyse	isotopique
+Des	branches	seront	coupées	sur	certains	arbres	sélectionnés	dans	chaque	site	et
+traitements,	puis	ces	branches	seront	mesurées	au	laboratoire	pour	déterminer	un	certain
+nombre	de	traits	architecturaux	et	de	croissance	primaire	(nombre	de	ramifications,
+d'entre-noeuds,	de	feuilles,	etc...)
+Des	carottes	de	sol	seront	prélevées	dans	les	différents	sites	et	traitements	et	remplacées
+par	des	""in-growth	cores""	et	des	""hyphals	bags""	pour	mesurer	la	croissance	racinaire	et
+l'allocation	aux	hyphes	mycorhiziens.	Les	racines	et	les	hyphes	seront	ensuite	extraits	des
+carottes	et	mesurés	aux	laboratoires	INRAE	de	Bordeaux	(ISPA)	et	Nancy	(BEF).",experimentales,,,Plateforme	SilvaTech	INRAE,,,,,,,,R,,,"&La	qualité	scientifique	des	données	sera	assurée	par	un	nombre	d'échantillons	suffisant	pour
+être	représentatif	de	chacune	des	modalités	expérimentales,	par	des	analyses	centralisées	dans
+un	seul	laboratoire	(différent	selon	les	variables)	pour	l'ensemble	des	sites	concernés,	et	par	la
+comparaison	des	résultats	obtenus	avec	les	données	pré-existantes	pour	certains	des	sites	ou
+traitements&",,,,,,,,,,,,,10 Go,&serveurs institutionnels&,,,,,,&haut potentiel&,rdg,,"xls, csv, txt",,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3277,9 +3626,88 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23545,PR5_FONCTIONNEMENT SOL,Fonctionnement du sol,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23545,PR5_FONCTIONNEMENT SOL,Fonctionnement du sol,Datasets,non,"&Les	données	nouvelles	sur	le	fonctionnement	du	sol	comprennent	toutes	les	mesures	qui	seront
+acquises	dans	le	cadre	du	WP4	du	projet	Drought	ForC&",WP3,,,"Respiration	du	sol,	Décomposition	litière,	Activité	biologique	du	sol,	carbone	du	sol",,,non,,,,,,,,,,"des	mesures	de	respiration	du	sol	dans	les	différents	sites	et	traitements
+des	mesures	d'emission	de	COV-B	par	les	sols	dans	les	traitements	expérimentaux	de
+chauffage	du	sol	et	sécheresse	à	l'O3HP	et	à	Puéchabon
+des	mesures	de	décomposition	de	la	litière	de	feuilles	dans	les	différents	sites	et
+traitements
+des	mesures	de	contenu	en	carbone	du	sol	dans	les	différents	horizons	superficiels	dans
+les	différents	sites	et	traitements
+des	inventaires	de	biodiveristé	de	la	faune	et	des	micro-organismes	du	sol	dans	certains
+sites	et	dispositifs	expérimentaux","Les	données	nouvelles	sur	le	fonctionnement	du	sol	seront	acquises	principalement	par	des
+mesures	et	expérimentations	sur	le	terrain,	mais	aussi	par	des	prélèvement	d'échantillons	dans
+le	différents	sites	expérimentaux	puis	analyse	de	ces	échantillons	en	laboratoire:
+Les	mesures	de	respiration	du	sol	seront	collectées	grâce	à	des	analyseurs	de	CO2
+portables	ou	fixes	qui	seront	installés	dans	le	différents	traitements	expérimentaux	des
+différents	sites	pour	mesurer	l'efflux	de	CO2	du	sol
+Les	mesures	d'émission	de	COV-B	seront	mesurés	grâce	à	des	campagnes	de	terrain	à
+l'O3HP	et	à	Puéchabon	avec	un	PTR-MS	mobile	ou	des	cartouches	de	prélèvements
+Les	mesures	de	décomposition	de	la	litière	de	feuilles	seront	réalisées	grâce	à	une
+expérience	in-situ	de	décomposition	sur	3	années	réalisée	par	la	méthode	des	litterbags
+avec	des	prélèvements	réguliers	tous	les	6	mois
+Les	mesures	de	contenu	en	carbone	du	sol	seront	réalisées	par	des	prélèvements
+d'échantillons	sur	le	terrain	qui	seront	ensuite	séchés	et	analysés	en	laboratoire
+Les	mesures	d'inventaire	de	biodiversité	de	faune	du	sol	ou	de	micro-organismes	seront
+réalisées	par	des	prélèvements	d'échantillons	de	sol	sur	le	terrain	qui	seront	ensuite
+analysés	en	laboratoire",experimentales,,,,,,,,,,,,,,"&La	qualité	scientifique	des	données	sera	assurée	par	un	nombre	d'échantillons	suffisant	pour
+être	représentatif	de	chacune	des	modalités	expérimentales,	par	des	analyses	centralisées	dans
+un	seul	laboratoire	(différent	selon	les	variables)	pour	l'ensemble	des	sites	concernés,	et	par	la
+comparaison	des	résultats	obtenus	avec	les	données	pré-existantes	pour	certains	des	sites	ou
+traitements&",,,,,,,,,,,,,10 Go,,,,,,,&haut potentiel&,rdg,,"xls, csv, txt",,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3287,9 +3715,88 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23546,PR6_COMPOSITION MINERALE,Composition minérale,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23546,PR6_COMPOSITION MINERALE,Composition minérale,Datasets,non,"&Les	données	nouvelles	sur	le	fonctionnement	du	sol	comprennent	toutes	les	mesures	qui	seront
+acquises	dans	le	cadre	du	WP3	du	projet	Drought	ForC&",WP4,,,"Nutriments,	Resorption,	Recyclage,	Sol",,,non,,,,,,,,,,"des	mesures	de	concentrations	en	nutriments	et	minéraux	dans	les	feuilles	vertes	des
+arbres	des	différents	sites	et	traitements
+des	mesures	de	concentrations	en	nutriments	et	minéraux	dans	les	feuilles	sénescentes
+des	arbres	des	différents	sites	et	traitements
+des	mesures	de	concentrations	en	nutriments	et	minéraux	dans	les	racines	fines	des
+arbres	des	différents	sites	et	traitements
+des	mesures	de	concentrations	en	nutriments	et	minéraux	dans	les	horizons
+holorganiques	du	sol	des	différents	sites	et	traitements
+des	mesures	de	cations	échangeables	et	capacité	d'échange	cationique	du	sol	des
+différents	sites	et	traitements","Les	données	nouvelles	sur	le	statut	nutritif	des	arbres,	la	fertilité	des	sols	et	les	cycles
+biogéochimiques	seront	acquises	par	des	prélèvements	d'échantillons	dans	le	différents	sites
+expérimentaux	puis	analyses	de	ces	échantillons	en	laboratoire:
+Des	feuilles	vertes	seront	prélevées	à	différentes	dates	dans	chacun	des	sites	et	des
+traitements	puis	analysées	par	une	ou	plusieurs	plateformes	d'analyse	pour	mesurer	les
+concentrations	en	N,P,K	et	autres	éléments	minéraux
+Des	feuilles	sénescentes	seront	prélevées	à	différentes	dates	dans	chacun	des	sites	et
+traitements	puis	analysées	par	une	ou	des	plateformes	d'analyse	pour	mesurer	les
+concentrations	en	N,P,K	et	autres	éléments	minéraux
+Des	racines	fines	seront	prélevées	à	différentes	dates	dans	chacun	des	sites	et	traitements
+puis	analysées	par	une	ou	des	plateformes	d'analyse	pour	mesurer	les	concentrations	en
+N,P,K	et	autres	éléments	minéraux
+Du	sol	de	différents	horizons	sera	prélevé	dans	les	différents	sites	et	traitements	et
+analysés	par	une	ou	des	plateformes	d'analyse	pour	mesurer	les	concentrations	en	N,P,K
+et	autres	éléments	minéraux	",experimentales,,,,,,,,,,,,,,"&La	qualité	scientifique	des	données	sera	assurée	par	un	nombre	d'échantillons	suffisant	pour
+être	représentatif	de	chacune	des	modalités	expérimentales,	par	des	analyses	centralisées	dans
+un	seul	laboratoire	(différent	selon	les	variables)	pour	l'ensemble	des	sites	concernés,	et	par	la
+comparaison	des	résultats	obtenus	avec	les	données	pré-existantes	pour	certains	des	sites	ou
+traitements&",,,,,,,,,,,,,11 Go,,,,,,,&haut potentiel&,rdg,,"xls, csv, txt",,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3297,9 +3804,90 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23547,PR7_FORCAGE MODELES,Paramètres-forçage modélisations,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23547,PR7_FORCAGE MODELES,Paramètres-forçage modélisations,Datasets,non,"Données	environnementales	et	écophysiologiques	dont	la	collecte	a	débuté	avant	le	projet
+Drought	ForC	et	a	été	réalisée	par	les	chercheurs	et	personnels	techniques	des	8	sites
+expérimentaux	du	projet.	Ces	données	qui	sont	en	partie	similaires	à	celles	décrites	dans	la
+section	""Données	existantes""	sont	spécifiquement	sélectionnées	par	les	chercheurs	responsables
+de	réaliser	les	simulations	afin	de	paramétrer	et/ou	calibrer	les	modèles	et	de	servir	de	forçage
+pour	les	simulations",WP5,,,,,,non,"Les	données	de	ce	produit	de	recherche	sont	principalement	des	données	existantes	qui	seront
+ré-utilisées	mais	devront	être	préparées	et	mises	en	forme	de	façon	spécifique","Ces	données	concernent:
+les	variables	météorologiques
+le	contenu	en	eau	du	sol
+les	flux	de	carbone,	eau	et	énergie
+la	croissance	et	la	mortalité	des	arbres
+les	traits	morphologiques	et	écophysiologiques	des	arbres
+la	caractérisation	physico-chimique	du	sol
+les	analyses	chimiques	des	nutriments	dans	le	différents	compartiments	du	sol	et	des
+arbres",,,,,,,,,"A	partir	des	données	existantes	pour	les	différents	sites	et	traitements	expérimentaux	mais
+couvrant	des	périodes	différentes,	et	acquises	à	des	grains	spatiaux	et	temporels	différents,	le
+travail	de	production	de	ces	données	consistera	à	les	sélectionner,	filtrer,	gapfiler	et	mettre	en
+forme	de	façon	à	ce	qu'elles	puissent	facilement	servir	pour	le	forçage	et	le	paramétrage	des
+différents	modèles	impliqués	dans	le	projet	Drought	ForC	et	qui	ont	chacun	aussi	leurs
+spécifications	en	terme	de	pas	de	temps,	de	grain	spatial	et	paramètres	d'entrée.
+La	méthode	de	production	de	ces	fichiers	de	données	est	à	définir	par	les	chercheurs	impliques
+dans	le	WP5	de	Drought	ForC	et	ceux	impliqués	dans	le	projet	ciblé	ALAMOD	du	PEPR
+FairCarboN.	",experimentales,,,,,,,,,,"&Les	méta-données	seront	présentées	et	fournies	selon	les	choisis	par	le	projet	ciblé	ALAMOD	du
+PEPR	FairCarboN&",,,,"&Les	procédures	de	contrôle	qualité	des	données	seront	celles	existantes	actuellement	dans	les
+infrastructures	de	recherche	ICOS	et	AnaEE.	La	qualité	des	données	sera	aussi	vérifiée	par	la
+cohérence	avec	la	littérature	scientifique	et	les	paramètres	déjà	utilisés	par	les	différents
+modèles&",,,,,,,,,,,,,100 Go,"&Les	données	seront	stockées	de	façon	centralisée	par	les	responsables	du	WP5	de	Drought
+ForC,	par	les	responsables	des	données	du	projet	ciblé	ALAMOD	de	FairCarboN,	et	par	les
+groupes	de	modélisateurs	qui	seront	chargés	de	réaliser	les	simulations&","&Les	données	seront	partagées	selon	les	formats	actuellement	utilisés	par	les	différents	groupes
+de	recherche	impliqués	(CSV,	XLS,	TXT,	NetCDF),	et	rendues	disponibles	conformément	aux
+pratiques	mises	en	oeuvres	dans	le	projet	ciblé	ALAMOD	du	PEPR	FairCarboN&",,,,,&haut potentiel&,rdg,,"xls, csv, txt, NetCDF",,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3307,9 +3895,77 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23548,PR8_MODELISATION,Modélisations,Modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23548,PR8_MODELISATION,Modélisations,Modèle,non,"Simulations	numériques	en	climat	présent	et	en	climat	futur	réalisées	avec	les	différents
+modèles	mécanistes	impliqués	dans	le	projet	Drought	ForC",WP5,,,"Modélisation	mécaniste,	Simulations,	Climat	futur",eng,,non,"Les	modèles	actuellement	identifiés	pour	réaliser	ces	simulations	sont:
+ForCEEPS
+GO+
+MAESPA
+MuSICA
+NoTG
+ORCHIDEE
+PhenoFit
+SALEM
+SAMSARA
+SIERRA
+SUREAU
+TROLL
+YASSO",,,,,,,,,,"&Les	nouvelles	données	seront	produites	par	des	simulations	numériques	en	utilisant	les
+différents	modèles	inclus	dans	cette	tache&",simulation,,,,,,,"&Les	modèles	utilisés	sont	tous	déjà	publiés	et	décrits.	Des	fiches-résumé	des	besoins	de	chaque
+modèle	ont	été	rédigées	et	pourront	accompagner	les	jeux	de	données	simulées	lors	de	leur.s
+publication.s&",,,,,,,,,,,,,,,,,,,,1 To,,,,,,,,,,,,,,,,,,,,,,done
 Oui,ANR français structuré,Agence nationale de la recherche (ANR),"Impacts	de	la	sécheresse	sur	les	flux	et	stocks	de	carbone	des
-écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,ok,ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
+écosystèmes	forestiers	:	études	expérimentales	et	modélisation",Drought For C,"Les	forêts	sont	à	la	fois	fortement	affectées	par	les	changements
+climatiques	en	cours	et	au	coeur	de	la	stratégie	d’atténuation	de	ces
+changements.	Une	meilleure	compréhension	des	effets	du	climat	sur	le
+puits	de	carbone	des	forêts	est	donc	un	enjeu	urgent,	tant	pour	les
+scientifiques	que	pour	les	gestionnaires	forestiers.	Dans	le	projet
+Drought-ForC,	nous	avons	identifié	trois	questions	scientifiques
+majeures	qui	limitent	notre	capacité	à	faire	des	projections	du	puits	de
+carbone	des	forêts	soumises	au	climat	futur.	La	première	concerne
+l’allocation	du	carbone	parmi	les	différents	organes	des	arbres	et	le
+lien	entre	assimilation	photosynthétique	et	séquestration	du	carbone
+dans	les	organes	pérennes.	La	seconde	concerne	la	dégradation	de	la
+matière	organique	et	la	séquestration	du	carbone	dans	le	sol	sous	les
+effets	antagonistes	du	réchauffement	et	de	l’assèchement	des	sols.	La
+troisième	concerne	les	effets	du	déficit	hydrique	sur	la	nutrition
+minérale	et	ses	conséquences	pour	la	croissance	et	le	fonctionnement
+des	arbres.	Le	projet	vise	à	étudier	ces	questions	en	réunissant	tous	les
+sites	forestiers	français	des	infrastructures	ICOS	et	AnaEE	qui
+mesurent	les	flux	de	carbone	par	la	technique	des	corrélations
+turbulentes	ou	utilisent	des	expérimentations	de	manipulation	des
+pluies	in	situ,	ainsi	qu’un	large	consortium	de	modélisateurs	utilisant
+des	modèles	basés	sur	les	processus.	Il	utilisera	à	la	fois	des	données
+déjà	acquises	sur	chacun	des	sites	forestiers,	de	nouveaux	dispositifs
+expérimentaux,	et	un	large	éventail	d’approches	de	modélisation	pour
+mieux	comprendre	les	mécanismes	de	réponse	des	forêts	aux
+changements	climatiques,	quantifier	leurs	impacts	sur	le	bilan	de
+carbone	et	améliorer	les	projections	en	climat	futur.	Le	projet	est
+organisé	en	trois	thèmes	de	recherche	centrés	sur	les	questions
+scientifiques	et	destinés	à	améliorer	nos	connaissances	(l’allocation	du
+carbone,	la	dégradation	de	la	matière	organique	au	sol,	les	limitations
+nutritives),	et	deux	axes	de	travail	transversaux	conçus	pour	améliorer
+l’intégration	des	outils	disponibles	pour	étudier	ces	questions	(c’est	à
+dire	les	expérimentations	de	terrain	et	les	modèles	mécanistes).	Le	lot
+1	consistera	à	homogénéiser	les	protocoles	et	jeux	de	données	entre
+les	sites	et	à	mettre	en	place	la	première	expérience	de	réchauffement
+du	sol	en	forêt	en	France.	Le	lot	2	étudiera	l’effet	de	la	sécheresse	sur
+le	lien	entre	assimilation	et	séquestration	du	carbone,	et	sur
+l’allocation	entre	les	différents	organes	des	arbres.	Le	lot	3	étudiera	la
+dégradation	de	la	matière	organique	du	sol	sous	l’effet	de	la
+sécheresse	et	du	réchauffement,	en	intégrant	les	effets	sur	le
+fonctionnement	biologique	du	sol.	Le	lot	4	étudiera	les	limitations
+nutritives,	le	recyclage	des	nutriments	et	leurs	effets	sur	la	croissance.
+Le	lot	5	consistera	à	valider	les	modèles	sur	les	données
+expérimentales,	à	projeter	les	réponses	sous	des	scénarios	de	climat
+futur	et	à	améliorer	la	modélisation	du	cycle	des	nutriments.	Drought-
+ForC	est	un	projet	fédérateur	ambitieux	qui	reposera	sur	8	sites
+forestiers	français	emblématiques	(5	appartenant	à	ICOS	et	4	à
+AnaEE),	12	modèles	basés	sur	les	processus	et	travaillant	à	des
+échelles	de	temps	et	d’espace	différentes,	et	le	travail	de	25
+chercheurs	issus	de	10	laboratoires.	Le	projet	est	conçu	pour
+permettre	un	meilleur	transfert	des	connaissances	expérimentales	vers
+les	modèles	et	favoriser	l’intégration	des	dispositifs	expérimentaux	et
+des	modèles	à	l'échelle	nationale",ANR-22-PEXF-0010,2023-10-01 00:00:00,2028-09-30 00:00:00,"Institut	méditerranéen	de	biodiversité	et	d'écologie	marine	et
 continentale	https://ror.org/0409c3995
 Laboratoire	Écologie,	Systématique	et	Évolution	UMR8079
 Biogéochimie	des	Ecosystèmes	Forestiers
@@ -3317,8 +3973,67 @@ Ecologie	des	Forêts	Méditerranéennes
 Risques,	Ecosystèmes,	Vulnérabilité,	Environnement,	Résilience
 Ecologie	Fonctionnelle	et	Biogéochimie	des	Sols	et	Agrosystèmes
 Interaction	Sol	Plante	Atmosphère
-SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23549,PR9-NEW MODEL CASTANEA-MAESPA-CNPK,Nouveau modèle CASTANEA-MAESPA-CNPK,Modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-,,,,PEACE,,,,,,,,,,,,Plan PEACE,,,,,,,,Antoine Séjourné_Maialen Barret,,,,,PR_Non travaillé,inconnu,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+SILVA",,,,Jean-Marc Limousin,CEFE,,Plan Drought For C,2023-12-18 00:00:00,2024-04-12 00:00:00,,version initiale,ok,Earth and related environmental sciences,fra,Christian Pichot,,,PGD ALAMOD,https://dmp.opidor.fr/plans/23549,PR9-NEW MODEL CASTANEA-MAESPA-CNPK,Nouveau modèle CASTANEA-MAESPA-CNPK,Modèle,non,"Le	modèle	CASTANEA-MAESPA-CNPK	sera	un	nouveau	modèle	informatique	basé	sur	
+les	processus	et	destiné	à	coupler	les	cycles	de	l'eau,	du	carbone	eet	des	minéraux	
+N,	P	et	K	dans	les	peuplements	forestiers.	Ce	modèle	sera	développé	sur	la	base	de	
+travaux	existants	pour	le	potassium	et	peremetra	une	meilleure	représentation	des	
+processus	physiologiques	(fonctionnement	hydraulique	des	arbres	grâce	au	
+couplage	avec	le	modèle	SurEau)	et	des	processus	biogéochimiques	dans	le	sol.	Le	
+modèle	sera	paramétré	et	validé	en	utilisant	les	données	du	site	expérimental	de	
+Itatinga	(Brésil)	et	un	ensemble	de	plantations	d'eucalyptus	au	Brésil	avec	différents	
+essais	de	fertilisation.",WP5,,,"Cycles	biogéochimiques,	Ecophysiologie	de	l'arbre,	Modèle	basé	sur	les	processus,	Plantations
+fertilisées",fra,,non,"Le	développement	du	modèle	CASTANEA-MAESPA-CNPK	réutilisera	des	codes	issus	des
+modèles	CASTANEA	et	MAESPA.
+La	paramétrisation,	le	forçage	et	la	validation	du	modèle	CASTANEA-MAESPA-CNPK	sera	fait
+en	utilisant	des	données	existantes	issues	de	Itatinga	(voir	section	""données	existantes"")	et
+d'autres	données	issues	de	plantations	et	essais	de	fertilisation	au	Brésil.",,,,,,,,,,"&Le	nouveau	modèle	sera	développé	et	codé	à	partir	des	modèles	existants	CASTANEA,	MAESPA
+et	SurEau	et	de	recherches	menées	par	les	chercheurs	impliqués	dans	cette	tache&",modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,done
+,,,,PEACE,,,,,,,,,,,,Plan PEACE,,,,,,,eng,Antoine Séjourné_Maialen Barret,,,,,PR_Non travaillé,inconnu,Datasets,,"&The PEACE project will produce new data from field studies (seasonal and annual monitoring), 
+laboratory analysis, remote sensing analysis as well as modeling. 
+Existing  published  data  from  team  members  of  studied  complementary  sites  will  be 
+incorporated. Reanalysis of permafrost core or soil sample will produce new data&",,,,,,,,,,,,,,,,,"The  PEACE  project  will  produce  new  data  about  the  permafrost/soil  characteristics, 
+hydrosystem biogeochemistry, greenhouse gases flux and microbial communities : 
+Database  of  biogeochemical  characteristics  of  permafrost/soils  and  ecosystems 
+(structure, mineralogy, OM content) 
+Database  of  particulate  organic,  dissolved  inorganic  and  organic  elements  from 
+groundwater and surface water (concentration mg/L) 
+Database of 14C content of POC, DOC, CH4 and CO2 from diverse water bodies 
+Database of climatic parameters (temperature, precipitation, solar radiation, …) from 
+the weather station 
+Database of environmental and climatic parameters (temperature, precipitation, solar 
+radiation, …) from the local-community observatories 
+Greenhouse gases concentration (µmol/L) from surface waters and permafrost 
+Metabarcoding-based  description  of  the  structure  of  250  communities  and  of  their 
+active fraction (raw sequences) 
+15 metagenomes informing the metabolic potential of microbial communities in crucial 
+samples.",,,,,,,"Antoine Séjourné, Maialen Barret","The  recruitment  of  two  engineers  is  necessary  for  the 
+standardization of the data and the construction of the database","Environmental dataset (soil, water, gas) will be described with the support of ESPRI-IPSL, 
+SEDOO-OMP  which  is  part  of  the  French  national  DATAterra  infrastructure.  The  PEACE 
+project will contribute to the data hub specialized in land surface (THEIA). The Data Terra 
+research infrastructure insureq a long-term preservation of data.",,,,,,,"& 
+The  collaboration  with  ESPRI-IPSL,  SEDOO-OMP  will  ensure  a  correct  description  of  the 
+metadata, keywords, and standard format thanks to their expertise &",,,,,,,,,,,,"& open  access  data  service  ESPRI  at  Institut  Pierre  Simon  Laplace  (Paris, 
+https://mesocentre.ipsl.fr/) and Institutional open source data repository systems of Service de 
+données de l'Observatoire Midi-Pyrénées (SEDOO, Toulouse, https://www.sedoo.fr/). Several 
+online tools will be used to help to create and daily manage the datasets (DMP OPIDoR and 
+DMP Online). &",,,"Preliminary  data  acquired  during  field  studies  will  be  made  available  through  ftp  and  a 
+restricted workspace from each Institution at first and then with a website designed specifically 
+for the project. This will ensure easy data sharing between consortium members and partners.",,,," 
+Microbial datasets along with sample metadata will be referenced in the international Global 
+Biodiversity Information Facility (GBIF). There is a dedicated online portal for microbial dataset 
+(Pola3r)  dedicated  to  facilitate  the  discovery,  access  and  analysis  of  molecular  microbial 
+diversity  (meta)data  by  Antarctic,  Arctic  and  Alpine  researchers.  Standardized  information 
+about sequence data (Yilmaz et al., 2011) will be reported together with environmental data, 
+3 
+formatted as defined by the Genomic Standards Consortium (Field et al., 2011) and published 
+in the DRYAD platform (fully available under a CC0 1.0 license, with DOI)",,dryad et gbif,,,"Data sets will be accessible through the web interface (metacatalog) of the website of ESPRI-
+IPSL, SEDOO-OMP as well as from the French national DATAterra infrastructure. The ESPRI-
+IPSL recently developed a web GIS interface of the metacalog to facilitate the selection and 
+download of data from a web browser through spatial and temporal criteria",,,"Publications  of  data  papers  on  original  research  data  in  international  and  interdisciplinary 
+journals  such  as  Earth  System  Science  Data  (Copernicus),  Freshwater  Metadata  Journal 
+(Elsevier) or  Ecological Research (Springer). Inside the paper, the data set as well as the 
+context is described to highlight the value. The project final report will include information on 
+the data and metadata archives with links to the open source datasets as well as our catalog",,,,,,,,
 Oui,ANR français,Agence nationale de la recherche (ANR),"Cultiver des Écosystèmes Résilients : Améliorer les Économies d'Azote et le Carbone en 
 Agriculture - un Levier d'Efficacité",GREENSCALE,ok,,2025-01-10 00:00:00,31/09/2028,oui,oui,oui,,Jean Alric_Fabien Chardon,"Photosynthèse  & 
 Environnement de l'Institut des 

@@ -159,17 +159,16 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-col1, col2, col3, col4, col5, col6, col7 = st.columns([0.25,0.05,0.05,0.2,0.125,0.125,0.25])
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([0.22,0.05,0.05,0.175,0.125,0.125,0.125,0.18])
 with col1:
-    st.markdown('')
     st.markdown('')
     try:
         Selection_p = st.selectbox(label='Selection', options=p, index=st.session_state.count)
     except:
         Selection_p = ""
         reset_counter()
+    st.subheader(f":grey[Fonction: {df['Fonction'][df['Contact']==Selection_p].values[0]}]")
 with col2:
-    st.markdown('')
     st.markdown('')
     st.markdown('')
     st.markdown('')
@@ -178,12 +177,10 @@ with col3:
     st.markdown('')
     st.markdown('')
     st.markdown('')
-    st.markdown('')
     button2 =st.button('R',on_click=reset_counter)
 with col4:
-    #st.markdown(f"<span style='color:dimgray;font-weight:bold; font-size:25px;'>Data Papers</span>", unsafe_allow_html=True)
-    st.subheader(f":grey[Data papers]")
-    st.metric(label=' ',value=int(df['DataInBrief'][df['Contact']==Selection_p].values[0])+int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0]),border=True)
+    for i in range(len(df['projet'][df['Contact']==Selection_p].values)):
+        colored_text(f"{df['projet'][df['Contact']==Selection_p].values[i]}",color="green",bold=True,size="30px")
 with col5:
     if df['Recensement'][df['Contact']==Selection_p].values[0]=='NON':
         st.image('Data/nok.png', width=120, caption="Recensement")
@@ -195,9 +192,15 @@ with col6:
     else:
         st.image('Data/ok.png', width=120, caption="Sollicitation")
 with col7:
-    #st.markdown("Projet(s):")
-    for i in range(len(df['projet'][df['Contact']==Selection_p].values)):
-        colored_text(f"{df['projet'][df['Contact']==Selection_p].values[i]}",color="green",bold=True,size="30px")
+    if df['Réponse'][df['Contact']==Selection_p].values[0]=='NON':
+        st.image('Data/nok.png', width=120, caption="Réponse")
+    else:
+        st.image('Data/ok.png', width=120, caption="Réponse")
+with col8:
+    #st.markdown(f"<span style='color:dimgray;font-weight:bold; font-size:25px;'>Data Papers</span>", unsafe_allow_html=True)
+    st.subheader(f":grey[Data papers]")
+    st.metric(label=' ',value=int(df['DataInBrief'][df['Contact']==Selection_p].values[0])+int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0]),border=True)
+    
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
@@ -343,9 +346,9 @@ with colB:
 st.dataframe(df_averifier, hide_index=True)
 Selection_p_ = unidecode(Selection_p).replace(" ", "_")
 
-if int(df['DataInBrief'][df['Contact']==Selection_p].values)>0:
+if int(df['DataInBrief'][df['Contact']==Selection_p].values[0])>0:
     st.dataframe(df_long_DIB["Data In Brief papers"][df_long_DIB['Contact']==Selection_p], hide_index=True)
-if int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values)>0:
+if int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0])>0:
     st.dataframe(df_long_ESSD["Earth System Science Data papers"][df_long_ESSD['Contact']==Selection_p], hide_index=True)
 
 # Spécifie le dossier d'export
