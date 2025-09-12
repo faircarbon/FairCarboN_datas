@@ -4035,21 +4035,206 @@ journals  such  as  Earth  System  Science  Data  (Copernicus),  Freshwater  Met
 context is described to highlight the value. The project final report will include information on 
 the data and metadata archives with links to the open source datasets as well as our catalog",,,,,,,,
 Oui,ANR français,Agence nationale de la recherche (ANR),"Cultiver des Écosystèmes Résilients : Améliorer les Économies d'Azote et le Carbone en 
-Agriculture - un Levier d'Efficacité",GREENSCALE,ok,,2025-01-10 00:00:00,31/09/2028,oui,oui,oui,,Jean Alric_Fabien Chardon,"Photosynthèse  & 
+Agriculture - un Levier d'Efficacité",GREENSCALE,"Dans un contexte mondial marqué par l'urgence climatique et la nécessité d'atteindre la neutralité
+carbone, les écosystèmes terrestres font face à des défis majeurs, notamment les impacts négatifs du
+changement climatique sur la séquestration du dioxyde de carbone (CO2) par la photosynthèse. Dans
+ce cadre, émergent des enjeux cruciaux liés à la recherche de solutions agricoles visant à atténuer ces
+impacts et à favoriser l'adaptation des cultures, tout en maintenant une forte productivité.
+GREENSCALE propose une approche novatrice axée sur la réduction du besoin en azote des cultures
+comme stratégie d'atténuation et d'adaptation. Le cœur de l'hypothèse du projet repose sur la
+régulation du contenu en chlorophylle [Chl] chez les plantes, un processus naturel influant sur
+l'acclimatation de la photosynthèse aux conditions environnementales. L'objectif est de tester l'idée
+qu'un ajustement spécifique de la chlorophylle b et de ses complexes protéiques associés peut réduire PGD du projet GREENSCALE
+2
+l'assimilation d'azote du sol, diminuer la température du couvert végétal et l'évapotranspiration, sans
+compromettre l'assimilation du CO2 en conditions de lumière non limitante.
+Cette initiative repose sur un partenariat innovant entre des chercheurs de l'INRAE, du CNRS, du CEA
+et d'ARVALIS, avec pour ambition d'approfondir la compréhension des interactions entre la nutrition
+azotée et la photosynthèse, sur le cycle carbone-azote dans le sol, de développer des modèles à
+l'échelle du champ et de l’environnement. En utilisant des variétés de verdissement d'orge non-OGM,
+GREENSCALE explore les réponses biologiques de ces cultures à la sécheresse et à l'azote, et vise à
+améliorer la précision des modèles de surfaces continentales, en particulier pour les terres agricoles
+et les prairies.
+Les résultats attendus orienteront les futurs programmes d'amélioration des plantes, ouvrant ainsi la
+voie à des pratiques agricoles plus durables et résilientes face aux défis environnementaux et aux
+exigences de production céréalières. Au-delà de son impact sur l'agriculture, GREENSCALE s'inscrit
+dans une perspective plus large de structuration de la recherche intégrée en photosynthèse en France.
+En agissant comme un pont entre les recherches moléculaires et cellulaires sur la photosynthèse d'une
+part, et les approches environnementales et agronomiques d'autre part, le projet vise à favoriser la
+collaboration entre différentes spécialités scientifiques et à intégrer des approches complémentaires,
+dépassant ainsi les limites des disciplines individuelles. Ainsi, GREENSCALE se positionne comme une
+initiative novatrice, alliant recherche de pointe, collaboration inter-institutionnelle et engagement en
+faveur de solutions agricoles durables et résilientes face aux défis environnementaux mondiaux.",,2025-01-10 00:00:00,31/09/2028,oui,oui,oui,,Jean Alric_Fabien Chardon,"Photosynthèse  & 
 Environnement de l'Institut des 
 Biosciences  et  Biotechnologies 
 d'Aix-Marseille  (BiAM), 
 Cadarache_Institut  Jean-Pierre  Bourgin, 
 INRAE ","https://orcid.org/0000-
 0003-3574-2234_https://orcid.org/0000-
-0001-7909-3884",Plan GREENSCALE,2025-01-02 00:00:00,2025-01-04 00:00:00,,version initiale,,Life Sciences ,fra,,,ETALAB 2.0,,,PR1_EFFET_REGULATION CHLOROPHYL,Etude sur l'effet de la régulation de la Chlorophylle ,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+0001-7909-3884",Plan GREENSCALE,2025-01-02 00:00:00,2025-01-04 00:00:00,,version initiale,,Life Sciences ,fra,,,ETALAB 2.0,,,PR1_EFFET_REGULATION CHLOROPHYL,Etude sur l'effet de la régulation de la Chlorophylle ,Datasets,non,"Le projet GREENSCALE vise à produire des données expérimentales permettant d'établir le lien entre
+la teneur en chlorophylle des plantes, les paramètres de la photosynthèse, l'efficacité d'utilisation de
+l'azote (NUE) et la réponse des plantes à des stress abiotiques. Dans ce cadre, les partenaires
+collecteront des données sur la croissance des plantes, leur efficacité d'assimilation du carbone et
+l'utilisation de l'azote",,,,,,,non,,,,,,,,,,"Les données produites concerneront :
+• La notation de la croissance (biomasse, taux de croissance relatif, pourcentage d’eau)
+• Des mesures de l’efficacité de la photosynthèse et de l’assimilation du carbone obtenues par
+MultiSpeQ ou Licor
+• Des analyses de l’efficacité d’utilisation de l’azote (%C et %N des tissus, 15N% et 13C%
+isotopiques)
+• Des données protéomiques",,oui,csv,36 Mo,MultispeQ ou Licor,"Les méthodes d’analyse protéomiques seront fournies par la plateforme Protéogen de l’Université de
+Caen.",,,"Les plantes seront identifiées à l’aide d’un code-barres contenant des informations sur la culture (date,
+lieu, condition de culture), le génotype et le numéro de répétition. L’ensemble des mesures sera
+intégré à un fichier unique respectant le format de sortie du MultiSpeQ, outil qui sera partagé entre
+les différents partenaires du projet",,"Les données seront accompagnées de métadonnées décrivant les conditions de culture et les
+protocoles de mesure. La méthodologie employée pour les mesures liées à la NUE suivra les standards
+de l’Arabidopsis Trait Ontology (https://doi.org/10.57745/7YO1GF), qui reste valable pour l’orge. De
+plus, les protocoles d’analyse protéomique seront fournis par la plateforme Protéogen de l’Université
+de Caen.",,,,,"Afin de garantir la qualité des données, un contrôle rigoureux sera mis en place comprenant la double
+vérification des entrées manuelles, l’identification des valeurs aberrantes à l’aide de scripts R, ainsi
+que l’usage de formats standardisés pour assurer la cohérence des fichiers.",,,,,,,,,,,,"Les métadonnées et les données seront stockées et partagées dans un dossier partagé avec l’ensemble
+des partenaires du projet GREENSCALE. Dans ce dossier, les partenaires vont pouvoir trouver des
+informations à propos de :
+- des documents de présentations (templates, icones),
+- un agenda partagé,
+- des informations sur le matériel végétal,
+- le contrat et le document scientifique soumis au PEPR,
+- les comptes-rendus des réunions mensuels,
+- la littérature scientifique partagée,
+- les protocoles expérimentaux partagés,
+- les informations sur les appareils partagés (MultiSpeQ…),
+- les documents de communications (articles…)
+- les données de résultats d’analyse",36 Mo,&Resana&,,,,,"&Chacun des partenaires conserve la propriété totale et exclusive de ses données antérieures si elles ne
+sont pas du domaine public. Lorsque les données antérieures appartiennent à des tiers auprès
+desquels les Partenaires ont obtenu les droits d’exploitation aux fins de participation au projet
+GREENSCALE, ces données antérieures demeurent la propriété de ces tiers. Les partenaires
+conviennent que les données produites par le projet sont du domaine public et à ce titre exploitables
+librement. Les données seront donc sous licence ouverte ETALAB. Les données devront alors faire
+référence à l’institution dépositaire du spécimen documenté, mais porter la mention du projet comme
+convenu dans le contrat avec l’ANR. Les partenaires conviendront d’un commun accord des mesures
+de protection à prendre concernant les données communes dans le cadre de l’accord de consortium&",,rdg,2 ans d'embargo,,,Etalab,,"Pour la durée du projet, le Muséum national d’histoire naturelle à Paris assure la coordination de la
+gestion des données. À terme, les données seront intégrées à l’infrastructure data.gouv.fr, qui est
+reconnue par plusieurs ministères comme une infrastructure Nationale ayant vocation à servir de point
+nodal pour l’accès aux données des collections des données en France",,,,,,,,
 Oui,INRAE template,Agence nationale de la recherche (ANR),"Soil	microbial	Carbon	And	Nutrient	use	Efficiency	under	managed
 Terrestrial	Ecosystems",CANETE,ok,ANR-22-PEXF-0008,2023-01-10 00:00:00,2028-01-03 00:00:00,oui,,,,Gwenaëlle Lashermes,FARE,https://orcid.org/0000-0002-8269-3562,Plan CANETE,2024-02-24 00:00:00,2024-02-24 00:00:00,,version initiale,,"Agriculture, forestry, and fisheries",eng,Gwenaëlle Lashermes,,Etalab Open License 2.0,,,PR1_REPONSE MICROBIENNE,Réponse microbienne vs pratiques agricoles,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,ok,ANR-23-PEXF-0001,2024-11-01 00:00:00,2029-10-31 00:00:00,oui,,,oui,Kamel ELOUHICHI,"Paris-Saclay	Applied
-Economics",https://ror.org/01p9mtd45,Plan CLIM-FAS,2024-12-07 00:00:00,2024-12-11 00:00:00,1.2,version initiale,ok,"Agriculture,	forestry,	and	fisheries, Economics	and	business,
+Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,"CLIM-FAS aims to enhance knowledge on the contribution and
+mitigation potential of the French agricultural sector to climate change
+and to generate scientific evidence on the economic and legal
+effectiveness of public actions designed to promote and accelerate the
+implementation of mitigation solutions. More specifically, it seeks to:
+Estimate GHG sources and sinks in French agriculture under
+current and future climate, considering soil and climatic
+conditions, farm heterogeneity and diversity in farming practices
+Provide evidence on the cost-effectiveness of selected greenhouse
+gas (GHG) mitigation measures (MMs)
+Investigate psychological, socio-economic and legal levers and
+barriers for the uptake of MMs
+Assess mitigation potential of French agriculture and estimate
+heterogeneous marginal abatement costs
+Draw up a critical economic and legal assessment of selected
+existing legal, policy and economic incentives targeting GHG
+sources and sinks and propose improvement and alternatives
+Provide policymakers with evidence based insights and data driven
+recommendations on mitigation strategies",ANR-23-PEXF-0001,2024-11-01 00:00:00,2029-10-31 00:00:00,oui,,,oui,Kamel ELOUHICHI,"Paris-Saclay	Applied
+Economics",https://ror.org/01p9mtd45,Plan CLIM-FAS,2024-12-07 00:00:00,2024-12-11 00:00:00,1.2,version initiale,"The Data Management Plan (DMP) is a key component of the overall
+management of the CLIM-FAS project. It outlines the procedures for
+collecting, processing, utilizing, documenting, and managing data,
+taking into account all stages of the data lifecycle.
+The document also specifies the types of data that will be generated
+within the project, how these data will be shared within the
+consortium, and the methods for making them openly accessible.
+Furthermore, it explains how the CLIM-FAS consortium plans to
+ensure that its research data are findable, accessible, interoperable,
+and reusable (FAIR) to guarantee rigorous data management.
+Finally, this DMP includes a description of the data management policy
+and standards (including metadata) that will be applied","Agriculture,	forestry,	and	fisheries, Economics	and	business,
 Law,	Psychology	and	cognitive	sciences,	Earth	and	related
-environmental	sciences",eng,Kamel ELOUHICHI,,,,,PR1_COLLECTE EXISTANT,Données existantes réutilisées,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
-Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,ok,ANR-23-PEXF-0002,2024-11-01 00:00:00,2029-10-31 00:00:00,oui,,,oui,Kamel ELOUHICHI,"Paris-Saclay	Applied
-Economics",https://ror.org/01p9mtd46,Plan CLIM-FAS,2024-12-07 00:00:00,2024-12-11 00:00:00,1.2,version initiale,ok,"Agriculture,	forestry,	and	fisheries, Economics	and	business,
+environmental	sciences",eng,Kamel ELOUHICHI,,,,,PR1_COLLECTE EXISTANT,Données existantes réutilisées,Datasets,,"New data will be primarily collected through interviews and surveys tailored to address the project’s specific objectives. These
+surveys will focus on gathering primary data from farmers and stakeholders to identify psychological, socio-economic, and legal
+factors that influence the adoption of mitigation measures (MMs).
+In addition, existing data from reliable sources, such as national databases (e.g., GHG National Inventory, CITEPA, FADN,
+Eurostat) and previous research projects (e.g., INRAE-4pour1000, DSCATT project), will be re-used to support modelling
+experiments, prevent duplication, and ensure efficient resource utilization. These datasets will be carefully evaluated for
+relevance, consistency, and quality before being integrated into the project’s analysis.
+",ok,,,,,,non,,ok,ok,ok,,,,,,"Furthermore, the project will generate new data through model simulations. These simulations will produce datasets that address
+existing knowledge gaps, such as data on carbon fluxes, GHG emissions under current and future climate scenarios, the cost-
+effectiveness of selected MMs, the agricultural sector's mitigation potential, and the impacts of policies, regulations, and economic
+incentives.
+For confidentiality reasons, only aggregated simulation data (farm type, farm size, region) will be shared publicly. Furthermore, no
+statistics will be reported if the data are based on a group fewer than 15 observations.
+To ensure transparency and accessibility, all new, reused, and generated data will be processed, standardized, and documented in
+accordance with FAIR principles (Findable, Accessible, Interoperable, Reusable).
+Metadata will be created to facilitate understanding and reproducibility. The data will be stored in secure repositories accessible
+to project partners and, where possible, to the broader scientific community.",,ok,ok,ok,,,,,"The metadata accompanying the data will include:
+Descriptive metadata will cover the title, abstract, keywords, authors, and dates of creation and last update.
+Administrative metadata will detail the data owner, access rights, usage rights, and version control.
+Structural metadata will describe the data format, structure, and types.
+Technical metadata will include information on the software/tools used, data collection methods, and data processing steps.
+The datasets will be accompanied by documentations which provide a:
+Comprehensive overview of the data collection methodology, including sampling methods, data sources, and instruments
+used.
+Description of the data organization, including the data model, naming conventions, and data storage.
+Description of data quality control, including error handling, and data cleaning procedures.",,,,,,,"A set of data quality control measures will be implemented, such as:
+Use of appropriate data storage facilities
+Use of good and harmonized data organization (easy access to files and data)
+Use of free software when possible (e.g. R for statistical analyses and Git for version control).
+Provide metadata & documentation files to make data and code understandable for others.
+...
+CLIM-FAS consortium will also promote the reproducibility of its research findings.",,,"&For the reused data, only FADN contains sensitive (personal) data. Access to these data is strictly controlled by the Confenditial
+Access Portal (CASD) after passing through the Secret Committee.
+For the collected data through interviews, formal contractual agreements will be drawn with actors when necessary, depending on
+how samples are accessed.
+For the collected data through interviews without external actors’ agreement, we will ensure that the conditions for collecting,
+processing and storing data will respect legal requirements on personal data, in line with the General Data Protection Regulation
+(GDPR)&",,,,type of uses,,,,,,ok,&resana&,"Access to sensitive (personal) data such as FADN is strictly controlled by the Confenditial Access Portal (CASD) after passing
+through the Secret Committee during and after the research.
+Access to other datasets during the research will be strictly controlled and limited to project members.
+Regular backups of all data will be performed and stored in secure, off-site locations to prevent data loss in case of system
+failures or security breaches.
+Ethical guidelines will be followed to ensure that data is collected, stored, and used in a manner that respects the privacy
+and rights of the individuals involved in the research.",,,,,,data inrae,,,,,,,,,,,,,,
+Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,"CLIM-FAS aims to enhance knowledge on the contribution and
+mitigation potential of the French agricultural sector to climate change
+and to generate scientific evidence on the economic and legal
+effectiveness of public actions designed to promote and accelerate the
+implementation of mitigation solutions. More specifically, it seeks to:
+Estimate GHG sources and sinks in French agriculture under
+current and future climate, considering soil and climatic
+conditions, farm heterogeneity and diversity in farming practices
+Provide evidence on the cost-effectiveness of selected greenhouse
+gas (GHG) mitigation measures (MMs)
+Investigate psychological, socio-economic and legal levers and
+barriers for the uptake of MMs
+Assess mitigation potential of French agriculture and estimate
+heterogeneous marginal abatement costs
+Draw up a critical economic and legal assessment of selected
+existing legal, policy and economic incentives targeting GHG
+sources and sinks and propose improvement and alternatives
+Provide policymakers with evidence based insights and data driven
+recommendations on mitigation strategies",ANR-23-PEXF-0002,2024-11-01 00:00:00,2029-10-31 00:00:00,oui,,,oui,Kamel ELOUHICHI,"Paris-Saclay	Applied
+Economics",https://ror.org/01p9mtd46,Plan CLIM-FAS,2024-12-07 00:00:00,2024-12-11 00:00:00,1.2,version initiale,"The Data Management Plan (DMP) is a key component of the overall
+management of the CLIM-FAS project. It outlines the procedures for
+collecting, processing, utilizing, documenting, and managing data,
+taking into account all stages of the data lifecycle.
+The document also specifies the types of data that will be generated
+within the project, how these data will be shared within the
+consortium, and the methods for making them openly accessible.
+Furthermore, it explains how the CLIM-FAS consortium plans to
+ensure that its research data are findable, accessible, interoperable,
+and reusable (FAIR) to guarantee rigorous data management.
+Finally, this DMP includes a description of the data management policy
+and standards (including metadata) that will be applied","Agriculture,	forestry,	and	fisheries, Economics	and	business,
 Law,	Psychology	and	cognitive	sciences,	Earth	and	related
-environmental	sciences",eng,Kamel ELOUHICHI,,,,,PR2_MODELISATION,Création codes modélisation,Modèle,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+environmental	sciences",eng,Kamel ELOUHICHI,,,,,PR2_MODELISATION,Création codes modélisation,Modèle,,,,,,,,,,,,,,,,,,,"&The project will produce the codes and scripts for the models developed within the project, which can be used, adapted and
+extended in future projects&",,ok,ok,ok,,,,,"A user guide with examples and support information will be provided to assist users in accessing and utilizing the models
+developed with the project.
+Software papers could be envisaged for some models",,,,ok,,,,,,,,,,type of uses,,,,,,ok,,"Access to farm economic model (codes and database) during the research is controlled by the Confenditial Access Portal
+(CASD)
+Access to ORCHIDEE will be strictly controlled and limited to authorized personnel only. This will be managed through
+secure authentication methods.",,"&Model codes and scripts will be stored and shared among working groups using versioning software (svn or GitLab).
+Svn/Git version control system allows files and data to be tracked synchronized, which allows collaboration and reproducibility&",,"Both the farm economic model and the DEA model are written in GAMS (General Algebraic Modelling System) language. A
+GAMS licence is needed to change the codes and run the models.
+Statistical software such as Stata or R will be used for analysing survey data. No licence is required for R (free software);
+however, Stata licence is needed to change the code and execute the model.",,"Model codes and scripts will be stored in Software Heritage (https://www.softwareheritage.org/?lang=fr) which ensure long-term
+archiving",,,,,,,,,,"Model codes and scripts will be stored in Software Heritage (https://www.softwareheritage.org/?lang=fr) which ensure long-term
+archiving",,,,

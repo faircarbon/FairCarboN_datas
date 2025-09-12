@@ -159,7 +159,7 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([0.22,0.05,0.05,0.175,0.125,0.125,0.125,0.18])
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([0.22,0.05,0.05,0.185,0.125,0.125,0.125,0.17])
 with col1:
     st.markdown('')
     try:
@@ -206,7 +206,7 @@ df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
 df_selected.drop(columns='index', inplace=True)
 
-df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2023][df_selected['Nom_archive']=='HAL']
+df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2025][df_selected['Nom_archive']=='HAL']
 df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
 df_selected_solli_avecrefmalplacee = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Financement dans FairCarboN']==True]
 df_averifier = pd.concat([df_selected_solli_ssref,df_selected_solli_avecrefmalplacee], axis=0)
