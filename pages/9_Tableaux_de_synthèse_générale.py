@@ -49,17 +49,9 @@ def read_data(path):
 d = datetime.date.today()
 df = read_data("Data\FairCarboN_Datas_Contacts")
 
-st.title(":grey[Suivi Collection HAL]")
-projects = sorted(df['projet'].unique())
-Selection_projets = st.multiselect("Choix d'un ou plusieurs projets à visualiser (par défaut TOUS)",options=projects)
-
-if len(Selection_projets)==0: #aucun choix
-    df_selected = df 
-else:
-    df_selected = df[df['projet'].isin(Selection_projets)]
-
 df_hal = st.session_state['df_hal']
-st.dataframe(df_hal)
+
+st.title(":grey[Suivi Collection HAL]")
 
 df_grouped = df.groupby("Contact", as_index=False).agg({
     "projet": lambda x: list(x)
@@ -73,10 +65,17 @@ df_merged = pd.merge(
     how="left"   # "left" → garde tous les auteurs recherchés
 )
 
-st.dataframe(df_merged)
 df_merged['projet'] = df_merged['projet'].apply(lambda row: row[0])
 
-df_hal_ = df_merged[['Titre_unique', 'Type de document', 'Date complete','In_FairCarboN','projet']].drop_duplicates()
+projects = sorted(df_merged['projet'].unique())
+Selection_projets = st.multiselect("Choix d'un ou plusieurs projets à visualiser (par défaut TOUS)",options=projects)
+
+if len(Selection_projets)==0: #aucun choix
+    df_selected = df_merged
+else:
+    df_selected = df_merged[df_merged['projet'].isin(Selection_projets)]
+
+df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete','In_FairCarboN','projet']].drop_duplicates()
 df_hal__ = df_hal_[df_hal_['In_FairCarboN']==True]
 df_hal__.reset_index(inplace=True)
 df_hal__.drop(columns='index', inplace=True)
@@ -86,10 +85,12 @@ df_hal__.drop(columns='index', inplace=True)
 df_hal__['Date complete'] = pd.to_datetime(df_hal__['Date complete'])
 
 # Compter les documents par jour et par type
-counts = df_hal__.groupby(['Date complete', 'Type de document','projet']).size().reset_index(name="nb_docs")
+counts = df_hal__.groupby(['Date complete', 'Type de document']).size().reset_index(name="nb_docs")
+counts2 = df_hal__.groupby(['Date complete','projet']).size().reset_index(name="nb_docs_projet")
 
 # Calcul du cumul par type
 counts["cumul"] = counts.groupby('Type de document')["nb_docs"].cumsum()
+counts2["cumul"] = counts2.groupby('projet')["nb_docs_projet"].cumsum()
 
 
 # Tracé avec plotly
@@ -104,7 +105,7 @@ fig = px.line(
 
 # Tracé avec plotly
 fig2 = px.line(
-    counts,
+    counts2,
     x='Date complete',
     y="cumul",
     color='projet',
