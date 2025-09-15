@@ -4033,7 +4033,7 @@ download of data from a web browser through spatial and temporal criteria",,,"Pu
 journals  such  as  Earth  System  Science  Data  (Copernicus),  Freshwater  Metadata  Journal 
 (Elsevier) or  Ecological Research (Springer). Inside the paper, the data set as well as the 
 context is described to highlight the value. The project final report will include information on 
-the data and metadata archives with links to the open source datasets as well as our catalog",,,,,,,,
+the data and metadata archives with links to the open source datasets as well as our catalog",,,,,,,,done
 Oui,ANR français,Agence nationale de la recherche (ANR),"Cultiver des Écosystèmes Résilients : Améliorer les Économies d'Azote et le Carbone en 
 Agriculture - un Levier d'Efficacité",GREENSCALE,"Dans un contexte mondial marqué par l'urgence climatique et la nécessité d'atteindre la neutralité
 carbone, les écosystèmes terrestres font face à des défis majeurs, notamment les impacts négatifs du
@@ -4114,7 +4114,7 @@ convenu dans le contrat avec l’ANR. Les partenaires conviendront d’un commun
 de protection à prendre concernant les données communes dans le cadre de l’accord de consortium&",,rdg,2 ans d'embargo,,,Etalab,,"Pour la durée du projet, le Muséum national d’histoire naturelle à Paris assure la coordination de la
 gestion des données. À terme, les données seront intégrées à l’infrastructure data.gouv.fr, qui est
 reconnue par plusieurs ministères comme une infrastructure Nationale ayant vocation à servir de point
-nodal pour l’accès aux données des collections des données en France",,,,,,,,
+nodal pour l’accès aux données des collections des données en France",,,,,,,,done
 Oui,INRAE template,Agence nationale de la recherche (ANR),"Soil	microbial	Carbon	And	Nutrient	use	Efficiency	under	managed
 Terrestrial	Ecosystems",CANETE,ok,ANR-22-PEXF-0008,2023-01-10 00:00:00,2028-01-03 00:00:00,oui,,,,Gwenaëlle Lashermes,FARE,https://orcid.org/0000-0002-8269-3562,Plan CANETE,2024-02-24 00:00:00,2024-02-24 00:00:00,,version initiale,,"Agriculture, forestry, and fisheries",eng,Gwenaëlle Lashermes,,Etalab Open License 2.0,,,PR1_REPONSE MICROBIENNE,Réponse microbienne vs pratiques agricoles,Datasets,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,"CLIM-FAS aims to enhance knowledge on the contribution and
@@ -4192,7 +4192,7 @@ Access to other datasets during the research will be strictly controlled and lim
 Regular backups of all data will be performed and stored in secure, off-site locations to prevent data loss in case of system
 failures or security breaches.
 Ethical guidelines will be followed to ensure that data is collected, stored, and used in a manner that respects the privacy
-and rights of the individuals involved in the research.",,,,,,data inrae,,,,,,,,,,,,,,
+and rights of the individuals involved in the research.",,,,,,data inrae,,,,,,,,,,,,,,done
 Oui,ANR english,Agence nationale de la recherche (ANR),CLimate	change	Mitigation	Potential	of	the	French	Agriculture	Sector,CLIM-FAS,"CLIM-FAS aims to enhance knowledge on the contribution and
 mitigation potential of the French agricultural sector to climate change
 and to generate scientific evidence on the economic and legal
@@ -4237,4 +4237,4 @@ GAMS licence is needed to change the codes and run the models.
 Statistical software such as Stata or R will be used for analysing survey data. No licence is required for R (free software);
 however, Stata licence is needed to change the code and execute the model.",,"Model codes and scripts will be stored in Software Heritage (https://www.softwareheritage.org/?lang=fr) which ensure long-term
 archiving",,,,,,,,,,"Model codes and scripts will be stored in Software Heritage (https://www.softwareheritage.org/?lang=fr) which ensure long-term
-archiving",,,,
+archiving",,,,done
