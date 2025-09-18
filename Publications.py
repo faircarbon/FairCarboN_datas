@@ -33,7 +33,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, so
             return reponse_df
 
         # Listes pour stocker les valeurs
-        ids, labels, uris, types, docTypes, dates, dates_completes = [], [], [], [], [], [], []
+        ids, labels, uris, types, docTypes, dates, dates_completes_depot, dates_completes_prod = [], [], [], [], [], [], [], []
         authors, collection, collection_codes, labo_all, labos, titres = [], [], [], [], [], []
         languages, mots_cles, sources, organisme, publication = [], [], [], [], []
         ANRacronym, ANRTitle, EUacronym, EUTitle, fundings = [], [], [], [], []
@@ -45,7 +45,8 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, so
             types.append(safe_get(doc, 'submitType_s', ''))
             docTypes.append(safe_get(doc, 'docType_s', ''))
             dates.append(safe_get(doc, 'releasedDateY_i', None))
-            dates_completes.append(safe_get(doc, 'releasedDate_s', None))
+            dates_completes_depot.append(safe_get(doc, 'releasedDate_s', None))
+            dates_completes_prod.append(safe_get(doc, 'producedDate_s', None))
             authors.append(safe_get(doc, 'authLastNameFirstName_s', []))
             collection.append(safe_get(doc, 'collName_s', ['Collection_inexistante']))
             collection_codes.append(safe_get(doc, 'collCode_s', ['Code_inexistant']))
@@ -74,7 +75,8 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, so
             'Type': types,
             'Type de document': docTypes,
             'Date de publication': dates,
-            'Date complete':dates_completes,
+            'Date complete depot':dates_completes_depot,
+            'Date complete production':dates_completes_prod,
             'Collection':collection,
             'Collection_code': collection_codes,
             'Organisme':organisme,

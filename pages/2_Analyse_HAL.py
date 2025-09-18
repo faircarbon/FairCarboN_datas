@@ -77,7 +77,8 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_s
                          'Type',
                          'Type de document', 
                          'Date de publication',
-                         'Date complete',
+                         'Date complete depot',
+                         'Date complete production',
                          'Collection',
                          'Collection_code',
                          'Organisme',
@@ -98,7 +99,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_s
     #progress = stqdm(total=len(liste_chercheurs))
     for i, s in enumerate(liste_chercheurs):
         #url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
-        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, releasedDateY_i,releasedDate_s, authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
+        url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, releasedDateY_i,releasedDate_s,producedDate_s, authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         df = afficher_publications_hal(url_type, s, liste_projet.iloc[i], liste_sollicitation[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
@@ -161,7 +162,7 @@ filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names:
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
 ###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Date complete','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
+df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Date complete depot','Date complete production','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )

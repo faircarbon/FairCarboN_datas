@@ -123,136 +123,53 @@ def ajouter_publications_par_annee(df, colonne_orcid):
             
     return df
 
-def get_titles_and_types_by_year(orcid_id, years):
-    """Retourne un dict {année: {'titres': [...], 'types': [...]}} pour un ORCID donné."""
+
+def get_publications_flat(orcid_id):
+    """Retourne une liste de dicts avec les infos de chaque publication pour un ORCID donné."""
     url = f"https://pub.orcid.org/v3.0/{orcid_id}/works"
     headers = {"Accept": "application/json"}
-    
-    result = {str(year): {"titres": [], "types": []} for year in years}
-    
+    publications = []
+
     try:
         response = requests.get(url, headers=headers, timeout=10)
         response.raise_for_status()
         data = response.json()
-        
+
         for group in data.get("group", []):
             for summary in group.get("work-summary", []):
                 title = summary.get("title", {}).get("title", {}).get("value", "")
                 pub_type = summary.get("type", "")
                 pub_year = summary.get("publication-date", {}).get("year", {}).get("value", "")
-                
-                if pub_year and str(pub_year) in result:
-                    result[str(pub_year)]["titres"].append(title)
-                    result[str(pub_year)]["types"].append(pub_type)
-                    
+                source = summary.get("url", {}).get("value", "")  # parfois vide
+
+                if pub_year:  # On ignore les publications sans date
+                    publications.append({
+                        "Orcid": orcid_id,
+                        "Année": int(pub_year),
+                        "Titre": title,
+                        "Type": pub_type,
+                        "Source": source
+                    })
+
     except Exception as e:
         print(f"Erreur pour ORCID {orcid_id} : {e}")
-    
-    return result
+
+    return publications
 
 @st.cache_data
-def enrichir_dataframe_publications(df, colonne_orcid):
-    """Ajoute les colonnes de titres et types par année au DataFrame."""
-    for year in YEARS:
-        df[f"Titres_{year}"] = [[] for _ in range(len(df))]
-        df[f"Types_{year}"] = [[] for _ in range(len(df))]
-    
-    for idx, orcid in df[colonne_orcid].items():
-        print(idx)
-        data = get_titles_and_types_by_year(orcid, YEARS)
-        for year in YEARS:
-            df.at[idx, f"Titres_{year}"] = data[str(year)]["titres"]
-            df.at[idx, f"Types_{year}"] = data[str(year)]["types"]
-    
-    return df
+def construire_dataframe_publications(df_contacts):
+    """Construit un DataFrame aplati avec les publications et les contacts associés."""
+    all_publications = []
 
-def prepare_data_for_plot(df, years):
-    """Transforme les colonnes Types_YYYY en un DataFrame de comptage par type et année."""
-    data = []
+    for _, row in df_contacts.iterrows():
+        orcid = row["ORCID"]
+        contact = row["Contact"]
+        pubs = get_publications_flat(orcid)
+        for pub in pubs:
+            pub["contact"] = contact
+        all_publications.extend(pubs)
 
-    for year in years:
-        col = f"Types_{year}"
-        if col not in df.columns:
-            continue
-        
-        # Aplatir toutes les listes de types pour cette année
-        all_types = [typ for sublist in df[col] for typ in sublist if isinstance(sublist, list)]
-        counts = Counter(all_types)
-        
-        for pub_type, count in counts.items():
-            data.append({
-                "Année": year,
-                "Type": pub_type,
-                "Nombre": count
-            })
-    
-    return pd.DataFrame(data)
-
-def prepare_counts(df, start_year=2018, end_year=2025):
-    """Prépare les données agrégées par année et type de publication."""
-    # Assurer que la colonne 'Date de publication' est bien en datetime
-    df["Date complete"] = pd.to_datetime(df["Date complete"], errors="coerce")
-    df["Année"] = df["Date complete"].dt.year
-
-    # Filtrer les années souhaitées
-    df_filtered = df[df["Année"].between(start_year, end_year)]
-
-    # Compter les types par année
-    grouped = df_filtered.groupby(["Année", "Type de document"]).size().reset_index(name="Nombre")
-
-    return grouped
-
-def plot_stacked_bar2(df_counts):
-    """Crée un graphique à barres empilées avec Plotly."""
-    # Pivot pour avoir les types en colonnes
-    df_pivot = df_counts.pivot_table(index="Année", columns="Type de document", values="Nombre", fill_value=0)
-
-    # Création du graphique
-    fig = go.Figure()
-    for pub_type in df_pivot.columns:
-        fig.add_bar(
-            x=df_pivot.index,
-            y=df_pivot[pub_type],
-            name=pub_type
-        )
-
-    fig.update_layout(
-        barmode="stack",
-        title="Publications par type et par année",
-        xaxis_title="Année",
-        yaxis_title="Nombre de publications",
-        legend_title="Type de document",
-        template="plotly_white"
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
-
-
-def plot_stacked_bar(df_counts):
-    """Crée un bar plot empilé avec Plotly à partir du DataFrame de comptage."""
-    # Pivot pour avoir les types en colonnes
-    df_pivot = df_counts.pivot_table(index="Année", columns="Type", values="Nombre", fill_value=0)
-    
-    # Création des barres empilées
-    fig = go.Figure()
-    for pub_type in df_pivot.columns:
-        fig.add_bar(
-            x=df_pivot.index,
-            y=df_pivot[pub_type],
-            name=pub_type
-        )
-    
-    fig.update_layout(
-        barmode="stack",
-        title="Nombre de publications par type et par année",
-        xaxis_title="Année",
-        yaxis_title="Nombre de publications",
-        legend_title="Type de publication",
-        template="plotly_white"
-    )
-    
-    st.plotly_chart(fig, use_container_width=True)
-
+    return pd.DataFrame(all_publications)
 
 
 ######################################################################################################################
@@ -267,60 +184,83 @@ st.success("Connexion établie avec ORCID")
 st.title(f":grey[Etude des travaux de la communauté FairCarboN]")
 
 #Ajout de la colonne Nombre_publis
-df = ajouter_nombre_publications(df, "ORCID")
+#df = ajouter_nombre_publications(df, "ORCID")
 
 # Enrichissement du DataFrame
-df = ajouter_publications_par_annee(df, "ORCID")
-df = enrichir_dataframe_publications(df, "ORCID")
-
-st.dataframe(df)
+#df = ajouter_publications_par_annee(df, "ORCID")
 
 df.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
 
-# 🧪 Exemple d’utilisation
-df_counts = prepare_data_for_plot(df, YEARS)
-plot_stacked_bar(df_counts)
 
-st.dataframe(df_counts)
+df_publications = construire_dataframe_publications(df)
+
+st.dataframe(df_publications)
+
+df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}_bis.csv", index=False, encoding="utf-8-sig")
 
 df_hal = st.session_state['df_hal']
 
-df_counts2 = prepare_counts(df_hal, start_year=2018, end_year=2025)
-plot_stacked_bar2(df_counts2)
+st.dataframe(df_hal)
 
-# Filtrer les types pertinents
-df1_filtered = df_counts[df_counts['Type'] == 'journal-article']
-df2_filtered = df_counts2[df_counts2['Type de document'] == 'ART']
+start_year = 2018
+end_year = 2025
+# Assurer que la colonne 'Date de publication' est bien en datetime
+df_hal["Date complete depot"] = pd.to_datetime(df_hal["Date complete depot"], errors="coerce")
+df_hal["Année"] = df_hal["Date complete depot"].dt.year
 
-# S'assurer que les années sont bien triées
-df1_filtered = df1_filtered.sort_values(by='Année')
-df2_filtered = df2_filtered.sort_values(by='Année')
+# Filtrer les années souhaitées
+df_filtered = df_hal[df_hal["Année"].between(start_year, end_year)]
 
-# Créer le graphique à barres
+# Compter les types par année
+grouped = df_filtered.groupby(["Année", "Type de document"]).size().reset_index(name="Nombre")
+
+df_pivot = grouped.pivot_table(index="Année", columns="Type de document", values="Nombre", fill_value=0)
+
+# Création du graphique
 fig = go.Figure()
+for pub_type in df_pivot.columns:
+    fig.add_bar(
+            x=df_pivot.index,
+            y=df_pivot[pub_type],
+            name=pub_type
+        )
 
-fig.add_trace(go.Bar(
-    x=df1_filtered['Année'],
-    y=df1_filtered['Nombre'],
-    name='journal-article',
-    marker_color='blue'
-))
-
-fig.add_trace(go.Bar(
-    x=df2_filtered['Année'],
-    y=df2_filtered['Nombre'],
-    name='ART',
-    marker_color='orange'
-))
-
-# Mise en forme du graphique
 fig.update_layout(
-    title='Comparaison des publications par année',
-    xaxis_title='Année',
-    yaxis_title='Nombre de publications',
-    barmode='group',  # Affiche les barres côte à côte
-    template='plotly_white',
-    legend_title='Type de publication'
-)
+        barmode="stack",
+        title="Publications par type et par année HAL",
+        xaxis_title="Année",
+        yaxis_title="Nombre de publications",
+        legend_title="Type de document",
+        template="plotly_white"
+    )
 
 st.plotly_chart(fig, use_container_width=True)
+
+
+# Filtrer les années souhaitées
+df_filtered3 = df_publications[df_publications["Année"].between(start_year, end_year)]
+
+# Compter les types par année
+grouped3 = df_filtered3.groupby(["Année", "Type"]).size().reset_index(name="Nombre")
+
+df_pivot3 = grouped3.pivot_table(index="Année", columns="Type", values="Nombre", fill_value=0)
+
+# Création du graphique
+fig3 = go.Figure()
+for pub_type in df_pivot3.columns:
+    fig3.add_bar(
+            x=df_pivot3.index,
+            y=df_pivot3[pub_type],
+            name=pub_type
+        )
+
+fig3.update_layout(
+        barmode="stack",
+        title="Publications par type et par année ORCID",
+        xaxis_title="Année",
+        yaxis_title="Nombre de publications",
+        legend_title="Type de document",
+        template="plotly_white"
+    )
+
+st.plotly_chart(fig3, use_container_width=True)
