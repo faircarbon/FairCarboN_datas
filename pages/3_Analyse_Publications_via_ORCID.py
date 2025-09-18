@@ -196,11 +196,11 @@ df_publications = construire_dataframe_publications(df)
 
 st.dataframe(df_publications)
 
-df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}_bis.csv", index=False, encoding="utf-8-sig")
+df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
+
+st.session_state['df_publications'] = df_publications
 
 df_hal = st.session_state['df_hal']
-
-st.dataframe(df_hal)
 
 start_year = 2018
 end_year = 2025
@@ -264,3 +264,78 @@ fig3.update_layout(
     )
 
 st.plotly_chart(fig3, use_container_width=True)
+
+# Comparaison des titres non dupliqués
+liste_article = ['preprint','journal-issue','journal-article']
+df_hal_non_dupliqués = df_filtered[['Année','Auteur_recherché','Titre_unique','Type de document']][df_filtered['Type de document']=='ART'].drop_duplicates()
+df_hal_non_dupliqués['from']='HAL'
+df_publications_non_dupliqués = df_filtered3[['Année','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates()
+
+
+df_publications_non_dupliqués['from']='ORCID'
+df_publications_non_dupliqués['Auteur_recherché']=df_publications_non_dupliqués['contact']
+df_publications_non_dupliqués['Titre_unique']=df_publications_non_dupliqués['Titre']
+
+df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']]], axis=0)
+df_to_be_compared.reset_index(inplace=True)
+df_to_be_compared.drop(columns='index', inplace=True)
+
+# Créer un ensemble des titres présents dans les lignes 'HAL'
+titres_hal = set(df_to_be_compared[df_to_be_compared['from'] == 'HAL']['Titre_unique'])
+
+# Appliquer une fonction pour vérifier si chaque ligne ORCID est dans titres_hal
+df_to_be_compared['Present_in_HAL'] = df_to_be_compared.apply(
+    lambda row: row['Titre_unique'] in titres_hal if row['from'] == 'ORCID' else None,
+    axis=1
+)
+
+st.dataframe(df_to_be_compared[df_to_be_compared['from'] == 'ORCID'])
+
+df_to_be_compared_non_dupliqués = df_to_be_compared[['Année','Auteur_recherché','from','Titre_unique','Present_in_HAL']].drop_duplicates()
+
+# Filtrer les lignes avec des valeurs True ou False
+df_filt = df_to_be_compared_non_dupliqués[df_to_be_compared_non_dupliqués['Present_in_HAL'].isin([True, False])]
+
+# Compter les occurrences
+#counts = df_filt['Present_in_HAL'].value_counts().reset_index()
+#counts.columns = ['Present_in_HAL', 'count']
+#counts['Present_in_HAL'] = counts['Present_in_HAL'].map({True: 'Présent dans HAL', False: 'Absent de HAL'})
+
+# Remapper les valeurs pour plus de lisibilité
+df_filt['Présence'] = df_filt['Present_in_HAL'].map({True: 'Présent dans HAL', False: 'Absent de HAL'})
+
+# Agréger les données
+counts = df_filt.groupby(['Année', 'Present_in_HAL']).size().unstack(fill_value=0)
+
+# Calculer les pourcentages pour 'Présent dans HAL'
+percentages = (counts[True] / (counts[True] + counts[False]) * 100).round(1)
+
+
+# Créer le graphe en barres empilées avec go.Bar
+fig4 = go.Figure()
+
+fig4.add_bar(
+    x=counts.index,
+    y=counts[True],
+    name='Présent dans HAL',
+    marker_color='mediumseagreen',
+    text=[f"{p}%" for p in percentages],
+    textposition='inside'
+)
+
+fig4.add_bar(
+    x=counts.index,
+    y=counts[False],
+    name='Absent de HAL',
+    marker_color='salmon'
+)
+
+fig4.update_layout(
+    barmode='stack',
+    title='Présence des titres ORCID dans HAL par année',
+    xaxis_title='Année',
+    yaxis_title='Nombre de titres',
+    template='plotly_white'
+)
+
+st.plotly_chart(fig4,use_container_width=True)
