@@ -10,6 +10,7 @@ import time, re, sys
 import datetime
 import unicodedata
 import requests
+import ast
 
 
 ###############################################################################################
@@ -156,18 +157,86 @@ def get_publications_flat(orcid_id):
 
     return publications
 
+def get_publications_flat2(orcid_id):
+    """Retourne une liste de dicts avec les infos de chaque publication pour un ORCID donné, incluant les auteurs."""
+    base_url = f"https://pub.orcid.org/v3.0/{orcid_id}"
+    headers = {"Accept": "application/json"}
+    publications = []
+
+    try:
+        response = requests.get(f"{base_url}/works", headers=headers, timeout=10)
+        response.raise_for_status()
+        data = response.json()
+
+        for group in data.get("group", []):
+            for summary in group.get("work-summary", []):
+                try:
+                    put_code = summary.get("put-code")
+                except:
+                    put_code = None
+                try:
+                    title = summary.get("title", {}).get("title", {}).get("value", "")
+                except:
+                    title = None
+                try:
+                    pub_type = summary.get("type", "")
+                except:
+                    pub_type = None
+                try:
+                    pub_year = summary.get("publication-date", {}).get("year", {}).get("value", "")
+                except:
+                    pub_year= None
+                try:
+                    source = summary.get("url", {}).get("value", "")
+                except:
+                    source = None
+
+                # Requête supplémentaire pour récupérer les auteurs
+                authors = []
+                try:
+                    detail_url = f"{base_url}/work/{put_code}"
+                    detail_resp = requests.get(detail_url, headers=headers, timeout=10)
+                    detail_resp.raise_for_status()
+                    detail_data = detail_resp.json()
+
+                    for contributor in detail_data.get("contributors", {}).get("contributor", []):
+                        name = contributor.get("credit-name", {}).get("value", "")
+                        if name:
+                            authors.append(name)
+
+                except Exception as e:
+                    authors = ["Erreur récupération auteurs"]
+
+                if pub_year:
+                    publications.append({
+                        "Orcid": orcid_id,
+                        "Année": int(pub_year),
+                        "Titre": title,
+                        "Type": pub_type,
+                        "Source": source,
+                        "Auteurs": authors
+                    })
+
+    except Exception as e:
+        print(f"Erreur pour ORCID {orcid_id} : {e}")
+
+    return publications
+
 @st.cache_data
 def construire_dataframe_publications(df_contacts):
     """Construit un DataFrame aplati avec les publications et les contacts associés."""
     all_publications = []
 
+    i = 0
     for _, row in df_contacts.iterrows():
+        print(i)
         orcid = row["ORCID"]
         contact = row["Contact"]
-        pubs = get_publications_flat(orcid)
+        pubs = get_publications_flat2(orcid)
         for pub in pubs:
             pub["contact"] = contact
         all_publications.extend(pubs)
+        i += 1
 
     return pd.DataFrame(all_publications)
 
@@ -189,14 +258,19 @@ st.title(f":grey[Etude des travaux de la communauté FairCarboN]")
 # Enrichissement du DataFrame
 #df = ajouter_publications_par_annee(df, "ORCID")
 
-df.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
+lancement_recherche = st.checkbox(label='Lancer recherche sur ORCID')
+
+if lancement_recherche:
+
+    df_publications = construire_dataframe_publications(df)
+    df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
+
+else:
+    df_publications = pd.read_csv("Data/ORCID/all_publications_ORCID_2025-09-19.csv")
+    df_publications['Auteurs']=df_publications['Auteurs'].apply(ast.literal_eval)
 
 
-df_publications = construire_dataframe_publications(df)
-
-st.dataframe(df_publications)
-
-df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
+df_publications['Premier_auteur']=df_publications['Auteurs'].apply(lambda row: row[0] if (len(row)>0) else None)
 
 st.session_state['df_publications'] = df_publications
 
@@ -267,16 +341,16 @@ st.plotly_chart(fig3, use_container_width=True)
 
 # Comparaison des titres non dupliqués
 liste_article = ['preprint','journal-issue','journal-article']
-df_hal_non_dupliqués = df_filtered[['Année','Auteur_recherché','Titre_unique','Type de document']][df_filtered['Type de document']=='ART'].drop_duplicates()
+df_hal_non_dupliqués = df_filtered[['Année','Premier_auteur','Auteur_recherché','Titre_unique','Type de document']][df_filtered['Type de document']=='ART'].drop_duplicates()
 df_hal_non_dupliqués['from']='HAL'
-df_publications_non_dupliqués = df_filtered3[['Année','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates()
+df_publications_non_dupliqués = df_filtered3[['Année','Premier_auteur','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates()
 
 
 df_publications_non_dupliqués['from']='ORCID'
 df_publications_non_dupliqués['Auteur_recherché']=df_publications_non_dupliqués['contact']
 df_publications_non_dupliqués['Titre_unique']=df_publications_non_dupliqués['Titre']
 
-df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']]], axis=0)
+df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']]], axis=0)
 df_to_be_compared.reset_index(inplace=True)
 df_to_be_compared.drop(columns='index', inplace=True)
 
@@ -289,9 +363,11 @@ df_to_be_compared['Present_in_HAL'] = df_to_be_compared.apply(
     axis=1
 )
 
-st.dataframe(df_to_be_compared[df_to_be_compared['from'] == 'ORCID'])
+st.dataframe(df_to_be_compared[df_to_be_compared['from'] == 'ORCID'], hide_index=True)
 
 df_to_be_compared_non_dupliqués = df_to_be_compared[['Année','Auteur_recherché','from','Titre_unique','Present_in_HAL']].drop_duplicates()
+
+st.session_state['df_publications_orcid_compared'] = df_to_be_compared[df_to_be_compared['from'] == 'ORCID']
 
 # Filtrer les lignes avec des valeurs True ou False
 df_filt = df_to_be_compared_non_dupliqués[df_to_be_compared_non_dupliqués['Present_in_HAL'].isin([True, False])]

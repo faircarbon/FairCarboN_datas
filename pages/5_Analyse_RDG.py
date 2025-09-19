@@ -5,6 +5,7 @@ from pyDataverse.utils import read_file
 from pyDataverse.api import NativeApi
 import datetime
 import plotly.express as px
+import plotly.graph_objects as go
 import requests
 import os
 
@@ -446,6 +447,8 @@ with col5:
 #st.write("Total",l0+l1+l2+l3+l4+l5)
 
 df_drop = df.dropna(axis=0)
+
+st.dataframe(df_drop)
 
 fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
 fig.update_layout(

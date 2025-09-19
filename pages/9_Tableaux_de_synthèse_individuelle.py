@@ -108,6 +108,7 @@ df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
 df_indores = st.session_state['df_InDoRes']
 df_zenodo = st.session_state['df_zenodo']
+df_publications = st.session_state['df_publications_orcid_compared']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
@@ -159,26 +160,26 @@ df_referencé = df_concat[df_concat['Référencement par mots clés']==True]
 
 p = set(df_concat['Auteur_recherché'].values)
 
-col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([0.22,0.05,0.05,0.185,0.125,0.125,0.125,0.17])
+col1, col2, col3, col4, col5, col6, col7, col8 = st.columns([0.29,0.05,0.05,0.185,0.125,0.125,0.125,0.10])
 with col1:
-    st.markdown('')
     try:
         Selection_p = st.selectbox(label='Selection', options=p, index=st.session_state.count)
     except:
         Selection_p = ""
         reset_counter()
     st.subheader(f":grey[Fonction: {df['Fonction'][df['Contact']==Selection_p].values[0]}]")
+    st.subheader(f":grey[ORCID n°: {df['ORCID'][df['Contact']==Selection_p].values[0]}]")
 with col2:
-    st.markdown('')
     st.markdown('')
     st.markdown('')
     button1 = st.button(':heavy_plus_sign:',on_click=increment_counter)
 with col3:
     st.markdown('')
     st.markdown('')
-    st.markdown('')
     button2 =st.button('R',on_click=reset_counter)
 with col4:
+    st.markdown('')
+    st.markdown('')
     for i in range(len(df['projet'][df['Contact']==Selection_p].values)):
         colored_text(f"{df['projet'][df['Contact']==Selection_p].values[i]}",color="green",bold=True,size="30px")
 with col5:
@@ -198,13 +199,19 @@ with col7:
         st.image('Data/ok.png', width=120, caption="Réponse")
 with col8:
     #st.markdown(f"<span style='color:dimgray;font-weight:bold; font-size:25px;'>Data Papers</span>", unsafe_allow_html=True)
-    st.subheader(f":grey[Data papers]")
+    st.subheader(f":grey[D. P.]")
     st.metric(label=' ',value=int(df['DataInBrief'][df['Contact']==Selection_p].values[0])+int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0]),border=True)
     
 
 df_selected = df_concat[df_concat['Auteur_recherché']==Selection_p]
 df_selected.reset_index(inplace=True)
 df_selected.drop(columns='index', inplace=True)
+
+df_publications_selected = df_publications[df_publications['Auteur_recherché']==Selection_p]
+df_publications_selected.reset_index(inplace=True)
+df_publications_selected.drop(columns='index', inplace=True)
+df_publications_selected.rename(columns={'from': 'Nom_archive', 'Année': 'Date de publication'}, inplace=True)
+df_publications_selected = df_publications_selected[['Nom_archive','Premier_auteur','Date de publication','Titre_unique','Present_in_HAL']]
 
 df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2024][df_selected['Nom_archive']=='HAL']
 df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
@@ -216,12 +223,15 @@ if st.session_state.count > len(p):
 
 colA, colB =st.columns(2)
 with colA:
-    col1, col2 =st.columns(2)
+    col1, col2, col3 =st.columns(3)
     with col1:
-        st.subheader(f":grey[Publications HAL]")
-        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL']),border=True)
+        st.subheader(f":grey[Publ. ORCID]")
+        st.metric(label='', value=len(df_publications_selected),border=True)
     with col2:
-        st.subheader(f":grey[Dans FairCarboN]")
+        st.subheader(f":grey[Publ. HAL]")
+        st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL']),border=True)
+    with col3:
+        st.subheader(f":grey[FairCarboN]")
         st.metric(label='', value=len(df_selected[df_selected['Nom_archive']=='HAL'][df_selected['In_FairCarboN']==True]),border=True)
     
     df_selected_hal = df_selected[df_selected['Nom_archive']=='HAL']
@@ -343,7 +353,72 @@ with colB:
     else:
         pass
 
-st.dataframe(df_averifier, hide_index=True)
+#st.dataframe(df_averifier, hide_index=True)
+#st.dataframe(df_publications_selected,hide_index=True)
+
+df_averifier_final = pd.concat([df_averifier,df_publications_selected[df_publications_selected['Present_in_HAL']==False][df_publications_selected['Date de publication']>=2024]], axis=0)
+df_averifier_final.rename({'Nom_archive':'Source'}, inplace=True)
+df_averifier_final['Present_in_HAL'].fillna('A référencer', inplace=True)
+df_averifier_final['Sans_référencement'].fillna('A déposer sur HAL', inplace=True)
+# Suppression de la colonne 'Ville'
+df_averifier_final = df_averifier_final.drop('Financement dans FairCarboN', axis=1)
+st.dataframe(df_averifier_final, hide_index=True)
+
+# Remapper les valeurs pour plus de lisibilité
+df_publications_selected['Présence'] = df_publications_selected['Present_in_HAL'].map({
+    True: 'Présent dans HAL',
+    False: 'Absent de HAL'
+})
+
+# Agréger les données
+counts = df_publications_selected.groupby(['Date de publication', 'Présence']).size().unstack(fill_value=0)
+
+# Ajouter les colonnes manquantes si elles n'existent pas
+for col in ['Présent dans HAL', 'Absent de HAL']:
+    if col not in counts.columns:
+        counts[col] = 0
+
+# Vérifier si le DataFrame est vide
+if counts.empty or (counts['Présent dans HAL'].sum() == 0 and counts['Absent de HAL'].sum() == 0):
+    st.warning("Aucune donnée disponible pour générer le graphique comparatif publis ORCID/HAL.")
+else:
+    # Calculer les pourcentages en évitant la division par zéro
+    total = counts['Présent dans HAL'] + counts['Absent de HAL']
+    percentages = (counts['Présent dans HAL'] / total.replace(0, 1) * 100).round(1)
+
+    # Créer le graphe en barres empilées avec go.Bar
+    fig4 = go.Figure()
+
+    if counts['Présent dans HAL'].sum() > 0:
+        fig4.add_bar(
+            x=counts.index,
+            y=counts['Présent dans HAL'],
+            name='Présent dans HAL',
+            marker_color='mediumseagreen',
+            text=[f"{p}%" for p in percentages],
+            textposition='inside'
+        )
+
+    if counts['Absent de HAL'].sum() > 0:
+        fig4.add_bar(
+            x=counts.index,
+            y=counts['Absent de HAL'],
+            name='Absent de HAL',
+            marker_color='salmon'
+        )
+
+    fig4.update_layout(
+        barmode='stack',
+        title='Présence des titres ORCID dans HAL par année',
+        xaxis_title='Date de publication',
+        yaxis_title='Nombre de titres',
+        template='plotly_white'
+    )
+
+    st.plotly_chart(fig4, use_container_width=True)
+    
+
+
 Selection_p_ = unidecode(Selection_p).replace(" ", "_")
 
 if int(df['DataInBrief'][df['Contact']==Selection_p].values[0])>0:
@@ -352,41 +427,41 @@ if int(df['EarthSystemScienceData'][df['Contact']==Selection_p].values[0])>0:
     st.dataframe(df_long_ESSD["Earth System Science Data papers"][df_long_ESSD['Contact']==Selection_p], hide_index=True)
 
 # Spécifie le dossier d'export
-export_path = "./Data/Publications_HAL_sans_ref/"
+export_path = "./Data/Publications_sans_ref/"
 os.makedirs(export_path, exist_ok=True)
 
 # Nom des fichiers
-csv_filename = os.path.join(export_path, f"HAL_{Selection_p_}_{d}.csv")
-pkl_filename = os.path.join(export_path, f"HAL_{Selection_p_}_{d}.pkl")
+csv_filename = os.path.join(export_path, f"CHECK_{Selection_p_}_{d}.csv")
+pkl_filename = os.path.join(export_path, f"CHECK_{Selection_p_}_{d}.pkl")
 
 if st.button("Sauvegarde et téléchargement"):
     col1, col2 = st.columns(2)
     # Proposer le téléchargement des fichiers
 
     with col1:
-        df_averifier.to_csv(csv_filename, index=False)
+        df_averifier_final.to_csv(csv_filename, index=False)
         st.success(f"Fichiers enregistrés en csv dans `{export_path}` (côté serveur).")
         # CSV
         csv_buffer = io.StringIO()
-        df_averifier.to_csv(csv_buffer, index=False)
+        df_averifier_final.to_csv(csv_buffer, index=False)
         st.download_button(
                 label="Télécharger le CSV",
                 data=csv_buffer.getvalue().encode('utf-8'),
-                file_name=f"HAL_{Selection_p_}_{d}.csv",
+                file_name=f"CHECK_{Selection_p_}_{d}.csv",
                 mime="text/csv"
             )
     with col2:
         with open(pkl_filename, "wb") as f:
-            pickle.dump(df_averifier, f)
+            pickle.dump(df_averifier_final, f)
         st.success(f"Fichiers enregistrés en pickle dans `{export_path}` (côté serveur).")
         # Pickle
         pkl_buffer = io.BytesIO()
-        pickle.dump(df_averifier, pkl_buffer)
+        pickle.dump(df_averifier_final, pkl_buffer)
         pkl_buffer.seek(0)
         st.download_button(
                 label="Télécharger le fichier Pickle",
                 data=pkl_buffer,
-                file_name=f"HAL_{Selection_p_}_{d}.pkl",
+                file_name=f"CHECK_{Selection_p_}_{d}.pkl",
                 mime="application/octet-stream"
             )
 
