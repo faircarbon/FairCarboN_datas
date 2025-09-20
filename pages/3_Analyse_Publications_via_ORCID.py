@@ -164,34 +164,19 @@ def get_publications_flat2(orcid_id):
     publications = []
 
     try:
-        response = requests.get(f"{base_url}/works", headers=headers, timeout=10)
+        response = requests.get(f"{base_url}/works", headers=headers, timeout=20)
+        time.sleep(1) 
         response.raise_for_status()
         data = response.json()
-
+        
         for group in data.get("group", []):
             for summary in group.get("work-summary", []):
-                try:
-                    put_code = summary.get("put-code")
-                except:
-                    put_code = None
-                try:
-                    title = summary.get("title", {}).get("title", {}).get("value", "")
-                except:
-                    title = None
-                try:
-                    pub_type = summary.get("type", "")
-                except:
-                    pub_type = None
-                try:
-                    pub_year = summary.get("publication-date", {}).get("year", {}).get("value", "")
-                except:
-                    pub_year= None
-                try:
-                    source = summary.get("url", {}).get("value", "")
-                except:
-                    source = None
+                put_code = summary.get("put-code")
+                title = summary.get("title", {}).get("title", {}).get("value", "")
+                pub_type = summary.get("type", "")
+                pub_year = summary.get("publication-date", {}).get("year", {}).get("value", "")
+                source = summary.get("url", {}).get("value", "")
 
-                # Requête supplémentaire pour récupérer les auteurs
                 authors = []
                 try:
                     detail_url = f"{base_url}/work/{put_code}"
@@ -199,13 +184,34 @@ def get_publications_flat2(orcid_id):
                     detail_resp.raise_for_status()
                     detail_data = detail_resp.json()
 
-                    for contributor in detail_data.get("contributors", {}).get("contributor", []):
-                        name = contributor.get("credit-name", {}).get("value", "")
-                        if name:
-                            authors.append(name)
+                    contributors = detail_data.get("contributors", {}).get("contributor", [])
+                    if contributors:
+                        for contributor in contributors:
+                            name = contributor.get("credit-name", {}).get("value", "")
+                            if name:
+                                authors.append(name)
+                            else:
+                                authors = ["Auteurs non renseignés"]
 
                 except Exception as e:
                     authors = ["Erreur récupération auteurs"]
+
+                # Requête supplémentaire pour récupérer les auteurs
+                #authors = []
+                #try:
+                #    detail_url = f"{base_url}/work/{put_code}"
+                #    detail_resp = requests.get(detail_url, headers=headers, timeout=20)
+                #    time.sleep(1)
+                #    detail_resp.raise_for_status()
+                #    detail_data = detail_resp.json()
+
+                #    for contributor in detail_data.get("contributors", {}).get("contributor", []):
+                #        name = contributor.get("credit-name", {}).get("value", "")
+                #        if name:
+                #            authors.append(name)
+
+                #except Exception as e:
+                #    authors = ["Erreur récupération auteurs"]
 
                 if pub_year:
                     publications.append({
@@ -222,6 +228,97 @@ def get_publications_flat2(orcid_id):
 
     return publications
 
+def get_publications_flat3(orcid_id):
+    """Retourne une liste de dicts avec les infos de chaque publication pour un ORCID donné, incluant les auteurs."""
+    base_url = f"https://pub.orcid.org/v3.0/{orcid_id}"
+    headers = {"Accept": "application/json"}
+    publications = []
+
+    try:
+        response = requests.get(f"{base_url}/works", headers=headers, timeout=20)
+        response.raise_for_status()
+        data = response.json()
+
+        if not isinstance(data, dict):
+            print(f"[ERREUR] ORCID {orcid_id} → réponse JSON invalide : {data}")
+            return []
+
+        groups = data.get("group")
+        if not isinstance(groups, list):
+            print(f"[ERREUR] ORCID {orcid_id} → champ 'group' absent ou mal formé : {json.dumps(data, indent=2)}")
+            return []
+
+        for group in groups:
+            for summary in group.get("work-summary", []):
+                put_code = summary.get("put-code")
+
+                # Titre
+                title = ""
+                title_data = summary.get("title")
+                if isinstance(title_data, dict):
+                    title_title = title_data.get("title")
+                    if isinstance(title_title, dict):
+                        title = title_title.get("value", "")
+
+                # Type
+                pub_type = summary.get("type", "")
+
+                # Année
+                pub_year = ""
+                pub_date = summary.get("publication-date")
+                if isinstance(pub_date, dict):
+                    year_data = pub_date.get("year")
+                    if isinstance(year_data, dict):
+                        pub_year = year_data.get("value", "")
+
+                # Source (URL)
+                source = ""
+                url_data = summary.get("url")
+                if isinstance(url_data, dict):
+                    source = url_data.get("value", "")
+
+                # Auteurs
+                authors = []
+                try:
+                    detail_url = f"{base_url}/work/{put_code}"
+                    detail_resp = requests.get(detail_url, headers=headers, timeout=10)
+                    detail_resp.raise_for_status()
+                    detail_data = detail_resp.json()
+
+                    if not isinstance(detail_data, dict):
+                        print(f"[ERREUR] ORCID {orcid_id}, put-code {put_code} → JSON détail invalide : {detail_data}")
+                        authors = ["Erreur JSON détail"]
+                    else:
+                        contributors = detail_data.get("contributors", {}).get("contributor", [])
+                        if isinstance(contributors, list) and contributors:
+                            for contributor in contributors:
+                                name = contributor.get("credit-name", {}).get("value", "")
+                                if name:
+                                    authors.append(name)
+                        else:
+                            authors = ["Auteurs non renseignés"]
+
+                except Exception as e:
+                    print(f"[ERREUR] ORCID {orcid_id}, put-code {put_code} → erreur récupération auteurs : {e}")
+                    authors = ["Erreur récupération auteurs"]
+
+                publications.append({
+                    "Orcid": orcid_id,
+                    "Année": int(pub_year) if pub_year else None,
+                    "Titre": title,
+                    "Type": pub_type,
+                    "Source": source,
+                    "Auteurs": authors
+                })
+
+    except Exception as e:
+        print(f"[ERREUR] ORCID {orcid_id} → erreur requête principale : {e}")
+        return []
+
+    print(f"[INFO] ORCID {orcid_id} → {len(publications)} publications récupérées")
+    return publications
+
+
 @st.cache_data
 def construire_dataframe_publications(df_contacts):
     """Construit un DataFrame aplati avec les publications et les contacts associés."""
@@ -232,7 +329,7 @@ def construire_dataframe_publications(df_contacts):
         print(i)
         orcid = row["ORCID"]
         contact = row["Contact"]
-        pubs = get_publications_flat2(orcid)
+        pubs = get_publications_flat3(orcid)
         for pub in pubs:
             pub["contact"] = contact
         all_publications.extend(pubs)
@@ -266,7 +363,7 @@ if lancement_recherche:
     df_publications.to_csv(f"Data/ORCID/all_publications_ORCID_{d}.csv", index=False, encoding="utf-8-sig")
 
 else:
-    df_publications = pd.read_csv("Data/ORCID/all_publications_ORCID_2025-09-19.csv")
+    df_publications = pd.read_csv("Data/ORCID/all_publications_ORCID_2025-09-20.csv")
     df_publications['Auteurs']=df_publications['Auteurs'].apply(ast.literal_eval)
 
 
