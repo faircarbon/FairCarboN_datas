@@ -448,8 +448,6 @@ with col5:
 
 df_drop = df.dropna(axis=0)
 
-st.dataframe(df_drop)
-
 fig = px.sunburst(df_drop, path=['level_0','level_1','level_2'], values='val')
 fig.update_layout(
                 width=1000,

@@ -86,6 +86,7 @@ with col1:
                        margin=dict(t=0))
 
     st.subheader(f":grey[Nombre d'unités]")
+    st.metric(label='', value=len(set(df_Labo_Site['laboratoire'][df_Labo_Site['Type_Data']=="Labo"])))
     st.plotly_chart(fig0, use_container_width=True)
 
 with col2:
@@ -111,6 +112,7 @@ with col2:
                         margin=dict(t=0))
 
     st.subheader(f":grey[Nombre de contacts]")
+    st.metric(label='', value=len(set(df_Contacts['Contact'])))
     st.plotly_chart(fig0b, use_container_width=True)
 
 with col3:
@@ -136,6 +138,7 @@ with col3:
                         margin=dict(t=0))
 
     st.subheader(f":grey[Nombre de sites]")
+    st.metric(label='', value=len(set(df_Labo_Site['laboratoire'][df_Labo_Site['Type_Data']=="Site"])))
     st.plotly_chart(fig0c, use_container_width=True)
 
 ###############################################################################################

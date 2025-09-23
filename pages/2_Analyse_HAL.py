@@ -243,6 +243,10 @@ with col2:
 with col3:
     st.metric(label=f"Nombre d'auteur(e)s ayant publié depuis {start_year}", value=len(list(set(df_global_hal_proj['Auteur_recherché'][df_global_hal_proj['Date de publication']>=start_year]))))
 
+###############################################################################################
+########### PREPARATIONS PARETOS ############################################################
+###############################################################################################
+
 unique_projet_titles = df_global_hal_proj[['Projet','Titre_unique']].drop_duplicates()
 projects_count = unique_projet_titles['Projet'].value_counts().reset_index()
 projects_count.columns = ['Projet', 'compte']
@@ -409,7 +413,9 @@ for i, row in df_pareto_plot2.iterrows():
     )
 
 
-# Affichage
+###############################################################################################
+######################## AFFICHAGE ############################################################
+###############################################################################################
 col1,col2 = st.columns(2)
 with col1:
     if len(choix_auteur)==0:

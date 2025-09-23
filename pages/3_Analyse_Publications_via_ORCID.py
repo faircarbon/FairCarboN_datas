@@ -375,6 +375,9 @@ df_hal = st.session_state['df_hal']
 
 start_year = 2018
 end_year = 2025
+
+################# AFFICHAGE HAL ##############################################################
+
 # Assurer que la colonne 'Date de publication' est bien en datetime
 df_hal["Date complete depot"] = pd.to_datetime(df_hal["Date complete depot"], errors="coerce")
 df_hal["Année"] = df_hal["Date complete depot"].dt.year
@@ -442,6 +445,9 @@ df_hal_non_dupliqués = df_filtered[['Année','Premier_auteur','Auteur_recherch�
 df_hal_non_dupliqués['from']='HAL'
 df_publications_non_dupliqués = df_filtered3[['Année','Premier_auteur','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates()
 
+st.metric(label="Nombre de contacts recherchés", value=len(set(df['Contact'])))
+
+st.metric(label="Nombre de contacts ORCID", value=len(set(df_publications_non_dupliqués['contact'])))
 
 df_publications_non_dupliqués['from']='ORCID'
 df_publications_non_dupliqués['Auteur_recherché']=df_publications_non_dupliqués['contact']
