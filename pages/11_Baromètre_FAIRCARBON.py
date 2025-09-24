@@ -41,8 +41,32 @@ def read_data(path):
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df
 
+def classify(row):
+    if row['is_HAL'] and row['is_ORCID'] and row['In_FairCarboN']:
+        return 'HAL + ORCID + Collection'
+    elif row['is_HAL'] and row['is_ORCID'] and not row['In_FairCarboN']:
+        return 'HAL + ORCID sans Collection'
+    elif row['is_HAL'] and not row['is_ORCID'] and row['In_FairCarboN']:
+        return 'HAL avec Collection hors ORCID'
+    elif row['is_HAL'] and not row['is_ORCID'] and not row['In_FairCarboN']:
+        return 'HAL seul sans Collection'
+    elif row['is_ORCID'] and not row['is_HAL'] and not row['In_FairCarboN']:
+        return 'ORCID seul'
+    else:
+        return 'Autre'
 
-    
+# Palette personnalisée
+couleurs = {
+    'HAL + ORCID + Collection': '#1f77b4',
+    'HAL + ORCID sans Collection': '#ff7f0e',
+    'HAL seul sans Collection': '#2ca02c',
+    'HAL avec Collection hors ORCID': '#d62728',
+    'ORCID seul': '#9467bd',
+    'Autre': '#8c564b'
+}
+
+categories_avec_collection = ['HAL + ORCID + Collection', 'HAL avec Collection hors ORCID']
+
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
 ######################################################################################################################
@@ -53,8 +77,6 @@ df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 
 df_hal = st.session_state['df_hal']
 df_publications = st.session_state['df_publications']
-
-st.write(set(df_hal['Type de document'].values))
 
 st.title(":grey[Baromètre FairCarboN]")
 
@@ -73,7 +95,7 @@ with col3:
 ###########################################################################################################################################################
 ############################ COMPTAGES ####################################################################################################################
 
-#################### TOUT TYPES ###########################################
+#################### TOUT TYPES P1 ###########################################
 
 # Filtrer les années souhaitées
 liste_type_ORCID = ['journal-article','preprint','book','book-chapter','conference-paper','conference-poster']
@@ -101,7 +123,6 @@ df_to_be_compared1 = pd.concat([df_hal_non_dupliqués_touttypes1[['Année','Date
 df_to_be_compared1.reset_index(inplace=True)
 df_to_be_compared1.drop(columns='index', inplace=True)
 
-st.metric(label='DF à comparer', value=len(df_to_be_compared1))
 
 # Étape 1 : Pivot pour regrouper les sources
 df_to_be_compared1['In_FairCarboN'] = df_to_be_compared1['In_FairCarboN'].fillna(False)
@@ -115,26 +136,9 @@ grouped1 = df_to_be_compared1.groupby(['Titre_unique','Année']).agg({
     'In_FairCarboN': 'any'
 }).reset_index()
 
-# Étape 2 : Créer la colonne de statut
-def classify(row):
-    if row['is_HAL'] and row['is_ORCID'] and row['In_FairCarboN']:
-        return 'HAL + ORCID + Collection'
-    elif row['is_HAL'] and row['is_ORCID'] and not row['In_FairCarboN']:
-        return 'HAL + ORCID sans Collection'
-    elif row['is_HAL'] and not row['is_ORCID'] and row['In_FairCarboN']:
-        return 'HAL avec Collection hors ORCID'
-    elif row['is_HAL'] and not row['is_ORCID'] and not row['In_FairCarboN']:
-        return 'HAL seul sans Collection'
-    elif row['is_ORCID'] and not row['is_HAL'] and not row['In_FairCarboN']:
-        return 'ORCID seul'
-    else:
-        return 'Autre'
-
-
+# Étape 2 : Créer la colonne de catégorie
 grouped1['categorie'] = grouped1.apply(classify, axis=1)
 
-
-st.metric(label='grouped', value=(len(grouped1)))
 
 # Comptage
 counts1 = grouped1.groupby(['Année', 'categorie']).size().unstack(fill_value=0)
@@ -144,7 +148,7 @@ cumulative_counts1 = counts1.cumsum()
 # Pourcentages
 percentages1 = counts1.div(counts1.sum(axis=1), axis=0) * 100
 
-##############################################################################################
+#################### TOUT TYPES P2 ###########################################
 start_year2 = 2023
 end_year2 = 2025
 
@@ -194,32 +198,68 @@ base_df = pd.DataFrame([base_df.iloc[0]] * len(counts2), index=counts2.index)
 cumulative_counts2_shifted = cumulative_counts2 + base_df
 
 percentages2 = counts2.div(counts2.sum(axis=1), axis=0) * 100
-# Palette personnalisée
-couleurs = {
-    'HAL + ORCID + Collection': '#1f77b4',
-    'HAL + ORCID sans Collection': '#ff7f0e',
-    'HAL seul sans Collection': '#2ca02c',
-    'HAL avec Collection hors ORCID': '#d62728',
-    'ORCID seul': '#9467bd',
-    'Autre': '#8c564b'
-}
 
-categories_avec_collection = ['HAL + ORCID + Collection', 'HAL avec Collection hors ORCID']
-
+cumulative_counts1_zoom = cumulative_counts1[['HAL + ORCID sans Collection']]
+cumulative_counts2_shifted_zoom = cumulative_counts2_shifted[['HAL + ORCID + Collection','HAL + ORCID sans Collection','HAL avec Collection hors ORCID']]
 
 ##############################################################################################
-start_year3 = 2024
-end_year3 = 2025
 
-############## PREMIER AFFICHAGE #########################################################
+# Filtrer les lignes HAL avec une date complète
+hal_dates = df_to_be_compared2[df_to_be_compared2['is_HAL'] & df_to_be_compared2['Date complete depot'].notna()]
+
+# Créer un dictionnaire {Titre_unique: Date complète}
+dict_hal_dates = hal_dates.set_index('Titre_unique')['Date complete depot'].to_dict()
+
+def enrichir_date(row):
+    titre = row['Titre_unique']
+    if titre in dict_hal_dates:
+        return dict_hal_dates[titre]  # Date HAL connue
+    else:
+        # Date artificielle : 1er juillet de l'année
+        return pd.to_datetime(str(int(row['Année'])) + '-07-01')
+
+df_to_be_compared2['Date_enrichie'] = df_to_be_compared2.apply(enrichir_date, axis=1)
+
+grouped3 = df_to_be_compared2.groupby(['Titre_unique']).agg({
+    'is_HAL': 'any',
+    'is_ORCID': 'any',
+    'In_FairCarboN': 'any',
+    'Date_enrichie': 'first'  # On garde la date enrichie
+}).reset_index()
+
+grouped3['categorie'] = grouped3.apply(classify, axis=1)
+
+# Convertir les dates enrichies au format mensuel
+grouped3['Date_mois'] = grouped3['Date_enrichie'].dt.to_period('M').dt.to_timestamp()
+
+# Regrouper par mois et catégorie
+counts3 = grouped3.groupby(['Date_mois', 'categorie']).size().unstack(fill_value=0)
+
+#counts3 = grouped3.groupby(['Date_enrichie', 'categorie']).size().unstack(fill_value=0)
+counts3 = counts3.sort_index()
+cumulative_counts3 = counts3.cumsum()
+
+cumulative_counts3_zoom = cumulative_counts3[['HAL + ORCID + Collection','HAL avec Collection hors ORCID']]
+
+#start_date = cumulative_counts3_zoom.index.min()
+#end_date = cumulative_counts3_zoom.index.max()
+
+
+start_date = pd.to_datetime(f"{int(start_year2)-1}-11-01")
+end_date = d
+#end_date = pd.to_datetime(f"{int(end_year2)}-12-31")
+
+#######################################################################################
+############## AFFICHAGE ##############################################################
+#######################################################################################
 
 # Créer une figure avec deux colonnes et axes Y partagés
 fig_combined = make_subplots(
-    rows=1, cols=2,
+    rows=3, cols=2,
     shared_yaxes=True,
-    column_widths=[0.7, 0.3],
+    column_widths=[0.3, 0.7],
     horizontal_spacing=0.05,
-    subplot_titles=("titre 1", "titre 2")
+    subplot_titles=("AVANT FAIRCARBON", "APRES FAIRCARBON")
 )
 
 # Colonne 1 : valeurs brutes
@@ -250,45 +290,8 @@ for categorie in cumulative_counts2_shifted.columns:
         hoverinfo='x+name+text',
     ), row=1, col=2)
 
-fig_combined.update_layout(
-    title='Évolution des catégories par année (valeurs brutes)',
-    xaxis_title='Année',
-    yaxis_title='Nombre de titres',
-    legend_title='Catégorie',
-    height=500
-)
-
-fig_combined.update_xaxes(
-    tickmode='linear',
-    tickformat='d'  # format entier
-)
-fig_combined.update_xaxes(
-    range=[start_year - 0.1, end_year],row=1, col=1
-)
-fig_combined.update_xaxes(
-    range=[start_year2 - 0.1, end_year2 + 0.1],row=1, col=2
-)
-
-st.plotly_chart(fig_combined, use_container_width=True)
-
-
-############## DEUXIEME AFFICHAGE #########################################################
-
-cumulative_counts1_zoom = cumulative_counts1[['HAL + ORCID sans Collection']]
-cumulative_counts2_shifted_zoom = cumulative_counts2_shifted[['HAL + ORCID + Collection','HAL + ORCID sans Collection','HAL avec Collection hors ORCID']]
-
-# Créer une figure avec deux colonnes et axes Y partagés
-fig_combined2 = make_subplots(
-    rows=1, cols=2,
-    shared_yaxes=True,
-    column_widths=[0.7, 0.3],
-    horizontal_spacing=0.05,
-    subplot_titles=("titre 1", "titre 2")
-)
-
-# Colonne 1 : valeurs brutes
 for categorie in cumulative_counts1_zoom.columns:
-    fig_combined2.add_trace(go.Scatter(
+    fig_combined.add_trace(go.Scatter(
         x=cumulative_counts1_zoom.index,
         y=cumulative_counts1_zoom[categorie],
         mode='lines+markers+text',
@@ -299,10 +302,10 @@ for categorie in cumulative_counts1_zoom.columns:
         textposition='top center',
         hoverinfo='x+name+text',
         showlegend=False
-    ), row=1, col=1)
+    ), row=2, col=1)
 
 for categorie in cumulative_counts2_shifted_zoom.columns:
-    fig_combined2.add_trace(go.Scatter(
+    fig_combined.add_trace(go.Scatter(
         x=cumulative_counts2_shifted_zoom.index,
         y=cumulative_counts2_shifted_zoom[categorie],
         mode='lines+markers+text',
@@ -312,77 +315,95 @@ for categorie in cumulative_counts2_shifted_zoom.columns:
         text=percentages2[categorie].round(1).astype(str) + '%' if categorie in categories_avec_collection else None,
         textposition='top center',
         hoverinfo='x+name+text',
-    ), row=1, col=2)
+        showlegend=False
+    ), row=2, col=2)
 
-fig_combined2.update_layout(
-    title='Évolution des catégories par année (valeurs brutes)',
-    xaxis_title='Année',
+for categorie in cumulative_counts3_zoom.columns:
+    fig_combined.add_trace(go.Scatter(
+        x=cumulative_counts3_zoom.index,
+        y=cumulative_counts3_zoom[categorie],
+        mode='lines+markers',
+        stackgroup='one',
+        name=categorie,
+        line=dict(color=couleurs.get(categorie)),
+        showlegend=False
+    ), row=3, col=2)
+
+fig_combined.update_layout(
+    title='',
     yaxis_title='Nombre de titres',
     legend_title='Catégorie',
-    height=500
+    height=1000
 )
 
-fig_combined2.update_xaxes(
+fig_combined.update_xaxes(
     tickmode='linear',
-    tickformat='d'  # format entier
+    tickformat='d', row=1, col=1  # format entier
 )
-fig_combined2.update_xaxes(
+fig_combined.update_xaxes(
+    tickmode='linear',
+    tickformat='d', row=1, col=2  # format entier
+)
+fig_combined.update_xaxes(
+    tickmode='linear',
+    title_text="Année",
+    tickformat='d', row=2, col=1  # format entier
+)
+fig_combined.update_xaxes(
+    tickmode='linear',
+    tickformat='d', row=2, col=2  # format entier
+)
+fig_combined.update_xaxes(
     range=[start_year - 0.1, end_year],row=1, col=1
 )
-fig_combined2.update_xaxes(
-    range=[start_year2 - 0.1, end_year2 + 0.1],row=1, col=2
+fig_combined.update_xaxes(
+    range=[start_year2 - 0.1, end_year2 + 0.5],row=1, col=2
+)
+fig_combined.update_xaxes(
+    range=[start_year - 0.1, end_year],row=2, col=1
+)
+fig_combined.update_xaxes(
+    range=[start_year2 - 0.1, end_year2 + 0.5],row=2, col=2
+)
+fig_combined.update_xaxes(
+    tickmode='linear',
+    title_text="Année",
+    tickformat='d', row=3, col=1  # format entier
+)
+fig_combined.update_xaxes(
+    dtick="M12",  # un tick tous les 12 mois
+    tickformat="%Y",  # affiche uniquement l'année
+    range=[start_date, end_date],  # start_date et end_date doivent être des objets datetime
+    title_text="Année",
+    row=3, col=2
 )
 
-st.plotly_chart(fig_combined2, use_container_width=True)
-
-###################################################################################################
-
-# Filtrer les lignes HAL avec une date complète
-hal_dates = df_to_be_compared2[df_to_be_compared2['is_HAL'] & df_to_be_compared2['Date complete depot'].notna()]
-
-# Créer un dictionnaire {Titre_unique: Date complète}
-dict_hal_dates = hal_dates.set_index('Titre_unique')['Date complete depot'].to_dict()
-
-def enrichir_date(row):
-    titre = row['Titre_unique']
-    if titre in dict_hal_dates:
-        return dict_hal_dates[titre]  # Date HAL connue
-    else:
-        # Date artificielle : 1er juillet de l'année
-        return pd.to_datetime(str(int(row['Année'])) + '-07-01')
-
-df_to_be_compared2['Date_enrichie'] = df_to_be_compared2.apply(enrichir_date, axis=1)
-
-grouped3 = df_to_be_compared2.groupby(['Titre_unique']).agg({
-    'is_HAL': 'any',
-    'is_ORCID': 'any',
-    'In_FairCarboN': 'any',
-    'Date_enrichie': 'first'  # On garde la date enrichie
-}).reset_index()
-
-grouped3['categorie'] = grouped3.apply(classify, axis=1)
-
-counts3 = grouped3.groupby(['Date_enrichie', 'categorie']).size().unstack(fill_value=0)
-counts3 = counts3.sort_index()
-cumulative_counts3 = counts3.cumsum()
-
-import plotly.graph_objects as go
-
-fig3 = go.Figure()
-
-for cat in cumulative_counts3.columns:
-    fig3.add_trace(go.Scatter(
-        x=cumulative_counts3.index,
-        y=cumulative_counts3[cat],
-        mode='lines+markers',
-        name=cat
-    ))
-
-fig3.update_layout(
-    title='Cumul temporel des titres par catégorie',
-    xaxis_title='Date',
-    yaxis_title='Nombre cumulé',
-    template='plotly_white'
+fig_combined.update_yaxes(
+    showticklabels=True,
+    ticks="outside",
+    title_text="Nombre de titres",
+    row=2, col=1
 )
 
-st.plotly_chart(fig3)
+fig_combined.update_yaxes(
+    matches=None,
+    showticklabels=True,
+    ticks="outside",
+    title_text="Nombre de titres",
+    row=3, col=2
+)
+
+fig_combined.update_layout(
+    legend=dict(
+        x=0.01,  # proche du bord gauche
+        y=0.05,  # proche du bas
+        xanchor='left',
+        yanchor='bottom',
+        bgcolor='rgba(255,255,255,0.8)',  # fond semi-transparent
+        bordercolor='black',
+        borderwidth=1,
+        font=dict(size=12)
+    )
+)
+
+st.plotly_chart(fig_combined, use_container_width=True)
