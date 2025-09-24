@@ -65,6 +65,12 @@ couleurs = {
     'Autre': '#8c564b'
 }
 
+couleurs_depots = {
+    'Zenodo':'#2ca02c',
+    'Recherche Data Gouv':'#9467bd',
+    'Data InDoRes':'#ff7f0e',
+}
+
 categories_avec_collection = ['HAL + ORCID + Collection', 'HAL avec Collection hors ORCID']
 
 ######################################################################################################################
@@ -83,14 +89,15 @@ st.title(":grey[Baromètre FairCarboN]")
 start_year = 2021
 end_year = 2023
 
-col1, col2, col3 = st.columns(3)
+col1, col2, col3, col4 = st.columns(4)
 with col1:
-    st.metric(label='Nombre de contacts', value=len(df_Contacts['Contact'].unique()))
+    st.metric(label='Nombre de contacts', value=len(df_Contacts['Contact'].unique()),border=True)
 with col2:
-    st.metric(label='Nombre de contacts avec compte ORCID', value=len(df_Contacts['ORCID'].unique()))
+    st.metric(label='Nombre de contacts avec compte ORCID', value=len(df_Contacts['ORCID'].unique()),border=True)
 with col3:
-    st.metric(label='Nombre de contacts avec compte ORCID non vide', value=len(df_publications['contact'].unique()))
-
+    st.metric(label='Nombre de contacts avec compte ORCID non vide', value=len(df_publications['contact'].unique()),border=True)
+with col4:
+    st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts[df_Contacts['Sollicitation']=='OUI']), border=True)
 
 ###########################################################################################################################################################
 ############################ COMPTAGES ####################################################################################################################
@@ -245,7 +252,7 @@ cumulative_counts3_zoom = cumulative_counts3[['HAL + ORCID + Collection','HAL av
 #end_date = cumulative_counts3_zoom.index.max()
 
 
-start_date = pd.to_datetime(f"{int(start_year2)-1}-11-01")
+start_date = pd.to_datetime(f"{int(start_year2)-1}-12-01")
 end_date = d
 #end_date = pd.to_datetime(f"{int(end_year2)}-12-31")
 
@@ -258,7 +265,9 @@ fig_combined = make_subplots(
     rows=3, cols=2,
     shared_yaxes=True,
     column_widths=[0.3, 0.7],
+    row_heights=[0.3, 0.5, 0.2],
     horizontal_spacing=0.05,
+    vertical_spacing=0.05,
     subplot_titles=("AVANT FAIRCARBON", "APRES FAIRCARBON")
 )
 
@@ -313,7 +322,7 @@ for categorie in cumulative_counts2_shifted_zoom.columns:
         stackgroup='one',
         line=dict(color=couleurs.get(categorie)),
         text=percentages2[categorie].round(1).astype(str) + '%' if categorie in categories_avec_collection else None,
-        textposition='top center',
+        textposition='bottom center',
         hoverinfo='x+name+text',
         showlegend=False
     ), row=2, col=2)
@@ -329,12 +338,7 @@ for categorie in cumulative_counts3_zoom.columns:
         showlegend=False
     ), row=3, col=2)
 
-fig_combined.update_layout(
-    title='',
-    yaxis_title='Nombre de titres',
-    legend_title='Catégorie',
-    height=1000
-)
+
 
 fig_combined.update_xaxes(
     tickmode='linear',
@@ -346,7 +350,7 @@ fig_combined.update_xaxes(
 )
 fig_combined.update_xaxes(
     tickmode='linear',
-    title_text="Année",
+    #title_text="Année",
     tickformat='d', row=2, col=1  # format entier
 )
 fig_combined.update_xaxes(
@@ -365,11 +369,7 @@ fig_combined.update_xaxes(
 fig_combined.update_xaxes(
     range=[start_year2 - 0.1, end_year2 + 0.5],row=2, col=2
 )
-fig_combined.update_xaxes(
-    tickmode='linear',
-    title_text="Année",
-    tickformat='d', row=3, col=1  # format entier
-)
+
 fig_combined.update_xaxes(
     dtick="M12",  # un tick tous les 12 mois
     tickformat="%Y",  # affiche uniquement l'année
@@ -381,7 +381,7 @@ fig_combined.update_xaxes(
 fig_combined.update_yaxes(
     showticklabels=True,
     ticks="outside",
-    title_text="Nombre de titres",
+    title_text="NB de titres",
     row=2, col=1
 )
 
@@ -389,14 +389,14 @@ fig_combined.update_yaxes(
     matches=None,
     showticklabels=True,
     ticks="outside",
-    title_text="Nombre de titres",
+    title_text="NB de titres",
     row=3, col=2
 )
 
 fig_combined.update_layout(
     legend=dict(
-        x=0.01,  # proche du bord gauche
-        y=0.05,  # proche du bas
+        x=0.05,  # proche du bord gauche
+        y=-0.1,  # proche du bas
         xanchor='left',
         yanchor='bottom',
         bgcolor='rgba(255,255,255,0.8)',  # fond semi-transparent
@@ -406,4 +406,120 @@ fig_combined.update_layout(
     )
 )
 
+fig_combined.update_layout(
+    title='',
+    yaxis_title='NB de titres',
+    legend_title='Catégorie',
+    height=700
+)
+
+st.subheader(":grey[Publications]")
 st.plotly_chart(fig_combined, use_container_width=True)
+
+
+############################## DEPOTS DATASETS ##############################################################################""
+start_year_depot = 2021
+end_year_depot = 2023
+
+df_rdg = st.session_state['df_rdg']
+df_indores = st.session_state['df_InDoRes']
+df_zenodo = st.session_state['df_zenodo']
+df_rdg_reduit = df_rdg[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
+df_indores_reduit = df_indores[['Nom_archive','Auteur_recherché','Titre_unique','Mots_clés','DOI sources','Date de publication','Type de document']]
+df_zenodo_reduit = df_zenodo[['Nom_archive','Auteur_recherché','Titre_unique','Date de publication','Type de document']]
+
+df_concat_depot = pd.concat([df_rdg_reduit,df_indores_reduit,df_zenodo_reduit], axis=0)
+df_concat_depot_non_dupliqués = df_concat_depot.drop_duplicates(subset='Titre_unique')
+
+st.subheader(":grey[Dépôts de jeux de données]")
+
+df_concat_depot_non_dupliqués['Date de publication'] = pd.to_numeric(df_concat_depot_non_dupliqués['Date de publication'], errors='coerce')
+
+# Étape 1 : compter les titres par année et type
+counts_depots = df_concat_depot_non_dupliqués.groupby(['Date de publication', 'Nom_archive'])['Titre_unique'].count().reset_index()
+
+# Étape 2 : pivot pour avoir les types en colonnes
+pivot_depot = counts_depots.pivot(index='Date de publication', columns='Nom_archive', values='Titre_unique').fillna(0)
+
+# Étape 3 : calcul du cumul
+cumulative_depot = pivot_depot.cumsum()
+
+# Étape 4 : calcul des pourcentages cumulés
+percentages = cumulative_depot.div(cumulative_depot.sum(axis=1), axis=0) * 100
+percentages = percentages.round(1).astype(str) + '%'
+
+# Étape 4 : tracer avec Plotly
+fig_depot = make_subplots(
+    rows=1, cols=2,
+    shared_yaxes=True,
+    horizontal_spacing=0.05,
+    column_widths=[0.3, 0.7],
+    subplot_titles=("AVANT FAIRCARBON", "APRES FAIRCARBON")
+)
+
+for archive in cumulative_depot.columns:
+    fig_depot.add_trace(go.Scatter(
+        x=cumulative_depot.index,
+        y=cumulative_depot[archive],
+        mode='lines+markers',
+        name=archive,
+        stackgroup='one',
+        line=dict(color=couleurs_depots.get(archive)),
+        text=percentages[archive],
+        textposition='top right',
+        hoverinfo='x+y+name+text'
+    ), row=1, col=1)
+
+for archive in cumulative_depot.columns:
+    fig_depot.add_trace(go.Scatter(
+        x=cumulative_depot.index,
+        y=cumulative_depot[archive],
+        mode='lines+markers+text',
+        name=archive,
+        stackgroup='one',
+        line=dict(color=couleurs_depots.get(archive)),
+        text=percentages[archive],
+        textposition='top right',
+        hoverinfo='x+y+name+text',
+        showlegend=False
+    ), row=1, col=2)
+
+# Mise en page
+fig_depot.update_layout(
+    title="",
+    yaxis_title='NB de titres',
+    legend_title="Entrepot",
+    height=500
+)
+
+fig_depot.update_xaxes(tickmode='linear', tickformat='d')
+fig_depot.update_xaxes(
+    range=[2021-0.1, 2023],
+    tickmode='linear',
+    tickformat='d', 
+    row=1, col=1
+)
+
+fig_depot.update_xaxes(
+    range=[2023, 2025 +0.5],
+    tickmode='linear',
+    tickformat='d',
+    title_text="Année",
+    row=1, col=2
+)
+
+
+fig_depot.update_layout(
+    legend=dict(
+        x=0.05,  # proche du bord gauche
+        y=0.5,  
+        xanchor='left',
+        yanchor='bottom',
+        bgcolor='rgba(255,255,255,0.8)',  # fond semi-transparent
+        bordercolor='black',
+        borderwidth=1,
+        font=dict(size=12)
+    )
+)
+
+st.plotly_chart(fig_depot, use_container_width=True)
