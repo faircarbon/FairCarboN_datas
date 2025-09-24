@@ -89,7 +89,11 @@ st.title(":grey[Baromètre FairCarboN]")
 start_year = 2021
 end_year = 2023
 
-col1, col2, col3, col4 = st.columns(4)
+df_Contacts_ = df_Contacts.drop_duplicates(subset='Contact')
+df_Contacts_.fillna(0,inplace=True)
+potentiel_global = sum(df_Contacts_['Potentiel'])
+
+col1, col2, col3, col4, col5, col6 = st.columns(6)
 with col1:
     st.metric(label='Nombre de contacts', value=len(df_Contacts['Contact'].unique()),border=True)
 with col2:
@@ -98,6 +102,10 @@ with col3:
     st.metric(label='Nombre de contacts avec compte ORCID non vide', value=len(df_publications['contact'].unique()),border=True)
 with col4:
     st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts[df_Contacts['Sollicitation']=='OUI']), border=True)
+with col5:
+    st.metric(label='Nombre de réponses', value=len(df_Contacts[df_Contacts['Réponse']=='OUI']), border=True)
+with col6:
+    st.metric(label='Potentiel haut', value=int(potentiel_global), border=True)
 
 ###########################################################################################################################################################
 ############################ COMPTAGES ####################################################################################################################
@@ -238,9 +246,10 @@ grouped3['categorie'] = grouped3.apply(classify, axis=1)
 
 # Convertir les dates enrichies au format mensuel
 grouped3['Date_mois'] = grouped3['Date_enrichie'].dt.to_period('M').dt.to_timestamp()
+grouped3['Date_semaine'] = grouped3['Date_enrichie'].dt.to_period('W').dt.start_time
 
 # Regrouper par mois et catégorie
-counts3 = grouped3.groupby(['Date_mois', 'categorie']).size().unstack(fill_value=0)
+counts3 = grouped3.groupby(['Date_semaine', 'categorie']).size().unstack(fill_value=0)
 
 #counts3 = grouped3.groupby(['Date_enrichie', 'categorie']).size().unstack(fill_value=0)
 counts3 = counts3.sort_index()
@@ -253,7 +262,7 @@ cumulative_counts3_zoom = cumulative_counts3[['HAL + ORCID + Collection','HAL av
 
 
 start_date = pd.to_datetime(f"{int(start_year2)-1}-12-01")
-end_date = d
+end_date = d + datetime.timedelta(days=40)
 #end_date = pd.to_datetime(f"{int(end_year2)}-12-31")
 
 #######################################################################################
@@ -361,13 +370,13 @@ fig_combined.update_xaxes(
     range=[start_year - 0.1, end_year],row=1, col=1
 )
 fig_combined.update_xaxes(
-    range=[start_year2 - 0.1, end_year2 + 0.5],row=1, col=2
+    range=[start_year2 - 0.1, end_year2 + 0.1],row=1, col=2
 )
 fig_combined.update_xaxes(
     range=[start_year - 0.1, end_year],row=2, col=1
 )
 fig_combined.update_xaxes(
-    range=[start_year2 - 0.1, end_year2 + 0.5],row=2, col=2
+    range=[start_year2 - 0.1, end_year2 + 0.1],row=2, col=2
 )
 
 fig_combined.update_xaxes(
@@ -501,7 +510,7 @@ fig_depot.update_xaxes(
 )
 
 fig_depot.update_xaxes(
-    range=[2023, 2025 +0.5],
+    range=[2023, 2025 + 0.1],
     tickmode='linear',
     tickformat='d',
     title_text="Année",
