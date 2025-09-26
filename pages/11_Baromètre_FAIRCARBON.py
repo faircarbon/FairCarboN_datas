@@ -101,9 +101,9 @@ with col2:
 with col3:
     st.metric(label='Nombre de contacts avec compte ORCID non vide', value=len(df_publications['contact'].unique()),border=True)
 with col4:
-    st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts[df_Contacts['Sollicitation']=='OUI']), border=True)
+    st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts_[df_Contacts_['Sollicitation']=='OUI']), border=True)
 with col5:
-    st.metric(label='Nombre de réponses', value=len(df_Contacts[df_Contacts['Réponse']=='OUI']), border=True)
+    st.metric(label='Nombre de réponses', value=len(df_Contacts_[df_Contacts_['Réponse']=='OUI']), border=True)
 with col6:
     st.metric(label='Potentiel haut', value=int(potentiel_global), border=True)
 
