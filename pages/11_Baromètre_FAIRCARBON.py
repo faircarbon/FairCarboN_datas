@@ -93,7 +93,7 @@ df_Contacts_ = df_Contacts.drop_duplicates(subset='Contact')
 df_Contacts_.fillna(0,inplace=True)
 potentiel_global = sum(df_Contacts_['Potentiel'])
 
-col1, col2, col3, col4, col5, col6 = st.columns(6)
+col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
     st.metric(label='Nombre de contacts', value=len(df_Contacts['Contact'].unique()),border=True)
 with col2:
@@ -104,8 +104,6 @@ with col4:
     st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts_[df_Contacts_['Sollicitation']=='OUI']), border=True)
 with col5:
     st.metric(label='Nombre de réponses', value=len(df_Contacts_[df_Contacts_['Réponse']=='OUI']), border=True)
-with col6:
-    st.metric(label='Potentiel haut', value=int(potentiel_global), border=True)
 
 ###########################################################################################################################################################
 ############################ COMPTAGES ####################################################################################################################
