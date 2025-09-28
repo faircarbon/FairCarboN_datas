@@ -91,7 +91,7 @@ end_year = 2023
 
 df_Contacts_ = df_Contacts.drop_duplicates(subset='Contact')
 df_Contacts_.fillna(0,inplace=True)
-potentiel_global = sum(df_Contacts_['Potentiel'])
+#potentiel_global = sum(df_Contacts_['Potentiel'])
 
 col1, col2, col3, col4, col5 = st.columns(5)
 with col1:
