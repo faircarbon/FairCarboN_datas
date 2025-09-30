@@ -67,6 +67,7 @@ df_merged = pd.merge(
 
 df_merged['projet'] = df_merged['projet'].apply(lambda row: row[0])
 
+
 projects = sorted(df_merged['projet'].unique())
 Selection_projets = st.multiselect("Choix d'un ou plusieurs projets à visualiser (par défaut TOUS)",options=projects)
 
@@ -75,7 +76,7 @@ if len(Selection_projets)==0: #aucun choix
 else:
     df_selected = df_merged[df_merged['projet'].isin(Selection_projets)]
 
-df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','projet']].drop_duplicates()
+df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','projet']].drop_duplicates(subset='Titre_unique')
 df_hal__ = df_hal_[df_hal_['In_FairCarboN']==True]
 df_hal__.reset_index(inplace=True)
 df_hal__.drop(columns='index', inplace=True)
