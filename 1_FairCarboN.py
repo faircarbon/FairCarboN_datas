@@ -386,26 +386,33 @@ with col1:
     # Convert 'num_other_projects' to string for consistent sorting in plot
     summary_prop['num_other_projects'] = summary_prop['num_other_projects'].astype(str)
 
-    # Plotly stacked bar chart
-    fig2 = px.bar(
-                summary_prop[summary_prop['projet'].isin(projets_selected)],
-                x='proportion',
-                y='projet',
-                color='num_other_projects',
-                orientation='h',
-                #title="Proportion d'exclusivité des membres des projets de FairCarboN",
-                labels={'proportion': 'Proportion parmi les unités membres du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
-                color_discrete_sequence=px.colors.qualitative.Set3
-            )
+    # Liste des valeurs uniques
+    projects = summary_prop['projet'].unique()
+    other_project_levels = sorted(summary_prop['num_other_projects'].unique())
 
+    # Créer une trace par niveau d'implication
+    traces = []
+    for level in other_project_levels:
+        df_level = summary_prop[summary_prop['num_other_projects'] == level]
+        traces.append(go.Bar(
+            y=df_level['projet'],
+            x=df_level['proportion'],
+            name=f"{level} autres projets",
+            orientation='h'
+        ))
+
+    # Créer la figure
+    fig2 = go.Figure(data=traces)
     fig2.update_layout(
-                yaxis=dict(autorange="reversed"),  # Projects from top-down
-                legend_title="Nombre d'autres implications",
-                #height=25 * len(summary) + 200,  # Dynamically adjust height
-                margin=dict(l=100, r=20, t=60, b=40)
-            )
+        barmode='stack',
+        yaxis=dict(autorange='reversed'),
+        legend_title="Nombre d'autres implications",
+        margin=dict(l=100, r=20, t=60, b=40),
+        xaxis_title="Proportion parmi les unités membres du projet",
+        yaxis_title="Projets"
+    )
 
-    st.subheader(f":grey[Proportion d'exclusivité des Unités]")
+    st.subheader(":grey[Proportion d'exclusivité des Unités]")
     st.plotly_chart(fig2, use_container_width=True)
 
 with col2:
@@ -421,24 +428,35 @@ with col2:
     summary_prop2 = summary2.div(summary2.sum(axis=1), axis=0)
     summary_prop2 = summary_prop2.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
     summary_prop2['num_other_projects'] = summary_prop2['num_other_projects'].astype(str)
+    
+    # Filtrer les projets sélectionnés
+    filtered_df = summary_prop2[summary_prop2['projet'].isin(projets_selected)]
 
-    fig2b = px.bar(
-                summary_prop2[summary_prop2['projet'].isin(projets_selected)],
-                x='proportion',
-                y='projet',
-                color='num_other_projects',
-                orientation='h',
-                #title="Proportion d'exclusivité des membres des projets de FairCarboN",
-                labels={'proportion': 'Proportion parmi les contacts du projet', 'projet': 'Projets', 'num_other_projects': 'Nombre autres projets'},
-                color_discrete_sequence=px.colors.qualitative.Set3
-            )
+    # Obtenir les niveaux d'implication et les projets
+    other_project_levels = sorted(filtered_df['num_other_projects'].unique())
+    projects = filtered_df['projet'].unique()
 
+    # Créer une trace par niveau d'implication
+    traces = []
+    for level in other_project_levels:
+        df_level = filtered_df[filtered_df['num_other_projects'] == level]
+        traces.append(go.Bar(
+            y=df_level['projet'],
+            x=df_level['proportion'],
+            name=f"{level} autres projets",
+            orientation='h'
+        ))
+
+    # Créer la figure
+    fig2b = go.Figure(data=traces)
     fig2b.update_layout(
-                yaxis=dict(autorange="reversed"),  # Projects from top-down
-                legend_title="Nombre d'autres implications",
-                #height=25 * len(summary) + 200,  # Dynamically adjust height
-                margin=dict(l=100, r=20, t=60, b=40)
-            )
+        barmode='stack',
+        yaxis=dict(autorange='reversed'),
+        legend_title="Nombre d'autres implications",
+        xaxis_title="Proportion parmi les contacts du projet",
+        yaxis_title="Projets",
+        margin=dict(l=100, r=20, t=60, b=40)
+    )
 
     st.subheader(f":grey[Proportion d'exclusivité des Contacts]")
     st.plotly_chart(fig2b, use_container_width=True)
@@ -457,38 +475,43 @@ totals = counts.groupby('projet')['Nombre'].transform('sum')
 # Ajouter une colonne proportion (en %)
 counts['Proportion'] = counts['Nombre'] / totals * 100
 
+# Liste des fonctions et des projets
+fonctions = sorted(counts['Fonction'].unique())
+projects = counts['projet'].unique()
 
-fig_fonction = px.bar(
-    counts,
-    y='projet',
-    x='Proportion',
-    color='Fonction',
-    orientation='h',
-    text=counts['Nombre'],
-    #text=counts['Proportion'].map(lambda x: f'{x:.1f}%'),
-    #title='Répartition proportionnelle des fonctions par projet',
-    labels={'Proportion': 'Proportion (%)', 'Projet': 'Projet'},
-    color_discrete_sequence=px.colors.qualitative.Set3
-)
+# Créer une trace par fonction
+traces = []
+for fonction in fonctions:
+    df_fct = counts[counts['Fonction'] == fonction]
+    traces.append(go.Bar(
+        y=df_fct['projet'],
+        x=df_fct['Proportion'],
+        name=fonction,
+        orientation='h',
+        text=df_fct['Nombre'],
+        textposition='inside',
+        insidetextanchor='start',
+        textfont=dict(size=20)
+    ))
 
+# Créer la figure
+fig_fonction = go.Figure(data=traces)
 fig_fonction.update_layout(
     barmode='stack',
     yaxis=dict(categoryorder='total ascending'),
-    xaxis=dict(ticksuffix='%')
+    xaxis=dict(title='Proportion (%)', ticksuffix='%'),
+    yaxis_title='Projet',
+    legend_title='Fonction',
+    margin=dict(l=100, r=20, t=60, b=40)
 )
 
-fig_fonction.update_traces(
-    textposition='inside',
-    insidetextanchor='start',  # ou 'middle', 'end'
-    textangle=0,# assure l'horizontalité
-    textfont_size=20               
-)
-
-fig_fonction.update_layout(barmode='stack')
+# Affichage dans Streamlit
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader(f":grey[Répartition des fonctions par projet]")
+    st.subheader(":grey[Répartition des fonctions par projet]")
     st.plotly_chart(fig_fonction, use_container_width=True)
+
+
 
 ###############################################################################################
 ########### ANALYSE LIENS PAR VISU GRAPHE #####################################################
