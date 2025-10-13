@@ -234,7 +234,7 @@ else:
 st.cache_resource
 def carto(grouped_, avg_lat, avg_long):
     # Créer la carte
-    m = folium.Map(location=[avg_lat, avg_long], zoom_start=5, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=1.5, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
         control_scale=True)  # barycentrée
 
     # Générer des marqueurs en camembert
@@ -297,7 +297,7 @@ def carto(grouped_, avg_lat, avg_long):
 
     return m
 
-col1, col2, col3 = st.columns((0.3,0.55,0.15))
+col1, col2, col3 = st.columns((0.1,0.75,0.15))
 with col1:
     #Unités ou Sites
     if len(grouped_)==0:

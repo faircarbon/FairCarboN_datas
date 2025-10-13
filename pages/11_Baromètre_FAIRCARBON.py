@@ -271,7 +271,7 @@ end_date = d + datetime.timedelta(days=40)
 fig_combined = make_subplots(
     rows=3, cols=2,
     shared_yaxes=True,
-    column_widths=[0.3, 0.7],
+    column_widths=[0.5, 0.5],
     row_heights=[0.3, 0.5, 0.2],
     horizontal_spacing=0.05,
     vertical_spacing=0.05,
@@ -460,7 +460,7 @@ fig_depot = make_subplots(
     rows=1, cols=2,
     shared_yaxes=True,
     horizontal_spacing=0.05,
-    column_widths=[0.3, 0.7],
+    column_widths=[0.5, 0.5],
     subplot_titles=("AVANT FAIRCARBON", "APRES FAIRCARBON")
 )
 
