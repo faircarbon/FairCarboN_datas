@@ -2,16 +2,16 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Charger le fichier csv
-csv_file = r"Data\20250602_Questionnaire_PGD_CANETE_GL.csv" 
+csv_file = r"Data\Questionnaires\QUESTIONNAIRE_PGD_FAIRCARBON_PEACE_2025-10-14_11-26-35_68ee174bbe2a28.47930520_sansXR.csv" 
 df_i = pd.read_csv(csv_file, encoding="utf-8", sep=";")
 
 df_i_p = df_i[df_i["NATURE"]=="PRODUITES"]
 df_i_e = df_i[df_i["NATURE"]=="PRE_EXISTANTES"]
 df_= pd.concat([df_i_p, df_i_e], axis=0)
 
-df__ = df_[df_['VOLUMETRIE']>1][df_['VOLUMETRIE']<1000][df_["NATURE"]=="PRODUITES"]
+#df__ = df_[df_['VOLUMETRIE']>1][df_['VOLUMETRIE']<1000][df_["NATURE"]=="PRODUITES"]
 
-df = df__.sort_values(by='VOLUMETRIE', ascending=True)
+df = df_.sort_values(by='VOLUMETRIE', ascending=True)
 
 # Optional: reset the index if you want a clean index after sorting
 df = df.reset_index(drop=True)
@@ -57,7 +57,11 @@ def generate_colors(n=30):
         colors.append(f'#{red:02x}{green:02x}{blue:02x}')
     return colors
 
-colors = generate_colors(40)
+colors = ['aqua','steelblue','lightgray','coral',
+          'lightgoldenrodyellow','lavender','orange','tomato',
+          'paleturquoise','goldenrod','palevioletred','green']
+
+#colors = generate_colors(40)
 
 
 colors_for_links = []
@@ -132,7 +136,7 @@ fig = go.Figure(go.Sankey(
 
 fig.update_layout(
     hovermode = 'x',
-    title=dict(text="<b> PARTAGE DES DONNEES CANETE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
+    title=dict(text="<b> PARTAGE DES DONNEES PEACE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
     font=dict(size = 15, color = 'black'),
     plot_bgcolor='black',
     paper_bgcolor='snow'

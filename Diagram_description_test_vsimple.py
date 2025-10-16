@@ -2,7 +2,7 @@ import pandas as pd
 import plotly.graph_objects as go
 
 # Charger le fichier csv
-csv_file = r"Data\20250602_Questionnaire_PGD_CANETE_GL.csv" 
+csv_file = r"Data\Questionnaires\QUESTIONNAIRE_PGD_FAIRCARBON_PEACE_2025-10-13_11-17-22_68ecc3a286fce3.57229345.csv" 
 df_i = pd.read_csv(csv_file, encoding="utf-8", sep=";")
 
 df_i_p = df_i[df_i["NATURE"]=="PRODUITES"]

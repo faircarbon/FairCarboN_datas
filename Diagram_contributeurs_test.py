@@ -1,8 +1,9 @@
 import pandas as pd
 import plotly.graph_objects as go
+import matplotlib.pyplot as plt
 
 # Charger le fichier csv
-csv_file = r"Data\20250602_Questionnaire_PGD_CANETE_GL.csv"  
+csv_file = r"Data\Questionnaires\QUESTIONNAIRE_PGD_FAIRCARBON_PEACE_2025-10-14_11-26-35_68ee174bbe2a28.47930520.csv"  
 df = pd.read_csv(csv_file, encoding="utf-8", sep=";")
 
 df["NOM_PRENOM"] = df["NOM"]+ "_" +df["PRENOM"]
@@ -58,12 +59,46 @@ def generate_colors(n=30):
     return colors
 
 # Générer et afficher la liste
-colors = ['green','blue','cyan','orange',
-          'magenta','lavender','yellowgreen','pink',
-          'firebrick','red','peru','darkorange',
-          'goldenrod','darkkhaki','lime',
-          'darkseagreen','turquoise','teal',
-          'slateblue','blueviolet','plum','purple','hotpink','deeppink','lightgreen']
+colors = ['aqua','steelblue','lightgray','lightcoral',
+          'lightgoldenrodyellow','lavender','lightyellow','palegreen',
+          'paleturquoise','palegoldenrod','palevioletred','lightseagreen']
+
+"""colors =['aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure',
+            'beige', 'bisque', 'black', 'blanchedalmond', 'blue',
+            'blueviolet', 'brown', 'burlywood', 'cadetblue',
+            'chartreuse', 'chocolate', 'coral', 'cornflowerblue',
+            'cornsilk', 'crimson', 'cyan', 'darkblue', 'darkcyan',
+           'darkgoldenrod', 'darkgray', 'darkgrey', 'darkgreen',
+            'darkkhaki', 'darkmagenta', 'darkolivegreen', 'darkorange',
+            'darkorchid', 'darkred', 'darksalmon', 'darkseagreen',
+            'darkslateblue', 'darkslategray', 'darkslategrey',
+            'darkturquoise', 'darkviolet', 'deeppink', 'deepskyblue',
+            'dimgray', 'dimgrey', 'dodgerblue', 'firebrick',
+            'floralwhite', 'forestgreen', 'fuchsia', 'gainsboro',
+            'ghostwhite', 'gold', 'goldenrod', 'gray', 'grey', 'green',
+            'greenyellow', 'honeydew', 'hotpink', 'indianred', 'indigo',
+            'ivory', 'khaki', 'lavender', 'lavenderblush', 'lawngreen',
+            'lemonchiffon', 'lightblue', 'lightcoral','lightcyan',
+            'lightgoldenrodyellow', 'lightgray', 'lightgrey',
+            'lightgreen', 'lightpink','lightsalmon', 'lightseagreen',
+            'lightskyblue', 'lightslategray','lightslategrey',
+            'lightsteelblue', 'lightyellow', 'lime', 'limegreen',
+            'linen', 'magenta','maroon', 'mediumaquamarine',
+            'mediumblue', 'mediumorchid', 'mediumpurple',
+            'mediumseagreen', 'mediumslateblue', 'mediumspringgreen',
+            'mediumturquoise', 'mediumvioletred', 'midnightblue',
+            'mintcream', 'mistyrose', 'moccasin', 'navajowhite', 'navy',
+            'oldlace', 'olive','olivedrab', 'orange', 'orangered',
+            'orchid', 'palegoldenrod', 'palegreen', 'paleturquoise',
+            'palevioletred', 'papayawhip', 'peachpuff', 'peru', 'pink',
+            'plum', 'powderblue', 'purple', 'red', 'rosybrown',
+            'royalblue', 'rebeccapurple', 'saddlebrown', 'salmon',
+            'sandybrown', 'seagreen', 'seashell', 'sienna', 'silver',
+            'skyblue', 'slateblue', 'slategray', 'slategrey', 'snow',
+            'springgreen', 'steelblue', 'tan', 'teal', 'thistle', 'tomato',
+            'turquoise', 'violet', 'wheat', 'white', 'whitesmoke',
+            'yellow', 'yellowgreen']"""
+#colors = plt.cm.tab20.colors
 
 #colors = generate_colors(30)
 
@@ -127,7 +162,7 @@ fig = go.Figure(go.Sankey(
 
 fig.update_layout(
     hovermode = 'x',
-    title=dict(text="<b> CONTRIBUTEURS/TRICES CANETE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
+    title=dict(text="<b> CONTRIBUTEURS/TRICES PEACE </b>", font=dict(color="black",size=18), x=0.3, y=0.01),
     font=dict(size = 14, color = 'black'),
     plot_bgcolor='black',
     paper_bgcolor='snow'
