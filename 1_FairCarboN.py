@@ -33,6 +33,11 @@ def to_rgb_string(rgb_tuple):
     r, g, b = (int(255 * c) for c in rgb_tuple)
     return f"rgb({r}, {g}, {b})"
 
+def rgb_to_hex(rgb_string):
+    """Convertit une couleur CSS 'rgb(r,g,b)' en hexadécimal '#rrggbb'."""
+    rgb = rgb_string.replace("rgb(", "").replace(")", "").split(",")
+    return "#{:02x}{:02x}{:02x}".format(*[int(x.strip()) for x in rgb])
+
 @st.cache_data
 def read_data(path):
     # Chemin vers le fichier Excel
@@ -43,6 +48,50 @@ def read_data(path):
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
 
     return df
+
+def create_pie_icon(projets, border_color, icon_size, color_map):
+    """Crée une icône de camembert encodée en base64 pour Folium."""
+    fig, ax = plt.subplots(figsize=(1, 1))
+    projet_counts = [1] * len(projets)
+    colors_used = [color_map.get(proj, "#cccccc") for proj in projets]  # couleur par défaut si projet absent
+    ax.pie(projet_counts, colors=colors_used, wedgeprops={'edgecolor': border_color, 'linewidth': 5})
+    plt.axis('off')
+
+    img_data = BytesIO()
+    plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
+    plt.close(fig)
+    img_data.seek(0)
+    encoded = base64.b64encode(img_data.read()).decode()
+
+    icon_url = f"data:image/png;base64,{encoded}"
+    return folium.CustomIcon(icon_image=icon_url, icon_size=icon_size)
+
+st.cache_resource
+def carto2(grouped_, avg_lat, avg_long, color_map2):
+    """Crée une carte Folium avec des marqueurs camemberts pour chaque laboratoire ou site."""
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=1.5, tiles='CartoDB positron', control_scale=True)
+
+    for _, row in grouped_.iterrows():
+        projets = row['projet']
+        latitude = row['Latitude']
+        longitude = row['Longitude']
+        type_data = row['Type_Data']
+        laboratoire = row.get('laboratoire', 'Laboratoire inconnu')
+
+        if type_data == "Labo":
+            icon = create_pie_icon(projets, border_color="black", icon_size=(35, 35), color_map=color_map2)
+        elif type_data == "Site":
+            icon = create_pie_icon(projets, border_color="red", icon_size=(30, 30), color_map=color_map2)
+        else:
+            continue  # ignorer les types inconnus
+
+        popup_html = "<b>Projets :</b><br>" + "<br>".join(projets)
+        popup = folium.Popup(popup_html, max_width=250)
+        tooltip = laboratoire
+
+        folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
+
+    return m
 
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
@@ -58,7 +107,6 @@ ordre_perso = ["ALAMOD","SLAM-B","RIFT","CrosyeN","CarboNium","CABESTAN","CANETE
                    "PEACE","TROPECOS","CLIM-FAS","CO2_CMPhi","GREENSCALE","PREFALIM","RhizoSeqC","PEPR"]
 
 # Create a list of colors (one per project)
-colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
 colors = [
 "rgb(141,211,199)",
 "rgb(255,255,179)",
@@ -79,7 +127,23 @@ colors = [
 "rgb(204,204,255)",
 ]
 
-st.write(colors)
+color_map2 = {"ALAMOD":"#8DD3C7",
+              "SLAM-B":"#FFFFB3",
+              "RIFT":"#BEBADA",
+              "CrosyeN":"#FB8072",
+              "CarboNium":"#80B1D3",
+              "CABESTAN":"#FDB462",
+              "CANETE":"#B3DE69",
+              "DEEP-C":"#FCCDE5",
+              "Drought for C":"#D9D9D9",
+              "PEACE":"#BC80BD",
+              "TROPECOS":"#CCEBC5",
+              "CLIM-FAS":"#FFED6F",
+              "CO2_CMPhi":"#B37700",
+              "GREENSCALE":"#B3FFBF",
+              "PREFALIM":"#FFEECC",
+              "RhizoSeqC":"#CCFFEE",
+              "PEPR":"#CCCCFF"}
 
 
 ######################################################################################################################
@@ -250,71 +314,6 @@ else:
 ########### CARTOGRAPHIE & NUAGE DE MOTS ######################################################
 ###############################################################################################
 
-st.cache_resource
-def carto(grouped_, avg_lat, avg_long):
-    # Créer la carte
-    m = folium.Map(location=[avg_lat, avg_long], zoom_start=1.5, tiles='CartoDB positron',  # Ou 'Stamen Toner Lite'
-        control_scale=True)  # barycentrée
-
-    # Générer des marqueurs en camembert
-    for _, row in grouped_.iterrows():
-        projets = row['projet']
-        latitude = row['Latitude']
-        longitude = row['Longitude']
-        type_data = row['Type_Data']
-
-        if type_data == "Labo":
-            # Créer un graphique en camembert
-            fig, ax = plt.subplots(figsize=(1, 1))
-            projet_counts = [1] * len(projets)  # égale pondération
-            colors_used = [project_color_map[proj] for proj in projets]
-            #ax.pie(projet_counts, colors=colors_used) version sans bordure
-            wedges, _ = ax.pie(
-                projet_counts,
-                colors=colors_used,
-                wedgeprops={'edgecolor': 'black', 'linewidth': 5}  # Bordure noire épaisse
-            )
-            plt.axis('off')
-
-            # Sauvegarder en mémoire
-            img_data = BytesIO()
-            plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
-            plt.close(fig)
-            img_data.seek(0)
-            encoded = base64.b64encode(img_data.read()).decode()
-
-            icon_url = f"data:image/png;base64,{encoded}"
-            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(35, 35))
-        
-        elif type_data == "Site":
-            # Créer un graphique en camembert
-            fig, ax = plt.subplots(figsize=(1, 1))
-            projet_counts = [1] * len(projets)  # égale pondération
-            colors_used = [project_color_map[proj] for proj in projets]
-            #ax.pie(projet_counts, colors=colors_used) version sans bordure
-            wedges, _ = ax.pie(
-                projet_counts,
-                colors=colors_used,
-                wedgeprops={'edgecolor': 'red', 'linewidth': 5}  # Bordure rouge épaisse
-            )
-            plt.axis('off')
-
-            # Sauvegarder en mémoire
-            img_data = BytesIO()
-            plt.savefig(img_data, format='png', bbox_inches='tight', transparent=True)
-            plt.close(fig)
-            img_data.seek(0)
-            encoded = base64.b64encode(img_data.read()).decode()
-
-            icon_url = f"data:image/png;base64,{encoded}"
-            icon = folium.CustomIcon(icon_image=icon_url, icon_size=(30, 30))
-
-        # Ajouter le marqueur
-        popup = folium.Popup("<br>".join(projets), max_width=200)
-        tooltip = row['laboratoire']
-        folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
-
-    return m
 
 col1, col2, col3 = st.columns((0.1,0.75,0.15))
 with col1:
@@ -353,23 +352,23 @@ with col1:
         st.pyplot(fig_n0b)
 
 with col2:
-    m = carto(grouped_, avg_lat, avg_long)
+    m = carto2(grouped_, avg_lat, avg_long, color_map2)
     st_folium(m, width=800)
 
 ###############################################################################################
 ########### LEGENDE CARTO #####################################################################
 ###############################################################################################
-colors2 = plt.cm.tab20.colors  # Palette de couleurs
-
 with col3:
     st.subheader("Légende")
-    for i in range(len(projects)):
-        rgb_css = to_rgb_string(colors2[i])
+    for projet in ordre_perso:
+        couleur = color_map2.get(projet, "#cccccc")  # couleur par défaut si projet 
         st.markdown(
-            f'<div style="display: flex; align-items: center;">'
-            f'<div style="width: 15px; height: 15px; background-color: {rgb_css}; border-radius: 3px; margin-right: 10px;"></div>'
-            f'<span>{projects[i]}</span>'
-            f'</div>',
+            f"""
+            <div style="display: flex; align-items: center; margin-bottom: 5px;">
+                <div style="width: 15px; height: 15px; background-color: {couleur}; border-radius: 3px; margin-right: 10px;"></div>
+                <span>{projet}</span>
+            </div>
+            """,
             unsafe_allow_html=True
         )
 
