@@ -52,10 +52,35 @@ df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
 df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 
 # Couleurs associées à chaque projet
-projects = sorted(df_Labo_Site['projet'].unique())
-laboratoires = sorted(df_Labo_Site['laboratoire'].unique())
-colors = plt.cm.tab20.colors  # Palette de couleurs
-project_color_map = {project: colors[i % len(colors)] for i, project in enumerate(projects)}
+projects = sorted(df_Contacts['projet'].unique())
+unites = sorted(df_Contacts['Sigle structure'].unique())
+ordre_perso = ["ALAMOD","SLAM-B","RIFT","CrosyeN","CarboNium","CABESTAN","CANETE","DEEP-C","Drought for C",
+                   "PEACE","TROPECOS","CLIM-FAS","CO2_CMPhi","GREENSCALE","PREFALIM","RhizoSeqC","PEPR"]
+
+# Create a list of colors (one per project)
+colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
+colors = [
+"rgb(141,211,199)",
+"rgb(255,255,179)",
+"rgb(190,186,218)",
+"rgb(251,128,114)",
+"rgb(128,177,211)",
+"rgb(253,180,98)",
+"rgb(179,222,105)",
+"rgb(252,205,229)",
+"rgb(217,217,217)",
+"rgb(188,128,189)",
+"rgb(204,235,197)",
+"rgb(255,237,111)",
+"rgb(179,119,0)",
+"rgb(179,255,191)",
+"rgb(255,238,204)",
+"rgb(204,255,238)",
+"rgb(204,204,255)",
+]
+
+st.write(colors)
+
 
 ######################################################################################################################
 ########### NOMBRE LABOS PAR PROJET ##################################################################################
@@ -64,11 +89,13 @@ project_color_map = {project: colors[i % len(colors)] for i, project in enumerat
 st.title(f":grey[Analyse générale des données de FAIRCARBON]")
 col1 , col2, col3 = st.columns(3)
 with col1:
-    compte_labos_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Labo"].value_counts()
 
-    # Create a list of colors (one per project)
-    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-    project_names = compte_labos_par_projet.index
+    df_lab_counts = df_Contacts.groupby("projet")['Sigle structure'].nunique().reset_index()
+    df_lab_counts.rename(columns={"Sigle structure": "Nombre d'Unités"}, inplace=True)
+    df_lab_counts["projet"] = pd.Categorical(df_lab_counts["projet"], categories=ordre_perso, ordered=True)
+    df_lab_counts = df_lab_counts.sort_values("projet")
+
+    project_names = df_lab_counts['projet']
     color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
 
     # Assign colors based on the project
@@ -76,7 +103,7 @@ with col1:
 
     # Plot
     fig0 = go.Figure(go.Bar(
-        x=compte_labos_par_projet.values,
+        x=df_lab_counts["Nombre d'Unités"],
         y=project_names,
         orientation='h',
         marker_color=bar_colors  # Assign custom colors
@@ -85,24 +112,19 @@ with col1:
     fig0.update_layout(height=400,
                        margin=dict(t=0))
 
-    st.subheader(f":grey[Nombre d'unités]")
-    st.metric(label='', value=len(set(df_Labo_Site['laboratoire'][df_Labo_Site['Type_Data']=="Labo"])))
+    st.subheader(f":grey[Nb d'unités]")
+    st.metric(label='', value=len(set(df_Contacts['Sigle structure'].unique())))
     st.plotly_chart(fig0, use_container_width=True)
 
 with col2:
-    compte_contacts_par_projet = df_Contacts["projet"].value_counts()
-
-    # Create a list of colors (one per project)
-    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-    project_names = compte_contacts_par_projet.index
-    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
-
-    # Assign colors based on the project
-    bar_colors = [color_map[project] for project in project_names]
+    df_contacts_counts = df_Contacts.groupby("projet")['Contact'].nunique().reset_index()
+    df_contacts_counts.rename(columns={"Contact": "Nombre de contacts"}, inplace=True)
+    df_contacts_counts["projet"] = pd.Categorical(df_contacts_counts["projet"], categories=ordre_perso, ordered=True)
+    df_contacts_counts = df_contacts_counts.sort_values("projet")
 
     # Plot
     fig0b = go.Figure(go.Bar(
-        x=compte_contacts_par_projet.values,
+        x=df_contacts_counts["Nombre de contacts"],
         y=project_names,
         orientation='h',
         marker_color=bar_colors  # Assign custom colors
@@ -111,24 +133,21 @@ with col2:
     fig0b.update_layout(height=400,
                         margin=dict(t=0))
 
-    st.subheader(f":grey[Nombre de contacts]")
+    st.subheader(f":grey[Nb de contacts]")
     st.metric(label='', value=len(set(df_Contacts['Contact'])))
     st.plotly_chart(fig0b, use_container_width=True)
 
 with col3:
-    compte_sites_par_projet = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts()
-
-    # Create a list of colors (one per project)
-    colors = px.colors.qualitative.Set3 # Or use px.colors.qualitative.* for more sets
-    project_names = compte_sites_par_projet.index
-    color_map = {project: colors[i % len(colors)] for i, project in enumerate(project_names)}
-
-    # Assign colors based on the project
-    bar_colors = [color_map[project] for project in project_names]
+    df_sites_counts = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts().reset_index()
+    df_sites_counts.rename(columns={"count": "Nombre de sites"}, inplace=True)
+    df_projets_sans_sites = pd.DataFrame({"projet": ["CO2_CMPhi","GREENSCALE","PREFALIM","RhizoSeqC","PEPR"],"Nombre de sites": [0, 0, 0, 0, 0]})
+    df_sites_counts_ = pd.concat([df_sites_counts,df_projets_sans_sites], axis=0)
+    df_sites_counts_['projet'] = pd.Categorical(df_sites_counts_['projet'], categories=ordre_perso, ordered=True)
+    df_sites_counts_ = df_sites_counts_.sort_values("projet")
 
     # Plot
     fig0c = go.Figure(go.Bar(
-        x=compte_sites_par_projet.values,
+        x=df_sites_counts_["Nombre de sites"],
         y=project_names,
         orientation='h',
         marker_color=bar_colors  # Assign custom colors
@@ -137,7 +156,7 @@ with col3:
     fig0c.update_layout(height=400,
                         margin=dict(t=0))
 
-    st.subheader(f":grey[Nombre de sites]")
+    st.subheader(f":grey[Nb de sites/Lieux étudiés]")
     st.metric(label='', value=len(set(df_Labo_Site['laboratoire'][df_Labo_Site['Type_Data']=="Site"])))
     st.plotly_chart(fig0c, use_container_width=True)
 
