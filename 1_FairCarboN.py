@@ -404,6 +404,8 @@ with col1:
     # Convert 'num_other_projects' to string for consistent sorting in plot
     summary_prop['num_other_projects'] = summary_prop['num_other_projects'].astype(str)
 
+    summary_prop['projet'] = pd.Categorical(summary_prop['projet'], categories=ordre_perso, ordered=True)
+
     # Liste des valeurs uniques
     projects = summary_prop['projet'].unique()
     other_project_levels = sorted(summary_prop['num_other_projects'].unique())
@@ -423,7 +425,7 @@ with col1:
     fig2 = go.Figure(data=traces)
     fig2.update_layout(
         barmode='stack',
-        yaxis=dict(autorange='reversed'),
+        yaxis=dict(categoryorder='array',categoryarray=ordre_perso),
         legend_title="Nombre d'autres implications",
         margin=dict(l=100, r=20, t=60, b=40),
         xaxis_title="Proportion parmi les unités membres du projet",
@@ -446,6 +448,8 @@ with col2:
     summary_prop2 = summary2.div(summary2.sum(axis=1), axis=0)
     summary_prop2 = summary_prop2.reset_index().melt(id_vars='projet', var_name='num_other_projects', value_name='proportion')
     summary_prop2['num_other_projects'] = summary_prop2['num_other_projects'].astype(str)
+
+    summary_prop2['projet'] = pd.Categorical(summary_prop2['projet'], categories=ordre_perso, ordered=True)
     
     # Filtrer les projets sélectionnés
     filtered_df = summary_prop2[summary_prop2['projet'].isin(projets_selected)]
@@ -469,7 +473,7 @@ with col2:
     fig2b = go.Figure(data=traces)
     fig2b.update_layout(
         barmode='stack',
-        yaxis=dict(autorange='reversed'),
+        yaxis=dict(categoryorder='array',categoryarray=ordre_perso),
         legend_title="Nombre d'autres implications",
         xaxis_title="Proportion parmi les contacts du projet",
         yaxis_title="Projets",
@@ -497,6 +501,8 @@ counts['Proportion'] = counts['Nombre'] / totals * 100
 fonctions = sorted(counts['Fonction'].unique())
 projects = counts['projet'].unique()
 
+counts['projet'] = pd.Categorical(counts['projet'], categories=ordre_perso, ordered=True)
+
 # Créer une trace par fonction
 traces = []
 for fonction in fonctions:
@@ -506,7 +512,7 @@ for fonction in fonctions:
         x=df_fct['Proportion'],
         name=fonction,
         orientation='h',
-        text=df_fct['Nombre'],
+        #text=df_fct['Nombre'],
         textposition='inside',
         insidetextanchor='start',
         textfont=dict(size=20)
@@ -516,7 +522,7 @@ for fonction in fonctions:
 fig_fonction = go.Figure(data=traces)
 fig_fonction.update_layout(
     barmode='stack',
-    yaxis=dict(categoryorder='total ascending'),
+    yaxis=dict(categoryorder='array', categoryarray=ordre_perso),
     xaxis=dict(title='Proportion (%)', ticksuffix='%'),
     yaxis_title='Projet',
     legend_title='Fonction',
