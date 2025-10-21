@@ -99,6 +99,7 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
 # Charger les données
 df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
 df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
+df_Labo2 = read_data("Data\FairCarboN_Datas_Labo2")
 
 # Couleurs associées à chaque projet
 projects = sorted(df_Contacts['projet'].unique())
@@ -535,7 +536,105 @@ with col1:
     st.subheader(":grey[Répartition des fonctions par projet]")
     st.plotly_chart(fig_fonction, use_container_width=True)
 
+###############################################################################################
+########### ANALYSE TUTELLES ##################################################################
+###############################################################################################
 
+# Étape 1 : transformer la colonne 'Tutelles' en liste
+df_Labo2['tutelle_list'] = df_Labo2['Tutelles'].str.split(r'\s*/\s*')
+
+# Étape 2 : exploser les tutelles
+df_exploded = df_Labo2.explode('tutelle_list')
+
+# Étape 3 : normaliser les tutelles
+df_exploded['tutelle_list'] = df_exploded['tutelle_list'].str.strip().str.upper()
+
+# Étape 4 : filtrer les tutelles ciblées
+tutelles_cibles = ['CNRS', 'INRAE', 'IRD', 'CIRAD']
+df_exploded = df_exploded[df_exploded['tutelle_list'].isin(tutelles_cibles)]
+
+# Étape 5 : compter le nombre de laboratoires par projet et tutelle
+counts_tutelles = df_exploded.groupby(['projet', 'tutelle_list'])['Sigle structure'].nunique().reset_index(name='count')
+
+# Appliquer l’ordre comme catégorie ordonnée
+counts_tutelles['projet'] = pd.Categorical(counts_tutelles['projet'], categories=ordre_perso, ordered=True)
+
+# Étape 7 : créer une trace par tutelle
+traces_tutelles = []
+for tutelle in tutelles_cibles:
+    df_tut = counts_tutelles[counts_tutelles['tutelle_list'] == tutelle]
+    traces_tutelles.append(go.Bar(
+        y=df_tut['projet'],
+        x=df_tut['count'],
+        name=tutelle,
+        orientation='h',
+        #text=df_tut['count'],
+        textposition='auto',
+        hovertemplate='%{x} labos<br>Projet: %{y}<br>Tutelle: %{trace.name}<extra></extra>'
+    ))
+
+# Étape 8 : créer la figure
+fig_tutelles = go.Figure(data=traces_tutelles)
+fig_tutelles.update_layout(
+    barmode='stack',
+    yaxis=dict(
+        categoryorder='array',
+        categoryarray=ordre_perso
+    ),
+    xaxis_title='Nombre de laboratoires',
+    yaxis_title='Projet',
+    legend_title='Tutelle',
+    margin=dict(l=100, r=20, t=60, b=40),
+    template='plotly_white'
+)
+
+# Étape 9 : afficher dans Streamlit
+st.subheader(":grey[Nombre de laboratoires affiliés à chaque tutelle par projet]")
+st.plotly_chart(fig_tutelles, use_container_width=True)
+
+###############################################################################################
+########### ANALYSE DOMAINES SCIENTIFIQUES ####################################################
+###############################################################################################
+
+df_Labo2['domaines_list'] = df_Labo2['Domaine scientifique'].str.split(r'\s*/\s*')
+df_domains = df_Labo2.explode('domaines_list')
+df_domains['domaines_list'] = df_domains['domaines_list'].str.strip()
+
+counts_domaines = df_domains.groupby(['projet', 'domaines_list'])['Sigle structure'].nunique().reset_index(name='count')
+
+counts_domaines['projet'] = pd.Categorical(counts_domaines['projet'], categories=ordre_perso, ordered=True)
+
+domaines_uniques = sorted(counts_domaines['domaines_list'].unique())
+traces_domaines = []
+
+for domaine in domaines_uniques:
+    df_dom = counts_domaines[counts_domaines['domaines_list'] == domaine]
+    traces_domaines.append(go.Bar(
+        y=df_dom['projet'],
+        x=df_dom['count'],
+        name=domaine,
+        orientation='h',
+        #text=df_dom['count'],
+        textposition='auto',
+        hovertemplate='%{x} labos<br>Projet: %{y}<br>Domaine: %{trace.name}<extra></extra>'
+    ))
+
+fig_domains = go.Figure(data=traces_domaines)
+fig_domains.update_layout(
+    barmode='stack',
+    yaxis=dict(
+        categoryorder='array',
+        categoryarray=ordre_perso
+    ),
+    xaxis_title='Nombre de laboratoires',
+    yaxis_title='Projet',
+    legend_title='Domaines scientifiques',
+    margin=dict(l=100, r=20, t=60, b=40),
+    template='plotly_white'
+)
+
+st.subheader(":grey[Nombre de laboratoires associés aux domaines scientifiques]")
+st.plotly_chart(fig_domains, use_container_width=True)
 
 ###############################################################################################
 ########### ANALYSE LIENS PAR VISU GRAPHE #####################################################
