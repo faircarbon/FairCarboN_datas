@@ -69,14 +69,14 @@ def create_pie_icon(projets, border_color, icon_size, color_map):
 st.cache_resource
 def carto2(grouped_, avg_lat, avg_long, color_map2):
     """Crée une carte Folium avec des marqueurs camemberts pour chaque laboratoire ou site."""
-    m = folium.Map(location=[avg_lat, avg_long], zoom_start=5.5, tiles='CartoDB positron', control_scale=True)
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=1.5, tiles='CartoDB positron', control_scale=True)
 
     for _, row in grouped_.iterrows():
         projets = row['projet']
         latitude = row['Latitude']
         longitude = row['Longitude']
         type_data = row['Type_Data']
-        laboratoire = row.get('laboratoire', 'Laboratoire inconnu')
+        laboratoire = row.get('Sigle structure', 'Laboratoire inconnu')
 
         if type_data == "Labo":
             icon = create_pie_icon(projets, border_color="black", icon_size=(35, 35), color_map=color_map2)
@@ -97,7 +97,7 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
 ########### DONNEES INITIALES ########################################################################################
 ######################################################################################################################
 # Charger les données
-df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo")
+df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo2")
 df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 df_Labo2 = read_data("Data\FairCarboN_Datas_Labo2")
 
@@ -222,7 +222,7 @@ with col3:
                         margin=dict(t=0))
 
     st.subheader(f":grey[Nb de sites/Lieux étudiés]")
-    st.metric(label='', value=len(set(df_Labo_Site['laboratoire'][df_Labo_Site['Type_Data']=="Site"])))
+    st.metric(label='', value=len(set(df_Labo_Site['Libellé structure'][df_Labo_Site['Type_Data']=="Site"])))
     st.plotly_chart(fig0c, use_container_width=True)
 
 ###############################################################################################
@@ -259,30 +259,30 @@ else:
     df_contacts_selected = df_Contacts[df_Contacts['projet'].isin(Selection_projets)]
     projets_selected = Selection_projets
 
-laboratoires_select = df_selected[['laboratoire','Type_Data']]
+laboratoires_select = df_selected[['Sigle structure','Type_Data']]
 laboratoires_bis_Unites = laboratoires_select[laboratoires_select['Type_Data']=='Labo']
 laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='Site']
 
 
 # Regrouper par projet
-grouped = df_selected.groupby(['laboratoire','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped = df_selected.groupby(['Sigle structure','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
 grouped_contacts = df_contacts_selected.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
 
 if Unites:
     grouped_ = grouped[grouped['Type_Data']=='Labo']
     grouped_contacts_ = grouped_contacts
-    data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Labo'].values
+    data_sigles = df_selected['Sigle structure'][df_selected['Type_Data']=='Labo'].values
     data_projet = df_selected['projet'][df_selected['Type_Data']=='Labo'].values
 elif Sites:
     grouped_ = grouped[grouped['Type_Data']=='Site']
     grouped_contacts_ = grouped_contacts
-    data_sigles = df_selected['laboratoire'][df_selected['Type_Data']=='Site'].values
+    data_sigles = df_selected['Sigle structure'][df_selected['Type_Data']=='Site'].values
     data_projet = df_selected['projet'][df_selected['Type_Data']=='Site'].values
 elif Unites_Sites:
     grouped_ = grouped[grouped['Type_Data'].isin(['Labo','Site'])]
     grouped_contacts_ = grouped_contacts
-    data_sigles = df_selected['laboratoire'][df_selected['Type_Data'].isin(['Labo','Site'])].values
+    data_sigles = df_selected['Sigle structure'][df_selected['Type_Data'].isin(['Labo','Site'])].values
     data_projet = df_selected['projet'][df_selected['Type_Data'].isin(['Labo','Site'])].values
 else:
     grouped_ = pd.DataFrame()
@@ -323,7 +323,7 @@ with col1:
         pass
     else:
         # Assign the same frequency to each name
-        frequencies = {name: 1 for name in grouped_['laboratoire'].values}
+        frequencies = {name: 1 for name in grouped_['Sigle structure'].values}
 
         # Generate the word cloud
         wordcloud = WordCloud(width=200, height=200, background_color='white', colormap='viridis').generate_from_frequencies(frequencies)
@@ -383,11 +383,11 @@ col1, col2 = st.columns(2)
 with col1:
     # Compte du nombre de projets pour chaque labo
     df_units = df_Labo_Site[df_Labo_Site['Type_Data']=="Labo"]
-    lab_project_counts = df_units.groupby('laboratoire')['projet'].nunique().reset_index()
-    lab_project_counts.columns = ['laboratoire', 'num_projects']
+    lab_project_counts = df_units.groupby('Sigle structure')['projet'].nunique().reset_index()
+    lab_project_counts.columns = ['Sigle structure', 'num_projects']
 
     # Merge count retour dans l'original DataFrame
-    df = df_Labo_Site.merge(lab_project_counts, on='laboratoire')
+    df = df_Labo_Site.merge(lab_project_counts, on='Sigle structure')
     df['num_other_projects'] = df['num_projects'] - 1
 
     # Pivot to count labs per project by number of other projects

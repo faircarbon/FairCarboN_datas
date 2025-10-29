@@ -13,7 +13,7 @@ def afficher_texte_reponse_api_hal(requete_api_hal: str):
 def afficher_erreur_api(erreur):
     print(f"Erreur lors de l'appel à l'API HAL : {erreur}")
 
-def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, sollicitation: str)-> pd.DataFrame : 
+def afficher_publications_hal(requete_api_hal: str, auteur: str, lab: str, projet: str, sollicitation: str)-> pd.DataFrame : 
     """Interroge l'API HAL et retourne les publications dans un DataFrame"""
     reponse_df = pd.DataFrame()  # DataFrame vide par défaut
 
@@ -48,8 +48,8 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, so
             dates_completes_depot.append(safe_get(doc, 'releasedDate_s', None))
             dates_completes_prod.append(safe_get(doc, 'producedDate_s', None))
             authors.append(safe_get(doc, 'authLastNameFirstName_s', []))
-            collection.append(safe_get(doc, 'collName_s', ['Collection_inexistante']))
-            collection_codes.append(safe_get(doc, 'collCode_s', ['Code_inexistant']))
+            collection.append(safe_get(doc, 'collName_s', ['Pas_de_collection']))
+            collection_codes.append(safe_get(doc, 'collCode_s', ['Pas_de_code']))
             organisme.append(safe_get(doc, 'instStructAcronym_s', ['organisme_inexistant']))
             labo_all.append(safe_get(doc, 'authIdHasStructure_fs', ['_pasdelabo']))
             labos.append(safe_get(doc, 'labStructName_s', ['Structure_non_mentionnée']))
@@ -68,6 +68,7 @@ def afficher_publications_hal(requete_api_hal: str, auteur: str, projet: str, so
         reponse_df = pd.DataFrame({
             'Nom_archive': sources,
             'Auteur_recherché': [auteur] * len(ids),
+            'Sigle structure': [lab] * len(ids),
             'Projet': [projet] * len(ids),
             'Ids': ids,
             'Titre et auteurs': labels,

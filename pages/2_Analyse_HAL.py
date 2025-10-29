@@ -67,9 +67,10 @@ def read_data(path):
     return df
 
 @st.cache_data
-def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_sollicitation):
+def acquisition_data(start_year,end_year,liste_chercheurs, liste_labs, liste_projet, liste_sollicitation):
     liste_columns_hal = ['Nom_archive',
                          'Auteur_recherché',
+                         'Sigle structure',
                          'Projet',
                          'Ids',
                          'Titre et auteurs',
@@ -101,7 +102,7 @@ def acquisition_data(start_year,end_year,liste_chercheurs, liste_projet, liste_s
         print(i)
         #url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&fq=producedDateY_i:[{start_year} TO {end_year}]&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, producedDateY_i,authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
         url_type = f'http://api.archives-ouvertes.fr/search/?q=text:"{s.lower().strip()}"&rows=1500&wt=json&sort=docid asc&fl=docid,label_s,uri_s,submitType_s,docType_s, releasedDateY_i,releasedDate_s,producedDate_s, authLastNameFirstName_s,collName_s,collCode_s,instStructAcronym_s,collCode_s,authIdHasStructure_fs,title_s,labStructName_s,language_s,keyword_s,anrProjectAcronym_s,anrProjectTitle_s,europeanProjectAcronym_s,europeanProjectTitle_s,funding_s'
-        df = afficher_publications_hal(url_type, s, liste_projet.iloc[i], liste_sollicitation[i])
+        df = afficher_publications_hal(url_type, s, liste_labs.iloc[i], liste_projet.iloc[i], liste_sollicitation[i])
         dfi = pd.concat([df_global_hal,df], axis=0)
         dfi.reset_index(inplace=True)
         dfi.drop(columns='index', inplace=True)
@@ -149,12 +150,13 @@ end_year=d.year
 liste_chercheurs = df['Contact']
 liste_projet = df['projet']
 liste_sollicitation = df['Sollicitation']
+liste_labs = df['Sigle structure']
 
 ###############################################################################################
 ########### ACQUISITION DONNEES DE HAL ########################################################
 ###############################################################################################
 st.success("Connexion établie avec HAL")
-df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_projet=liste_projet, liste_sollicitation=liste_sollicitation)
+df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_labs=liste_labs, liste_projet=liste_projet, liste_sollicitation=liste_sollicitation)
 
 # Tableau de l'existant dans la collection FAIRCARBON
 filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
@@ -163,7 +165,8 @@ filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names:
 df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
 ###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Date complete depot','Date complete production','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates()
+df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Date complete depot','Date complete production','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates(subset=['Auteur_recherché','Premier_auteur','Ids'])
+
 df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
     lambda x: x.split('/') if isinstance(x, str) and x else []
 )
@@ -205,7 +208,10 @@ df_unique = df_inter[['Ids','Date de publication','Value']].drop_duplicates()
 df_yearly = df_unique.groupby('Date de publication')['Value'].sum().reset_index()
 
 # Créer le graphique
-fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
+fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN', color_discrete_sequence=['green'])
+fig_dates.update_layout(
+    xaxis_title="Date du dépôt sur HAL",
+)
 st.plotly_chart(fig_dates, use_container_width=True)
 
 ###############################################################################################
@@ -247,16 +253,16 @@ with col3:
 ########### PREPARATIONS PARETOS ############################################################
 ###############################################################################################
 
-unique_projet_titles = df_global_hal_proj[['Projet','Titre_unique']].drop_duplicates()
+unique_projet_titles = df_global_hal_proj[['Projet','Titre_unique']].drop_duplicates(subset=['Projet','Titre_unique'])
 projects_count = unique_projet_titles['Projet'].value_counts().reset_index()
 projects_count.columns = ['Projet', 'compte']
 
-unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_unique']].drop_duplicates()
+unique_person_titles = df_global_hal_proj[['Auteur_recherché','Titre_unique']].drop_duplicates(subset=['Auteur_recherché','Titre_unique'])
 row_counts = unique_person_titles['Auteur_recherché'].value_counts().reset_index()
 row_counts.columns = ['Auteur', 'compte']
 
-unique_labo_titles = df_global_hal_proj[['Labo_unique','Titre_unique']].drop_duplicates()
-labo_count = unique_labo_titles['Labo_unique'].value_counts().reset_index()
+unique_labo_titles = df_global_hal_proj[['Sigle structure','Titre_unique']].drop_duplicates(subset=['Sigle structure','Titre_unique'])
+labo_count = unique_labo_titles['Sigle structure'].value_counts().reset_index()
 labo_count.columns = ['Labo', 'compte']
 top10_labo_count = labo_count.sort_values(by='compte', ascending=False).head(20)
 
@@ -267,8 +273,8 @@ df_pareto['cum_percentage'] = df_pareto['compte'].cumsum() / df_pareto['compte']
 top_n = 20
 df_pareto_plot = df_pareto.head(top_n)
 
-unique_auteurs_titles = df_global_hal_proj[['Labo_unique','Auteur_recherché']].drop_duplicates()
-labo_count2 = unique_auteurs_titles['Labo_unique'].value_counts().reset_index()
+unique_auteurs_titles = df_global_hal_proj[['Sigle structure','Auteur_recherché']].drop_duplicates(subset=['Sigle structure','Auteur_recherché'])
+labo_count2 = unique_auteurs_titles['Sigle structure'].value_counts().reset_index()
 labo_count2.columns = ['Labo', 'compte']
 top10_labo_count2 = labo_count2.sort_values(by='compte', ascending=False).head(20)
 
@@ -312,7 +318,7 @@ fig_pareto_pub.add_trace(go.Bar(
     x=df_pareto_plot['Labo'],
     y=df_pareto_plot['compte'],
     name='Nombre de publications',
-    marker_color="mediumturquoise",
+    marker_color="green",
     yaxis='y1'
 ))
 
@@ -323,7 +329,7 @@ fig_pareto_pub.add_trace(go.Scatter(
     name='Pourcentage cumulé',
     yaxis='y2',
     mode='lines+markers',
-    marker=dict(color='tomato'),
+    marker=dict(color='black'),
     line=dict(width=2)
 ))
 
@@ -353,8 +359,8 @@ for i, row in df_pareto_plot.iterrows():
         arrowhead=1,
         ax=0,
         ay=-20,
-        font=dict(size=10, color='tomato'),
-        arrowcolor='tomato',
+        font=dict(size=10, color='black'),
+        arrowcolor='black',
         align='center'
     )
 
@@ -437,3 +443,35 @@ st.plotly_chart(fig_pareto, use_container_width=True)
 #st.write(reponse.json()['response']['docs'][4])
 #test_liste_coll.append(reponse.json()['response']['docs'][0]['collCode_s'])
 #st.write(test_liste_coll)
+
+# Définir les catégories et les valeurs
+labels = [
+    "Dépôt HAL depuis 2024",
+    "Pas de dépôts HAL depuis 2024",
+    "Aucun dépôt HAL identifié"
+]
+
+values = [
+    412,              # Dépôts depuis 2024
+    427 - 412,        # Dépôts uniquement avant 2024
+    474 - 427         # Aucun dépôt HAL
+]
+
+# Couleurs personnalisées (tu peux les adapter)
+custom_colors = ["#2ca02c", "#ff7f0e", "#d62728"]  # vert, orange, rouge
+
+# Créer le pie chart
+fig_usagehal = go.Figure(data=[go.Pie(
+    labels=labels,
+    values=values,
+    textinfo='label+percent',
+    hoverinfo='label+value',
+    marker=dict(colors=custom_colors, line=dict(color='#000000', width=1))
+)])
+
+fig_usagehal.update_layout(
+    title="Statistiques de dépôt HAL",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_usagehal, use_container_width=True)
