@@ -69,7 +69,7 @@ def create_pie_icon(projets, border_color, icon_size, color_map):
 st.cache_resource
 def carto2(grouped_, avg_lat, avg_long, color_map2):
     """Crée une carte Folium avec des marqueurs camemberts pour chaque laboratoire ou site."""
-    m = folium.Map(location=[avg_lat, avg_long], zoom_start=1.5, tiles='CartoDB positron', control_scale=True)
+    m = folium.Map(location=[avg_lat, avg_long], zoom_start=5.5, tiles='CartoDB positron', control_scale=True)
 
     for _, row in grouped_.iterrows():
         projets = row['projet']
