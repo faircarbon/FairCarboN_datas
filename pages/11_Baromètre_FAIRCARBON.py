@@ -66,8 +66,8 @@ couleurs = {
 }
 
 couleurs_depots = {
-    'Zenodo':'#2ca02c',
-    'Recherche Data Gouv':'#9467bd',
+    'Zenodo':'#9467bd',
+    'Recherche Data Gouv':"#2ca049",
     'Data InDoRes':'#ff7f0e',
 }
 
@@ -485,7 +485,7 @@ for archive in cumulative_depot.columns:
         name=archive,
         stackgroup='one',
         line=dict(color=couleurs_depots.get(archive)),
-        text=percentages[archive],
+        text=percentages[archive] if archive == 'Recherche Data Gouv' else None,
         textposition='top right',
         hoverinfo='x+y+name+text',
         showlegend=False
@@ -508,7 +508,7 @@ fig_depot.update_xaxes(
 )
 
 fig_depot.update_xaxes(
-    range=[2023, 2025 + 0.1],
+    range=[2023, 2025 + 0.2],
     tickmode='linear',
     tickformat='d',
     title_text="Année",
@@ -525,7 +525,7 @@ fig_depot.update_layout(
         bgcolor='rgba(255,255,255,0.8)',  # fond semi-transparent
         bordercolor='black',
         borderwidth=1,
-        font=dict(size=12)
+        font=dict(size=25)
     )
 )
 

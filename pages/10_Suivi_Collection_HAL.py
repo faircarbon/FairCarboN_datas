@@ -49,6 +49,24 @@ def read_data(path):
 d = datetime.date.today()
 df = read_data("Data\FairCarboN_Datas_Contacts")
 
+color_map2 = {"ALAMOD":"#8DD3C7",
+              "SLAM-B":"#FFC0B5",
+              "RIFT":"#BEBADA",
+              "CrosyeN":"#FB8072",
+              "CarboNium":"#80B1D3",
+              "CABESTAN":"#FDB462",
+              "CANETE":"#B3DE69",
+              "DEEP-C":"#FCCDE5",
+              "Drought for C":"#993921",
+              "PEACE":"#BC80BD",
+              "TROPECOS":"#C5D4EB",
+              "CLIM-FAS":"#FFCD6F",
+              "CO2_CMPhi":"#B37700",
+              "GREENSCALE":"#B3FFBF",
+              "PREFALIM":"#FFEECC",
+              "RhizoSeqC":"#CCFFEE",
+              "PEPR":"#CCCCFF"}
+
 df_hal = st.session_state['df_hal']
 
 st.title(":grey[Suivi Collection HAL]")
@@ -104,14 +122,30 @@ fig = px.line(
     title="Évolution/ Cumul des dépôts dans notre collection FairCarboN par type de document"
 )
 
-# Tracé avec plotly
 fig2 = px.line(
     counts2,
     x='Date complete depot',
     y="cumul",
     color='projet',
     markers=True,
-    title="Évolution/ Cumul des dépôts dans notre collection FairCarboN par projet"
+    title="Évolution/ Cumul des dépôts dans notre collection FairCarboN par projet",
+    color_discrete_map=color_map2
+)
+
+for trace in fig2.data:
+    trace.marker.size = 10
+
+fig2.update_layout(
+    legend=dict(
+        orientation="h",
+        y=-0.2,
+        x=0.5,
+        xanchor="center",
+        yanchor="top",
+        font=dict(size=20)
+    ),
+    margin=dict(b=200),  # marge basse élargie
+    height=600
 )
 
 st.plotly_chart(fig, use_container_width=True)

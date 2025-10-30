@@ -373,10 +373,12 @@ st.session_state['df_publications'] = df_publications
 
 df_hal = st.session_state['df_hal']
 
-start_year = 2018
+start_year = 2021
 end_year = 2025
 
 ################# AFFICHAGE HAL ##############################################################
+
+df_hal = df_hal.drop_duplicates(subset=['Ids'])
 
 # Assurer que la colonne 'Date de publication' est bien en datetime
 df_hal["Date complete depot"] = pd.to_datetime(df_hal["Date complete depot"], errors="coerce")
@@ -390,14 +392,77 @@ grouped = df_filtered.groupby(["Année", "Type de document"]).size().reset_index
 
 df_pivot = grouped.pivot_table(index="Année", columns="Type de document", values="Nombre", fill_value=0)
 
+# Clés communes (types génériques)
+category_map = {
+    "ART": "Article",
+    "VIDEO": "Video",
+    "OTHER": "Autre",
+    "other":"Autre",
+    "TRAD": "Traduction",
+    "SON": "Audio",
+    "SOFTWARE": "Logiciel",
+    "software": "Logiciel",
+    "PATENT": "Brevet",
+    "REPORT": "Rapport",
+    "report": "Rapport",
+    "NOTICE" :"Notice",
+    "manual":"Notice",
+    "BLOG": "Ressource online",
+    "online-resource": "Ressource online",
+    "PROCEEDINGS" : "Procédure",
+    "UNDEFINED": "Indéfini",
+    "MEM": "Mémoire",
+    "LECTURE": "Cours",
+    "HDR": "HDR",
+    "CREPORT":"Chapitre de rapport",
+    "IMG":"Image",
+    "ISSUE": "Issue",
+    "journal-article": "Article",
+    "journal-issue": "Issue",
+    "COMM": "Communication",
+    "conference-abstract": "Communication (abstract)",
+    "POSTER": "Poster",
+    "conference-poster": "Poster",
+    "THESE": "Thèse",
+    "dissertation-thesis": "Thèse",
+    "COUV": "Chapitre d'ouvrage",
+    "OUV": "Ouvrage",
+    "book-chapter": "Chapitre d'ouvrage",
+    "book": "Ouvrage",
+    "edited-book":"Ouvrage édité",
+    "working-paper": "Papier en cours",
+    "review": "Article de review",
+    "newspaper-article":"Article de presse",
+    "data-set":"Données",
+    "conference-paper": "Communication",
+    "dictionary-entry":"Dictionnaire de données",
+    "encyclopedia-entry":"Entrée d'encyclopédie"
+}
+
+shared_palette = [
+    "#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+    "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf",
+    "#393b79", "#637939", "#8c6d31", "#843c39", "#7b4173",
+    "#5254a3", "#9c9ede", "#6b6ecf", "#b5cf6b", "#cedb9c",
+    "#e7ba52", "#e7969c", "#a55194", "#bd9e39"
+]
+
+# Associer chaque type générique à une couleur
+generic_types = sorted(set(category_map.values()))
+color_by_type = {typ: shared_palette[i % len(shared_palette)] for i, typ in enumerate(generic_types)}
+
+
+
 # Création du graphique
 fig = go.Figure()
 for pub_type in df_pivot.columns:
+    generic_type = category_map.get(pub_type, pub_type)  # fallback si non mappé
     fig.add_bar(
-            x=df_pivot.index,
-            y=df_pivot[pub_type],
-            name=pub_type
-        )
+        x=df_pivot.index,
+        y=df_pivot[pub_type],
+        name=generic_type,
+        marker_color=color_by_type.get(generic_type, "#7f7f7f")  # gris si inconnu
+    )
 
 fig.update_layout(
         barmode="stack",
@@ -405,14 +470,31 @@ fig.update_layout(
         xaxis_title="Année",
         yaxis_title="Nombre de publications",
         legend_title="Type de document",
-        template="plotly_white"
+        template="plotly_white",
+        height=600
     )
+
+
+fig.update_layout(
+    legend=dict(
+        orientation="h",
+        y=-0.2,
+        x=0.5,
+        xanchor="center",
+        yanchor="top",
+        font=dict(size=10)
+    ),
+    margin=dict(b=200)  # marge basse élargie
+)
 
 st.plotly_chart(fig, use_container_width=True)
 
+################# AFFICHAGE ORCID ##############################################################
+
+df_publications_ = df_publications.drop_duplicates(subset='Titre')
 
 # Filtrer les années souhaitées
-df_filtered3 = df_publications[df_publications["Année"].between(start_year, end_year)]
+df_filtered3 = df_publications_[df_publications_["Année"].between(start_year, end_year)]
 
 # Compter les types par année
 grouped3 = df_filtered3.groupby(["Année", "Type"]).size().reset_index(name="Nombre")
@@ -422,11 +504,14 @@ df_pivot3 = grouped3.pivot_table(index="Année", columns="Type", values="Nombre"
 # Création du graphique
 fig3 = go.Figure()
 for pub_type in df_pivot3.columns:
+    # Utiliser le type générique comme nom de légende
+    generic_type = category_map.get(pub_type, pub_type)  # fallback si non mappé
     fig3.add_bar(
-            x=df_pivot3.index,
-            y=df_pivot3[pub_type],
-            name=pub_type
-        )
+        x=df_pivot3.index,
+        y=df_pivot3[pub_type],
+        name=generic_type,  # légende simplifiée
+        marker_color=color_by_type.get(generic_type, "#7f7f7f")
+    )
 
 fig3.update_layout(
         barmode="stack",
@@ -434,18 +519,43 @@ fig3.update_layout(
         xaxis_title="Année",
         yaxis_title="Nombre de publications",
         legend_title="Type de document",
-        template="plotly_white"
+        template="plotly_white",
+        height=600
     )
+
+fig3.update_layout(
+    legend=dict(
+        orientation="h",
+        y=-0.2,
+        x=0.5,
+        xanchor="center",
+        yanchor="top",
+        font=dict(size=10)
+    ),
+    margin=dict(b=200)  # marge basse élargie
+)
 
 st.plotly_chart(fig3, use_container_width=True)
 
+###############################################################################################################
+
 # Comparaison des titres non dupliqués
 liste_article = ['preprint','journal-issue','journal-article']
-df_hal_non_dupliqués = df_filtered[['Année','Premier_auteur','Auteur_recherché','Titre_unique','Type de document']][df_filtered['Type de document']=='ART'].drop_duplicates()
+
+#LES ARTICLES SUR HAL UNIQUEMENT
+df_hal_non_dupliqués = df_filtered[['Année','Premier_auteur','Ids','Auteur_recherché','Titre_unique','Type de document']][df_filtered['Type de document']=='ART'].drop_duplicates(subset='Ids')
 df_hal_non_dupliqués['from']='HAL'
-df_publications_non_dupliqués = df_filtered3[['Année','Premier_auteur','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates()
+
+
+#LES ARTICLES SUR ORCID UNIQUEMENT
+df_publications_non_dupliqués = df_filtered3[['Année','Premier_auteur','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates(subset='Titre')
+
 
 st.metric(label="Nombre de contacts recherchés", value=len(set(df['Contact'])))
+
+df_avec_ORCID = df.dropna()
+
+st.metric(label="Nombre de contacts ayant un numéro ORCID", value=len(set(df_avec_ORCID['Contact'])))
 
 st.metric(label="Nombre de contacts ORCID", value=len(set(df_publications_non_dupliqués['contact'])))
 
@@ -453,68 +563,121 @@ df_publications_non_dupliqués['from']='ORCID'
 df_publications_non_dupliqués['Auteur_recherché']=df_publications_non_dupliqués['contact']
 df_publications_non_dupliqués['Titre_unique']=df_publications_non_dupliqués['Titre']
 
+# CONCATENATION DES DEUX DATAFRAME
 df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']]], axis=0)
 df_to_be_compared.reset_index(inplace=True)
 df_to_be_compared.drop(columns='index', inplace=True)
 
-# Créer un ensemble des titres présents dans les lignes 'HAL'
-titres_hal = set(df_to_be_compared[df_to_be_compared['from'] == 'HAL']['Titre_unique'])
 
-# Appliquer une fonction pour vérifier si chaque ligne ORCID est dans titres_hal
-df_to_be_compared['Present_in_HAL'] = df_to_be_compared.apply(
-    lambda row: row['Titre_unique'] in titres_hal if row['from'] == 'ORCID' else None,
-    axis=1
+import numpy as np
+import unicodedata
+
+# Fonction de normalisation : retire les accents, met en minuscules, supprime les espaces superflus
+def normalize(text):
+    if pd.isna(text):
+        return ""
+    text = unicodedata.normalize('NFKD', str(text)).encode('ASCII', 'ignore').decode('utf-8')
+    return text.lower().strip()
+
+# Appliquer la normalisation à la colonne 'Titre_unique'
+df_to_be_compared['Titre_normalisé'] = df_to_be_compared['Titre_unique'].apply(normalize)
+
+# Créer l'ensemble des titres HAL normalisés
+titres_hal = set(df_to_be_compared[df_to_be_compared['from'] == 'HAL']['Titre_normalisé'])
+
+# Comparer pour les lignes ORCID
+df_to_be_compared['Present_in_HAL'] = np.where(
+    (df_to_be_compared['from'] == 'ORCID') & (df_to_be_compared['Titre_normalisé'].isin(titres_hal)),
+    True,
+    False
 )
 
-st.dataframe(df_to_be_compared[df_to_be_compared['from'] == 'ORCID'], hide_index=True)
+# Étape 1 : filtrer les lignes
+df_orcid = df_to_be_compared[df_to_be_compared['from'] == 'ORCID']
+df_hal = df_to_be_compared[df_to_be_compared['from'] == 'HAL']
 
-df_to_be_compared_non_dupliqués = df_to_be_compared[['Année','Auteur_recherché','from','Titre_unique','Present_in_HAL']].drop_duplicates()
+# Étape 2 : titres ORCID présents ou non dans HAL
+df_orcid['in_HAL'] = df_orcid['Present_in_HAL'] == True
+#df_orcid['Année'] = df_orcid['Année'].astype(str)  # pour l'affichage
 
-st.session_state['df_publications_orcid_compared'] = df_to_be_compared[df_to_be_compared['from'] == 'ORCID']
+# Étape 3 : comptage par année
+orcid_total = df_orcid.groupby('Année')['Titre_unique'].nunique().reset_index(name='ORCID_total')
+orcid_in_hal = df_orcid[df_orcid['in_HAL']].groupby('Année')['Titre_unique'].nunique().reset_index(name='HAL_count')
+orcid_not_in_hal = df_orcid[~df_orcid['in_HAL']].groupby('Année')['Titre_unique'].nunique().reset_index(name='ORCID_only')
 
-# Filtrer les lignes avec des valeurs True ou False
-df_filt = df_to_be_compared_non_dupliqués[df_to_be_compared_non_dupliqués['Present_in_HAL'].isin([True, False])]
+# Étape 4 : fusion des données
+df_yearly = pd.merge(orcid_total, orcid_in_hal, on='Année', how='left')
+df_yearly = pd.merge(df_yearly, orcid_not_in_hal, on='Année', how='left')
+df_yearly.fillna(0, inplace=True)
 
-# Compter les occurrences
-#counts = df_filt['Present_in_HAL'].value_counts().reset_index()
-#counts.columns = ['Present_in_HAL', 'count']
-#counts['Present_in_HAL'] = counts['Present_in_HAL'].map({True: 'Présent dans HAL', False: 'Absent de HAL'})
+# Étape 5 : calcul des pourcentages
+df_yearly['HAL_pct'] = df_yearly['HAL_count'] / df_yearly['ORCID_total'] * 100
+df_yearly['ORCID_only_pct'] = df_yearly['ORCID_only'] / df_yearly['ORCID_total'] * 100
 
-# Remapper les valeurs pour plus de lisibilité
-df_filt['Présence'] = df_filt['Present_in_HAL'].map({True: 'Présent dans HAL', False: 'Absent de HAL'})
+# Étape 6 : création du graphique
+fig5 = go.Figure()
 
-# Agréger les données
-counts = df_filt.groupby(['Année', 'Present_in_HAL']).size().unstack(fill_value=0)
-
-# Calculer les pourcentages pour 'Présent dans HAL'
-percentages = (counts[True] / (counts[True] + counts[False]) * 100).round(1)
-
-
-# Créer le graphe en barres empilées avec go.Bar
-fig4 = go.Figure()
-
-fig4.add_bar(
-    x=counts.index,
-    y=counts[True],
-    name='Présent dans HAL',
-    marker_color='mediumseagreen',
-    text=[f"{p}%" for p in percentages],
+# Barres HAL
+fig5.add_trace(go.Bar(
+    x=df_yearly['Année'],
+    y=df_yearly['HAL_count'],
+    name='Titres dans HAL',
+    marker_color='green',
+    text=df_yearly['HAL_pct'].round(1).astype(str) + '%',
     textposition='inside'
-)
+))
 
-fig4.add_bar(
-    x=counts.index,
-    y=counts[False],
-    name='Absent de HAL',
-    marker_color='salmon'
-)
+# Barres ORCID uniquement
+fig5.add_trace(go.Bar(
+    x=df_yearly['Année'],
+    y=df_yearly['ORCID_only'],
+    name='Titres ORCID non trouvés dans HAL',
+    marker_color='orange',
+    text=df_yearly['ORCID_only_pct'].round(1).astype(str) + '%',
+    textposition='inside'
+))
 
-fig4.update_layout(
+# Mise en page
+fig5.update_layout(
     barmode='stack',
-    title='Présence des titres ORCID dans HAL par année',
+    title='Comparaison des titres ORCID vs HAL par année',
     xaxis_title='Année',
     yaxis_title='Nombre de titres',
+    legend_title='Source',
     template='plotly_white'
 )
 
-st.plotly_chart(fig4,use_container_width=True)
+
+st.plotly_chart(fig5,use_container_width=True)
+
+
+labels = [
+    "Compte ORCID (partiel)",
+    "Compte ORCID non opé",
+    "Aucun compte ORCID"
+]
+
+values = [
+    219,              # "Compte ORCID permettant de recenser (partiellement ou totalement) les productions scientifiques"
+    383 - 219,        # "Compte ORCID mais non opérationnel"
+    474 - 383         # "Aucun compte ORCID"
+    ]
+
+# Couleurs personnalisées (tu peux les adapter)
+custom_colors = ["#2ca02c", "#ff7f0e", "#d62728"]  # vert, orange, rouge
+
+# Créer le pie chart
+fig_usageORCID = go.Figure(data=[go.Pie(
+    labels=labels,
+    values=values,
+    textinfo='label+percent',
+    hoverinfo='label+value',
+    marker=dict(colors=custom_colors, line=dict(color='#000000', width=1))
+)])
+
+fig_usageORCID.update_layout(
+    title="Statistiques d'usage ORCID",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_usageORCID, use_container_width=True)

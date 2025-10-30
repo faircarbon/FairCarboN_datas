@@ -460,7 +460,7 @@ st.plotly_chart(fig, use_container_width=True)
 df_yearly = df2.groupby('Date de publication')['Value'].sum().reset_index()
 
 # Plot aggregated data
-fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN')
+fig_dates = px.bar(df_yearly, x='Date de publication', y='Value', title='Dépôts rattachés aux contacts FaircarboN', color_discrete_sequence=['green'])
 st.plotly_chart(fig_dates, use_container_width=True)
 
 #stest = "84494"
@@ -566,3 +566,37 @@ with col2:
 #df2_test[['grant_number', 'project_acronym']] = df2_test['PersistentUrl'].apply(extract_funding_info_from_url)
 
 #st.dataframe(df2_test)
+
+
+st.write(len(df2['Auteur_recherché'].unique()))
+
+labels = [
+    "Dépôts RDG depuis 2024",
+    "Dépôts RDG",
+    "Aucun dépôt RDG identifié"
+]
+
+values = [
+    114,              # Dépôts depuis 2024
+    126 - 114,        # Dépôts uniquement avant 2024
+    474 - 114         # Aucun dépôt
+]
+
+# Couleurs personnalisées (tu peux les adapter)
+custom_colors = ["#2ca02c", "#ff7f0e", "#d62728"]  # vert, orange, rouge
+
+# Créer le pie chart
+fig_usagerdg = go.Figure(data=[go.Pie(
+    labels=labels,
+    values=values,
+    textinfo='label+percent',
+    hoverinfo='label+value',
+    marker=dict(colors=custom_colors, line=dict(color='#000000', width=1))
+)])
+
+fig_usagerdg.update_layout(
+    title="Statistiques de dépôt RDG",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_usagerdg, use_container_width=True)
