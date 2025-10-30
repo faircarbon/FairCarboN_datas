@@ -4,6 +4,7 @@ import plotly.express as px
 import plotly.graph_objects as go
 from Publications import afficher_publications_hal
 import datetime
+import ast
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -156,34 +157,63 @@ liste_labs = df['Sigle structure']
 ########### ACQUISITION DONNEES DE HAL ########################################################
 ###############################################################################################
 st.success("Connexion établie avec HAL")
-df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_labs=liste_labs, liste_projet=liste_projet, liste_sollicitation=liste_sollicitation)
 
-# Tableau de l'existant dans la collection FAIRCARBON
-filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
+lancement_recherche = st.checkbox(label='Lancer recherche sur HAL')
 
-# Ajout colonne In_FairCarboN
-df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
+if lancement_recherche:
 
-###########################################################################################################################################
-df_inter = df_global_hal[['Nom_archive','Auteur_recherché','Premier_auteur','Ids','Uri','Titre_unique','Labo_unique','Langue_unique','DOI sources','Type de document','Date de publication','Date complete depot','Date complete production','Mots_clés_','ANR project acronyme_','EU project acronyme_','Financement_','In_FairCarboN','Sollicitation']].drop_duplicates(subset=['Auteur_recherché','Premier_auteur','Ids'])
+    df_global_hal = acquisition_data(start_year=start_year,end_year=end_year,liste_chercheurs=liste_chercheurs, liste_labs=liste_labs, liste_projet=liste_projet, liste_sollicitation=liste_sollicitation)
 
-df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
-    lambda x: x.split('/') if isinstance(x, str) and x else []
-)
-df_inter['ANR project acronyme'] = df_inter['ANR project acronyme_'].apply(
-    lambda x: x.split('/') if isinstance(x, str) and x else []
-)
-df_inter['EU project acronyme'] = df_inter['EU project acronyme_'].apply(
-    lambda x: x.split('/') if isinstance(x, str) and x else []
-)
-df_inter['Financement'] = df_inter['Financement_'].apply(
-    lambda x: x.split('/') if isinstance(x, str) and x else []
-)
+    # Tableau de l'existant dans la collection FAIRCARBON
+    filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
 
-df_inter['DOI sources'] = df_inter['DOI sources'].apply(lambda x: [x])
-df_inter['Value']=1
+    # Ajout colonne In_FairCarboN
+    df_global_hal['In_FairCarboN'] = df_global_hal['Titre'].isin(filtered_df['Titre'])
 
-df_inter.to_csv(f"Data/HAL/all_publications_hal_{d}.csv",index=False, encoding="utf-8")
+    ###########################################################################################################################################
+    df_inter = df_global_hal[['Nom_archive',
+                              'Projet',
+                              'Auteur_recherché',
+                              'Sigle structure',
+                              'Premier_auteur',
+                              'Ids','Uri',
+                              'Titre_unique',
+                              'Collection_code',
+                              'Labo_unique',
+                              'Langue_unique',
+                              'DOI sources',
+                              'Type de document',
+                              'Date de publication',
+                              'Date complete depot',
+                              'Date complete production',
+                              'Mots_clés_','ANR project acronyme_',
+                              'EU project acronyme_','Financement_',
+                              'In_FairCarboN','Sollicitation']].drop_duplicates(subset=['Auteur_recherché','Premier_auteur','Ids'])
+
+    df_inter['Mots_clés'] = df_inter['Mots_clés_'].apply(
+        lambda x: x.split('/') if isinstance(x, str) and x else []
+    )
+    df_inter['ANR project acronyme'] = df_inter['ANR project acronyme_'].apply(
+        lambda x: x.split('/') if isinstance(x, str) and x else []
+    )
+    df_inter['EU project acronyme'] = df_inter['EU project acronyme_'].apply(
+        lambda x: x.split('/') if isinstance(x, str) and x else []
+    )
+    df_inter['Financement'] = df_inter['Financement_'].apply(
+        lambda x: x.split('/') if isinstance(x, str) and x else []
+    )
+
+    df_inter['DOI sources'] = df_inter['DOI sources'].apply(lambda x: [x])
+    df_inter['Value']=1
+
+    df_inter.to_csv(f"Data/HAL/all_publications_hal_{d}.csv",index=False, encoding="utf-8")
+
+else:
+    df_global_hal = pd.read_csv("Data/HAL/all_publications_hal_2025-10-30.csv")
+    filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
+    df_inter = pd.read_csv("Data/HAL/all_publications_hal_2025-10-30.csv")
+    #df_inter['Auteurs']=df_inter['Auteurs'].apply(ast.literal_eval)
+
 
 st.session_state['df_hal'] = df_inter
 
