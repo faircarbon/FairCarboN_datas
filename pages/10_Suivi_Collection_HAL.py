@@ -49,23 +49,23 @@ def read_data(path):
 d = datetime.date.today()
 df = read_data("Data\FairCarboN_Datas_Contacts")
 
-color_map2 = {"ALAMOD":"#8DD3C7",
-              "SLAM-B":"#FFC0B5",
-              "RIFT":"#BEBADA",
-              "CrosyeN":"#FB8072",
-              "CarboNium":"#80B1D3",
-              "CABESTAN":"#FDB462",
-              "CANETE":"#B3DE69",
-              "DEEP-C":"#FCCDE5",
+color_map2 = {"ALAMOD":"#2DCCB2",
+              "SLAM-B":"#FD5436",
+              "RIFT":"#7262DA",
+              "CrosyeN":"#FBA972",
+              "CarboNium":"#3F97D6",
+              "CABESTAN":"#FCDA45",
+              "CANETE":"#A9DF4D",
+              "DEEP-C":"#F78CC3",
               "Drought for C":"#993921",
-              "PEACE":"#BC80BD",
-              "TROPECOS":"#C5D4EB",
-              "CLIM-FAS":"#FFCD6F",
+              "PEACE":"#BB62BD",
+              "TROPECOS":"#648BC5",
+              "CLIM-FAS":"#FFB52C",
               "CO2_CMPhi":"#B37700",
               "GREENSCALE":"#B3FFBF",
               "PREFALIM":"#FFEECC",
-              "RhizoSeqC":"#CCFFEE",
-              "PEPR":"#CCCCFF"}
+              "RhizoSeqC":"#1FFCB2",
+              "PEPR":"#848486"}
 
 df_hal = st.session_state['df_hal']
 
@@ -133,7 +133,7 @@ fig2 = px.line(
 )
 
 for trace in fig2.data:
-    trace.marker.size = 10
+    trace.marker.size = 15
 
 fig2.update_layout(
     legend=dict(

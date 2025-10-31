@@ -52,6 +52,7 @@ def make_mask(df: pd.DataFrame):
     regex2b = r"^/&.*&/$"
     regex3 = r"^µ.*µ$"
     regex4 = "done"
+    #regex5 = r"^£.*£$"
     for col in df.columns:
         # accompagné
         mask.loc[df[col].astype(str).str.match(regex, na=False), col] = 0.5
@@ -63,6 +64,8 @@ def make_mask(df: pd.DataFrame):
         mask.loc[df[col].astype(str).str.match(regex3, na=False), col] = 0.2
         # analysé
         mask.loc[df[col].astype(str).str.match(regex4, na=False), col] = 0.9
+        # benoit Marie
+        #mask.loc[df[col].astype(str).str.match(regex5, na=False), col] = 0.6
 
     return mask.T  # transpose pour affichage Plotly
     
@@ -71,6 +74,7 @@ def make_mask(df: pd.DataFrame):
 ######################################################################################################################
 # Charger les données
 df = read_data("Data\PGD\PGD_structuration")
+df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 
 st.title(":grey[Bilan quantitatif des PGD de FairCarboN]")
 projects = sorted(df['projet'].unique())
@@ -119,7 +123,7 @@ Partage = ['Description partage', 'Potentiel réutilisation',
 Conservation = ['Justification conservation long terme',
        'Volume_conservation', 'Date début conservation',
        'Date fin conservation', 'Nom_Archive', 'Dispositions finales',
-       'Contact_conservation', 'Couts_conservation','Analyse_réalisée']
+       'Contact_conservation', 'Couts_conservation']
 
 
 df_selected["projet_index"] = df_selected["projet"].astype(str) + " // " + df_selected['Nom PR abrégé'].astype(str)
@@ -347,3 +351,70 @@ fig2.update_xaxes(showticklabels=False, row=9, col=1)
 fig2.update_xaxes(showticklabels=False, row=10, col=1)
 
 st.plotly_chart(fig2, use_container_width=True)
+
+st.dataframe(df_Contacts[['Contact','Recensement','Sollicitation']][df_Contacts['Recensement']=='OUI'].drop_duplicates(subset='Contact'))
+
+st.write(len(df_Contacts[['Contact','Recensement','Sollicitation']][df_Contacts['Recensement']=='OUI'].drop_duplicates(subset='Contact')))
+
+st.write(len(df_Contacts[['Contact','Recensement','Sollicitation']][df_Contacts['Sollicitation']=='OUI'].drop_duplicates(subset='Contact')))
+
+
+
+labels_recens = [
+    "Participation à un recensement",
+    "Pas encore sollicité"
+]
+
+values_recens = [
+    128,              # "Participation à un recensement"
+    474 - 128        # "Pas encore sollicité pour un recensement"
+    ]
+
+# Couleurs personnalisées (tu peux les adapter)
+custom_colors = ["#2ca02c", "#ff7f0e"]  # vert, orange, rouge
+
+# Créer le pie chart
+fig_recens = go.Figure(data=[go.Pie(
+    labels=labels_recens,
+    values=values_recens,
+    textinfo='label+percent',
+    hoverinfo='label+value',
+    marker=dict(colors=custom_colors, line=dict(color='#000000', width=1))
+)])
+
+fig_recens.update_layout(
+    title="Statistiques de recensement",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_recens, use_container_width=True)
+
+
+labels_sollic = [
+    "Sollicité pour booster la collection FC",
+    "Pas encore sollicité"
+]
+
+values_sollic = [
+    322,              # "Participation à un recensement"
+    474 - 322        # "Pas encore sollicité pour un recensement"
+    ]
+
+# Couleurs personnalisées (tu peux les adapter)
+custom_colors = ["#2ca02c", "#ff7f0e"]  # vert, orange, rouge
+
+# Créer le pie chart
+fig_recens = go.Figure(data=[go.Pie(
+    labels=labels_sollic,
+    values=values_sollic,
+    textinfo='label+percent',
+    hoverinfo='label+value',
+    marker=dict(colors=custom_colors, line=dict(color='#000000', width=1))
+)])
+
+fig_recens.update_layout(
+    title="Statistiques dde sollicitations",
+    template="plotly_white"
+)
+
+st.plotly_chart(fig_recens, use_container_width=True)

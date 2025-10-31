@@ -658,8 +658,8 @@ labels = [
 ]
 
 values = [
-    219,              # "Compte ORCID permettant de recenser (partiellement ou totalement) les productions scientifiques"
-    383 - 219,        # "Compte ORCID mais non opérationnel"
+    252,              # "Compte ORCID permettant de recenser (partiellement ou totalement) les productions scientifiques"
+    383 - 252,        # "Compte ORCID mais non opérationnel"
     474 - 383         # "Aucun compte ORCID"
     ]
 
