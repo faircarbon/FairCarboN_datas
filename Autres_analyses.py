@@ -12,7 +12,7 @@ import datetime
 import requests
 import seaborn as sns
 from deep_translator import GoogleTranslator
-from stqdm import stqdm
+#from stqdm import stqdm
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
@@ -58,32 +58,60 @@ def translate_list(titles, languages):
             translated.append(title)
     return translated
 
+@st.cache_data
 def translate_clean(df_global_hal):
-    translated = translate_list(df_global_hal['Titre_bis'].values, df_global_hal['Langue_bis'].values)
+    translated = translate_list(df_global_hal['Titre_unique'].values, df_global_hal['Langue_unique'].values)
     df_global_hal['translated']=translated
     filtered_titles = []
+    i = 0
     for title in df_global_hal['translated']:
         title = re.sub(r'[^\w\s]', '', title)
         words = word_tokenize(title)
         filtered = [word for word in words if word.lower() not in stop_words]
         filtered_ = [word for word in filtered if word.lower() not in stop_words_fr]
         filtered_titles.append(" ".join(filtered_))
+        i += 1
+        print(i)
     df_global_hal['filtered']=filtered_titles
     return df_global_hal
 
 #################### DONNEES RECUPEREES #######################################################
-df_hal = st.session_state['df_hal']
+df_hal_ = st.session_state['df_hal']
+
+start_year = 2025
+end_year = 2025
+#df_hal = df_hal_[df_hal_["Date de publication"].between(start_year, end_year)][df_hal_["Type de document"]=='ART'].drop_duplicates(subset=['Titre_unique'])
+df_hal = df_hal_[df_hal_["In_FairCarboN"]].drop_duplicates(subset=['Titre_unique'])
+
+# Liste des mots à supprimer
+mots_a_supprimer = ['carbon', 'brouillon']
+
+# Fonction de nettoyage
+def nettoyer_texte(texte):
+    pattern = r'\b(?:' + '|'.join(re.escape(mot) for mot in mots_a_supprimer) + r')\b'
+    return re.sub(pattern, '', texte, flags=re.IGNORECASE).strip()
+
+
+
+#df_hal = df_hal_.drop_duplicates(subset=['Titre_unique'])
+st.write(len(df_hal))
+
+# Initialize tools
+stop_words = set(stopwords.words('english'))
+stop_words_fr = set(stopwords.words('french'))
+lemmatizer = WordNetLemmatizer()
+df_test = translate_clean(df_hal)
+df_test.reset_index(inplace=True)
+df_test.drop(columns='index', inplace=True)
+st.dataframe(df_test.head(50))
+
+df_test['filtered_'] = df_test['filtered'].apply(nettoyer_texte)
 
 ###############################################################################################
 ########### ESSAIS DE CLUSTERING ##############################################################
 ###############################################################################################
 
 st.title(f":grey[Analyse par clustering]")
-
-# Initialize tools
-stop_words = set(stopwords.words('english'))
-stop_words_fr = set(stopwords.words('french'))
-lemmatizer = WordNetLemmatizer()
 
 col1, col2 = st.columns(2)
 with col1:
@@ -94,11 +122,9 @@ with col2:
 if clustering1:
     st.subheader('Clustering TF-IDF + KMEANS')
 
-    df_test = translate_clean(df_hal)
-
     # Vectorize
     vectorizer = TfidfVectorizer(max_df=0.8, min_df=2, ngram_range=(1,2))
-    X = vectorizer.fit_transform(df_test['filtered'])
+    X = vectorizer.fit_transform(df_test['filtered_'])
 
 # Range of cluster numbers to try
     if len(df_test)<50:
@@ -163,7 +189,7 @@ if clustering1:
     order_centroids = final_model.cluster_centers_.argsort()[:, ::-1]
 
     # Extract top N keywords per cluster
-    top_n = 2
+    top_n = 5
     cluster_keywords = {}
 
     for i in range(choix_k):
@@ -180,7 +206,7 @@ if clustering1:
         'PCA2': X_2D[:, 1],
         'cluster': df_test['cluster'],
         'Projet': df_test['Projet'],
-        'clean_title': df_test['filtered']
+        'clean_title': df_test['filtered_']
     })
     plot_df['cluster_label'] = plot_df['cluster'].apply(
         lambda x: f"{cluster_keywords.get(x, '')}"
@@ -218,10 +244,8 @@ if clustering1:
 elif clustering2:
     st.subheader('Clusters avec embeddings')
 
-    df_test = translate_clean(df_hal)
-
     model = SentenceTransformer('all-MiniLM-L6-v2')  # Small & fast model
-    embeddings = model.encode(df_test['filtered'], show_progress_bar=False)
+    embeddings = model.encode(df_test['filtered_'], show_progress_bar=False)
     embeddings = normalize(embeddings)
 
     # --- 3. Elbow Method ---
@@ -294,7 +318,7 @@ elif clustering2:
                                     y='pca_y',
                                     #z='pca_z',
                                     color=df_test['cluster'].astype(str),
-                                    hover_data=['filtered'],
+                                    hover_data=['filtered_'],
                                     title=f"Clusters (embeddings) / Silhouette Score: {score2:.3f}",
                                     labels={'color': 'Cluster'},
                                     #color_discrete_sequence=px.colors.qualitative.Dark2
@@ -306,7 +330,7 @@ elif clustering2:
                                     y='pca_y',
                                     #z='pca_z',
                                     color='Projet',
-                                    hover_data=['filtered'],
+                                    hover_data=['filtered_'],
                                     title=f"Clusters (embeddings)",
                                     labels={'color': 'Cluster'},
                                     color_discrete_sequence=px.colors.qualitative.Dark2

@@ -397,7 +397,14 @@ df_contacts['Auteur_recherché']=df_contacts['Contact']
 df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(lambda x: ', '.join(sorted(set(x)))).reset_index()
 
 liste_contacts = df_contacts['Contact'].values
-df2 = Recup_datasets_metadata()
+
+lancement_recherche = st.checkbox(label='Lancer recherche sur HAL')
+
+if lancement_recherche:
+    df2 = Recup_datasets_metadata()
+
+else:
+    df2 = pd.read_csv("Data/RechercheDataGouv/all_datasets_rdg_2025-11-10.csv")
 
 st.session_state['df_rdg'] = df2
 

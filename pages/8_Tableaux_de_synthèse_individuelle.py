@@ -108,7 +108,7 @@ df_hal = st.session_state['df_hal']
 df_rdg = st.session_state['df_rdg']
 df_indores = st.session_state['df_InDoRes']
 df_zenodo = st.session_state['df_zenodo']
-df_publications = st.session_state['df_publications_orcid_compared']
+df_publications = st.session_state['df_publications']
 
 mots_cles_recherches = ['pepr faircarbon','faircarbon','alamod','slam-b','rift','crosyen','greenscale','canete','carbonium','deep-c','climfas','rhizoseqc','cabestan','tropecos','peace','prefalim','co2cmphi']
 
@@ -210,8 +210,8 @@ df_selected.drop(columns='index', inplace=True)
 df_publications_selected = df_publications[df_publications['Auteur_recherché']==Selection_p]
 df_publications_selected.reset_index(inplace=True)
 df_publications_selected.drop(columns='index', inplace=True)
-df_publications_selected.rename(columns={'from': 'Nom_archive', 'Année': 'Date de publication'}, inplace=True)
-df_publications_selected = df_publications_selected[['Nom_archive','Premier_auteur','Date de publication','Titre_unique','Present_in_HAL']]
+df_publications_selected.rename(columns={'from': 'Nom_archive', 'Année': 'Date de publication', 'Titre':'Titre_unique'}, inplace=True)
+df_publications_selected = df_publications_selected[['Nom_archive','Date de publication','Titre_unique','Present_in_HAL']]
 
 df_selected_solli = df_selected[['Auteur_recherché','Premier_auteur','Nom_archive', 'Date de publication','Titre_unique','ANR project acronyme','EU project acronyme','Financement','Financement dans FairCarboN','Sans_référencement','In_FairCarboN']][df_selected['Date de publication']>=2024][df_selected['Nom_archive']=='HAL']
 df_selected_solli_ssref = df_selected_solli[['Nom_archive','Premier_auteur', 'Date de publication','Titre_unique','Sans_référencement','Financement dans FairCarboN']][df_selected['Sans_référencement']==True]
@@ -362,7 +362,7 @@ df_averifier_final['Present_in_HAL'].fillna('A référencer', inplace=True)
 df_averifier_final['Sans_référencement'].fillna('A déposer sur HAL', inplace=True)
 # Suppression de la colonne 'Ville'
 df_averifier_final = df_averifier_final.drop('Financement dans FairCarboN', axis=1)
-st.dataframe(df_averifier_final, hide_index=True)
+#st.dataframe(df_averifier_final, hide_index=True)
 
 # Remapper les valeurs pour plus de lisibilité
 df_publications_selected['Présence'] = df_publications_selected['Present_in_HAL'].map({
@@ -414,6 +414,11 @@ else:
         yaxis_title='Nombre de titres',
         template='plotly_white'
     )
+
+    fig4.update_xaxes(
+            tickmode='linear',
+            tickformat='d',  # format entier
+            dtick=1)
 
     st.plotly_chart(fig4, use_container_width=True)
     
@@ -469,12 +474,10 @@ if st.button("Sauvegarde et téléchargement"):
 ########### AUTRES ANALYSES ###################################################################
 ###############################################################################################
 
-tous_doi_sources_hal = sum(df_hal_reduit['DOI sources'], [])
-tous_doi_sources_rdg = sum(df_rdg_reduit['DOI sources'], [])
+#tous_doi_sources_hal = sum(df_hal_reduit['DOI sources'], [])
+#tous_doi_sources_rdg = sum(df_rdg_reduit['DOI sources'], [])
 
 # Enlever les doublons en gardant l'ordre
-liste_doi_sources_hal = list(dict.fromkeys(tous_doi_sources_hal))
-liste_doi_sources_rdg = list(dict.fromkeys(tous_doi_sources_rdg))
-liste3 = [element for element in liste_doi_sources_hal if element in liste_doi_sources_rdg]
-
-
+#liste_doi_sources_hal = list(dict.fromkeys(tous_doi_sources_hal))
+#liste_doi_sources_rdg = list(dict.fromkeys(tous_doi_sources_rdg))
+#liste3 = [element for element in liste_doi_sources_hal if element in liste_doi_sources_rdg]

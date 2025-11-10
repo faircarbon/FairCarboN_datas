@@ -368,10 +368,14 @@ else:
 
 
 df_publications['Premier_auteur']=df_publications['Auteurs'].apply(lambda row: row[0] if (len(row)>0) else None)
-
-st.session_state['df_publications'] = df_publications
+df_publications['Auteur_recherché'] = df_publications['contact'] 
+df_publications['Titre'] = df_publications['Titre'].str.lower()
+df_publications = df_publications[['Orcid','Année','Titre','Type','Auteur_recherché']].drop_duplicates(subset='Titre')
+df_publications.reset_index(inplace=True)
+df_publications.drop(columns='index', inplace=True)
 
 df_hal = st.session_state['df_hal']
+
 
 start_year = 2021
 end_year = 2025
@@ -491,10 +495,8 @@ st.plotly_chart(fig, use_container_width=True)
 
 ################# AFFICHAGE ORCID ##############################################################
 
-df_publications_ = df_publications.drop_duplicates(subset='Titre')
-
 # Filtrer les années souhaitées
-df_filtered3 = df_publications_[df_publications_["Année"].between(start_year, end_year)]
+df_filtered3 = df_publications[df_publications["Année"].between(start_year, end_year)]
 
 # Compter les types par année
 grouped3 = df_filtered3.groupby(["Année", "Type"]).size().reset_index(name="Nombre")
@@ -547,8 +549,10 @@ df_hal_non_dupliqués = df_filtered[['Année','Premier_auteur','Ids','Auteur_rec
 df_hal_non_dupliqués['from']='HAL'
 
 
+df_filtered3['from']='ORCID'
+df_filtered3['Titre_unique']=df_filtered3['Titre']
 #LES ARTICLES SUR ORCID UNIQUEMENT
-df_publications_non_dupliqués = df_filtered3[['Année','Premier_auteur','contact','Titre','Type']][df_filtered3['Type'].isin(liste_article)].drop_duplicates(subset='Titre')
+df_publications_non_dupliqués = df_filtered3[['Année','Auteur_recherché','Titre','Type','from','Titre_unique']][df_filtered3['Type'].isin(liste_article)].drop_duplicates(subset='Titre')
 
 
 st.metric(label="Nombre de contacts recherchés", value=len(set(df['Contact'])))
@@ -557,14 +561,12 @@ df_avec_ORCID = df.dropna()
 
 st.metric(label="Nombre de contacts ayant un numéro ORCID", value=len(set(df_avec_ORCID['Contact'])))
 
-st.metric(label="Nombre de contacts ORCID", value=len(set(df_publications_non_dupliqués['contact'])))
+st.metric(label="Nombre de contacts ORCID", value=len(set(df_publications_non_dupliqués['Auteur_recherché'])))
 
-df_publications_non_dupliqués['from']='ORCID'
-df_publications_non_dupliqués['Auteur_recherché']=df_publications_non_dupliqués['contact']
-df_publications_non_dupliqués['Titre_unique']=df_publications_non_dupliqués['Titre']
+
 
 # CONCATENATION DES DEUX DATAFRAME
-df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','Premier_auteur','from','Titre_unique']]], axis=0)
+df_to_be_compared = pd.concat([df_hal_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']],df_publications_non_dupliqués[['Année','Auteur_recherché','from','Titre_unique']]], axis=0)
 df_to_be_compared.reset_index(inplace=True)
 df_to_be_compared.drop(columns='index', inplace=True)
 
@@ -591,6 +593,8 @@ df_to_be_compared['Present_in_HAL'] = np.where(
     True,
     False
 )
+
+st.session_state['df_publications'] = df_to_be_compared
 
 # Étape 1 : filtrer les lignes
 df_orcid = df_to_be_compared[df_to_be_compared['from'] == 'ORCID']
@@ -649,6 +653,8 @@ fig5.update_layout(
 
 
 st.plotly_chart(fig5,use_container_width=True)
+
+#st.session_state['df_publications_orcid_compared'] = df_orcid[df_orcid['in_HAL']==False]
 
 
 labels = [

@@ -530,3 +530,5 @@ fig_depot.update_layout(
 )
 
 st.plotly_chart(fig_depot, use_container_width=True)
+
+

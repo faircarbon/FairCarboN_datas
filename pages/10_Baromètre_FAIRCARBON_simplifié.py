@@ -108,9 +108,9 @@ with col5:
 
 ######################################################################################################################
 
-df_hal = df_hal.drop_duplicates(subset=['Année', 'Titre_unique'])
+df_hal = df_hal.drop_duplicates(subset=['Date de publication', 'Titre_unique'])
 df_hal['Date complete depot'] = pd.to_datetime(df_hal['Date complete depot'], errors='coerce')
-df_hal['Année'] = pd.to_numeric(df_hal['Année'], errors='coerce').astype('Int64')
+df_hal['Année'] = pd.to_numeric(df_hal['Date de publication'], errors='coerce').astype('Int64')
 
 # Étape 2 : comptage par année et catégorie
 counts = df_hal.groupby(['Année', 'In_FairCarboN']).size().unstack(fill_value=0)

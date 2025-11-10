@@ -163,8 +163,15 @@ liste_chercheurs = df['Contact']
 liste_chercheurs_bis = df['Contact_bis']
 liste_projet = df['projet']
 
-df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_chercheurs_bis, liste_projet)
-df_global_zenodo['Value']=1
+lancement_recherche = st.checkbox(label='Lancer recherche sur HAL')
+
+if lancement_recherche:
+    df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_chercheurs_bis, liste_projet)
+    df_global_zenodo['Value']=1
+
+else:
+    df_global_zenodo = pd.read_csv("Data/Zenodo/all_datasets_zenodo_2025-11-10.csv")
+    df_global_zenodo['Value']=1
 
 st.session_state['df_zenodo'] = df_global_zenodo
 
