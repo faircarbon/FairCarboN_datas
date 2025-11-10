@@ -99,7 +99,7 @@ with col1:
 with col2:
     st.metric(label='Nombre de contacts avec ORCID', value=len(df_Contacts['ORCID'].unique()),border=True)
 with col3:
-    st.metric(label='Nombre de contacts avec ORCID non vide', value=len(df_publications['contact'].unique()),border=True)
+    st.metric(label='Nombre de contacts avec ORCID non vide', value=len(df_publications['Auteur_recherché'].unique()),border=True)
 with col4:
     st.metric(label='Nombre de contacts sollicités', value=len(df_Contacts_[df_Contacts_['Sollicitation']=='OUI']), border=True)
 with col5:
