@@ -43,9 +43,9 @@ def read_data(path):
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
 ######################################################################################################################
-file1 = "Data\Questionnaires\Questionnaires_SLAM_B.csv"
+file1 = "Data\Questionnaires\Questionnaires_SLAM_B"
 
-df = pd.read_csv(filepath_or_buffer=file1, sep=';', encoding='latin1')
+df = read_data(file1)
 
 st.dataframe(df)
 
@@ -92,9 +92,6 @@ def generate_colors(n=30):
     return colors
 
 # Générer et afficher la liste
-"""colors = ['aqua','steelblue','lightgray','lightcoral',
-          'lightgoldenrodyellow','lavender','lightyellow','palegreen',
-          'paleturquoise','palegoldenrod','palevioletred','lightseagreen']"""
 
 colors =['aliceblue', 'antiquewhite', 'aqua', 'aquamarine', 'azure',
             'beige', 'bisque', 'black', 'blanchedalmond', 'blue',
@@ -208,5 +205,8 @@ fig.add_annotation(dict(font=dict(color="black",size=18), x=0.5, y=1.1, showarro
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.73, y=1.1, showarrow=False, text='<b> NUM TACHE </b>'))
 fig.add_annotation(dict(font=dict(color="black",size=18), x=0.93, y=1.1, showarrow=False, text='<b> NATURE </b>'))
 
-# Visualisation
-fig.show()
+
+voir_diagram = st.checkbox('Voir Diagram')
+if voir_diagram:
+    # Visualisation
+    fig.show()

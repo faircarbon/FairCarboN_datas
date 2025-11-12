@@ -268,6 +268,8 @@ with col2:
 
 
 df_global_hal_proj =df_global_hal[df_global_hal['Projet'].isin(choix_p)][df_global_hal['Auteur_recherché'].isin(choix_a)][df_global_hal['Date de publication']>=start_year]
+df_global_hal_proj.reset_index(inplace=True)
+df_global_hal_proj.drop(columns='index', inplace=True)
 ifc = df_global_hal_proj['Ids'][df_global_hal_proj['In_FairCarboN']==True].drop_duplicates()
 In_FC = len(ifc)
 
@@ -279,6 +281,8 @@ with col2:
 with col3:
     st.metric(label=f"Nombre d'auteur(e)s ayant publié depuis {start_year}", value=len(list(set(df_global_hal_proj['Auteur_recherché'][df_global_hal_proj['Date de publication']>=start_year]))))
 
+
+st.dataframe(df_global_hal_proj)
 ###############################################################################################
 ########### PREPARATIONS PARETOS ############################################################
 ###############################################################################################
