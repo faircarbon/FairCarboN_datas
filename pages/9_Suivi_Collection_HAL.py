@@ -85,7 +85,6 @@ df_merged = pd.merge(
 
 df_merged['projet'] = df_merged['projet'].apply(lambda row: row[0])
 
-
 projects = sorted(df_merged['projet'].unique())
 Selection_projets = st.multiselect("Choix d'un ou plusieurs projets à visualiser (par défaut TOUS)",options=projects)
 

@@ -209,9 +209,9 @@ if lancement_recherche:
     df_inter.to_csv(f"Data/HAL/all_publications_hal_{d}.csv",index=False, encoding="utf-8")
 
 else:
-    df_global_hal = pd.read_csv("Data/HAL/all_publications_hal_2025-10-30.csv")
+    df_global_hal = pd.read_csv("Data/HAL/all_publications_hal_2025-11-12.csv")
     filtered_df = df_global_hal[df_global_hal['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
-    df_inter = pd.read_csv("Data/HAL/all_publications_hal_2025-10-30.csv")
+    df_inter = pd.read_csv("Data/HAL/all_publications_hal_2025-11-12.csv")
     #df_inter['Auteurs']=df_inter['Auteurs'].apply(ast.literal_eval)
 
 
