@@ -398,7 +398,7 @@ df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(l
 
 liste_contacts = df_contacts['Contact'].values
 
-lancement_recherche = st.checkbox(label='Lancer recherche sur HAL')
+lancement_recherche = st.checkbox(label='Lancer recherche sur RDG')
 
 if lancement_recherche:
     df2 = Recup_datasets_metadata()

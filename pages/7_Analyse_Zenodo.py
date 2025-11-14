@@ -163,7 +163,7 @@ liste_chercheurs = df['Contact']
 liste_chercheurs_bis = df['Contact_bis']
 liste_projet = df['projet']
 
-lancement_recherche = st.checkbox(label='Lancer recherche sur HAL')
+lancement_recherche = st.checkbox(label='Lancer recherche sur Zenodo')
 
 if lancement_recherche:
     df_global_zenodo = acquisition_data_zenodo(liste_chercheurs, liste_chercheurs_bis, liste_projet)
