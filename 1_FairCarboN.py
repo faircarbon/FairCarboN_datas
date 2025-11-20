@@ -11,8 +11,6 @@ import plotly.express as px
 from wordcloud import WordCloud
 import plotly.graph_objects as go
 import networkx as nx
-from branca.element import MacroElement
-from jinja2 import Template
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
