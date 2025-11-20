@@ -11,6 +11,8 @@ import plotly.express as px
 from wordcloud import WordCloud
 import plotly.graph_objects as go
 import networkx as nx
+from branca.element import MacroElement
+from jinja2 import Template
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -91,7 +93,49 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
 
         folium.Marker(location=[latitude, longitude], popup=popup, tooltip=tooltip, icon=icon).add_to(m)
 
+    # Sauvegarde de la carte en HTML
+    m.save("map.html")
+
+    # -------------------------------
+    # Création de la légende en HTML
+    # -------------------------------
+    legend_html = """
+    <div style="
+        position: fixed; 
+        top: 50px; right: 50px; 
+        width: 200px; 
+        z-index:9999; 
+        background-color: white;
+        border:2px solid grey;
+        padding:10px;
+        font-size:12px;
+    ">
+    <b>Légende des projets</b><br>
+    """
+    for name, color in color_map2.items():
+        legend_html += f"""
+        <div style="margin:2px">
+            <span style="background:{color};width:15px;height:15px;display:inline-block;border:1px solid black"></span>
+            {name}
+        </div>
+        """
+    legend_html += "</div>"
+
+    # -------------------------------
+    # Fusion carte + légende
+    # -------------------------------
+    with open("map.html", "r", encoding="utf-8") as f:
+        map_html = f.read()
+
+    # Insérer la légende avant la fin du body
+    map_with_legend = map_html.replace("</body>", legend_html + "</body>")
+
+    with open("map_with_legend.html", "w", encoding="utf-8") as f:
+        f.write(map_with_legend)
+
+
     return m
+
 
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
