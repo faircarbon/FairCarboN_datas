@@ -11,6 +11,7 @@ import plotly.express as px
 from wordcloud import WordCloud
 import plotly.graph_objects as go
 import networkx as nx
+import plotly.io as pio
 
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
@@ -128,7 +129,7 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
     # Insérer la légende avant la fin du body
     map_with_legend = map_html.replace("</body>", legend_html + "</body>")
 
-    with open("map_with_legend.html", "w", encoding="utf-8") as f:
+    with open("Data/Figures_html/Carto_sites_FairCarboN.html", "w", encoding="utf-8") as f:
         f.write(map_with_legend)
 
 
@@ -222,6 +223,7 @@ with col1:
     st.subheader(f":grey[Nb d'unités]")
     st.metric(label='', value=len(set(df_Contacts['Sigle structure'].unique())))
     st.plotly_chart(fig0, use_container_width=True)
+    pio.write_html(fig0, file="Data/Figures_html/Nombre_unités_FairCarboN.html", auto_open=False)
 
 with col2:
     df_contacts_counts = df_Contacts.groupby("projet")['Contact'].nunique().reset_index()
@@ -243,6 +245,7 @@ with col2:
     st.subheader(f":grey[Nb de contacts]")
     st.metric(label='', value=len(set(df_Contacts['Contact'])))
     st.plotly_chart(fig0b, use_container_width=True)
+    pio.write_html(fig0b, file="Data/Figures_html/Nombre_contacts_FairCarboN.html", auto_open=False)
 
 with col3:
     df_sites_counts = df_Labo_Site["projet"][df_Labo_Site['Type_Data']=="Site"].value_counts().reset_index()
@@ -266,6 +269,7 @@ with col3:
     st.subheader(f":grey[Nb de sites/Lieux étudiés]")
     st.metric(label='', value=len(set(df_Labo_Site['Libellé structure'][df_Labo_Site['Type_Data']=="Site"])))
     st.plotly_chart(fig0c, use_container_width=True)
+    pio.write_html(fig0c, file="Data/Figures_html/Nombre_sites_FairCarboN.html", auto_open=False)
 
 ###############################################################################################
 ########### FILTRAGE ##########################################################################
@@ -477,6 +481,7 @@ with col1:
 
     st.subheader(":grey[Proportion d'exclusivité des Unités]")
     st.plotly_chart(fig2, use_container_width=True)
+    pio.write_html(fig2, file="Data/Figures_html/Proportion_exclusivité_unités_FairCarboN.html", auto_open=False)
 
 with col2:
 
@@ -525,6 +530,7 @@ with col2:
 
     st.subheader(f":grey[Proportion d'exclusivité des Contacts]")
     st.plotly_chart(fig2b, use_container_width=True)
+    pio.write_html(fig2b, file="Data/Figures_html/Proportion_exclusivité_contacts_FairCarboN.html", auto_open=False)
 
 ###############################################################################################
 ########### ANALYSE CONTACTS ##################################################################
@@ -577,6 +583,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader(":grey[Répartition des fonctions par projet]")
     st.plotly_chart(fig_fonction, use_container_width=True)
+    pio.write_html(fig_fonction, file="Data/Figures_html/Repartition_contacts_fonctions_FairCarboN.html", auto_open=False)
 
 ###############################################################################################
 ########### ANALYSE TUTELLES ##################################################################
@@ -677,6 +684,7 @@ fig_domains.update_layout(
 
 st.subheader(":grey[Nombre de laboratoires associés aux domaines scientifiques]")
 st.plotly_chart(fig_domains, use_container_width=True)
+pio.write_html(fig_domains, file="Data/Figures_html/Domaines_scientifiques_FairCarboN.html", auto_open=False)
 
 ###############################################################################################
 ########### ANALYSE LIENS PAR VISU GRAPHE #####################################################
