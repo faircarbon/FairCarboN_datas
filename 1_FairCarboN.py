@@ -13,6 +13,8 @@ import plotly.graph_objects as go
 import networkx as nx
 import plotly.io as pio
 
+pio.templates.default = "plotly"
+
 ###############################################################################################
 ########### TITRE DE L'ONGLET #################################################################
 ###############################################################################################
@@ -129,8 +131,8 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
     # Insérer la légende avant la fin du body
     map_with_legend = map_html.replace("</body>", legend_html + "</body>")
 
-    with open("Data/Figures_html/Carto_sites_FairCarboN.html", "w", encoding="utf-8") as f:
-        f.write(map_with_legend)
+    #with open("Data/Figures_html/Carto_unités_FairCarboN.html", "w", encoding="utf-8") as f:
+    #    f.write(map_with_legend)
 
 
     return m
@@ -481,7 +483,7 @@ with col1:
 
     st.subheader(":grey[Proportion d'exclusivité des Unités]")
     st.plotly_chart(fig2, use_container_width=True)
-    pio.write_html(fig2, file="Data/Figures_html/Proportion_exclusivité_unités_FairCarboN.html", auto_open=False)
+    pio.write_html(fig2, file="Data/Figures_html/Proportion_exclusivité_unités_FairCarboN.html", auto_open=False, include_plotlyjs="cdn", full_html=True)
 
 with col2:
 
@@ -530,7 +532,7 @@ with col2:
 
     st.subheader(f":grey[Proportion d'exclusivité des Contacts]")
     st.plotly_chart(fig2b, use_container_width=True)
-    pio.write_html(fig2b, file="Data/Figures_html/Proportion_exclusivité_contacts_FairCarboN.html", auto_open=False)
+    pio.write_html(fig2b, file="Data/Figures_html/Proportion_exclusivité_contacts_FairCarboN.html", auto_open=False, include_plotlyjs="cdn", full_html=True)
 
 ###############################################################################################
 ########### ANALYSE CONTACTS ##################################################################
@@ -583,7 +585,7 @@ col1, col2 = st.columns(2)
 with col1:
     st.subheader(":grey[Répartition des fonctions par projet]")
     st.plotly_chart(fig_fonction, use_container_width=True)
-    pio.write_html(fig_fonction, file="Data/Figures_html/Repartition_contacts_fonctions_FairCarboN.html", auto_open=False)
+    pio.write_html(fig_fonction, file="Data/Figures_html/Repartition_contacts_fonctions_FairCarboN.html", auto_open=False, include_plotlyjs="cdn", full_html=True)
 
 ###############################################################################################
 ########### ANALYSE TUTELLES ##################################################################
