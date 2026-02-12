@@ -103,8 +103,10 @@ value_column = "VOLUMETRIE_MAX"
 if value_column not in df.columns:
     df[value_column] = 0.1  # valeur par défaut
 
-
 df_hal = st.session_state['df_hal']
+
+#df = df[df['QUESTIONNAIRE']=='DATA'][df['NATURE']=='PRODUITES']
+df = df[df['QUESTIONNAIRE']=='CODES']
 
 col1, col2 = st.columns(2)
 with col1:
@@ -265,3 +267,8 @@ elif analyse_semantique:
 
 else:
     st.warning("Appuyer sur le bouton de votre choix")
+
+df_select = df[['NUM_TACHE','INTITULES','OUI_OBJECTIFS_SCIENTIFIQUES']]
+df_select.set_index('NUM_TACHE', inplace=True)
+df_select.sort_index(inplace=True)
+st.table(df_select)
