@@ -12,6 +12,11 @@ from wordcloud import WordCloud
 import plotly.graph_objects as go
 import networkx as nx
 import plotly.io as pio
+import requests
+import json
+from shapely.geometry import shape, Polygon, MultiPolygon
+from folium.features import GeoJson
+from streamlit.components.v1 import html
 
 pio.templates.default = "plotly"
 
@@ -137,6 +142,41 @@ def carto2(grouped_, avg_lat, avg_long, color_map2):
 
     return m
 
+# ---------------------------------------------------
+# Utilitaires
+# ---------------------------------------------------
+def image_to_base64(path):
+    with open(path, "rb") as f:
+        return base64.b64encode(f.read()).decode("utf-8")
+
+def load_countries_geojson():
+    url = "https://raw.githubusercontent.com/datasets/geo-countries/master/data/countries.geojson"
+    r = requests.get(url)
+    geojson = r.json()
+
+    # 🔥 Sauvegarde locale du dictionnaire des géométries
+    with open("countries.geojson", "w", encoding="utf-8") as f:
+        json.dump(geojson, f, ensure_ascii=False, indent=2)
+
+    return geojson
+
+
+def get_country_shape(geojson, country_name):
+    for feature in geojson["features"]:
+        if feature["properties"]["name"].lower() == country_name.lower():
+            return shape(feature["geometry"])
+    return None
+
+def create_world_mask(country_shape):
+    # Polygone géant couvrant la planète
+    world = Polygon([
+        (-180, -90), (-180, 90),
+        (180, 90), (180, -90)
+    ])
+
+    # On retire le pays → trou dans le masque
+    mask = world.difference(country_shape)
+    return mask
 
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
@@ -313,7 +353,7 @@ laboratoires_bis_sites = laboratoires_select[laboratoires_select['Type_Data']=='
 
 
 # Regrouper par projet
-grouped = df_selected.groupby(['Sigle structure','Type_Data','Latitude', 'Longitude'])['projet'].apply(list).reset_index()
+grouped = df_selected.groupby(['Sigle structure','Type_Data','Latitude', 'Longitude','Pays','Logos'])['projet'].apply(list).reset_index()
 grouped_contacts = df_contacts_selected.groupby(['Contact','Sigle structure'])['projet'].apply(list).reset_index()
 
 
@@ -801,3 +841,149 @@ cartoparprojet = st.checkbox("Carto par projet")
 
 if cartoparprojet:
     st.dataframe(grouped_)
+    grouped_ = grouped_.sort_values(by="Latitude", ascending=True)
+
+    st.title("Carte des partenaires")
+
+    countries = grouped_["Pays"].unique()
+
+    # Charger GeoJSON mondial
+    geojson_world = load_countries_geojson()
+
+    # ---------------------------------------------------
+    # Génération d'une carte par pays
+    # ---------------------------------------------------
+    for country in countries:
+        st.subheader(f"📍 {country}")
+
+        df_country = grouped_[grouped_["Pays"] == country]
+
+        # Récupérer la forme du pays
+        country_shape = get_country_shape(geojson_world, country)
+
+        if country_shape is None:
+            st.error(f"Impossible de trouver le pays : {country}")
+            continue
+
+        # Création du masque
+        mask_shape = create_world_mask(country_shape)
+
+        # Carte centrée sur le pays
+        m = folium.Map(
+            location=[df_country["Latitude"].mean(), df_country["Longitude"].mean()],
+            zoom_start=5
+        )
+
+        # Ajouter le masque gris
+        GeoJson(
+            data=json.loads(json.dumps(mask_shape.__geo_interface__)),
+            style_function=lambda x: {
+                "fillColor": "white",
+                "color": "white",
+                "weight": 1,
+                "fillOpacity": 1
+            }
+        ).add_to(m)
+
+        # Ajouter le pays en clair
+        GeoJson(
+            data=json.loads(json.dumps(country_shape.__geo_interface__)),
+            style_function=lambda x: {
+                "fillColor": "#ffffff00",
+                "color": "red",
+                "weight": 2,
+                "fillOpacity": 0
+            }
+        ).add_to(m)
+
+        # Position de la colonne des labels (à droite du pays)
+        label_lon = df_country["Longitude"].max() + 5
+
+        # Espacement vertical entre les labels
+        lat_min = df_country["Latitude"].min()
+        lat_max = df_country["Latitude"].max()
+        step = (lat_max - lat_min)*1.7 / (len(df_country) + 1)
+
+        # Index pour placer les labels
+        i = 1
+
+        # Ajouter les entreprises
+        for _, row in df_country.iterrows():
+            img_b64 = image_to_base64(row["Logos"])
+
+            html_icon = f"""
+            <div style="
+                width: 30px;
+                height: 30px;
+                border-radius: 50%;
+                overflow: hidden;
+                border: 3px solid #333;
+                box-shadow: 0 0 5px rgba(0,0,0,0.4);
+            ">
+                <img src="data:image/png;base64,{img_b64}"
+                    style="width: 100%; height: 100%; object-fit: contain;">
+            </div>
+            """
+
+            icon = folium.DivIcon(html=html_icon)
+
+            # Marqueur invisible (juste un point)
+            folium.CircleMarker(
+                location=[row["Latitude"], row["Longitude"]],
+                radius=3,
+                color="#ffcc00",
+                fill=True,
+                fill_color="#ffcc00"
+            ).add_to(m)
+
+
+            # Position du label dans la colonne
+            label_lat = lat_min + step * i
+            i += 1
+
+            # Ligne entre logo et label
+            folium.PolyLine(
+                locations=[[row["Latitude"], row["Longitude"]], [label_lat, label_lon]],
+                color="black",
+                weight=2,
+                opacity=0.8
+            ).add_to(m)
+
+            # Logo + nom dans la colonne latérale
+            html_label = f"""
+            <div style="
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                background: rgba(0,0,0,0.6);
+                padding: 4px 8px;
+                border-radius: 6px;
+            ">
+                <img src="data:image/png;base64,{img_b64}"
+                    style="width: 28px; height: 28px; border-radius: 4px;">
+                <span style="color:white; font-size:14px; font-weight:bold;">
+                    {row['Sigle structure']}
+                </span>
+            </div>
+            """
+
+            folium.Marker(
+                location=[label_lat, label_lon],
+                icon=folium.DivIcon(html=html_label)
+            ).add_to(m)
+
+    
+        # Affichage Streamlit
+        map_html = m._repr_html_()
+        html(map_html, height=1000)
+
+
+"""  
+icon = folium.DivIcon(html=html_icon)
+
+folium.Marker(
+    location=[row["lat"], row["lon"]],
+    popup=row["name"],
+    icon=icon
+).add_to(m)
+"""
