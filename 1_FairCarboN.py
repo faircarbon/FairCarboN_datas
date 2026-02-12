@@ -796,3 +796,8 @@ fig3 = go.Figure(
 # Affichage
 st.subheader(f":grey[Liens entre unités ou sites / et projets]")
 st.plotly_chart(fig3, use_container_width=True)
+
+cartoparprojet = st.checkbox("Carto par projet")
+
+if cartoparprojet:
+    st.dataframe(grouped_)
