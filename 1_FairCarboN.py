@@ -15,8 +15,16 @@ import plotly.io as pio
 import requests
 import json
 from shapely.geometry import shape, Polygon, MultiPolygon
+import shapely
 from folium.features import GeoJson
 from streamlit.components.v1 import html
+
+from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+import time
+import os
+import geopandas as gpd
+
 
 pio.templates.default = "plotly"
 
@@ -36,6 +44,20 @@ st.set_page_config(
 ######################################################################################################################
 ########### FONCTIONS SUPPORTS #######################################################################################
 ######################################################################################################################
+def save_map_as_png(html_path, png_path):
+    options = Options()
+    options.add_argument("--headless")
+    options.add_argument("--window-size=3000,2000")
+
+
+    driver = webdriver.Chrome(options=options)
+    driver.get("file://" + os.path.abspath(html_path))
+
+    time.sleep(2)  # laisse la carte se charger
+
+    driver.save_screenshot(png_path)
+    driver.quit()
+
 
 def to_rgb_string(rgb_tuple):
     r, g, b = (int(255 * c) for c in rgb_tuple)
@@ -177,6 +199,7 @@ def create_world_mask(country_shape):
     # On retire le pays → trou dans le masque
     mask = world.difference(country_shape)
     return mask
+
 
 ######################################################################################################################
 ########### DONNEES INITIALES ########################################################################################
@@ -837,9 +860,10 @@ fig3 = go.Figure(
 st.subheader(f":grey[Liens entre unités ou sites / et projets]")
 st.plotly_chart(fig3, use_container_width=True)
 
-cartoparprojet = st.checkbox("Carto par projet")
+cartounitparprojet = st.checkbox("Carto par projet")
+cartositesparprojet = st.checkbox("Carto sites par projet")
 
-if cartoparprojet:
+if cartounitparprojet:
     st.dataframe(grouped_)
     grouped_ = grouped_.sort_values(by="Latitude", ascending=True)
 
@@ -871,7 +895,7 @@ if cartoparprojet:
         # Carte centrée sur le pays
         m = folium.Map(
             location=[df_country["Latitude"].mean(), df_country["Longitude"].mean()],
-            zoom_start=5
+            zoom_start=7
         )
 
         # Ajouter le masque gris
@@ -897,7 +921,7 @@ if cartoparprojet:
         ).add_to(m)
 
         # Position de la colonne des labels (à droite du pays)
-        label_lon = df_country["Longitude"].max() + 5
+        label_lon = df_country["Longitude"].max() + 3
 
         # Espacement vertical entre les labels
         lat_min = df_country["Latitude"].min()
@@ -910,22 +934,6 @@ if cartoparprojet:
         # Ajouter les entreprises
         for _, row in df_country.iterrows():
             img_b64 = image_to_base64(row["Logos"])
-
-            html_icon = f"""
-            <div style="
-                width: 30px;
-                height: 30px;
-                border-radius: 50%;
-                overflow: hidden;
-                border: 3px solid #333;
-                box-shadow: 0 0 5px rgba(0,0,0,0.4);
-            ">
-                <img src="data:image/png;base64,{img_b64}"
-                    style="width: 100%; height: 100%; object-fit: contain;">
-            </div>
-            """
-
-            icon = folium.DivIcon(html=html_icon)
 
             # Marqueur invisible (juste un point)
             folium.CircleMarker(
@@ -944,46 +952,216 @@ if cartoparprojet:
             # Ligne entre logo et label
             folium.PolyLine(
                 locations=[[row["Latitude"], row["Longitude"]], [label_lat, label_lon]],
-                color="black",
-                weight=2,
-                opacity=0.8
+                color="red",
+                weight=1.5,
+                opacity=0.9
             ).add_to(m)
 
+            # Logo + nom dans la colonne latérale
             # Logo + nom dans la colonne latérale
             html_label = f"""
             <div style="
                 display: flex;
+                flex-direction: row;
                 align-items: center;
                 gap: 8px;
-                background: rgba(0,0,0,0.6);
-                padding: 4px 8px;
-                border-radius: 6px;
+                padding: 2px 4px;
+                white-space: nowrap;
             ">
-                <img src="data:image/png;base64,{img_b64}"
-                    style="width: 28px; height: 28px; border-radius: 4px;">
-                <span style="color:white; font-size:14px; font-weight:bold;">
+                <div style="
+                    width: 64px;
+                    height: 64px;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    border: 3px solid #ffcc00;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                ">
+                    <img src="data:image/png;base64,{img_b64}"
+                        style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+                <span style="color:black; font-size:25px; font-weight:600;">
                     {row['Sigle structure']}
                 </span>
             </div>
             """
 
+
             folium.Marker(
                 location=[label_lat, label_lon],
-                icon=folium.DivIcon(html=html_label)
+                icon=folium.DivIcon(html=html_label, 
+                                    icon_size=(200, 60), # largeur, hauteur en pixels 
+                                    icon_anchor=(0, 20) # point d’ancrage (gauche, milieu vertical) 
+                                    )
             ).add_to(m)
 
     
         # Affichage Streamlit
         map_html = m._repr_html_()
         html(map_html, height=1000)
+        html_file = f"carte_{country}.html"
+        png_file = f"carte_{country}.png"
 
+        m.save(html_file)
+        save_map_as_png(html_file, png_file)
+        with open(png_file, "rb") as f:
+            st.download_button(
+                label="📥 Télécharger la carte en PNG",
+                data=f,
+                file_name=png_file,
+                mime="image/png"
+            )
 
-"""  
-icon = folium.DivIcon(html=html_icon)
+if cartositesparprojet:
+    st.dataframe(grouped_)
+    grouped_ = grouped_.sort_values(by="Latitude", ascending=True)
 
-folium.Marker(
-    location=[row["lat"], row["lon"]],
-    popup=row["name"],
-    icon=icon
-).add_to(m)
-"""
+    # ---------------------------------------------------
+    # Génération d'une carte mondiale unique
+    # ---------------------------------------------------
+    st.subheader("📍 Carte mondiale des structures")
+
+    # Charger GeoJSON mondial
+    geojson_world = load_countries_geojson()
+
+    # Récupérer tous les pays présents dans les données
+    countries_in_data = grouped_["Pays"].unique()
+
+    # Créer une MultiPolygon avec tous les pays concernés
+    all_countries_shapes = []
+    for country in countries_in_data:
+        country_shape = get_country_shape(geojson_world, country)
+        if country_shape is not None:
+            all_countries_shapes.append(country_shape)
+
+    # Combiner tous les pays en une seule forme
+    from shapely.ops import unary_union
+    combined_shape = unary_union(all_countries_shapes)
+
+    # Création du masque mondial
+    mask_shape = create_world_mask(combined_shape)
+
+    # Carte centrée sur le monde
+    m = folium.Map(
+        location=[grouped_["Latitude"].mean(), grouped_["Longitude"].mean()],
+        zoom_start=2
+    )
+
+    # Ajouter le masque blanc
+    GeoJson(
+        data=json.loads(json.dumps(mask_shape.__geo_interface__)),
+        style_function=lambda x: {
+            "fillColor": "white",
+            "color": "white",
+            "weight": 1,
+            "fillOpacity": 1
+        }
+    ).add_to(m)
+
+    # Ajouter TOUS les pays du monde avec contours gris
+    GeoJson(
+        data=geojson_world,
+        style_function=lambda x: {
+            "fillColor": "#ffffff00",
+            "color": "#cccccc",  # Gris clair pour tous les pays
+            "weight": 1,
+            "fillOpacity": 0
+        }
+    ).add_to(m)
+
+    # Ajouter les pays avec données en rouge par-dessus
+    GeoJson(
+        data=json.loads(json.dumps(combined_shape.__geo_interface__)),
+        style_function=lambda x: {
+            "fillColor": "#ffffff00",
+            "color": "red",
+            "weight": 2,
+            "fillOpacity": 0
+        }
+    ).add_to(m)
+
+    # Position de la colonne des labels (à droite de la carte)
+    label_lon = grouped_["Longitude"].max() + 3
+
+    # Espacement vertical entre les labels
+    lat_min = grouped_["Latitude"].min()
+    lat_max = grouped_["Latitude"].max()
+    step = (lat_max - lat_min) * 2.5 / (len(grouped_) + 1)
+
+    # Index pour placer les labels
+    i = 1
+
+    # Ajouter les marqueurs avec lignes et labels
+    for _, row in grouped_.iterrows():
+        # Marqueur circulaire (point vert)
+        folium.CircleMarker(
+            location=[row["Latitude"], row["Longitude"]],
+            radius=3,
+            color="#208845",
+            fill=True,
+            fill_color="#208845"
+        ).add_to(m)
+        
+        # Position du label dans la colonne
+        label_lat = lat_min + step * i
+        i += 1
+        
+        # Ligne entre le point et le label
+        folium.PolyLine(
+            locations=[[row["Latitude"], row["Longitude"]], [label_lat, label_lon]],
+            color="red",
+            weight=1.5,
+            opacity=0.9
+        ).add_to(m)
+        
+        # Label avec marqueur circulaire + nom de la structure
+        html_label = f"""
+        <div style="
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 8px;
+            padding: 2px 4px;
+            white-space: nowrap;
+        ">
+            <div style="
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: #208845;
+                border: 2px solid #208845;
+            ">
+            </div>
+            <span style="color:black; font-size:16px; font-weight:600;">
+                {row['Sigle structure']}
+            </span>
+        </div>
+        """
+        
+        folium.Marker(
+            location=[label_lat, label_lon],
+            icon=folium.DivIcon(
+                html=html_label,
+                icon_size=(250, 30),
+                icon_anchor=(0, 15)
+            )
+        ).add_to(m)
+
+    # Affichage Streamlit
+    map_html = m._repr_html_()
+    html(map_html, height=800)
+
+    # Sauvegarde et téléchargement
+    html_file = "carte_mondiale.html"
+    png_file = "carte_mondiale.png"
+
+    m.save(html_file)
+    save_map_as_png(html_file, png_file)
+    with open(png_file, "rb") as f:
+        st.download_button(
+            label="📥 Télécharger la carte en PNG",
+            data=f,
+            file_name=png_file,
+            mime="image/png"
+        )
