@@ -163,7 +163,7 @@ FairCarboN,DEEP-C,Labo,Institut de physique du globe de Paris,IPGP,200512539M,UM
 FairCarboN,CarboNium,Labo,Institut de physique du globe de Paris,IPGP,200512539M,UMR 7154,CNRS / Sorbonne Université,"3-Sciences de la terre et de l'univers, espace"," PE9 : Universe Sciences : Astro-physics/-chemistry/-biology; solar system; planetary systems; stellar, galactic and extragalactic astronomy; cosmology; space sciences; astronomical instrumentation and data
  PE10 : Earth System Science : Physical geography, geology, geophysics, atmospheric sciences, oceanography, climatology, cryology, ecology, global environmental change, biogeochemical cycles, natural resources management","1 rue Jussieu 75238 Paris, France",48.84601593017578,2.355226516723633,France,DATA/logos/IPGP.png
 FairCarboN,SLAM-B,Labo,Institut de Recherche en Informatique de Toulouse,IRIT,199511949P,UMR 5505,INRIA / Université de Toulouse / CNRS / INP TOULOUSE,9-Sciences et technologies de l'information et de la communication,"PE6-Computer science and informatics : informatics and information systems, computer science, scientific computing, intelligent systems","118 Route de Narbonne, F-31062 Toulouse",43.5613881,1.4688266,France,DATA/logos/IRIT.png
-FairCarboN,TROPECOS,Labo,Institut de Sciences exactes et appliquées,ISEA,201722485W,EA 7484,Université de Nouvelle Calédonie,"4-Chimie / 5-Biologie, médecine et santé / 2-Physique                                                                                   ","PE4-Physical and analytical chemical sciences : analytical chemistry, chemical theory, physical chemistry/chemical physics","JAMES COOK, Avenue James Cook, 98800 Nouméa, France",-22.2626305,166.4088431,France,DATA/logos/ISEA.png
+FairCarboN,TROPECOS-CALEDONIE,Labo,Institut de Sciences exactes et appliquées,ISEA,201722485W,EA 7484,Université de Nouvelle Calédonie,"4-Chimie / 5-Biologie, médecine et santé / 2-Physique                                                                                   ","PE4-Physical and analytical chemical sciences : analytical chemistry, chemical theory, physical chemistry/chemical physics","JAMES COOK, Avenue James Cook, 98800 Nouméa, France",-22.2626305,166.4088431,France,DATA/logos/ISEA.png
 FairCarboN,DEEP-C,Labo,Institut des Sciences de l'Evolution de Montpellier,ISEM,199511995P,UMR 5554,Université de Montpellier /CNRS / IRD / EPHE / CIRAD / INRAP,"10-Sciences agronomiques et écologiques / 3-Sciences de la terre et de l'univers, espace / 5-Biologie, médecine et santé /7-Sciences de la société / 9-Sciences et technologies de l'information et de la communication","
     SH6 : The Study of the Human Past : Archaeology and history
     PE10 : Earth System Science : Physical geography, geology, geophysics, atmospheric sciences, oceanography, climatology, cryology, ecology, global environmental change, biogeochemical cycles, natural resources management
@@ -394,13 +394,13 @@ FairCarboN,CANETE,Site,Theix,Theix,,,,,,,47.6350664,-2.6474422,France,DATA/logos
 FairCarboN,CANETE,Site,Laqueille,Laqueille,,,,,,,45.6511054,2.7329003,France,DATA/logos/Laqueille.png
 FairCarboN,CANETE,Site,La Bouzule,La Bouzule,,,,,,,48.7381866,6.3182816,France,DATA/logos/La Bouzule.png
 FairCarboN,CANETE,Site,Breuil chenue,Breuil chenue,,,,,,,49.7373109,2.9552861,France,DATA/logos/Breuil chenue.png
-FairCarboN,ALAMOD,Site,Couanimi,Couanimi,,,,,,,5.3854052,-53.2375585,France,DATA/logos/Couanimi.png
-FairCarboN,ALAMOD,Site,Crique Plomb,Crique Plomb,,,,,,,5.0117933,-52.9466305,France,DATA/logos/Crique Plomb.png
-FairCarboN,ALAMOD,Site,Paracou,Paracou,,,,,,,5.2745908,-52.9238682,France,DATA/logos/Paracou.png
+FairCarboN,ALAMOD-GUYANE,Site,Couanimi,Couanimi,,,,,,,5.3854052,-53.2375585,France,DATA/logos/Couanimi.png
+FairCarboN,ALAMOD-GUYANE,Site,Crique Plomb,Crique Plomb,,,,,,,5.0117933,-52.9466305,France,DATA/logos/Crique Plomb.png
+FairCarboN,ALAMOD-GUYANE,Site,Paracou,Paracou,,,,,,,5.2745908,-52.9238682,France,DATA/logos/Paracou.png
 FairCarboN,RIFT,Site,Belefoungu,Belefoungu,,,,,,,9.8143565,1.7193647,Benin,DATA/logos/Belefoungu.png
 FairCarboN,RIFT,Site,Mata flux,Mata flux,,,,,,,-15.7850594,-40.5204231,Brazil,DATA/logos/Mata flux.png
 FairCarboN,RIFT,Site,Cacao flux,Cacao flux,,,,,,,5.6234205,12.2547274,Cameroon,DATA/logos/Cacao flux.png
-FairCarboN,RIFT,Site,Carpaag,Carpaag,,,,,,,3.9597343,-53.1358235,France,DATA/logos/Carpaag.png
+FairCarboN,RIFT-GUYANE,Site,Carpaag,Carpaag,,,,,,,3.9597343,-53.1358235,France,DATA/logos/Carpaag.png
 FairCarboN,RIFT,Site,Mule Hole,Mule Hole,,,,,,,11.9531893,76.4425161,India,DATA/logos/Mule Hole.png
 FairCarboN,RIFT,Site,Tensift,Tensift,,,,,,,31.731174,-8.3331992,Marocco,DATA/logos/Tensift.png
 FairCarboN,RIFT,Site,Wankama,Wankama,,,,,,,13.655368,2.6518962,Niger,DATA/logos/Wankama.png
@@ -413,9 +413,9 @@ FairCarboN,SLAM-B,Site,Bassin versant du Couesnon,Bassin versant du Couesnon,,,,
 FairCarboN,SLAM-B,Site,Grand Reims,Grand Reims,,,,,,,49.2715494,4.0189861,France,DATA/logos/Grand Reims.png
 FairCarboN,SLAM-B,Site,bassin de la Doller et Déodatie,bassin de la Doller et Déodatie,,,,,,,47.7522952,7.1234631,France,DATA/logos/bassin de la Doller et Déodatie.png
 FairCarboN,SLAM-B,Site,Ouvèze Ventoux,Ouvèze Ventoux,,,,,,,44.2177572,5.1381491,France,DATA/logos/Ouvèze Ventoux.png
-FairCarboN,SLAM-B,Site,Ile de la Reunion,Ile de la Reunion,,,,,,,-21.1105466,55.5197908,France,DATA/logos/Ile de la Reunion.png
+FairCarboN,SLAM-B-REUNION,Site,Ile de la Reunion,Ile de la Reunion,,,,,,,-21.1105466,55.5197908,France,DATA/logos/Ile de la Reunion.png
 FairCarboN,SLAM-B,Site,Bassin versant du Ferlo,Bassin versant du Ferlo,,,,,,,15.8828224,-15.2503105,Senegal,DATA/logos/Bassin versant du Ferlo.png
-FairCarboN,SLAM-B,Site,Guadeloupe,Guadeloupe,,,,,,,16.2528827,-61.5686855,France,DATA/logos/Guadeloupe.png
+FairCarboN,SLAM-B-GUADELOUPE,Site,Guadeloupe,Guadeloupe,,,,,,,16.2528827,-61.5686855,France,DATA/logos/Guadeloupe.png
 FairCarboN,CANETE,Site,Pierroton Xylosylve,Pierroton Xylosylve,,,,,,,44.7396811,-0.7669581,France,DATA/logos/Pierroton Xylosylve.png
 FairCarboN,Drought for C,Site,Itatinga,Itatinga,,,,,,,-23.03333,-48.6333,Brazil,DATA/logos/Itatinga.png
 FairCarboN,Drought for C,Site,Barbeau,Barbeau,,,,,,,48.4764,2.7801,France,DATA/logos/Barbeau.png
@@ -424,17 +424,17 @@ FairCarboN,Drought for C,Site,Hesse,Hesse,,,,,,,48.6741,7.0647,France,DATA/logos
 FairCarboN,PEACE,Site,Abisko,Abisko,,,,,,,68.3495543,18.831036,Suede,DATA/logos/Abisko.png
 FairCarboN,PEACE,Site,Zackenberg,Zackenberg,,,,,,,74.4697165,-20.5746022,Groenland,DATA/logos/Zackenberg.png
 FairCarboN,PEACE,Site,Churchill,Churchill,,,,,,,58.767877,-94.1699046,Canada,DATA/logos/Churchill.png
-FairCarboN,TROPECOS,Site,Manche a eau,Manche a eau,,,,,,,16.277231,-61.5578084,France,DATA/logos/Manche a eau.png
-FairCarboN,TROPECOS,Site,La Lezarde,La Lezarde,,,,,,,16.2124478,-61.5905897,France,DATA/logos/La Lezarde.png
+FairCarboN,TROPECOS-GUADELOUPE,Site,Manche a eau,Manche a eau,,,,,,,16.277231,-61.5578084,France,DATA/logos/Manche a eau.png
+FairCarboN,TROPECOS-GUADELOUPE,Site,La Lezarde,La Lezarde,,,,,,,16.2124478,-61.5905897,France,DATA/logos/La Lezarde.png
 FairCarboN,TROPECOS,Site,Cayenne,Cayenne,,,,,,,4.9382639,-52.3379376,France,DATA/logos/Cayenne.png
-FairCarboN,TROPECOS,Site,Crique Fouille,Crique Fouille,,,,,,,4.8483733,-52.2894864,France,DATA/logos/Crique Fouille.png
-FairCarboN,TROPECOS,Site,Mahury,Mahury,,,,,,,4.8079943,-52.2979664,France,DATA/logos/Mahury.png
+FairCarboN,TROPECOS-GUYANE,Site,Crique Fouille,Crique Fouille,,,,,,,4.8483733,-52.2894864,France,DATA/logos/Crique Fouille.png
+FairCarboN,TROPECOS-GUYANE,Site,Mahury,Mahury,,,,,,,4.8079943,-52.2979664,France,DATA/logos/Mahury.png
 FairCarboN,TROPECOS,Site,Mamangua,Mamangua,,,,,,,-23.2629475,-44.6147914,Brazil,DATA/logos/Mamangua.png
 FairCarboN,TROPECOS,Site,Guaratiba,Guaratiba,,,,,,,-22.9624307,-43.612538,Brazil,DATA/logos/Guaratiba.png
 FairCarboN,TROPECOS,Site,Marapanim,Marapanim,,,,,,,-0.7113507,-47.6976974,Brazil,DATA/logos/Marapanim.png
 FairCarboN,TROPECOS,Site,Can Gio,Can Gio,,,,,,,10.5075445,106.8645697,Vietnam,DATA/logos/Can Gio.png
-FairCarboN,TROPECOS,Site,Ouvea,Ouvea,,,,,,,-20.6519725,166.5403443,France,DATA/logos/Ouvea.png
-FairCarboN,TROPECOS,Site,Dumbea,Dumbea,,,,,,,-22.1589413,166.443895,France,DATA/logos/Dumbea.png
+FairCarboN,TROPECOS-CALEDONIE,Site,Ouvea,Ouvea,,,,,,,-20.6519725,166.5403443,France,DATA/logos/Ouvea.png
+FairCarboN,TROPECOS-CALEDONIE,Site,Dumbea,Dumbea,,,,,,,-22.1589413,166.443895,France,DATA/logos/Dumbea.png
 FairCarboN,CABESTAN,Site,Bassin Arcachon,Bassin Arcachon,,,,,,,44.676871,-1.1181765,France,DATA/logos/Bassin Arcachon.png
 FairCarboN,CABESTAN,Site,Mortagne-sur-Gironde,Mortagne-sur-Gironde,,,,,,,45.4835846,-0.7840259,France,DATA/logos/Mortagne-sur-Gironde.png
 FairCarboN,CABESTAN,Site,Littoral charentais,Littoral charentais,,,,,,,45.8217455,-1.11008,France,DATA/logos/Littoral charentais.png

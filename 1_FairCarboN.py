@@ -206,6 +206,7 @@ def create_world_mask(country_shape):
 ######################################################################################################################
 # Charger les données
 df_Labo_Site = read_data("Data\FairCarboN_Datas_Labo2")
+df_Labo_Site3 = read_data("Data\FairCarboN_Datas_Labo3")
 df_Contacts = read_data("Data\FairCarboN_Datas_Contacts")
 df_Labo2 = read_data("Data\FairCarboN_Datas_Labo2")
 
@@ -863,14 +864,62 @@ st.plotly_chart(fig3, use_container_width=True)
 cartounitparprojet = st.checkbox("Carto par projet")
 cartositesparprojet = st.checkbox("Carto sites par projet")
 
+projects2 = sorted(df_Labo_Site3['projet'].unique())
+
+#choix de visualisation2
+col1, col2, col3 =st.columns([0.4,0.3,0.3])
+with col1:
+    st.subheader(f":grey[Choix de visualisation]")
+    st.markdown("Choix obligatoire")
+with col2:
+    Unites2 = st.checkbox('Unités2')
+with col3:
+    Sites2 = st.checkbox('Sites2')
+
+Selection_projets2 = st.multiselect('',options=projects2)
+
+if len(Selection_projets2)==0: #aucun choix
+    df_selected2 = df_Labo_Site3 #le dataframe ne change pas, c'est l'original
+else:
+    df_selected2 = df_Labo_Site3[df_Labo_Site3['projet'].isin(Selection_projets2)]
+
+# Regrouper par projet
+grouped2 = df_selected2.groupby(['Sigle structure','Type_Data','Latitude', 'Longitude','Pays','Logos'])['projet'].apply(list).reset_index()
+
+if Unites2:
+    grouped_2 = grouped2[grouped2['Type_Data']=='Labo']
+
+elif Sites2:
+    grouped_2 = grouped2[grouped2['Type_Data']=='Site']
+else:
+    grouped_2 = pd.DataFrame()
+
+############################################################
+############## PARAMETRES ##################################
+
+contour_unites = "red"
+ligne_unites = "#ffcc00"
+markers_unites = "#ffcc00"
+inter_unites = 2
+marge_unites = 6
+
+contour_sites = "red"
+ligne_sites = "#ffcc00"
+markers_sites = "#ffcc00"
+inter_sites = 2
+marge_sites = 6
 
 
-if cartositesparprojet:
-    st.dataframe(grouped_)
+############################################################
 
-    grouped_ = grouped_.sort_values(by="Latitude", ascending=True)
 
-    countries = grouped_["Pays"].unique()
+
+if cartounitparprojet:
+    st.dataframe(grouped_2)
+
+    grouped_2 = grouped_2.sort_values(by="Latitude", ascending=True)
+
+    countries = grouped_2["Pays"].unique()
 
     # Charger GeoJSON mondial
     geojson_world = load_countries_geojson()
@@ -878,7 +927,7 @@ if cartositesparprojet:
     for country in countries:
         st.subheader(f"📍 {country}")
 
-        df_country = grouped_[grouped_["Pays"] == country]
+        df_country = grouped_2[grouped_2["Pays"] == country]
 
         # Récupérer tous les pays présents dans les données
         countries_in_data = df_country["Pays"].unique()
@@ -930,32 +979,33 @@ if cartositesparprojet:
             data=json.loads(json.dumps(combined_shape.__geo_interface__)),
             style_function=lambda x: {
                 "fillColor": "#ffffff00",
-                "color": "red",
+                "color": contour_unites,
                 "weight": 2,
                 "fillOpacity": 0
             }
         ).add_to(m)
 
         # Position de la colonne des labels (à droite de la carte)
-        label_lon = df_country["Longitude"].max() + 7
+        label_lon = df_country["Longitude"].max() + marge_unites
 
         # Espacement vertical entre les labels
         lat_min = df_country["Latitude"].min()
         lat_max = df_country["Latitude"].max()
-        step = (lat_max - lat_min) * 2 / (len(df_country) + 1)
+        step = (lat_max - lat_min) * inter_unites / (len(df_country) + 1)
 
         # Index pour placer les labels
         i = 1
 
         # Ajouter les marqueurs avec lignes et labels
         for _, row in df_country.iterrows():
+            img_b64 = image_to_base64(row["Logos"])
             # Marqueur circulaire (point vert)
             folium.CircleMarker(
                 location=[row["Latitude"], row["Longitude"]],
                 radius=3,
-                color="#208845",
+                color=markers_unites,
                 fill=True,
-                fill_color="#208845"
+                fill_color=markers_unites
             ).add_to(m)
             
             # Position du label dans la colonne
@@ -965,7 +1015,7 @@ if cartositesparprojet:
             # Ligne entre le point et le label
             folium.PolyLine(
                 locations=[[row["Latitude"], row["Longitude"]], [label_lat, label_lon]],
-                color="red",
+                color=ligne_unites,
                 weight=1.5,
                 opacity=0.9
             ).add_to(m)
@@ -981,12 +1031,17 @@ if cartositesparprojet:
                 white-space: nowrap;
             ">
                 <div style="
-                    width: 20px;
-                    height: 20px;
+                    width: 64px;
+                    height: 64px;
                     border-radius: 50%;
-                    background-color: #208845;
-                    border: 2px solid #208845;
+                    overflow: hidden;
+                    border: 3px solid {markers_unites};
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
                 ">
+                    <img src="data:image/png;base64,{img_b64}"
+                        style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
                 <span style="color:black; font-size:16px; font-weight:600;">
                     {row['Sigle structure']}
@@ -1021,12 +1076,12 @@ if cartositesparprojet:
                 mime="image/png"
             )
 
-if cartounitparprojet:
-    st.dataframe(grouped_)
+if cartositesparprojet:
+    st.dataframe(grouped_2)
 
-    grouped_ = grouped_.sort_values(by="Latitude", ascending=True)
+    grouped_2 = grouped_2.sort_values(by="Latitude", ascending=True)
 
-    countries = grouped_["Pays"].unique()
+    countries = grouped_2["Pays"].unique()
 
     # Charger GeoJSON mondial
     geojson_world = load_countries_geojson()
@@ -1034,7 +1089,7 @@ if cartounitparprojet:
     for country in countries:
         st.subheader(f"📍 {country}")
 
-        df_country = grouped_[grouped_["Pays"] == country]
+        df_country = grouped_2[grouped_2["Pays"] == country]
 
         # Récupérer tous les pays présents dans les données
         countries_in_data = df_country["Pays"].unique()
@@ -1086,33 +1141,32 @@ if cartounitparprojet:
             data=json.loads(json.dumps(combined_shape.__geo_interface__)),
             style_function=lambda x: {
                 "fillColor": "#ffffff00",
-                "color": "red",
+                "color": contour_sites,
                 "weight": 2,
                 "fillOpacity": 0
             }
         ).add_to(m)
 
         # Position de la colonne des labels (à droite de la carte)
-        label_lon = df_country["Longitude"].max() + 7
+        label_lon = df_country["Longitude"].max() + marge_sites
 
         # Espacement vertical entre les labels
         lat_min = df_country["Latitude"].min()
         lat_max = df_country["Latitude"].max()
-        step = (lat_max - lat_min) * 2 / (len(df_country) + 1)
+        step = (lat_max - lat_min) * inter_sites / (len(df_country) + 1)
 
         # Index pour placer les labels
         i = 1
 
         # Ajouter les marqueurs avec lignes et labels
         for _, row in df_country.iterrows():
-            img_b64 = image_to_base64(row["Logos"])
             # Marqueur circulaire (point vert)
             folium.CircleMarker(
                 location=[row["Latitude"], row["Longitude"]],
                 radius=3,
-                color="#ffcc00",
+                color=markers_sites,
                 fill=True,
-                fill_color="#ffcc00"
+                fill_color=markers_sites
             ).add_to(m)
             
             # Position du label dans la colonne
@@ -1122,7 +1176,7 @@ if cartounitparprojet:
             # Ligne entre le point et le label
             folium.PolyLine(
                 locations=[[row["Latitude"], row["Longitude"]], [label_lat, label_lon]],
-                color="red",
+                color=ligne_sites,
                 weight=1.5,
                 opacity=0.9
             ).add_to(m)
@@ -1138,17 +1192,12 @@ if cartounitparprojet:
                 white-space: nowrap;
             ">
                 <div style="
-                    width: 64px;
-                    height: 64px;
+                    width: 20px;
+                    height: 20px;
                     border-radius: 50%;
-                    overflow: hidden;
-                    border: 3px solid #ffcc00;
-                    display: flex;
-                    align-items: center;
-                    justify-content: center;
+                    background-color: {markers_unites};
+                    border: 2px solid {markers_unites};
                 ">
-                    <img src="data:image/png;base64,{img_b64}"
-                        style="width: 100%; height: 100%; object-fit: contain;">
                 </div>
                 <span style="color:black; font-size:16px; font-weight:600;">
                     {row['Sigle structure']}
