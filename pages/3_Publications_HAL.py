@@ -6,7 +6,6 @@ import plotly.graph_objects as go
 import plotly.io as pio
 from Publications import afficher_publications_hal
 import datetime
-import ast
 
 
 pio.templates.default = "plotly"
