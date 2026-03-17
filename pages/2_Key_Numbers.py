@@ -130,7 +130,7 @@ Labo_long["compte_affiche"] = Labo_long["compte"].replace(0, 1)
 Labo_long = Labo_long[Labo_long["compte_affiche"] > 0]
 Labo_long["PEPR FairCarboN"]="FairCarboN"
 Labo_long["label"] = Labo_long.apply(
-    lambda r: f"{r["Type_Data"]} (0)" if r["compte"] == 0 else f"{r['compte']}",
+    lambda r: f"0" if r["compte"] == 0 else f"{r['compte']}",
     axis=1
 )
 
