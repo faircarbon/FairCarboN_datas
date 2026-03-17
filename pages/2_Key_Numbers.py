@@ -106,7 +106,7 @@ with col3:
 st.title("Chiffres clés - Key Numbers || Par projet - By project")
 
 # Comptage par projet et statut
-Contacts_selec = Contacts[["PEPR FairCarboN", "projet", "Fonction"]]
+Contacts_selec = Contacts[["projet", "Fonction"]]
 Contacts_ag = Contacts.groupby(["projet", "Fonction"]).size().unstack(fill_value=0)
 Contacts_long = Contacts_ag.reset_index().melt(
     id_vars="projet",
