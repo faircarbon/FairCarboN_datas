@@ -63,7 +63,7 @@ d = datetime.date.today()
 ######################################################################################################################
 data = pd.read_csv("Data/HAL/all_publications_hal_2026-01-19.csv")
 filtered_df = data[data['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
-df = read_data("Data\FairCarboN_Datas_Contacts")
+df = read_data("Data/FairCarboN_Datas_Contacts")
 
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
