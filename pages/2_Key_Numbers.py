@@ -68,6 +68,54 @@ couleurs = {"ALAMOD":"#1f77b4",
 
 size_sunburst = 600
 
+# Variables Python
+couleur_h1 = "#1E90FF"
+taille_h1 = "48px"
+police_h1 = "Marianne"
+
+couleur_h2 = "#FF6347"
+taille_h2 = "32px"
+police_h2 = "Marianne"
+
+couleur_h3 = "#4CAF50"
+taille_h3 = "24px"
+police_h3 = "Marianne"
+
+taille_metrique = "40px"
+couleur_metrique = "#4C98AF"
+
+# Injection CSS
+st.markdown(f"""
+<style>
+h1 {{
+    color: {couleur_h1}!important;
+    font-size: {taille_h1}!important;
+    font-family: {police_h1}!important;
+    text-align: center;
+}}
+
+h2 {{
+    color: {couleur_h2} !important;
+    font-size: {taille_h2} !important;
+    font-family: {police_h2} !important;
+    text-align: center;
+}}
+
+h3 {{
+    color: {couleur_h3} !important;
+    font-size: {taille_h3} !important;
+    font-family: {police_h3} !important;
+    text-align: center;
+}}
+
+[data-testid="stMetricValue"] {{
+    font-size: {taille_metrique} !important;
+    color: {couleur_metrique} !important;
+    text-align: center;
+}}
+</style>
+""", unsafe_allow_html=True)
+
 ######################################################################################################################
 ########### DONNEES ##################################################################################################
 ######################################################################################################################
@@ -82,25 +130,25 @@ st.title("Chiffres clés | Key Numbers")
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.write("Budget (Millions d'Euros)")
-    st.metric(value=40, label="", label_visibility="hidden")
+    st.subheader("Budget (Millions d'Euros)")
+    st.metric(value=40, label="", label_visibility="hidden", border=True)
 with col2:
-    st.write("Projets Ciblés | Target projects")
-    st.metric(value=5, label="", label_visibility="hidden")
+    st.subheader("Projets Ciblés | Target projects")
+    st.metric(value=5, label="", label_visibility="hidden", border=True)
 with col3:
-    st.write("Projets sélectionnés | Selected Projects")
-    st.metric(value=11, label="", label_visibility="hidden")
+    st.subheader("Projets sélectionnés | Selected Projects")
+    st.metric(value=11, label="", label_visibility="hidden", border=True)
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.write("Labos impliqués | Research units involved")
-    st.metric(value=114, label="", label_visibility="hidden")
+    st.subheader("Labos impliqués | Research units involved")
+    st.metric(value=114, label="", label_visibility="hidden",border=True)
 with col2:
-    st.write("Communauté fairCarboN | FairCarboN community")
-    st.metric(value=498, label="", label_visibility="hidden")
+    st.subheader("Communauté fairCarboN | FairCarboN community")
+    st.metric(value=498, label="", label_visibility="hidden",border=True)
 with col3:
-    st.write("Sites étudiés/ expérimentaux | Sites localisations")
-    st.metric(value=150, label="", label_visibility="hidden")
+    st.subheader("Sites étudiés/ expérimentaux | Sites localisations")
+    st.metric(value=150, label="", label_visibility="hidden",border=True)
 
 
 st.title("Chiffres clés - Key Numbers || Par projet - By project")
@@ -115,7 +163,7 @@ Contacts_long = Contacts_ag.reset_index().melt(
 )
 # On enlève les lignes où count = 0 (sinon ça crée des branches vides)
 Contacts_long = Contacts_long[Contacts_long["compte"] > 0]
-Contacts_long["PEPR FairCarboN"]="FairCarboN"
+Contacts_long["PEPR FairCarboN"]="  "
 
 
 Labo_selec = Labo[["PEPR FairCarboN", "projet", "Type_Data"]]
@@ -128,7 +176,7 @@ Labo_long = Labo_ag.reset_index().melt(
 # On enlève les lignes où count = 0 (sinon ça crée des branches vides)
 Labo_long["compte_affiche"] = Labo_long["compte"].replace(0, 1)
 Labo_long = Labo_long[Labo_long["compte_affiche"] > 0]
-Labo_long["PEPR FairCarboN"]="FairCarboN"
+Labo_long["PEPR FairCarboN"]="  "
 Labo_long["label"] = Labo_long.apply(
     lambda r: f"0" if r["compte"] == 0 else f"{r['compte']}",
     axis=1
@@ -146,13 +194,21 @@ fig1.update_layout(
     width=size_sunburst,   
     height=size_sunburst    
 )
+
 fig1.update_traces(
-    insidetextorientation='radial',
-    marker=dict(
-        line=dict(color='white', width=2)
-    ),
-    root_color="white"   
+    insidetextfont=dict(size=20, color="black")
 )
+
+fig1.add_annotation(
+    x=0.5,
+    y=0.5,
+    text="FairCarboN",
+    showarrow=False,
+    font=dict(size=25, color="red", family="Arial"),
+    xanchor="center",
+    yanchor="middle"
+)
+
 
 fig2 = px.sunburst(
     Contacts_long,
@@ -168,11 +224,17 @@ fig2.update_layout(
 )
 
 fig2.update_traces(
-    insidetextorientation='radial',
-    marker=dict(
-        line=dict(color='white', width=2)
-    ),
-    root_color="white"   
+    insidetextfont=dict(size=20, color="black")
+)
+
+fig2.add_annotation(
+    x=0.5,
+    y=0.5,
+    text="FairCarboN",
+    showarrow=False,
+    font=dict(size=20, color="red", family="Arial"),
+    xanchor="center",
+    yanchor="middle"
 )
 
 fig3 = px.sunburst(
@@ -186,6 +248,20 @@ fig3 = px.sunburst(
 fig3.update_layout(
     width=size_sunburst,   
     height=size_sunburst    
+)
+
+fig3.update_traces(
+    insidetextfont=dict(size=20, color="black")
+)
+
+fig3.add_annotation(
+    x=0.5,
+    y=0.5,
+    text="FairCarboN",
+    showarrow=False,
+    font=dict(size=20, color="red", family="Arial"),
+    xanchor="center",
+    yanchor="middle"
 )
 
 col1, col2, col3 = st.columns(3)
