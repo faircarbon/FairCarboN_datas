@@ -40,33 +40,32 @@ def read_data(path):
 ######################################################################################################################
 ########### PARAMETRES ###############################################################################################
 ######################################################################################################################
-couleurs = {"ALAMOD":"#1f77b4",
-              "SLAM-B":"#ff7f0e",
-              "RIFT":"#2ca02c",
-              "CrosyeN":"#d62728",
-              "CarboNium":"#9467bd",
-              "CABESTAN":"#8c564b",
-              "CANETE":"#e377c2",
-              "DEEP-C":"#7f7f7f",
-              "Drought for C":"#bcbd22",
-              "PEACE":"#17becf",
-              "TROPECOS":"#393b79",
-              "CLIM-FAS":"#637939",
-              "CO2_CMPhi":"#8c6d31",
-              "GREENSCALE":"#843c39",
-              "PREFALIM":"#7b4173",
-              "RhizoSeqC":"#3182bd",
-              "Gouvernance":"#CCCCFF",
-              "Labo":"#020242",
-              "Site":"#AC1B08",
-              "DIR":"#313695",
-              "CR":"#4575b4",
-              "INGE":"#74add1",
-              "DOC":"#a6cee3",
-              "POSTDOC":"#fdae61",
-              "PROFESSEUR":"#f46d43",
-              "MAITRE_DE_CONF":"#d73027",
-              "ASSIT_INGE":"#a50026"}
+couleurs = {"ALAMOD":"#fa0404",
+              "SLAM-B":"#e7b204",
+              "RIFT":"#05fc6c",
+              "CrosyeN":"#b9fc01",
+              "CarboNium":"#ec8129",
+              "CABESTAN":"#03fabc",
+              "CANETE":"#067ff0",
+              "DEEP-C":"#6d03f8",
+              "Drought for C":"#cb05fc",
+              "PEACE":"#f0047a",
+              "TROPECOS":"#090080",
+              "CLIM-FAS":"#ca7ff8",
+              "CO2_CMPhi":"#793305",
+              "GREENSCALE":"#035718",
+              "PREFALIM":"#B83E0E",
+              "RhizoSeqC":"#636303",
+              "Gouvernance":"#0A0A0A",
+              "ART": "#020242",
+              "UNDEFINED": "#0B9BEE",
+              "COM": "#16DA6E",
+              "POSTER":"#8de42a",
+              "MEM":"#eedf14",
+              "REPORT" : "#eba21b",
+              "OTHER": "#f5760f",
+              "LECTURE": "#ff0909"}
+
 
 # Variables Python
 couleur_h1 = "#1F8B09"
@@ -82,7 +81,9 @@ taille_h3 = "24px"
 police_h3 = "Marianne"
 
 taille_metrique = "50px"
-couleur_metrique = "#081E25"
+couleur_metrique = "#0C495C"
+
+couleur_graphes = "#0C495C"
 
 # Injection CSS
 st.markdown(f"""
@@ -144,6 +145,7 @@ dernier_fichier = dossier + derniere_date
 
 data = pd.read_csv(dernier_fichier)
 filtered_df = data[data['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
+filtered_df_uniq = filtered_df[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','Projet']].drop_duplicates(subset='Titre_unique')
 df = read_data("Data/FairCarboN_Datas_Contacts")
 
 ######################################################################################################################
@@ -151,41 +153,34 @@ df = read_data("Data/FairCarboN_Datas_Contacts")
 ######################################################################################################################
 st.title(f"Suivi Collection HAL - {derniere_date[21:-4]}")
 
-df_grouped = df.groupby("Contact", as_index=False).agg({
-    "projet": lambda x: list(x)
-})
-
-df_merged = pd.merge(
-    data,
-    df_grouped,
-    left_on="Auteur_recherché",
-    right_on="Contact",
-    how="left"   # "left" → garde tous les auteurs recherchés
-)
-
-df_merged['projet'] = df_merged['projet'].apply(lambda row: row[0])
-
-projects = sorted(df_merged['projet'].unique())
-col1, col2, col3 = st.columns(3)
+col1 , col2 = st.columns(2)
+with col1:
+    st.subheader("Nombre global de depôts | All deposits")
+    st.metric(value=len(filtered_df_uniq), label="", label_visibility="hidden", border=True)
 with col2:
+    st.subheader("Nombre d'articles | Published Articles")
+    st.metric(value=len(filtered_df_uniq[filtered_df_uniq["Type de document"]=="ART"]), label="", label_visibility="hidden", border=True)
+
+######################################################################################################################
+######################################################################################################################
+
+projects = sorted(filtered_df_uniq['Projet'].unique())
+col1, col2, col3 = st.columns(3)
+with col1:
     st.header("Choisir le projet | choose project")
+with col2:
     Selection_projets = st.multiselect("",options=projects)
 with col3:
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
-    st.markdown("")
     st.markdown("")
     st.markdown("")
     st.markdown(":red[par défaut tous | all]")
 
 if len(Selection_projets)==0: #aucun choix
-    df_selected = df_merged
+    df_selected = filtered_df_uniq
 else:
-    df_selected = df_merged[df_merged['projet'].isin(Selection_projets)]
+    df_selected = filtered_df_uniq[filtered_df_uniq['Projet'].isin(Selection_projets)]
 
-df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','projet']].drop_duplicates(subset='Titre_unique')
+df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','Projet']].drop_duplicates(subset='Titre_unique')
 df_hal__ = df_hal_[df_hal_['In_FairCarboN']==True]
 df_hal__.reset_index(inplace=True)
 df_hal__.drop(columns='index', inplace=True)
@@ -193,57 +188,51 @@ df_hal__.drop(columns='index', inplace=True)
 
 # Convertir les dates
 df_hal__['Date complete depot'] = pd.to_datetime(df_hal__['Date complete depot'])
+df_hal__['Date'] = df_hal__['Date complete depot']
 df_hal__['Année'] = df_hal__['Date complete depot'].dt.year
 df_hal___ = df_hal__[df_hal__["Année"]>2024]
 
 # Compter les documents par jour et par type
-counts = df_hal___.groupby(['Date complete depot', 'Type de document']).size().reset_index(name="nb_docs")
-counts2 = df_hal___.groupby(['Date complete depot','projet']).size().reset_index(name="nb_docs_projet")
+counts = df_hal___.groupby(['Date', 'Type de document']).size().reset_index(name="nb_docs")
+counts2 = df_hal___.groupby(['Date','Projet']).size().reset_index(name="nb_docs_projet")
 
 # Calcul du cumul par type
-counts["cumul"] = counts.groupby('Type de document')["nb_docs"].cumsum()
-counts2["cumul"] = counts2.groupby('projet')["nb_docs_projet"].cumsum()
+counts["Cumul"] = counts.groupby('Type de document')["nb_docs"].cumsum()
+counts2["Cumul"] = counts2.groupby('Projet')["nb_docs_projet"].cumsum()
 
 
 # Tracé avec plotly
 fig = px.line(
     counts,
-    x='Date complete depot',
-    y="cumul",
-    color='Type de document',
-    markers=True,
-    title="Évolution/ Cumul des dépôts dans notre collection FairCarboN par type de document"
-)
-
-fig.update_layout(
-    legend=dict(
-        orientation="h",
-        y=-0.2,
-        x=0.5,
-        xanchor="center",
-        yanchor="top",
-        font=dict(size=20)
-    ),
-    margin=dict(b=200),  # marge basse élargie
-    height=600,
-    width=600
-)
-
-fig2 = px.line(
-    counts2,
-    x='Date complete depot',
-    y="cumul",
-    color='projet',
-    markers=True,
-    title="Évolution/ Cumul des dépôts dans notre collection FairCarboN par projet",
+    x='Date',
+    y="Cumul",
+    color="Type de document",
     color_discrete_map=couleurs
 )
 
-for trace in fig2.data:
-    trace.marker.size = 15
+mapping = {
+    "ART": "ARTICLE",
+    "UNDEFINED": "INDEFINI | UNDEFINED",
+    "COMM": "COMMUNICATION",
+    "POSTER":"POSTER",
+    "MEM":"MEMOIRE | PROFESSIONNAL THESIS",
+    "REPORT" : "RAPPORT | REPORT",
+    "OTHER": "AUTRE | OTHER",
+    "LECTURE": "COURS | LECTURE"
+}
 
-fig2.update_layout(
+fig.update_traces(line=dict(width=4))
+
+fig.for_each_trace(
+    lambda t: t.update(name=mapping[t.name]) if t.name in mapping else None
+)
+
+
+fig.update_layout(
     legend=dict(
+        title=dict(
+            text="Types de document",
+            font=dict(size=22, color=couleur_h3)), 
         orientation="h",
         y=-0.2,
         x=0.5,
@@ -253,16 +242,96 @@ fig2.update_layout(
     ),
     margin=dict(b=200),  # marge basse élargie
     height=600,
-    width=600
+    xaxis_title=dict(
+        text="Date",
+        font=dict(size=22, color=couleur_graphes)
+    ),
+    yaxis_title=dict(
+        text="Nombre cumulé | Cumulative number",
+        font=dict(size=22, color=couleur_graphes)
+    )
 )
 
+fig.update_xaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+)
+
+fig.update_yaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+)
+
+######################################################################################################################
+######################################################################################################################
+
+fig2 = px.line(
+    counts2,
+    x='Date',
+    y="Cumul",
+    color='Projet',
+    color_discrete_map=couleurs
+)
+
+fig2.update_traces(line=dict(width=4))
+
+fig2.update_layout(
+    legend=dict(
+        title=dict(
+            text="Projets",
+            font=dict(size=22, color=couleur_h3)),
+        orientation="h",
+        y=-0.2,
+        x=0.5,
+        xanchor="center",
+        yanchor="top",
+        font=dict(size=20)
+    ),
+    margin=dict(b=200),  # marge basse élargie
+    height=600,
+    xaxis_title=dict(
+        text="Date",
+        font=dict(size=22, color=couleur_graphes)
+    ),
+    yaxis_title=dict(
+        text="Nombre cumulé | Cumulative number",
+        font=dict(size=22, color=couleur_graphes)
+    )
+)
+
+fig2.update_xaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+)
+
+fig2.update_yaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+)
+
+######################################################################################################################
+######################################################################################################################
 col1, col2 = st.columns(2)
 with col1:
-    st.subheader("Cumul des dépôts par type de document")
-    st.plotly_chart(fig, use_container_width=True)
+    with st.container(border=True):
+        st.subheader("Cumul des dépôts par type de document | Cumulative Deposits types ")
+        st.plotly_chart(fig, use_container_width=True)
 with col2:
-    st.subheader("Cumul des dépôts par projet")
-    st.plotly_chart(fig2, use_container_width=True)
+    with st.container(border=True):
+        st.subheader("Cumul des dépôts par projet | Cumulative Deposits by project")
+        st.plotly_chart(fig2, use_container_width=True)
 
 
 

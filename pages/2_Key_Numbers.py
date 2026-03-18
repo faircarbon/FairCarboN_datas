@@ -78,7 +78,7 @@ taille_h2 = "32px"
 police_h2 = "Marianne"
 
 couleur_h3 = "#4C98AF"
-taille_h3 = "24px"
+taille_h3 = "22px"
 police_h3 = "Marianne"
 
 taille_metrique = "50px"
@@ -238,11 +238,14 @@ fig3.update_traces(
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    st.subheader("Budgets (M. Euros)")
-    st.plotly_chart(fig1, use_container_width=True)
+    with st.container(border=True):
+        st.subheader("Budgets (M. Euros)")
+        st.plotly_chart(fig1, use_container_width=True)
 with col2:
-    st.subheader("Unités impliquées/Sites | Units involved/ Experiments")
-    st.plotly_chart(fig2, use_container_width=True)
+    with st.container(border=True):
+        st.subheader("Unités impliquées/Sites | Units involved/ Experiments")
+        st.plotly_chart(fig2, use_container_width=True)
 with col3:
-    st.subheader("Communauté | Community")
-    st.plotly_chart(fig3, use_container_width=True)
+    with st.container(border=True):
+        st.subheader("Communauté | Community")
+        st.plotly_chart(fig3, use_container_width=True)
