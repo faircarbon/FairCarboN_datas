@@ -69,7 +69,7 @@ couleurs = {"ALAMOD":"#1f77b4",
 size_sunburst = 600
 
 # Variables Python
-couleur_h1 = "#1E90FF"
+couleur_h1 = "#1F8B09"
 taille_h1 = "48px"
 police_h1 = "Marianne"
 
@@ -77,12 +77,12 @@ couleur_h2 = "#FF6347"
 taille_h2 = "32px"
 police_h2 = "Marianne"
 
-couleur_h3 = "#4CAF50"
+couleur_h3 = "#4C98AF"
 taille_h3 = "24px"
 police_h3 = "Marianne"
 
-taille_metrique = "40px"
-couleur_metrique = "#4C98AF"
+taille_metrique = "50px"
+couleur_metrique = "#081E25"
 
 # Injection CSS
 st.markdown(f"""
@@ -105,6 +105,7 @@ h3 {{
     color: {couleur_h3} !important;
     font-size: {taille_h3} !important;
     font-family: {police_h3} !important;
+    font-weight: bold;
     text-align: center;
 }}
 
@@ -126,14 +127,14 @@ Labo = read_data("Data/FairCarboN_Datas_Labo3")
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
-st.title("Chiffres clés | Key Numbers")
+st.title("Chiffres Clés | Key Numbers")
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("Budget (Millions d'Euros)")
+    st.subheader("Budget (M. Euros)")
     st.metric(value=40, label="", label_visibility="hidden", border=True)
 with col2:
-    st.subheader("Projets Ciblés | Target projects")
+    st.subheader("Projets Ciblés | Target Projects")
     st.metric(value=5, label="", label_visibility="hidden", border=True)
 with col3:
     st.subheader("Projets sélectionnés | Selected Projects")
@@ -141,17 +142,17 @@ with col3:
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("Labos impliqués | Research units involved")
+    st.subheader("Labos impliqués | Research Units involved")
     st.metric(value=114, label="", label_visibility="hidden",border=True)
 with col2:
-    st.subheader("Communauté fairCarboN | FairCarboN community")
+    st.subheader("Communauté FairCarboN | FairCarboN Community")
     st.metric(value=498, label="", label_visibility="hidden",border=True)
 with col3:
     st.subheader("Sites étudiés/ expérimentaux | Sites localisations")
     st.metric(value=150, label="", label_visibility="hidden",border=True)
 
 
-st.title("Chiffres clés - Key Numbers || Par projet - By project")
+st.title("Chiffres Clés - Key Numbers || Par projet - By project")
 
 # Comptage par projet et statut
 Contacts_selec = Contacts[["projet", "Fonction"]]
@@ -199,22 +200,11 @@ fig1.update_traces(
     insidetextfont=dict(size=20, color="black")
 )
 
-fig1.add_annotation(
-    x=0.5,
-    y=0.5,
-    text="FairCarboN",
-    showarrow=False,
-    font=dict(size=25, color="red", family="Arial"),
-    xanchor="center",
-    yanchor="middle"
-)
-
-
 fig2 = px.sunburst(
-    Contacts_long,
-    path=["PEPR FairCarboN", "projet", "Fonction","compte"],  
-    values="compte",                 
-    color="Fonction",
+    Labo_long,
+    path=["PEPR FairCarboN", "projet", "Type_Data","label"],  
+    values="compte_affiche",                 
+    color="Type_Data",
     color_discrete_map=couleurs
 )
 
@@ -227,21 +217,12 @@ fig2.update_traces(
     insidetextfont=dict(size=20, color="black")
 )
 
-fig2.add_annotation(
-    x=0.5,
-    y=0.5,
-    text="FairCarboN",
-    showarrow=False,
-    font=dict(size=20, color="red", family="Arial"),
-    xanchor="center",
-    yanchor="middle"
-)
 
 fig3 = px.sunburst(
-    Labo_long,
-    path=["PEPR FairCarboN", "projet", "Type_Data","label"],  
-    values="compte_affiche",                 
-    color="Type_Data",
+    Contacts_long,
+    path=["PEPR FairCarboN", "projet", "Fonction","compte"],  
+    values="compte",                 
+    color="Fonction",
     color_discrete_map=couleurs
 )
 
@@ -254,20 +235,14 @@ fig3.update_traces(
     insidetextfont=dict(size=20, color="black")
 )
 
-fig3.add_annotation(
-    x=0.5,
-    y=0.5,
-    text="FairCarboN",
-    showarrow=False,
-    font=dict(size=20, color="red", family="Arial"),
-    xanchor="center",
-    yanchor="middle"
-)
 
 col1, col2, col3 = st.columns(3)
 with col1:
+    st.subheader("Budgets (M. Euros)")
     st.plotly_chart(fig1, use_container_width=True)
 with col2:
+    st.subheader("Unités impliquées/Sites | Units involved/ Experiments")
     st.plotly_chart(fig2, use_container_width=True)
 with col3:
+    st.subheader("Communauté | Community")
     st.plotly_chart(fig3, use_container_width=True)
