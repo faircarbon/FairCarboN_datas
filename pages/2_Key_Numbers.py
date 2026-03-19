@@ -70,7 +70,7 @@ size_sunburst = 600
 
 # Variables Python
 couleur_h1 = "#1F8B09"
-taille_h1 = "48px"
+taille_h1 = "70px"
 police_h1 = "Marianne"
 
 couleur_h2 = "#FF6347"
@@ -78,10 +78,10 @@ taille_h2 = "32px"
 police_h2 = "Marianne"
 
 couleur_h3 = "#4C98AF"
-taille_h3 = "22px"
+taille_h3 = "35px"
 police_h3 = "Marianne"
 
-taille_metrique = "50px"
+taille_metrique = "70px"
 couleur_metrique = "#081E25"
 
 # Injection CSS
@@ -145,10 +145,10 @@ with col1:
     st.subheader("Labos impliqués | Research Units involved")
     st.metric(value=114, label="", label_visibility="hidden",border=True)
 with col2:
-    st.subheader("Communauté FairCarboN | FairCarboN Community")
+    st.subheader("Communauté FairCarboN | Community")
     st.metric(value=498, label="", label_visibility="hidden",border=True)
 with col3:
-    st.subheader("Sites étudiés/ expérimentaux | Sites localisations")
+    st.subheader("Sites expérimentaux | Sites localisations")
     st.metric(value=150, label="", label_visibility="hidden",border=True)
 
 
@@ -197,7 +197,7 @@ fig1.update_layout(
 )
 
 fig1.update_traces(
-    insidetextfont=dict(size=20, color="black")
+    insidetextfont=dict(size=20, color="black",family="Marianne")
 )
 
 fig2 = px.sunburst(
@@ -214,7 +214,7 @@ fig2.update_layout(
 )
 
 fig2.update_traces(
-    insidetextfont=dict(size=20, color="black")
+    insidetextfont=dict(size=20, color="black",family="Marianne")
 )
 
 
@@ -232,7 +232,7 @@ fig3.update_layout(
 )
 
 fig3.update_traces(
-    insidetextfont=dict(size=20, color="black")
+    insidetextfont=dict(size=20, color="black", family="Marianne")
 )
 
 
