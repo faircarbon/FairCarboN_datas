@@ -69,7 +69,7 @@ couleurs = {"ALAMOD":"#1f77b4",
 size_sunburst = 600
 
 # Variables Python
-couleur_h1 = "#1F8B09"
+couleur_h1 = "#748114"
 taille_h1 = "70px"
 police_h1 = "Marianne"
 
@@ -128,28 +128,29 @@ Labo = read_data("Data/FairCarboN_Datas_Labo3")
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
 st.title("Chiffres Clés | Key Numbers")
+#st.title("cliquez ici")
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("Budget (M. Euros)")
-    st.metric(value=40, label="", label_visibility="hidden", border=True)
+    st.subheader("BUDGET (M. Euros)")
+    st.metric(value=39.9, label="", label_visibility="hidden", border=True)
 with col2:
-    st.subheader("Projets Ciblés | Target Projects")
+    st.subheader("CIBLES | TARGETS PROJECTS")
     st.metric(value=5, label="", label_visibility="hidden", border=True)
 with col3:
-    st.subheader("Projets sélectionnés | Selected Projects")
+    st.subheader("SELECTION | SELECTED PROJECTS")
     st.metric(value=11, label="", label_visibility="hidden", border=True)
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("Labos impliqués | Research Units involved")
+    st.subheader("LABS | RESEARCH UNITS INVOLVED")
     st.metric(value=114, label="", label_visibility="hidden",border=True)
 with col2:
-    st.subheader("Communauté FairCarboN | Community")
+    st.subheader("SCIENTIFIQUES | COMMUNITY")
     st.metric(value=498, label="", label_visibility="hidden",border=True)
 with col3:
-    st.subheader("Sites expérimentaux | Sites localisations")
-    st.metric(value=150, label="", label_visibility="hidden",border=True)
+    st.subheader("SITES | LOCALISATIONS")
+    st.metric(value=165, label="", label_visibility="hidden",border=True)
 
 
 st.title("Chiffres Clés - Key Numbers || Par projet - By project")
@@ -197,7 +198,7 @@ fig1.update_layout(
 )
 
 fig1.update_traces(
-    insidetextfont=dict(size=20, color="black",family="Marianne")
+    insidetextfont=dict(size=20, color="white",family="Marianne")
 )
 
 fig2 = px.sunburst(
@@ -214,7 +215,7 @@ fig2.update_layout(
 )
 
 fig2.update_traces(
-    insidetextfont=dict(size=20, color="black",family="Marianne")
+    insidetextfont=dict(size=20, color="white",family="Marianne")
 )
 
 
@@ -232,20 +233,20 @@ fig3.update_layout(
 )
 
 fig3.update_traces(
-    insidetextfont=dict(size=20, color="black", family="Marianne")
+    insidetextfont=dict(size=20, color="white", family="Marianne")
 )
 
 
 col1, col2, col3 = st.columns(3)
 with col1:
-    with st.container(border=True):
+    with st.container(border=True, height=700):
         st.subheader("Budgets (M. Euros)")
         st.plotly_chart(fig1, use_container_width=True)
 with col2:
-    with st.container(border=True):
-        st.subheader("Unités impliquées/Sites | Units involved/ Experiments")
+    with st.container(border=True, height=700):
+        st.subheader("Unités/Sites | Units involved/ Experiments")
         st.plotly_chart(fig2, use_container_width=True)
 with col3:
-    with st.container(border=True):
+    with st.container(border=True, height=700):
         st.subheader("Communauté | Community")
         st.plotly_chart(fig3, use_container_width=True)

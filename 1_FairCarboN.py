@@ -43,6 +43,16 @@ def read_data(path):
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
-st.title("Bienvenue yes sur l'application FairCarboN!")
+with st.container(height=300):
+    col1, col2, col3 = st.columns([0.4,0.2,0.4])
+    with col1:
+        st.image("Data/logos/France2030.png", width=500)
+    with col2:
+        st.image("Data/logos/logoFC.png",  width=300)
+    with col3:
+        st.image("Data/logos/LogosTutelles.png", width=700)
 
-st.image("Data/logos/logoFC.png")
+col1, col2 = st.columns([0.3,0.7])
+
+with col2:
+    st.title("Bienvenue sur l'application FairCarboN!")
