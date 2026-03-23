@@ -50,7 +50,7 @@ with st.container(height=300):
     with col2:
         st.image("Data/logos/logoFC.png",  width=300)
     with col3:
-        st.image("Data/logos/LogosTutelles.png", width=700)
+        st.image("Data/logos/logosTutelles.png", width=700)
 
 col1, col2 = st.columns([0.3,0.7])
 
