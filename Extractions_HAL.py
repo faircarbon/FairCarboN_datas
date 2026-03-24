@@ -129,7 +129,7 @@ end_year=d.year
 ########### DONNEES ##################################################################################################
 ######################################################################################################################
 # Charger les données
-df = read_data("Data\FairCarboN_Datas_Contacts")
+df = read_data("Data/FairCarboN_Datas_Contacts")
 
 liste_chercheurs = df['Contact']
 liste_projet = df['projet']
