@@ -185,21 +185,22 @@ df_hal__ = df_hal_[df_hal_['In_FairCarboN']==True]
 df_hal__.reset_index(inplace=True)
 df_hal__.drop(columns='index', inplace=True)
 
+#st.dataframe(df_hal__)
 
 # Convertir les dates
 df_hal__['Date complete depot'] = pd.to_datetime(df_hal__['Date complete depot'])
 df_hal__['Date'] = df_hal__['Date complete depot']
 df_hal__['Année'] = df_hal__['Date complete depot'].dt.year
-df_hal___ = df_hal__[df_hal__["Année"]>2024]
+#df_hal___ = df_hal__[df_hal__["Année"]>=2024]
 
 # Compter les documents par jour et par type
-counts = df_hal___.groupby(['Date', 'Type de document']).size().reset_index(name="nb_docs")
-counts2 = df_hal___.groupby(['Date','Projet']).size().reset_index(name="nb_docs_projet")
+counts = df_hal__.groupby(['Date', 'Type de document']).size().reset_index(name="nb_docs")
+counts2 = df_hal__.groupby(['Date','Projet']).size().reset_index(name="nb_docs_projet")
+min_counts = counts["Date"].min()
 
 # Calcul du cumul par type
 counts["Cumul"] = counts.groupby('Type de document')["nb_docs"].cumsum()
 counts2["Cumul"] = counts2.groupby('Projet')["nb_docs_projet"].cumsum()
-
 
 # Tracé avec plotly
 fig = px.line(
@@ -257,7 +258,8 @@ fig.update_xaxes(
     linewidth=2,
     linecolor="black",
     tickfont=dict(size=16, color=couleur_graphes),
-    gridcolor="lightgray"
+    gridcolor="lightgray",
+    range=["2024-01-01", datetime.today()]
 )
 
 fig.update_yaxes(
@@ -310,7 +312,8 @@ fig2.update_xaxes(
     linewidth=2,
     linecolor="black",
     tickfont=dict(size=16, color=couleur_graphes),
-    gridcolor="lightgray"
+    gridcolor="lightgray",
+    range=["2024-01-01", datetime.today()]
 )
 
 fig2.update_yaxes(
