@@ -155,7 +155,7 @@ df = read_data("Data/FairCarboN_Datas_Contacts")
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
 
-st.title(f"Suivi Entrepôt FairCarboN sur RechercheDataGouv - {derniere_date[18:-4]}")
+st.title(f"FairCarboN sur RechercheDataGouv - {derniere_date[18:-4]}")
 
 #st.write(len(data_sans_doublon))
 #st.dataframe(filtered)
