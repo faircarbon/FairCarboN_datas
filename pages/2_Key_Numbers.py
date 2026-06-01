@@ -70,7 +70,7 @@ size_sunburst = 600
 
 # Variables Python
 couleur_h1 = "#748114"
-taille_h1 = "70px"
+taille_h1 = "60px"
 police_h1 = "Cascadia Code"
 
 couleur_h2 = "#FF6347"
@@ -135,10 +135,10 @@ with col1:
     st.subheader("Budget (M. Euros)")
     st.metric(value=40, label="", label_visibility="hidden", border=True)
 with col2:
-    st.subheader("Cibles | Target projects")
+    st.subheader("Target projects")
     st.metric(value=5, label="", label_visibility="hidden", border=True)
 with col3:
-    st.subheader("Sélection | Selected Projects")
+    st.subheader("Selected Projects")
     st.metric(value=11, label="", label_visibility="hidden", border=True)
 
 col1 , col2, col3 = st.columns(3)

@@ -68,17 +68,17 @@ couleurs = {"ALAMOD":"#fa0404",
 
 
 # Variables Python
-couleur_h1 = "#1F8B09"
-taille_h1 = "48px"
-police_h1 = "Marianne"
+couleur_h1 = "#748114"
+taille_h1 = "60px"
+police_h1 = "Cascadia Code"
 
 couleur_h2 = "#FF6347"
 taille_h2 = "32px"
-police_h2 = "Marianne"
+police_h2 = "Cascadia Code"
 
-couleur_h3 = "#4C98AF"
-taille_h3 = "24px"
-police_h3 = "Marianne"
+couleur_h3 = "#1B657C"
+taille_h3 = "35px"
+police_h3 = "Cascadia Code"
 
 taille_metrique = "50px"
 couleur_metrique = "#0C495C"
