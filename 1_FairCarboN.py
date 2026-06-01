@@ -37,7 +37,54 @@ def read_data(path):
 ######################################################################################################################
 ########### PARAMETRES ###############################################################################################
 ######################################################################################################################
+# Variables Python
+couleur_h1 = "#748114"
+taille_h1 = "60px"
+police_h1 = "Cascadia Code"
 
+couleur_h2 = "#FF6347"
+taille_h2 = "32px"
+police_h2 = "Cascadia Code"
+
+couleur_h3 = "#1B657C"
+taille_h3 = "25px"
+police_h3 = "Cascadia Code"
+
+taille_metrique = "70px"
+couleur_metrique = "#081E25"
+
+# Injection CSS
+st.markdown(f"""
+<style>
+h1 {{
+    color: {couleur_h1}!important;
+    font-size: {taille_h1}!important;
+    font-family: {police_h1}!important;
+    text-align: center;
+}}
+
+h2 {{
+    color: {couleur_h2} !important;
+    font-size: {taille_h2} !important;
+    font-family: {police_h2} !important;
+    text-align: center;
+}}
+
+h3 {{
+    color: {couleur_h3} !important;
+    font-size: {taille_h3} !important;
+    font-family: {police_h3} !important;
+    font-weight: bold;
+    text-align: center;
+}}
+
+[data-testid="stMetricValue"] {{
+    font-size: {taille_metrique} !important;
+    color: {couleur_metrique} !important;
+    text-align: center;
+}}
+</style>
+""", unsafe_allow_html=True)
 
 
 ######################################################################################################################
@@ -52,7 +99,8 @@ with st.container(height=300):
     with col3:
         st.image("Data/logos/logosTutelles.png", width=700)
 
-col1, col2 = st.columns([0.3,0.7])
+col1, col2 = st.columns([0.1,0.9])
 
 with col2:
-    st.title("Bienvenue sur l'application FairCarboN!")
+    st.title("Bienvenue - Welcome")
+    st.title("sur l'application FairCarboN ! - on FairCarboN app !")

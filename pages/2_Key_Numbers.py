@@ -78,7 +78,7 @@ taille_h2 = "32px"
 police_h2 = "Cascadia Code"
 
 couleur_h3 = "#1B657C"
-taille_h3 = "35px"
+taille_h3 = "25px"
 police_h3 = "Cascadia Code"
 
 taille_metrique = "70px"

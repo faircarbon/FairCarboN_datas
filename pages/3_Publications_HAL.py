@@ -77,12 +77,11 @@ taille_h2 = "32px"
 police_h2 = "Cascadia Code"
 
 couleur_h3 = "#1B657C"
-taille_h3 = "35px"
+taille_h3 = "25px"
 police_h3 = "Cascadia Code"
 
-taille_metrique = "50px"
+taille_metrique = "40px"
 couleur_metrique = "#0C495C"
-
 couleur_graphes = "#0C495C"
 
 # Injection CSS
@@ -155,10 +154,10 @@ st.title(f"Suivi Collection HAL - {derniere_date[21:-4]}")
 
 col1 , col2 = st.columns(2)
 with col1:
-    st.subheader("Nombre global de depôts | All deposits")
+    st.subheader("All deposits")
     st.metric(value=len(filtered_df_uniq), label="", label_visibility="hidden", border=True)
 with col2:
-    st.subheader("Nombre d'articles | Published Articles")
+    st.subheader("Published Articles")
     st.metric(value=len(filtered_df_uniq[filtered_df_uniq["Type de document"]=="ART"]), label="", label_visibility="hidden", border=True)
 
 ######################################################################################################################
@@ -329,11 +328,11 @@ fig2.update_yaxes(
 col1, col2 = st.columns(2)
 with col1:
     with st.container(border=True):
-        st.subheader("Cumul des dépôts par type de document | Cumulative Deposits types ")
+        st.subheader("Cumulative Deposits types ")
         st.plotly_chart(fig, use_container_width=True)
 with col2:
     with st.container(border=True):
-        st.subheader("Cumul des dépôts par projet | Cumulative Deposits by project")
+        st.subheader("Cumulative Deposits by project")
         st.plotly_chart(fig2, use_container_width=True)
 
 
