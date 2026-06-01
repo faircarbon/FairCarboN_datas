@@ -376,7 +376,7 @@ end_year=d.year
 ######################################################################################################################
 # Code à décommenter pour faire la récupération des dataverses
 #with st.spinner('Recupération des dataverses disponibles et leurs identifiants'):
-#    data = recup_dataverses_rdg_recursive(api_rdg)
+    #data = recup_dataverses_rdg_recursive(api_rdg)
 ######################################################################################################################
 
 # Load the previously saved dataverses
@@ -387,5 +387,5 @@ df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(l
 
 liste_contacts = df_contacts['Contact'].values
 
-df2 = Recup_datasets_metadata()
-print("Récupération RDG réalisée avec succès!")
+#df2 = Recup_datasets_metadata()
+#print("Récupération RDG réalisée avec succès!")
