@@ -147,16 +147,16 @@ else:
 contour_unites = "#5F8114"
 ligne_unites = "#EC4715"
 markers_unites = "#EC4715"
-inter_unites = 1
+inter_unites = 1.5
 marge_unites = 3
-marge_unites_v = -1
+marge_unites_v = 0
 
 contour_sites = "#5F8114"
 ligne_sites = "#F1AD18"
 markers_sites = "#F3BF31"
-inter_sites = 8
-marge_sites = 1
-marge_sites_v = 0
+inter_sites = 1.5
+marge_sites = 7
+marge_sites_v = -2
 
 #pin_icon_url = "https://cdn-icons-png.flaticon.com/512/2776/2776067.png"
 pin_icon_url = "Data/pin_test.png"

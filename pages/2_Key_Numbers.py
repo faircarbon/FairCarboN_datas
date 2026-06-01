@@ -71,15 +71,15 @@ size_sunburst = 600
 # Variables Python
 couleur_h1 = "#748114"
 taille_h1 = "70px"
-police_h1 = "Marianne"
+police_h1 = "Cascadia Code"
 
 couleur_h2 = "#FF6347"
 taille_h2 = "32px"
-police_h2 = "Marianne"
+police_h2 = "Cascadia Code"
 
-couleur_h3 = "#4C98AF"
+couleur_h3 = "#1B657C"
 taille_h3 = "35px"
-police_h3 = "Marianne"
+police_h3 = "Cascadia Code"
 
 taille_metrique = "70px"
 couleur_metrique = "#081E25"
@@ -132,25 +132,25 @@ st.title("Chiffres Clés | Key Numbers")
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("BUDGET (M. Euros)")
-    st.metric(value=39.9, label="", label_visibility="hidden", border=True)
+    st.subheader("Budget (M. Euros)")
+    st.metric(value=40, label="", label_visibility="hidden", border=True)
 with col2:
-    st.subheader("CIBLES | TARGETS PROJECTS")
+    st.subheader("Cibles | Target projects")
     st.metric(value=5, label="", label_visibility="hidden", border=True)
 with col3:
-    st.subheader("SELECTION | SELECTED PROJECTS")
+    st.subheader("Sélection | Selected Projects")
     st.metric(value=11, label="", label_visibility="hidden", border=True)
 
 col1 , col2, col3 = st.columns(3)
 with col1:
-    st.subheader("LABS | RESEARCH UNITS INVOLVED")
-    st.metric(value=114, label="", label_visibility="hidden",border=True)
+    st.subheader("Labs | Research Units involved")
+    st.metric(value=">100", label="", label_visibility="hidden",border=True)
 with col2:
-    st.subheader("SCIENTIFIQUES | COMMUNITY")
-    st.metric(value=498, label="", label_visibility="hidden",border=True)
+    st.subheader("Scientifiques | Community")
+    st.metric(value=">500", label="", label_visibility="hidden",border=True)
 with col3:
-    st.subheader("SITES | LOCALISATIONS")
-    st.metric(value=165, label="", label_visibility="hidden",border=True)
+    st.subheader("Sites | Localisations")
+    st.metric(value=">150", label="", label_visibility="hidden",border=True)
 
 
 st.title("Chiffres Clés - Key Numbers || Par projet - By project")

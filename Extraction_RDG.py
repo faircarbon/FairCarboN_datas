@@ -29,7 +29,7 @@ def read_data(path):
         un tableau CSV
     """
     # Lecture du fichier Excel dans un DataFrame
-    df = pd.read_excel(f"{path}.xlsx", sheet_name=1,header=0, engine='openpyxl')
+    df = pd.read_excel(f"{path}.xlsx", sheet_name=0,header=0, engine='openpyxl')
     # Transformation du fichier en csv
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df
@@ -381,7 +381,7 @@ end_year=d.year
 
 # Load the previously saved dataverses
 df = pd.read_csv("Data/RechercheDataGouv/all_dataverses_rdg.csv")
-df_contacts =pd.read_csv("Data\FairCarboN_Datas_Contacts.csv")
+df_contacts =read_data("Data\FairCarboN_Datas_Contacts2")
 df_contacts['Auteur_recherché']=df_contacts['Contact']
 df_contacts_grouped = df_contacts.groupby('Auteur_recherché')['projet'].apply(lambda x: ', '.join(sorted(set(x)))).reset_index()
 
