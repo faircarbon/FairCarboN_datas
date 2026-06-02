@@ -306,7 +306,7 @@ for projet in projets_visibles:
     fig_table.add_trace(go.Scatter(
         x=[None], y=[None],
         mode="markers",
-        marker=dict(size=15, color=couleurs[projet]),
+        marker=dict(size=10, color=couleurs[projet]),
         name=projet,
         showlegend=True
     ))
@@ -337,7 +337,7 @@ fig_table.update_yaxes(visible=False)
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
 
-st.title(f"FairCarboN sur RechercheDataGouv - {derniere_date[18:-4]}")
+st.title(f"FairCarboN sur RechercheDataGouv - {derniere_date[21:-4]}")
 
 col1, col2 = st.columns(2)
 with col1:
