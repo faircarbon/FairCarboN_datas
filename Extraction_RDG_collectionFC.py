@@ -11,13 +11,15 @@ Dépendances : pip install pyDataverse requests
 import csv
 import time
 import requests
+import datetime
 from pyDataverse.api import NativeApi
 
 # ── Configuration ─────────────────────────────────────────────────────────────
+d = datetime.date.today()
 BASE_URL    = "https://entrepot.recherche.data.gouv.fr"  # URL de RechercheDataGouv
 API_TOKEN   = "13b493ed-e02b-4e65-95de-d97d6896916a"         # Votre token API (optionnel pour le public)
 COLLECTION  = "faircarbon"  # Alias de votre collection (ex: "monlabo")
-OUTPUT_FILE = "datasets_metadata.csv"   # Fichier de sortie
+OUTPUT_FILE = f"Data/RechercheDataGouv/all_datasets_rdg_FC_{d}.csv"   # Fichier de sortie
 
 # Colonnes du CSV — modifiez selon vos besoins
 CSV_COLUMNS = [
