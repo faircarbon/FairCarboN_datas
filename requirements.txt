@@ -5,3 +5,4 @@ plotly
 openpyxl
 bs4
 requests
+pyDataverse
