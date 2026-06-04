@@ -7,7 +7,7 @@ import plotly.io as pio
 import glob
 import re
 from datetime import datetime
-
+from pathlib import Path
 
 pio.templates.default = "plotly"
 
@@ -37,9 +37,49 @@ def read_data(path):
     df.to_csv(f"{path}.csv", index=False, encoding="utf-8")
     return df
 
+def extraire_nom(contact):
+    if pd.isna(contact):
+        return None
+
+    noms = []
+
+    for personne in contact.split('|'):
+        personne = personne.strip()
+
+        # Si format "Nom, Prénom"
+        if ',' in personne:
+            premier_terme = personne.split(',')[1].strip().lower()
+        else:
+            # Sinon on prend le premier mot
+            premier_terme = personne.split()[1].strip().lower()
+
+        noms.append(premier_terme)
+
+    return " | ".join(noms)
+
+def trouver_projets(cell):
+    if pd.isna(cell):
+        return None
+    acronymes = [a.strip() for a in str(cell).split("|")]
+    trouvés = [a for a in acronymes if a in projets]
+    return trouvés[0] if trouvés else None
+
+def trouver_projet_par_nom(row):
+    if pd.notna(row["Projet"]):
+        return row["Projet"]
+    if pd.isna(row["Nom"]):
+        return "INCONNU"
+    noms = [n.strip().lower() for n in str(row["Nom"]).split("|")]
+    for nom in noms:
+        if nom in nom_to_projet:
+            return nom_to_projet[nom]
+    return "INCONNU"
+
+
 ######################################################################################################################
 ########### PARAMETRES ###############################################################################################
 ######################################################################################################################
+projets = ["ALAMOD","SLAM-B","RIFT","CrosyeN","CarboNium","CABESTAN","CANETE","DEEP-C","DroughtForC","PEACE","TROPECOS","CLIM-FAS","CO2_CMPhi","GREENSCALE","PREFALIM","RhizoSeqC"]
 couleurs = {"ALAMOD":"#fa0404",
               "SLAM-B":"#e7b204",
               "RIFT":"#05fc6c",
@@ -48,7 +88,7 @@ couleurs = {"ALAMOD":"#fa0404",
               "CABESTAN":"#03fabc",
               "CANETE":"#067ff0",
               "DEEP-C":"#6d03f8",
-              "Drought for C":"#cb05fc",
+              "DroughtForC":"#cb05fc",
               "PEACE":"#f0047a",
               "TROPECOS":"#090080",
               "CLIM-FAS":"#ca7ff8",
@@ -65,6 +105,24 @@ couleurs = {"ALAMOD":"#fa0404",
               "REPORT" : "#eba21b",
               "OTHER": "#f5760f",
               "LECTURE": "#ff0909"}
+
+couleurs2 = {"ALAMOD":"#fa0404",
+              "SLAM-B":"#e7b204",
+              "RIFT":"#05fc6c",
+              "CrosyeN":"#b9fc01",
+              "CarboNium":"#ec8129",
+              "CABESTAN":"#03fabc",
+              "CANETE":"#067ff0",
+              "DEEP-C":"#6d03f8",
+              "DroughtForC":"#cb05fc",
+              "PEACE":"#f0047a",
+              "TROPECOS":"#090080",
+              "CLIM-FAS":"#ca7ff8",
+              "CO2_CMPhi":"#793305",
+              "GREENSCALE":"#035718",
+              "PREFALIM":"#B83E0E",
+              "RhizoSeqC":"#636303",
+              "Gouvernance":"#0A0A0A"}
 
 
 # Variables Python
@@ -121,49 +179,43 @@ h3 {{
 ######################################################################################################################
 ########### DONNEES ##################################################################################################
 ######################################################################################################################
+# Récupérer le fichier HAL le plus récent
+hal_dir = Path("Data/HAL")
+files = sorted(hal_dir.glob("all_publications_hal_FC_*.csv"))
+latest_file = files[-1]
 
-dossier = "Data/HAL/"
-pattern = dossier + "all_publications_hal_*.csv"
-fichiers = glob.glob(pattern)
+# Lire le fichier
+data = pd.read_csv(latest_file, sep=";")
 
-# Expression régulière pour extraire la date
-regex = re.compile(r"all_publications_hal_(\d{4}-\d{2}-\d{2}).csv")
+#data = pd.read_csv("all_publications_hal_FC_2026-06-04.csv")
+df = read_data("Data/FairCarboN_Datas_Contacts2")
+# Ajout de la colonne "Nom"
+df["Nom"] = df["Contact"].str.split().str[-1]
+nom_to_projet = {k.lower(): v for k, v in zip(df["Nom"], df["projet"])}
 
-def extraire_date(f):
-    match = regex.search(f)
-    if match:
-        return datetime.strptime(match.group(1), "%Y-%m-%d")
-    return datetime.min
+# Application au dataframe
+data["Nom"] = data["Auteurs"].apply(extraire_nom)
+data["Projet"] = data["Acronyme projet ANR"].apply(trouver_projets)
 
-# Trier par date décroissante
-fichiers_tries = sorted(fichiers, key=extraire_date, reverse=True)
-fichiers_sans_prefixe = [f[9:] for f in fichiers_tries]
-
-derniere_date = fichiers_sans_prefixe[0] if fichiers_tries else None
-dernier_fichier = dossier + derniere_date
-
-data = pd.read_csv(dernier_fichier)
-filtered_df = data[data['Collection_code'].apply(lambda names: 'FAIRCARBON' in names)]
-filtered_df_uniq = filtered_df[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','Projet']].drop_duplicates(subset='Titre_unique')
-df = read_data("Data/FairCarboN_Datas_Contacts")
+data["Projet"] = data.apply(trouver_projet_par_nom, axis=1)
 
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
-st.title(f"Suivi Collection HAL - {derniere_date[21:-4]}")
+st.title(f"FairCarboN => HAL {latest_file.name[24:-4]}")
 
 col1 , col2 = st.columns(2)
 with col1:
     st.subheader("All deposits")
-    st.metric(value=len(filtered_df_uniq), label="", label_visibility="hidden", border=True)
+    st.metric(value=len(data), label="", label_visibility="hidden", border=True)
 with col2:
     st.subheader("Published Articles")
-    st.metric(value=len(filtered_df_uniq[filtered_df_uniq["Type de document"]=="ART"]), label="", label_visibility="hidden", border=True)
+    st.metric(value=len(data[data["Type de document"]=="ART"]), label="", label_visibility="hidden", border=True)
 
 ######################################################################################################################
 ######################################################################################################################
 
-projects = sorted(filtered_df_uniq['Projet'].unique())
+projects = sorted(data['Projet'].unique())
 col1, col2, col3 = st.columns(3)
 with col1:
     st.header("Choisir le projet | choose project")
@@ -175,31 +227,46 @@ with col3:
     st.markdown(":red[par défaut tous | all]")
 
 if len(Selection_projets)==0: #aucun choix
-    df_selected = filtered_df_uniq
+    df_selected = data
 else:
-    df_selected = filtered_df_uniq[filtered_df_uniq['Projet'].isin(Selection_projets)]
+    df_selected = data[data['Projet'].isin(Selection_projets)]
 
-df_hal_ = df_selected[['Titre_unique', 'Type de document', 'Date complete depot','In_FairCarboN','Projet']].drop_duplicates(subset='Titre_unique')
-df_hal__ = df_hal_[df_hal_['In_FairCarboN']==True]
-df_hal__.reset_index(inplace=True)
-df_hal__.drop(columns='index', inplace=True)
+df_hal_ = df_selected[['Titre', 'Type de document', 'Date de dépôt','Projet']].drop_duplicates(subset='Titre')
 
 #st.dataframe(df_hal__)
 
 # Convertir les dates
-df_hal__['Date complete depot'] = pd.to_datetime(df_hal__['Date complete depot'])
-df_hal__['Date'] = df_hal__['Date complete depot']
-df_hal__['Année'] = df_hal__['Date complete depot'].dt.year
+df_hal_['Date de dépôt'] = pd.to_datetime(df_hal_['Date de dépôt'])
+df_hal_['Date'] = df_hal_['Date de dépôt']
+df_hal_['Année'] = df_hal_['Date de dépôt'].dt.year
 #df_hal___ = df_hal__[df_hal__["Année"]>=2024]
 
 # Compter les documents par jour et par type
-counts = df_hal__.groupby(['Date', 'Type de document']).size().reset_index(name="nb_docs")
-counts2 = df_hal__.groupby(['Date','Projet']).size().reset_index(name="nb_docs_projet")
+counts = df_hal_.groupby(['Date', 'Type de document']).size().reset_index(name="nb_docs")
+counts2 = df_hal_.groupby(['Date','Projet']).size().reset_index(name="nb_docs_projet")
 min_counts = counts["Date"].min()
 
 # Calcul du cumul par type
 counts["Cumul"] = counts.groupby('Type de document')["nb_docs"].cumsum()
 counts2["Cumul"] = counts2.groupby('Projet')["nb_docs_projet"].cumsum()
+
+# Calculer le total final par projet
+totaux = counts2.groupby("Projet")["Cumul"].max()
+
+# Ajouter le total dans le nom du projet
+counts2["Projet_label"] = counts2["Projet"].map(
+    lambda p: f"{p} (n={totaux[p]})"
+)
+
+# Mettre à jour le color_discrete_map avec les nouveaux labels
+#couleurs_label = {f"{p} (n={totaux[p]})": c for p, c in couleurs2.items()}
+couleurs_label = {
+    f"{p} (n={totaux[p]})": c 
+    for p, c in couleurs2.items() 
+    if p in totaux  # <-- on ne garde que les projets présents
+}
+######################################################################################################################
+######################################################################################################################
 
 # Tracé avec plotly
 fig = px.line(
@@ -234,7 +301,7 @@ fig.update_layout(
             text="Types de document",
             font=dict(size=22, color=couleur_h3)), 
         orientation="h",
-        y=-0.2,
+        y=-0.3,
         x=0.5,
         xanchor="center",
         yanchor="top",
@@ -276,8 +343,8 @@ fig2 = px.line(
     counts2,
     x='Date',
     y="Cumul",
-    color='Projet',
-    color_discrete_map=couleurs
+    color='Projet_label',
+    color_discrete_map=couleurs_label
 )
 
 fig2.update_traces(line=dict(width=4))
@@ -288,7 +355,7 @@ fig2.update_layout(
             text="Projets",
             font=dict(size=22, color=couleur_h3)),
         orientation="h",
-        y=-0.2,
+        y=-0.3,
         x=0.5,
         xanchor="center",
         yanchor="top",
@@ -325,7 +392,7 @@ fig2.update_yaxes(
 
 ######################################################################################################################
 ######################################################################################################################
-col1, col2 = st.columns(2)
+col1, col2 = st.columns([0.42,0.58])
 with col1:
     with st.container(border=True):
         st.subheader("Cumulative Deposits types ")
@@ -334,7 +401,3 @@ with col2:
     with st.container(border=True):
         st.subheader("Cumulative Deposits by project")
         st.plotly_chart(fig2, use_container_width=True)
-
-
-
-

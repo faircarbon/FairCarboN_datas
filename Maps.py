@@ -147,7 +147,7 @@ else:
 contour_unites = "#5F8114"
 ligne_unites = "#EC4715"
 markers_unites = "#EC4715"
-inter_unites = 1.5
+inter_unites = 1
 marge_unites = 3
 marge_unites_v = 0
 
@@ -155,7 +155,7 @@ contour_sites = "#5F8114"
 ligne_sites = "#F1AD18"
 markers_sites = "#F3BF31"
 inter_sites = 1.5
-marge_sites = 7
+marge_sites = 3
 marge_sites_v = -2
 
 #pin_icon_url = "https://cdn-icons-png.flaticon.com/512/2776/2776067.png"
@@ -312,16 +312,6 @@ if cartounitparprojet:
         # Sauvegarde et téléchargement
         html_file = f"carte_{country}.html"
         png_file = f"carte_{country}.png"
-
-        m.save(html_file)
-        #save_map_as_png(html_file, png_file)
-        with open(png_file, "rb") as f:
-            st.download_button(
-                label="📥 Télécharger la carte en PNG",
-                data=f,
-                file_name=png_file,
-                mime="image/png"
-            )
 
 if cartositesparprojet:
     st.dataframe(grouped_2)

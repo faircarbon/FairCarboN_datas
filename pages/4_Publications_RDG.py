@@ -337,7 +337,7 @@ fig_table.update_yaxes(visible=False)
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
 
-st.title(f"FairCarboN sur RechercheDataGouv - {derniere_date[21:-4]}")
+st.title(f"FairCarboN => RechercheDataGouv {derniere_date[21:-4]}")
 
 col1, col2 = st.columns(2)
 with col1:
