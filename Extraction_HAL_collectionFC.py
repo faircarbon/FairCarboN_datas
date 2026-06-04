@@ -19,7 +19,7 @@ d = datetime.date.today()
 API_BASE_URL = "http://api.archives-ouvertes.fr/search/"
 
 COLLECTION = "FAIRCARBON"          # Nom de la collection HAL
-OUTPUT_FILE = f"all_publications_hal_FC_{d}.csv"
+OUTPUT_FILE = f"Data/HAL/all_publications_hal_FC_{d}.csv"
 ROWS_PER_PAGE = 100                # Nombre de résultats par requête (max 200)
 
 
