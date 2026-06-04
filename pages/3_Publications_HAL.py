@@ -48,10 +48,10 @@ def extraire_nom(contact):
 
         # Si format "Nom, Prénom"
         if ',' in personne:
-            premier_terme = personne.split(',')[1].strip().lower()
+            premier_terme = personne.split(',')[-1].strip().lower()
         else:
             # Sinon on prend le premier mot
-            premier_terme = personne.split()[1].strip().lower()
+            premier_terme = personne.split()[-1].strip().lower()
 
         noms.append(premier_terme)
 
@@ -198,6 +198,8 @@ data["Nom"] = data["Auteurs"].apply(extraire_nom)
 data["Projet"] = data["Acronyme projet ANR"].apply(trouver_projets)
 
 data["Projet"] = data.apply(trouver_projet_par_nom, axis=1)
+
+st.dataframe(data[['Auteurs','Nom', 'Projet']])
 
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
