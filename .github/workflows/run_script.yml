@@ -27,7 +27,6 @@ jobs:
       - run: python3 Extraction_RDG_collectionFC.py
 
       - run: |
-          git diff --quiet && git diff --staged --quiet && echo "Rien à committer" && exit 0
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add Data/
