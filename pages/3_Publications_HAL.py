@@ -339,9 +339,18 @@ replacements = {
     'faircarbon  best-school  métaprogramme better': None,  # to remove
     'carbon': 'carbone',
     'agroforestry': 'agroforesterie',
-    'soil organic matter': 'matière organique du sol',
-    'soil': 'sol',
-    'alimentación':'alimentation'
+    'soil organic matter': 'carbone organique du sol',
+    'organic matter': 'carbone organique du sol',
+    'soil organic carbon': 'carbone organique du sol',
+    'soil': 'sols',
+    'sol': 'sols',
+    'alimentación':'alimentation',
+    'soil carbon sequestration': "sequestration du carbone",
+    'carbon sequestration uncertainty': "sequestration du carbone",
+    'sequestration': "sequestration du carbone",
+    'carbon sequestration': "sequestration du carbone",
+    'modelling': "modélisation",
+    'rubisco biogenesis':'rubisco'
 }
 
 def clean_kw(kw):
@@ -583,7 +592,7 @@ fig5 = px.treemap(
 )
 fig5.update_traces(maxdepth=2, textfont_size=14)
 fig5.add_annotation(
-    text="Le chiffre entre parenthèses indique le nombre d'occurrences",
+    text="Key word (nb of occurences)",
     xref="paper", yref="paper",
     x=0.5, y=-0.05,
     showarrow=False,
