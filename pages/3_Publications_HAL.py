@@ -249,7 +249,7 @@ if len(Selection_projets)==0: #aucun choix
 else:
     df_selected = data[data['Projet'].isin(Selection_projets)]
 
-df_hal_ = df_selected[['Titre', 'Type de document', 'Date de dépôt','Projet']].drop_duplicates(subset='Titre')
+df_hal_ = df_selected[['Titre', 'Type de document', 'Date de dépôt','Projet','Domaines_principaux','Mots-clés']].drop_duplicates(subset='Titre')
 
 #st.dataframe(df_hal__)
 
@@ -286,7 +286,7 @@ couleurs_label = {
 
 # --- Couleur par domaine principal ---
 tous_domaines = sorted(set(
-    d for domaines in data["Domaines_principaux"] for d in domaines
+    d for domaines in df_hal_["Domaines_principaux"] for d in domaines
 ))
 
 palette = [
@@ -300,7 +300,7 @@ couleur_par_domaine = {d: palette[i % len(palette)] for i, d in enumerate(tous_d
 # decompte[domaine_principal][combo] = nb occurrences
 decompte = defaultdict(Counter)
 
-for domaines in data["Domaines_principaux"]:
+for domaines in df_hal_["Domaines_principaux"]:
     if not domaines:
         continue
     combo = " + ".join(domaines)
@@ -366,7 +366,7 @@ def clean_kw(kw):
     return replacements.get(kw, kw)
 
 top5 = (
-    data.assign(**{'Mots-clés': data['Mots-clés'].str.split('|')})
+    df_hal_.assign(**{'Mots-clés': df_hal_['Mots-clés'].str.split('|')})
     .explode('Mots-clés')
     .assign(**{'Mots-clés': lambda d: d['Mots-clés'].apply(clean_kw)})
     .dropna(subset=['Mots-clés'])
