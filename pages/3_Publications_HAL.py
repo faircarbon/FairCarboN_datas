@@ -586,11 +586,14 @@ with col2:
 
 #st.dataframe(data)
 
-import plotly.express as px
+import textwrap
 
 top5 = top5.copy()
-top5['weight'] = 1  # surface égale par projet
-top5['label_txt'] = top5['Mots-clés'] + ' (' + top5['Count'].astype(str) + ')'
+top5['weight'] = 1
+top5['label_txt'] = top5.apply(
+    lambda row: '<br>'.join(textwrap.wrap(row['Mots-clés'], width=14)) + f" ({row['Count']})",
+    axis=1
+)
 
 fig5 = px.treemap(
     top5, path=['Projet', 'label_txt'], values='weight',
@@ -606,10 +609,8 @@ fig5.add_annotation(
 )
 fig5.update_layout(height=600, width=1400, uniformtext=dict(minsize=12), margin=dict(b=30))
 
-
 #pivot = top5.pivot(index='Mots-clés', columns='Projet', values='Count').fillna(0)
 #fig6 = px.imshow(pivot, aspect='auto', color_continuous_scale='Blues')
-
 
 col1, col2 = st.columns([0.33,0.67])
 with col1:
