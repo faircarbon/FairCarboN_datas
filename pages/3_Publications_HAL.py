@@ -341,6 +341,7 @@ replacements = {
     'agroforestry': 'agroforesterie',
     'soil organic matter': 'carbone organique du sol',
     'organic matter': 'carbone organique du sol',
+    'matière organique du sol': 'carbone organique du sol',
     'soil organic carbon': 'carbone organique du sol',
     'soil': 'sols',
     'sol': 'sols',
