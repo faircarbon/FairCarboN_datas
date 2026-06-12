@@ -8,6 +8,7 @@ import glob
 import re
 from datetime import datetime
 from pathlib import Path
+from collections import Counter, defaultdict
 
 pio.templates.default = "plotly"
 
@@ -75,6 +76,20 @@ def trouver_projet_par_nom(row):
             return nom_to_projet[nom]
     return "INCONNU"
 
+def extraire_domaines_principaux(valeur):
+    if pd.isna(valeur):
+        return []
+    
+    entrees = valeur.split(" | ")
+    
+    domaines = []
+    for entree in entrees:
+        if entree.startswith("0."):
+            nom = entree[2:]
+            domaines.append(nom)
+    
+    domaines = list(dict.fromkeys(domaines))  # dédoublonnage en conservant l'ordre
+    return domaines[:2]  # <-- on garde uniquement les 2 premiers
 
 ######################################################################################################################
 ########### PARAMETRES ###############################################################################################
@@ -199,6 +214,9 @@ data["Projet"] = data["Acronyme projet ANR"].apply(trouver_projets)
 
 data["Projet"] = data.apply(trouver_projet_par_nom, axis=1)
 
+data["Domaines_principaux"] = data["Domaines"].apply(extraire_domaines_principaux)
+#data["Domaines_principaux"] = data["Domaines"].apply(lambda x: ", ".join(extraire_domaines_principaux(x)))
+
 ######################################################################################################################
 ########### AFFICHAGE ################################################################################################
 ######################################################################################################################
@@ -265,6 +283,84 @@ couleurs_label = {
     for p, c in couleurs2.items() 
     if p in totaux  # <-- on ne garde que les projets présents
 }
+
+# --- Couleur par domaine principal ---
+tous_domaines = sorted(set(
+    d for domaines in data["Domaines_principaux"] for d in domaines
+))
+
+palette = [
+    "#4C9BE8", "#B96928", "#6DBF67", "#E85C5C", "#A67DB8",
+    "#F2D03B", "#3CADA4", "#E8874C", "#A8D8A8", "#DD91CD"
+]
+couleur_par_domaine = {d: palette[i % len(palette)] for i, d in enumerate(tous_domaines)}
+
+# --- Préparation des données ---
+
+# decompte[domaine_principal][combo] = nb occurrences
+decompte = defaultdict(Counter)
+
+for domaines in data["Domaines_principaux"]:
+    if not domaines:
+        continue
+    combo = " + ".join(domaines)
+    premier = domaines[0]
+    decompte[premier][combo] += 1
+
+toutes_combos = sorted(set(
+    combo for compteur in decompte.values() for combo in compteur
+))
+
+# Trie les domaines par total décroissant
+domaines_sorted = sorted(
+    decompte.keys(),
+    key=lambda d: sum(decompte[d].values())
+)
+
+# --- Graphique ---
+
+# --- Dictionnaire de correspondance ---
+labels_domaines = {
+    "sde": "Sciences de l'Environnement - sde",
+    "spi": "Sciences pour l'Ingénieur - spi",
+    "shs": "Sciences Humaines et Sociales - shs",
+    "sdu": "Planète et Univers - sdu",
+    "sdv": "Sciences du Vivant - sdv",
+    "info": "Informatique - info",
+    "chim": "Chimie - chim",
+    "phys" : "Physique - phys",
+    "qfin" : "Economie et finance quantitative - qfin",
+    "stat" : "Statistiques - stat"
+}
+
+replacements = {
+    'faircarbon': None,
+    'epr faircarbon': None,
+    'faircarbon  best-school  métaprogramme better': None,  # to remove
+    'carbon': 'carbone',
+    'agroforestry': 'agroforesterie',
+    'soil organic matter': 'matière organique du sol',
+    'soil': 'sol',
+    'alimentación':'alimentation'
+}
+
+def clean_kw(kw):
+    if not isinstance(kw, str):
+        return None
+    kw = kw.strip().lower()
+    return replacements.get(kw, kw)
+
+top5 = (
+    data.assign(**{'Mots-clés': data['Mots-clés'].str.split('|')})
+    .explode('Mots-clés')
+    .assign(**{'Mots-clés': lambda d: d['Mots-clés'].apply(clean_kw)})
+    .dropna(subset=['Mots-clés'])
+    .groupby('Projet')['Mots-clés']
+    .value_counts()
+    .groupby('Projet')
+    .head(2)
+    .reset_index(name='Count')
+)
 ######################################################################################################################
 ######################################################################################################################
 
@@ -389,6 +485,77 @@ fig2.update_yaxes(
     tickfont=dict(size=16, color=couleur_graphes),
     gridcolor="lightgray"
 )
+######################################################################################################################
+######################################################################################################################
+fig3 = go.Figure()
+
+# Garder trace des domaines déjà ajoutés à la légende
+domaines_legende = set()
+
+for combo in toutes_combos:
+    domaines_combo = combo.split(" + ")
+    domaine_couleur = domaines_combo[-1]
+    couleur = couleur_par_domaine.get(domaine_couleur, "#AAAAAA")
+
+    x_vals = [decompte[d].get(combo, 0) for d in domaines_sorted]
+    fig3.add_trace(go.Bar(
+        name=domaine_couleur,
+        y=domaines_sorted,
+        x=x_vals,
+        orientation="h",
+        marker_color=couleur,
+        legendgroup=domaine_couleur,
+        showlegend=domaine_couleur not in domaines_legende,
+        hovertemplate=f"<b>{combo}</b>: %{{x}}<extra></extra>",  # <-- annotation complète
+    ))
+    domaines_legende.add(domaine_couleur)
+
+fig3.update_layout(
+    barmode="stack",
+    #title="Répartition des domaines principaux par combinaison",
+    xaxis_title=dict(
+        text="Number of occurences",
+        font=dict(size=22, color=couleur_graphes)
+    ),
+    yaxis_title=dict(
+        text="Domains",
+        font=dict(size=22, color=couleur_graphes)
+    ),
+    yaxis=dict(
+        tickvals=domaines_sorted,
+        ticktext=[labels_domaines.get(d, d) for d in domaines_sorted],
+    ),
+    legend=dict(
+        title=dict(
+            text="Domaines",
+            font=dict(size=22, color=couleur_h3)),
+        orientation="h",
+        y=-0.3,
+        x=0.5,
+        xanchor="center",
+        yanchor="top",
+        font=dict(size=20)
+    ),
+    margin=dict(b=100),  # marge basse élargie
+    height=600
+)
+
+fig3.update_xaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+    #range=["2024-01-01", datetime.today()]
+)
+
+fig3.update_yaxes(
+    showline=True,
+    linewidth=2,
+    linecolor="black",
+    tickfont=dict(size=16, color=couleur_graphes),
+    gridcolor="lightgray"
+)
 
 ######################################################################################################################
 ######################################################################################################################
@@ -401,3 +568,40 @@ with col2:
     with st.container(border=True):
         st.subheader("Cumulative Deposits by project")
         st.plotly_chart(fig2, use_container_width=True)
+
+#st.dataframe(data)
+
+import plotly.express as px
+
+top5 = top5.copy()
+top5['weight'] = 1  # surface égale par projet
+top5['label_txt'] = top5['Mots-clés'] + ' (' + top5['Count'].astype(str) + ')'
+
+fig5 = px.treemap(
+    top5, path=['Projet', 'label_txt'], values='weight',
+    color='Projet', color_discrete_map=couleurs2
+)
+fig5.update_traces(maxdepth=2, textfont_size=14)
+fig5.add_annotation(
+    text="Le chiffre entre parenthèses indique le nombre d'occurrences",
+    xref="paper", yref="paper",
+    x=0.5, y=-0.05,
+    showarrow=False,
+    font=dict(size=18, color=couleur_h3)
+)
+fig5.update_layout(height=600, width=1400, uniformtext=dict(minsize=12), margin=dict(b=30))
+
+
+#pivot = top5.pivot(index='Mots-clés', columns='Projet', values='Count').fillna(0)
+#fig6 = px.imshow(pivot, aspect='auto', color_continuous_scale='Blues')
+
+
+col1, col2 = st.columns([0.33,0.67])
+with col1:
+    with st.container(border=True):
+        st.subheader("Domains of the deposits")
+        st.plotly_chart(fig3, use_container_width=True)
+with col2:
+    with st.container(border=True):
+        st.subheader("Most frequent Key words by project")
+        st.plotly_chart(fig5, use_container_width=True)

@@ -34,7 +34,8 @@ HAL_FIELDS = [
     "producedDate_s",        # Date de production
     "publicationDate_s",     # Date de publication
     "keyword_s",             # Mots-clés libres
-    "subject_s",             # Thématiques / domaines
+    #"subject_s",             # Thématiques / domaines
+    "domain_s",
     "anrProjectReference_s", # Référence projet ANR
     "anrProjectAcronym_s",   # Acronyme projet ANR
     "anrProjectTitle_s",     # Titre projet ANR
@@ -91,7 +92,8 @@ def parse_record(doc: dict) -> dict:
         "Date de production":   doc.get("producedDate_s", "")[:10] if doc.get("producedDate_s") else "",
         "Date de publication":  doc.get("publicationDate_s", "")[:10] if doc.get("publicationDate_s") else "",
         "Mots-clés":            join_list(doc.get("keyword_s", [])),
-        "Domaines":             join_list(doc.get("subject_s", [])),
+        #"Domaines":             join_list(doc.get("subject_s", [])),
+        "Domaines":             join_list(doc.get("domain_s", [])),
         "Financement":          join_list(doc.get("funding_s", [])),
         "Acronyme projet ANR":  join_list(doc.get("anrProjectAcronym_s", [])),
         "Référence projet ANR": join_list(doc.get("anrProjectReference_s", [])),
