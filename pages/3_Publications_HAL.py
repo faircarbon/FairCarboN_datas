@@ -352,7 +352,9 @@ replacements = {
     'sequestration': "sequestration du carbone",
     'carbon sequestration': "sequestration du carbone",
     'modelling': "modélisation",
-    'rubisco biogenesis':'rubisco'
+    'rubisco biogenesis':'rubisco',
+    'histoire des données': 'gestion des données',
+    "histoire de l'informatique": 'informatique'
 }
 
 def clean_kw(kw):
@@ -616,3 +618,5 @@ with col2:
     with st.container(border=True):
         st.subheader("Most frequent Key words by project")
         st.plotly_chart(fig5, use_container_width=True)
+
+st.table(data["Mots-clés"][data["Projet"]=="Gouvernance"])
