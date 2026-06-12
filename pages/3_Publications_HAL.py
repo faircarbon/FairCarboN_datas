@@ -620,5 +620,3 @@ with col2:
     with st.container(border=True):
         st.subheader("Most frequent Key words by project")
         st.plotly_chart(fig5, use_container_width=True)
-
-st.table(data["Mots-clés"][data["Projet"]=="Gouvernance"])
