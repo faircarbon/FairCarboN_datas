@@ -612,7 +612,7 @@ fig5.update_layout(height=600, width=1400, uniformtext=dict(minsize=12), margin=
 #pivot = top5.pivot(index='Mots-clés', columns='Projet', values='Count').fillna(0)
 #fig6 = px.imshow(pivot, aspect='auto', color_continuous_scale='Blues')
 
-col1, col2 = st.columns([0.33,0.67])
+col1, col2 = st.columns([0.45,0.55])
 with col1:
     with st.container(border=True):
         st.subheader("Domains of the deposits")
