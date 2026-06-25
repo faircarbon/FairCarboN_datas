@@ -98,6 +98,7 @@ couleurs = {"ALAMOD":"#fa0404",
               "PREFALIM":"#B83E0E",
               "RhizoSeqC":"#636303",
               "Gouvernance":"#0A0A0A",
+              "FairCarboN":"#0A0A0A",
               "ART": "#020242",
               "UNDEFINED": "#0B9BEE",
               "COM": "#16DA6E",
@@ -163,13 +164,12 @@ h3 {{
 ######################################################################################################################
 ########### DONNEES ##################################################################################################
 ######################################################################################################################
-
 dossier = "Data/RechercheDataGouv/"
-pattern = dossier + "all_datasets_rdg_FC_*.csv"
+pattern = dossier + "all_datasets_rdg_multi_*.csv"
 fichiers = glob.glob(pattern)
 
 # Expression régulière pour extraire la date
-regex = re.compile(r"all_datasets_rdg_FC_(\d{4}-\d{2}-\d{2}).csv")
+regex = re.compile(r"all_datasets_rdg_multi_(\d{4}-\d{2}-\d{2}).csv")
 
 # Trier par date décroissante
 fichiers_tries = sorted(fichiers, key=extraire_date, reverse=True)
@@ -185,19 +185,78 @@ data_sans_doublon["Annee"] = data_sans_doublon["published_at"].dt.year
 filtered = data_sans_doublon[data_sans_doublon["Annee"]>2024].reset_index()
 #data_sans_doublon["Date de publication"]=pd.to_datetime(data_sans_doublon["Date de publication"],format='%Y')
 
-df = read_data("Data/FairCarboN_Datas_Contacts2")
+dico_projets = {"alamod":"ALAMOD",
+                "slam-b":"SLAM-B",
+                "crosyen":"CrosyeN",
+                'rift':"RIFT",
+                'carbonium':"CarboNium",
+                'canete': "CANETE",
+                'peace':"PEACE",
+                'clim-fas':"CLIM-FAS",
+                'prefalim':"PREFALIM",
+                'rhizoseqc':"RhizoSeqC",
+                'greenscale':"GREENSCALE",
+                'co2_cmphi':"CO2_CMPhi",
+                'drought_forc':"Drought for C",
+                'tropecos':"TROPECOS",
+                'deep-c':"DEEP-C",
+                'cabestan':"CABESTAN",
+                'faircarbon':"FairCarboN"}
+
+filtered["Projet"]=filtered["Projet"].replace(dico_projets)
+
+###############################################################################################################
+############# AFFICHAGE #################################################################################
+###############################################################################################################
+
+st.title(f"FairCarboN => RechercheDataGouv {derniere_date[21:-4]}")
+
+st.write(sum(filtered["nb_fichiers"]))
+
+col1 , col2 = st.columns(2)
+with col1:
+    st.subheader("All deposits")
+    st.metric(value=len(filtered), label="", label_visibility="hidden", border=True)
+with col2:
+    st.subheader("Nb of files uploaded")
+    st.metric(value=sum(filtered["nb_fichiers"]), label="", label_visibility="hidden", border=True)
+
+projects = sorted(filtered['Projet'].unique())
+col1, col2, col3 = st.columns(3)
+with col1:
+    st.header("Choisir le projet | choose project")
+with col2:
+    Selection_projets = st.multiselect("",options=projects)
+with col3:
+    st.markdown("")
+    st.markdown("")
+    st.markdown(":red[par défaut tous | all]")
+
+if len(Selection_projets)==0: #aucun choix
+    df_selected = filtered
+else:
+    df_selected = filtered[filtered['Projet'].isin(Selection_projets)]
+
+###############################################################################################################
+###############################################################################################################
+###############################################################################################################
+
+#df = read_data("Data/FairCarboN_Datas_Contacts2")
 # Ajout de la colonne "Nom"
-df["Nom"] = df["Contact"].str.split().str[-1]
-dico_projets = dict(zip(df["Nom"].str.lower(), df["projet"]))
+#df["Nom"] = df["Contact"].str.split().str[-1]
+#dico_projets = dict(zip(df["Nom"].str.lower(), df["projet"]))
 
 # Application au dataframe
-filtered["Nom"] = filtered["authors"].apply(extraire_nom)
-filtered["Projet"] = filtered["Nom"].apply(trouver_projet)
+#filtered["Nom"] = filtered["authors"].apply(extraire_nom)
+#filtered["Projet"] = filtered["Nom"].apply(trouver_projet)
 
-filtered = filtered.sort_values("published_at")
+###############################################################################################################
+
+df_selected = df_selected.sort_values("published_at")
+
 
 # Compter les documents par jour et par type
-counts = filtered.groupby(['published_at','Projet','title']).size().reset_index(name="nb_docs")
+counts = df_selected.groupby(['published_at','Projet','title']).size().reset_index(name="nb_docs")
 
 # Calcul du cumul par type
 counts["Cumul"] = counts.groupby('Projet')["nb_docs"].cumsum()
@@ -260,25 +319,25 @@ fig.update_yaxes(
 
 import plotly.graph_objects as go
 
-projets_visibles = filtered["Projet"].unique()
+projets_visibles = df_selected["Projet"].unique()
 # Colonne index +1
-indices = [i+1 for i in range(len(filtered))]
+indices = [i+1 for i in range(len(df_selected))]
 
 # Couleurs associées à chaque ligne
-cell_colors = [[couleurs[p] for p in filtered["Projet"]],  # colonne index
-               ["white"] * len(filtered)]                 # colonne titre
+cell_colors = [[couleurs[p] for p in df_selected["Projet"]],  # colonne index
+               ["white"] * len(df_selected)]                 # colonne titre
 
 # Création de la table
 fig_table = go.Figure(data=[go.Table(
     columnwidth=[20, 400],
     header=dict(
-        values=["", "Title"],
+        values=["", ""],
         fill_color="white",
         align="center",
         font=dict(color="black", size=25)
     ),
     cells=dict(
-        values=[indices, filtered["title"]],
+        values=[indices, df_selected["title"]],
         fill_color=cell_colors,
         align="left",
         font=dict(color="black", size=16)
@@ -334,10 +393,8 @@ fig_table.update_yaxes(visible=False)
 
 
 ######################################################################################################################
-########### AFFICHAGE ################################################################################################
+########### AFFICHAGE SUITE ################################################################################################
 ######################################################################################################################
-
-st.title(f"FairCarboN => RechercheDataGouv {derniere_date[21:-4]}")
 
 col1, col2 = st.columns(2)
 with col1:

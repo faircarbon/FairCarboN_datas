@@ -24,7 +24,7 @@ jobs:
       - run: pip install -r requirements.txt
 
       - run: python3 Extraction_HAL_collectionFC.py
-      - run: python3 Extraction_RDG_collectionFC.py
+      - run: python3 Extraction_RDG_multicollections.py
 
       - run: |
           git config --global user.name "github-actions"
