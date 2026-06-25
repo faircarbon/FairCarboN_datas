@@ -209,7 +209,7 @@ filtered["Projet"]=filtered["Projet"].replace(dico_projets)
 ############# AFFICHAGE #################################################################################
 ###############################################################################################################
 
-st.title(f"FairCarboN => RechercheDataGouv {derniere_date[21:-4]}")
+st.title(f"FairCarboN => RechercheDataGouv {derniere_date[24:-4]}")
 
 col1 , col2 = st.columns(2)
 with col1:
