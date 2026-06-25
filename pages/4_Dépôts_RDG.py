@@ -211,8 +211,6 @@ filtered["Projet"]=filtered["Projet"].replace(dico_projets)
 
 st.title(f"FairCarboN => RechercheDataGouv {derniere_date[21:-4]}")
 
-st.write(sum(filtered["nb_fichiers"]))
-
 col1 , col2 = st.columns(2)
 with col1:
     st.subheader("All deposits")
