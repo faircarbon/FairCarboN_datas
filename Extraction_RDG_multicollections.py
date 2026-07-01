@@ -17,7 +17,7 @@ from pyDataverse.api import NativeApi
 # ── Configuration ─────────────────────────────────────────────────────────────
 d = datetime.date.today()
 BASE_URL    = "https://entrepot.recherche.data.gouv.fr"  # URL de RechercheDataGouv
-API_TOKEN   = "13b493ed-e02b-4e65-95de-d97d6896916a"         # Votre token API (optionnel pour le public)
+API_TOKEN   = "d6ee4496-c075-4ba9-a280-d752513b6af4"         # Votre token API (optionnel pour le public)
 COLLECTIONS  = ["faircarbon","alamod","slam-b",'crosyen','rift','carbonium','canete','peace','clim-fas','prefalim','rhizoseqc','greenscale','co2_cmphi','drought_forc','tropecos','deep-c','cabestan'] # Alias de votre collection (ex: "monlabo")
 OUTPUT_FILE = f"Data/RechercheDataGouv/all_datasets_rdg_multi_{d}.csv"   # Fichier de sortie
 
